@@ -272,7 +272,7 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
          (dedicated (window-dedicated-p window)))
     (set-window-dedicated-p window (not dedicated))
     (message "Window %s dedicated to %s"
-             (if dedicated "no longer " "")
+             (if dedicated "is no longer" "currently")
              (buffer-name))))
 
 
