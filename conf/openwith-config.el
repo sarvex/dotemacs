@@ -1,0 +1,15 @@
+(setq
+ openwith-associations
+ '(("\\.\\(djvu\\|pdf\\|ps\\|dvi\\)\\'" "evince" (file))
+   ("\\.\\(mpe?g\\|avi\\|m[ko]v\\|vob\\|ogv\\|webm\\|m[24]v\\|flv\\|mp[24]\\|asf\\|rm\\(vb\\)?\\|wmv\\|divx\\|ts\\)\\'" "mplayer" (file))
+   ;; ("\\.dvd.iso\\'" "mplayer" ("-dvd-device" file "dvdnav://0"))
+   ("\\.dvd.iso\\'" "cvlc" (file))
+   ("\\.chm\\'" "kchmviewer" (file))
+   ("\\.ape\\'" "ffplay" (file))
+   ("\\.\\(fb2\\|fb2.zip\\|epub\\)\\'" "fbreader" (file))
+   ("\\.\\(mp3\\|ogg\\|flac\\|wav\\|m[k4]a\\|wma\\|ac3\\|aac\\)\\'" "deadbeef" (file))
+   ("\\.\\(docx?\\|odt\\|rtf\\)\\'" "oowriter" (file))
+   ("\\.\\(xlsx?\\|ods\\)\\'" "oocalc" (file))
+   ;; ("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" "feh" (file))
+   ("\\.\\(ico\\|bmp\\)\\'" "feh" (file))
+   ("\\.cb[abgrz]\\'" "qcomicbook" (file))))
