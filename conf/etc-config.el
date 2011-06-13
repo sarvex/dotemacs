@@ -70,6 +70,7 @@
 (setq large-file-warning-threshold nil
       auto-mode-case-fold t
       safe-local-variable-values '((dired-omit-mode . t)
+                                   (dired-listing-switches . "-LhAFl --group-directories-first")
                                    (encoding . utf-8)))
 
 

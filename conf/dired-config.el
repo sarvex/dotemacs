@@ -5,6 +5,7 @@
       wdired-allow-to-change-permissions 'advanced
       dired-isearch-filenames nil
       dired-listing-switches "-hAFl --group-directories-first"
+      dired-ls-F-marks-symlinks t
       safe-local-variable-values '((dired-omit-mode . t))
       dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
 

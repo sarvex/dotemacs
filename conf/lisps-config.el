@@ -11,7 +11,6 @@
                nil))))))
 
 (dolist (mode-hook '(emacs-lisp-mode-hook
-                     clojure-mode-hook
                      lisp-mode-hook
                      scheme-mode-hook
                      lisp-interaction-mode-hook
