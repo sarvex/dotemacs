@@ -32,6 +32,10 @@
 
 (add-to-list
  'my-ibuffer-filter-groups
+ '("dotfiles" (filename . "/.dotfiles/")))
+
+(add-to-list
+ 'my-ibuffer-filter-groups
  '("zsh" (filename . "/.zsh/")))
 
 (add-to-list
