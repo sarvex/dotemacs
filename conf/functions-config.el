@@ -271,7 +271,7 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
   (let* ((window (selected-window))
          (dedicated (window-dedicated-p window)))
     (set-window-dedicated-p window (not dedicated))
-    (message "Window %sdedicated to %s"
+    (message "Window %s dedicated to %s"
              (if dedicated "no longer " "")
              (buffer-name))))
 

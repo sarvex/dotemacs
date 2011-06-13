@@ -50,8 +50,8 @@
         ("*compilation*" :noselect t)
         ("*Compile-Log*" :noselect t)
         ("*Occur*" :noselect t)
-        ("*Async Shell Command*" :height 15)
-        ("*Shell Command Output*" :height 15)))
+        ("*Async Shell Command*")
+        ("*Shell Command Output*")))
 
 (setq special-display-buffer-names
       '("*Help*" "*Completions*" "*Occur*"

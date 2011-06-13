@@ -98,6 +98,7 @@
  'my-ibuffer-filter-groups
  '("elisp" (or
             (filename . ".emacs.d/conf/")
+            (filename . ".emacs.d/misc/")
             (mode . lisp-interaction-mode))))
 
 

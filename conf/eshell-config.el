@@ -9,12 +9,11 @@
       eshell-scroll-to-bottom-on-input 'this
       eshell-scroll-to-bottom-on-output 'this
       eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.hg\\|\\.git\\)/\\'"
-      eshell-output-filter-functions
-      '(eshell-handle-ansi-color
-        eshell-handle-control-codes
-        eshell-postoutput-scroll-to-bottom
-        eshell-truncate-buffer
-        eshell-watch-for-password-prompt))
+      eshell-output-filter-functions '(eshell-handle-ansi-color
+                                       eshell-handle-control-codes
+                                       eshell-postoutput-scroll-to-bottom
+                                       eshell-truncate-buffer
+                                       eshell-watch-for-password-prompt))
 
 (defun my-eshell-mode-hook ()
   (define-key eshell-mode-map (kbd "C-l")
