@@ -140,19 +140,12 @@
 (add-to-list
  'my-ibuffer-filter-groups
  '("emacs" (or
-            (name . "^\\*hg ")
-            (name . "^\\*aHG ")
-            (name . "^\\*ahg-")
-            (name . "^\\*magit-")
-            (name . "^\\*Smex: ")
-
             (mode . gud-mode)
             (mode . gdb-frames-mode)
             (mode . gdb-inferior-io-mode)
             (mode . gdb-breakpoints-mode)
             (mode . gdb-locals-mode)
             (mode . gdb-registers-mode)
-
             (mode . completion-list-mode)
             (mode . tags-table-mode)
             (mode . package-menu-mode)
@@ -191,6 +184,14 @@
             (mode . image-dired-display-image-mode)
             (mode . thumbs-view-image-mode)
             (mode . thumbs-mode)
+
+            (predicate . (equal mode-name "Anything"))
+
+            (name . "^\\*hg ")
+            (name . "^\\*aHG ")
+            (name . "^\\*ahg-")
+            (name . "^\\*magit-")
+            (name . "^\\*Smex: ")
             (name . "^\\*semanticdb")
             (name . "^\\*SEMANTICDB")
             (name . "^\\*EBROWSE")
@@ -210,7 +211,6 @@
             (name . "^\\*Messages\\*$")
             (name . "^\\*Colors\\*$")
             (name . "^\\*Apropos\\*$")
-            (name . "^\\*anything")
             (name . "^\\*gists\\*$")
             (name . "^\\*twmode")
             (name . "^\\*About GNU Emacs\\*$")

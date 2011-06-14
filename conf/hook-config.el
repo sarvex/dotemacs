@@ -51,6 +51,7 @@
                                   ruby-mode-hook
                                   css-mode-hook
                                   lisp-interaction-mode-hook
+                                  change-log-mode-hook
                                   makefile-mode-hook)))
        (hl-keywords-modes-hooks (append
                                  conf-modes-hooks
@@ -74,7 +75,7 @@
   (dolist (hook hl-line-modes-hooks)
     (add-hook hook (lambda () (hl-line-mode t))))
 
-  ;; textmate (autopairing)
+  ;; automatic matching paren insertion
   (dolist (hook autopair-modes-hooks)
     (add-hook hook (lambda () (autopair-mode t))))
 
