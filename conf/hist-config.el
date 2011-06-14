@@ -42,14 +42,13 @@
 (setq recentf-max-saved-items 300)
 
 (setq recentf-exclude
-      '("\\.\\(jpe?g\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" ; images
+      '("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" ; images
         "\\.\\(zip\\|rar\\|xpi\\|crx\\|oex\\)\\'" ; archives
         "\\.nfo\\'"
         "\\.cue\\'"
         "\\.sfv\\'"
         "\\.m3u\\'"
         "\\.url\\'"
-        "^/mnt/cdrom/"
         "^Thumbs\\.db\\'"))
 
 (recentf-mode 1)

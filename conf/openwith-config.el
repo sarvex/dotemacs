@@ -10,6 +10,6 @@
    ("\\.\\(mp3\\|ogg\\|flac\\|wav\\|m[k4]a\\|wma\\|ac3\\|aac\\)\\'" "deadbeef" (file))
    ("\\.\\(docx?\\|odt\\|rtf\\)\\'" "oowriter" (file))
    ("\\.\\(xlsx?\\|ods\\)\\'" "oocalc" (file))
-   ;; ("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" "feh" (file))
-   ("\\.\\(ico\\|bmp\\)\\'" "feh" (file))
+   ;; ("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|x[pb]m\\|bmp\\|tiff?\\)\\'" "feh" (file))
+   ("\\.bmp\\'" "feh" (file))
    ("\\.cb[abgrz]\\'" "qcomicbook" (file))))
