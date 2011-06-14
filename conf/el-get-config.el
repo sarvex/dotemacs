@@ -5,6 +5,12 @@
      (goto-char (point-max))
      (eval-print-last-sexp))))
 
+(defun el-get-regenerate-autoloads ()
+  "Regenerates all autoloads"
+  (interactive)
+  (delete-file el-get-autoload-file)
+  (el-get))
+
 ;; (setq  el-get-byte-compile-at-init t)
 
 (setq
