@@ -1,27 +1,19 @@
 (add-to-list 'load-path "~/.emacs.d/lib")
 (add-to-list 'load-path "~/.emacs.d")
 
+;; loads passwords and othre stuff, required on startup
 (load "conf/before-init-config")
-
-(load "misc/passwords.el.gpg")            ; load passwords
 
 ;; needs to be loaded in the beginning to shadow bundled version:
 (load "conf/cedet-config")
 
-(load "misc/temporary-stuff")
-
-(load "conf/functions-config")
-
 (load "conf/elpa-config")
 (load "conf/el-get-config")
-
 (load "conf/misc-modes-config")
 (load "conf/contrib-config")
-
-;; need encrypted passwords:
 (load "conf/jabber-config")
 (load "conf/erc-config")
-
+(load "conf/functions-config")
 (load "conf/yasnippet-config")
 (load "conf/ido-config")
 (load "conf/ibuffer-config")
@@ -58,24 +50,4 @@
 (load "conf/keys-config")
 (load "conf/midnight-config")
 
-
 (desktop-read "~/.emacs.d/")
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-;; Local Variables:
-;; no-byte-compile: t
-;; End:

@@ -22,8 +22,7 @@
    ;; haskell-mode-exts
    ;; shime
    magit
-   (:name org-mode
-    :autoloads nil)
+   org-mode
    openwith
    rhtml-mode
    paredit
