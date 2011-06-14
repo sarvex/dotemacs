@@ -98,9 +98,6 @@
                  (autoload 'doc-mode "doc-mode" nil t)
                  (add-to-list 'auto-mode-alist '("\\.a\\(scii\\)?doc\\'" . doc-mode))))
 
-   (:name browse-kill-ring
-    :post-init (lambda () (browse-kill-ring-default-keybindings)))
-
    (:name c-eldoc
     :type emacswiki)
 
