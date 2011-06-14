@@ -107,9 +107,7 @@
     :features nil)
 
    (:name js2-mode
-    :post-init nil
-    ;; :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.js\\(on\\)?\\'" . js2-mode)))
-    )
+    :autoloads nil)
 
    (:name markdown-mode
     :post-init (lambda ()
