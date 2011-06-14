@@ -1,13 +1,13 @@
-(setq list-directory-brief-switches "-CF1sh"
-      list-directory-verbose-switches "-lh"
-      directory-free-space-args "-Pkh"
-      dired-keep-marker-rename nil
-      wdired-allow-to-change-permissions 'advanced
+(setq directory-free-space-args "-Pkh"
       dired-isearch-filenames nil
+      dired-keep-marker-rename nil
       dired-listing-switches "-hAFl --group-directories-first"
       dired-ls-F-marks-symlinks t
+      dired-omit-files (concat dired-omit-files "\\|^\\..+$")
+      list-directory-brief-switches "-CF1shA"
+      list-directory-verbose-switches "-lhA"
       safe-local-variable-values '((dired-omit-mode . t))
-      dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+      wdired-allow-to-change-permissions 'advanced)
 
 (setq dired-details-hide-extra-lines t
       dired-details-hide-link-targets nil
