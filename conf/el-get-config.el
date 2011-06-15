@@ -27,6 +27,7 @@
    haskell-mode
    ;; haskell-mode-exts
    ;; shime
+   ;; slime
    magit
    org-mode
    openwith

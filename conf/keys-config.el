@@ -52,7 +52,7 @@
 ;; make C-l do the right thing in various shells buffs
 (dolist (mode-map
           '(inferior-emacs-lisp-mode-map
-            slime-repl-mode-map
+            ;; slime-repl-mode-map
             comint-mode-map
             inf-ruby-mode-map))
   (let ((key-map (symbol-value mode-map)))

@@ -1,6 +1,8 @@
 (add-to-list 'load-path "~/.emacs.d/lib")
 (add-to-list 'load-path "~/.emacs.d")
 
+(add-to-list 'load-path "~/.emacs.d/slime")
+
 ;; loads passwords and othre stuff, required on startup
 (load "conf/before-init-config")
 

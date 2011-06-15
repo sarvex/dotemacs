@@ -1,10 +1,3 @@
-(require 'slime)
-(require 'slime-repl)
-(require 'inf-lisp)
-
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-
 (setq common-lisp-hyperspec-root "file:/usr/share/doc/hyperspec/HyperSpec/"
       inferior-lisp-program "/usr/bin/sbcl --noinform"
       lisp-indent-function 'common-lisp-indent-function
@@ -18,16 +11,22 @@
       slime-startup-animation nil
       slime-truncate-lines nil)
 
-(slime-setup '(inferior-slime))
+(require 'slime-autoloads)
+
+(slime-setup '(slime-fancy))
+
+
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
 (add-hook 'lisp-mode-hook
-          (lambda () (slime-mode t)))
+    (lambda () (slime-mode t)))
 
 (add-hook 'inferior-lisp-mode-hook
-          (lambda () (inferior-slime-mode t)))
+    (lambda () (inferior-slime-mode t)))
 
-(add-to-list 'slime-lisp-implementations
-             '(sbcl ("sbcl") :coding-system utf-8-unix))
+(setq slime-lisp-implementations
+      '((sbcl ("/usr/bin/sbcl"  "--noinform") :coding-system utf-8-unix)))
 
 ;;
 ;; Fontify *SLIME Description* buffer for SBCL

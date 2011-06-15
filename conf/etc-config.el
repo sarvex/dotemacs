@@ -60,7 +60,7 @@
   (add-to-list 'completion-ignored-extensions ext))
 
 
-(setq gnus-init-file "~/.emacs.d/lisp/my-rc/my-gnus-rc.el"
+(setq gnus-init-file "~/.emacs.d/conf/gnus-config.el"
       snake-score-file "~/.emacs.d/games/snake-scores"
       tetris-score-file "~/.emacs.d/games/tetris-scores"
       ;; mpc-mpd-music-directory "/mnt/storage/music/"
