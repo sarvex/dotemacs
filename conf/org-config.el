@@ -1,10 +1,5 @@
 (require 'org-install)
 
-(require 'org-clock)
-(require 'org-indent)
-(require 'org-capture)
-(require 'org-table)
-
 (setq org-modules
       '(org-crypt org-docview org-gnus
         org-info org-jsinfo org-irc org-w3m))
