@@ -119,6 +119,7 @@
 (add-to-list
  'my-ibuffer-filter-groups
  '("mail" (or
+           (filename . ".mail/archive/sent/")
            (mode . gnus-group-mode)
            (mode . gnus-summary-mode)
            (mode . gnus-article-mode)
