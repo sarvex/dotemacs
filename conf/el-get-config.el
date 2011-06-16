@@ -16,6 +16,7 @@
 (setq
  el-get-sources
  '(el-get
+   autopair
    ack
    ahg
    bbcode-mode
@@ -29,12 +30,10 @@
    ;; shime
    ;; slime
    magit
-   org-mode
    openwith
    rhtml-mode
    paredit
    ;; pylookup
-   sicp
    textile-mode
    yaml-mode
 
@@ -48,6 +47,10 @@
    (:name crontab-mode
     :url "http://web.archive.org/web/20080716014153/http://www.mahalito.net/~harley/elisp/crontab-mode.el"
     :post-init (lambda () (add-to-list 'auto-mode-alist '("crontab\\'" . crontab-mode))))
+
+   (:name org-mode
+    :autoloads t
+    :features nil)
 
    (:name smex
     :before (lambda () (setq smex-save-file "~/.emacs.d/smex.save"))
@@ -81,7 +84,9 @@
     :post-init (lambda () (autoload 'multi-term-next "multi-term" nil t)))
 
    (:name drag-stuff
-    :compile "drag-stuff.el")
+    :type http
+    :url "https://raw.github.com/rejeep/drag-stuff/master/drag-stuff.el"
+    :features nil)
 
    (:name irfc
     :type emacswiki
@@ -112,9 +117,6 @@
 
    (:name dired+
     :features nil)
-
-   (:name js2-mode
-    :autoloads nil)
 
    (:name markdown-mode
     :post-init (lambda ()
@@ -181,12 +183,6 @@
     :url "https://github.com/vderyagin/pomodoro.el.git"
     :post-init (lambda ()
                  (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir))))
-
-   (:name autopair
-    :type svn
-    :url "http://autopair.googlecode.com/svn/trunk/"
-    :compile "autopair.el"
-    :features autopair)
 
    (:name sass-convert
     :type git
