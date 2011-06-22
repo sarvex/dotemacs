@@ -64,22 +64,23 @@ Symbols matching the text at point are put first in the completion list."
       (goto-char position))))
 
 
-
 ;; Speedbar
-
-(require 'semantic-sb)
 
 (setq speedbar-use-images t
       speedbar-track-mouse-flag t
       speedbar-update-flag nil
       speedbar-show-unknown-files t)
 
-;; some dired-like bindings
-(define-key speedbar-key-map (kbd ";") 'speedbar-up-directory)
-(define-key speedbar-key-map (kbd "f") 'speedbar-edit-line)
+(eval-after-load "speedbar"
+  '(progn
+    ;; some dired-like bindings
+    (define-key speedbar-key-map (kbd ";") 'speedbar-up-directory)
+    (define-key speedbar-key-map (kbd "f") 'speedbar-edit-line)))
 
-(when (require 'sr-speedbar nil 'noerror)
-  (setq sr-speedbar-auto-refresh nil
-        sr-speedbar-right-side nil
-        sr-speedbar-delete-windows t
-        sr-speedbar-width 30))
+(setq sr-speedbar-auto-refresh nil
+      sr-speedbar-right-side nil
+      sr-speedbar-delete-windows t
+      sr-speedbar-width 30)
+
+(autoload 'sr-speedbar-toggle "sr-speedbar" nil t)
+(define-key global-map (kbd "C-c s") 'sr-speedbar-toggle)

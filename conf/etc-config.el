@@ -80,8 +80,9 @@
       initial-scratch-message ";; *scratch*\n\n")
 
 
-(setq ansi-term-color-vector [unspecified "#333333" "#7f1515" "#509f50" "#aeae00" "#2e5aa7" "#7a3e9d" "#5eadd1" "#999999"]
-      ansi-color-names-vector ["#333333" "#7f1515" "#509f50" "#aeae00" "#2e5aa7" "#7a3e9d" "#5eadd1" "#999999"])
+(setq ansi-term-color-vector
+      [unspecified "#333333" "#7f1515" "#509f50" "#aeae00"
+                   "#2e5aa7" "#7a3e9d" "#5eadd1" "#999999"])
 
 (setq next-line-add-newlines nil
       require-final-newline t)

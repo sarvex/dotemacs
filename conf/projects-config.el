@@ -15,17 +15,12 @@
         ("Generic Rake project"
          :root-contains-files ("Rakefile")
          :exclude-paths (".git" ".hg"))
-        ("GNU Emacs configuration"
-         :root-contains-files ("init.el")
-         :filename-regex ,(regexify-ext-list '(el))
-         :exclude-paths ("elpa"))
         ("Generic Mercurial project"
          :root-contains-files (".hg")
          :exclude-paths (".hg"))
         ("Generic git project"
          :root-contains-files (".git")
          :exclude-paths (".git"))))
-
 
 
 (define-key global-map (kbd "C-c p f") 'project-root-find-file)
@@ -56,4 +51,3 @@
             (t
              (vc-directory root nil)))))))
 
-(define-key global-map (kbd "C-c s") 'sr-speedbar-toggle)

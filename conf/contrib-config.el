@@ -66,3 +66,6 @@
 
 (eval-after-load "markdown"
   '(add-hook 'markdown-mode-hook 'my-markdown-mode-hook))
+
+
+(setq anything-google-suggest-use-curl-p t)

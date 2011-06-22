@@ -1,4 +1,5 @@
 (setq directory-free-space-args "-Pkh"
+      dired-dwim-target t
       dired-isearch-filenames nil
       dired-keep-marker-rename nil
       dired-listing-switches "-hAFl --group-directories-first"
@@ -24,6 +25,7 @@
 
 (eval-after-load "dired"
   '(progn
+
     (require 'dired-x)
 
     (require 'dired+)
@@ -41,7 +43,6 @@
                   (not (eq (current-buffer) orig)))
          (kill-buffer orig))))
 
-    ;; don't remove `other-window', the caller expects it to be there
     (defun dired-up-directory (&optional other-window)
       "Run Dired on parent directory of current directory."
       (interactive "P")
