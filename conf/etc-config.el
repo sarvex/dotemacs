@@ -16,6 +16,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (mouse-wheel-mode -1)
+(mouse-sel-mode -1)
 
 ;; disabled by default by now, but may be uncommented someday:
 ;; (column-number-mode -1)
@@ -23,7 +24,6 @@
 ;; (delete-selection-mode -1)
 ;; (show-paren-mode -1)
 ;; (size-indication-mode -1)
-
 
 
 (dolist (symb '(upcase-region
@@ -44,10 +44,7 @@
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG\\'" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-mode))
 
-(add-to-list 'auto-mode-alist '("\\.nfo\\'" .
-                                (lambda ()
-                                  (text-mode)
-                                  (visual-line-mode t))))
+(add-to-list 'auto-mode-alist '("\\.nfo\\'" . (lambda () (text-mode) (visual-line-mode t))))
 
 
 (dolist (buf-name '("*Bookmark List*"
@@ -88,7 +85,8 @@
       require-final-newline t)
 
 
-(setq mouse-drag-copy-region t
+(setq mouse-highlight nil
+      mouse-drag-copy-region nil
       x-select-enable-primary t
       x-select-enable-clipboard t
       select-active-regions nil)
@@ -106,9 +104,7 @@
 
 
 ;; scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-progressive-speed nil ;; don’t accelerate scrolling
-      mouse-wheel-follow-mouse t        ;; scroll window under mouse
-      scroll-step 0
+(setq scroll-step 0
       redisplay-dont-pause t
       scroll-conservatively most-positive-fixnum
       scroll-margin 0

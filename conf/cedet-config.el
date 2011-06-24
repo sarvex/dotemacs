@@ -67,7 +67,7 @@ Symbols matching the text at point are put first in the completion list."
 ;; Speedbar
 
 (setq speedbar-use-images t
-      speedbar-track-mouse-flag t
+      speedbar-track-mouse-flag nil
       speedbar-update-flag nil
       speedbar-show-unknown-files t)
 
