@@ -17,6 +17,7 @@
                                ibuffer-mode-hook
                                twittering-mode-hook
                                org-agenda-mode-hook
+                               irfc-mode-hook
                                gnus-article-mode-hook
                                gnus-group-mode-hook)))
        (autopair-modes-hooks (append
@@ -32,6 +33,7 @@
                                 css-mode-hook
                                 cperl-mode-hook
                                 sh-mode-hook
+                                graphviz-dot-mode-hook
                                 makefile-mode-hook)))
        (whitespace-modes-hooks (append
                                 conf-modes-hooks
@@ -50,6 +52,7 @@
                                   js-mode-hook
                                   ruby-mode-hook
                                   css-mode-hook
+                                  graphviz-dot-mode-hook
                                   lisp-interaction-mode-hook
                                   change-log-mode-hook
                                   makefile-mode-hook)))
@@ -69,6 +72,7 @@
                                    js2-mode-hook
                                    css-mode-hook
                                    lisp-interaction-mode-hook
+                                   graphviz-dot-mode-hook
                                    makefile-mode-hook))))
 
   ;; hl-line
@@ -89,7 +93,7 @@
               (lambda ()
                 (font-lock-add-keywords
                  nil
-                 '(("\\<\\(XXX\\|FIX\\|TODO\\|BUG\\|FIXME\\|HACK\\|REFACTOR\\|IMPORTANT\\|HERE BE DRAGONS\\):"
+                 '(("\\<\\(XXX\\|TODO\\|NOTE\\|BUG\\|FIXME\\|HACK\\|REFACTOR\\|IMPORTANT\\|HERE BE DRAGONS\\):"
                     1 font-lock-warning-face t)))))))
 
 (add-hook 'before-save-hook
