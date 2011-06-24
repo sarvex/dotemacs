@@ -116,7 +116,7 @@
                     stamp
                     ;; track
                     truncate)
-      erc-prompt ">>>>"
+      erc-prompt ">>>"
       erc-prompt-for-channel-key nil
       erc-send-whitespace-lines nil
       erc-truncate-buffer-on-save t
