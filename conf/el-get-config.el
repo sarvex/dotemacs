@@ -29,6 +29,7 @@
    ;; haskell-mode-exts
    ;; shime
    ;; slime
+   swank-clojure
    magit
    openwith
    rhtml-mode
@@ -93,7 +94,7 @@
     :post-init (lambda ()
                  (autoload 'irfc-mode "irfc" "Mode for viewing IETF RFC documents" t)
                  (autoload 'irfc-visit "irfc" nil t)
-                 (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode))))
+                 (add-to-list 'auto-mode-alist '("rfc[0-9]+\\.txt\\'" . irfc-mode))))
 
    (:name dired-details
     :features nil)
@@ -181,14 +182,21 @@
    (:name pomodoro
     :type git
     :url "https://github.com/vderyagin/pomodoro.el.git"
-    :post-init (lambda ()
-                 (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir))))
+    :post-init (lambda () (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir))))
 
    (:name sass-convert
     :type git
     :url "https://github.com/vderyagin/sass-convert.el.git")
 
+   (:name graphviz-dot-mode
+    :type http
+    :url "http://www.graphviz.org/Misc/graphviz-dot-mode.el"
+    :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))))
+
    ))
 
 ;; (el-get 'sync)
 (el-get)
+
+
+
