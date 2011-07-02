@@ -1,6 +1,3 @@
-(require 'w3m-load)
-(require 'w3m)
-
 (setq browse-url-generic-program "/usr/bin/firefox"
       browse-url-browser-function 'choose-browser)
 
@@ -22,8 +19,16 @@
       w3m-output-coding-system 'utf-8
       w3m-terminal-coding-system 'utf-8)
 
-(add-hook 'w3m-display-hook
-          (lambda (url)
-            (rename-buffer
-             (format "*%s - w3m*" (or w3m-current-title
-                                      w3m-current-url)) t)))
+(eval-after-load 'w3m
+  '(progn
+
+    (define-key w3m-mode-map (kbd "<up>") nil)
+    (define-key w3m-mode-map (kbd "<down>") nil)
+    (define-key w3m-mode-map (kbd "<left>") nil)
+    (define-key w3m-mode-map (kbd "<right>") nil)
+
+    (add-hook 'w3m-display-hook
+     (lambda (url)
+       (rename-buffer
+        (format "*%s - w3m*" (or w3m-current-title
+                                 w3m-current-url)) t)))))
