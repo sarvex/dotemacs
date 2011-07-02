@@ -12,7 +12,7 @@
 (define-key makefile-gmake-mode-map (kbd "<f9>") 'recompile)
 
 
-(eval-after-load "c-eldoc"
+(eval-after-load 'c-eldoc
   '(progn
     ;; add in your commonly used packages/include directories here, for
     ;; example, SDL or OpenGL. this shouldn't slow down cpp, even if

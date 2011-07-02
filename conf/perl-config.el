@@ -39,7 +39,7 @@
    (let ((cperl-message-on-help-error nil))
      (cperl-get-help))))
 
-(eval-after-load "cperl-mode"
+(eval-after-load 'cperl-mode
   '(add-hook 'cperl-mode-hook
     (lambda ()
       (set (make-local-variable 'eldoc-documentation-function)

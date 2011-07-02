@@ -7,9 +7,7 @@
                                      ,(make-char 'greek-iso8859-7 107))
                      nil))))))
 
-(autoload 'haskell-mode "haskell-mode" nil t)
-
-(eval-after-load "haskell-mode"
+(eval-after-load 'haskell-mode
   (quote
    (progn
      ;; (add-hook 'haskell-mode-hook 'pretty-lambdas-haskell)
@@ -19,5 +17,3 @@
      ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
      ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
      )))
-
-(add-to-list 'auto-mode-alist '("\\.l?hs\\'" . haskell-mode))

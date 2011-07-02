@@ -1,4 +1,4 @@
-(eval-after-load "erc"
+(eval-after-load 'erc
   (quote
    (progn
 

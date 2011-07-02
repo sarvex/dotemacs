@@ -7,7 +7,7 @@
                      ielm-mode-hook))
   (add-hook mode-hook (lambda () (paredit-mode t))))
 
-(eval-after-load "slime"
+(eval-after-load 'slime
   '(progn
     ;; Stop SLIME's REPL from grabbing DEL,
     ;; which is annoying when backspacing over a '('

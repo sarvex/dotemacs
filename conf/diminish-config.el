@@ -1,28 +1,28 @@
-(eval-after-load "paredit"
+(eval-after-load 'paredit
   '(diminish 'paredit-mode " P"))
 
-(eval-after-load "autopair"
+(eval-after-load 'autopair
   '(diminish 'paredit-mode " p"))
 
-(eval-after-load "eldoc"
+(eval-after-load 'eldoc
   '(diminish 'eldoc-mode "Eld"))
 
-(eval-after-load "whitespace"
+(eval-after-load 'whitespace
   '(progn
     (diminish 'whitespace-mode " w")
     (diminish 'global-whitespace-mode " W")))
 
-(eval-after-load "autodoc"
+(eval-after-load 'autodoc
   '(diminish 'autodoc-mode "AD"))
 
-(eval-after-load "abbrev"
+(eval-after-load 'abbrev
   '(diminish 'abbrev-mode "Ab"))
 
-(eval-after-load "flymake"
+(eval-after-load 'flymake
   '(diminish 'flymake-mode "Fly"))
 
-(eval-after-load "yasnippet"
+(eval-after-load 'yasnippet
   '(diminish 'yas/minor-mode " Y"))
 
-;; (eval-after-load "dired-x"
+;; (eval-after-load 'dired-x
 ;;  '(diminish 'dired-omit-mode " O"))

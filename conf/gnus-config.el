@@ -71,7 +71,7 @@
 
 
 ;; handling signed and encrypted messages
-(eval-after-load "mm-decode"
+(eval-after-load 'mm-decode
   '(progn
     ;; Tells Gnus to inline the part
     (add-to-list 'mm-inlined-types "application/pgp$")

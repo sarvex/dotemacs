@@ -17,5 +17,5 @@
 (defun my-twittering-mode-hook ()
   (visual-line-mode t))
 
-(eval-after-load "twittering-mode"
+(eval-after-load 'twittering-mode
   '(add-hook 'twittering-mode-hook 'my-twittering-mode-hook))

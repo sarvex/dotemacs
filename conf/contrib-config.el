@@ -2,16 +2,17 @@
 
 
 (define-key global-map (kbd "C-c d") 'drag-stuff-mode)
-(define-key global-map (kbd "C-c i") 'ioccur)
 (define-key global-map (kbd "C-;") 'iedit-mode)
 (define-key global-map (kbd "<f7>") 'scratch)
 
+(setq ioccur-buffer-completion-style 'ido)
+(define-key global-map (kbd "C-c i") 'ioccur)
 
 (setq ac-comphist-file "~/.emacs.d/ac-comphist.dat"
       ac-auto-show-menu nil
       ac-auto-start nil
       ac-quick-help-delay 0.8)
-(eval-after-load "auto-complete-config"
+(eval-after-load 'auto-complete-config
   (quote
    (progn
      (add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete/dict" el-get-dir))
@@ -30,11 +31,11 @@
 
 (setq paren-delay 0.2
       paren-highlight-offscreen t)
-(eval-after-load "mic-paren"
+(eval-after-load 'mic-paren
   '(paren-activate))
 
 
-(eval-after-load "doc-mode"
+(eval-after-load 'doc-mode
   '(add-hook 'doc-mode-hook
     '(lambda ()
       (turn-on-auto-fill)

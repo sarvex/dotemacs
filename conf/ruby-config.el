@@ -77,7 +77,7 @@
 
 
 
-(eval-after-load "yari"
+(eval-after-load 'yari
   '(define-key yari-mode-map (kbd "<f1>") 'yari))
 
 

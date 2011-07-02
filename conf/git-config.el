@@ -7,7 +7,7 @@
       magit-repo-dirs-depth 6
       magit-status-buffer-switch-function 'switch-to-buffer)
 
-(eval-after-load "magit"
+(eval-after-load 'magit
   '(progn
     ;; solving conflicts with my windows-operating keys
     (define-key magit-mode-map (kbd "M-1") nil)

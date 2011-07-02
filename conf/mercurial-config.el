@@ -1,7 +1,7 @@
 (setq ahg-subprocess-coding-system 'utf-8
       ahg-global-key-prefix (kbd "C-c h g"))
 
-(eval-after-load "ahg"
+(eval-after-load 'ahg
   '(progn
 
     (define-key ahg-status-mode-map (kbd "m") 'ahg-status-toggle-mark)

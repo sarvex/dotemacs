@@ -71,7 +71,7 @@ Symbols matching the text at point are put first in the completion list."
       speedbar-update-flag nil
       speedbar-show-unknown-files t)
 
-(eval-after-load "speedbar"
+(eval-after-load 'speedbar
   '(progn
     ;; some dired-like bindings
     (define-key speedbar-key-map (kbd ";") 'speedbar-up-directory)

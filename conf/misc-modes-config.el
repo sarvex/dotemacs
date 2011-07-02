@@ -49,7 +49,7 @@
 
 
 (setq cua-enable-cua-keys nil)
-(eval-after-load "cua-base"
+(eval-after-load 'cua-base
   '(progn
     (define-key cua--rectangle-keymap (kbd "<left>") 'cua-rotate-rectangle)
     (define-key cua--rectangle-keymap (kbd "<right>") 'cua-rotate-rectangle)
