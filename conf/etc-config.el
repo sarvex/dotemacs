@@ -102,6 +102,17 @@
                                  (internal-border-width . 1)
                                  (border-width . 1)))
 
+(setq display-time-world-list
+      '(("America/Los_Angeles" "Los Angeles")
+        ("America/Chicago" "Chicago")
+        ("America/New_York" "New York")
+        ("America/Sao_Paulo" "San Paulo")
+        ("Europe/London" "London")
+        ("Europe/Paris" "Paris")
+        ("Europe/Kiev" "Kyiv")
+        ("Europe/Moscow" "Moscow")
+        ("Asia/Shanghai" "Shanghai")
+        ("Asia/Tokyo" "Tokyo")))
 
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq scroll-step 0
