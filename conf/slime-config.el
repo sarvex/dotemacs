@@ -4,7 +4,7 @@
       slime-autodoc-use-multiline-p t
       slime-header-line-p nil
       slime-net-coding-system 'utf-8-unix
-      slime-repl-history-file "~/.emacs.d/slime/slime-history.eld"
+      slime-repl-history-file "~/.emacs.d/slime-history.eld"
       slime-repl-history-remove-duplicates t
       slime-repl-history-size 2000
       slime-repl-history-trim-whitespaces t
@@ -20,10 +20,10 @@
 (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
 
 (add-hook 'lisp-mode-hook
-    (lambda () (slime-mode t)))
+          (lambda () (slime-mode t)))
 
 (add-hook 'inferior-lisp-mode-hook
-    (lambda () (inferior-slime-mode t)))
+          (lambda () (inferior-slime-mode t)))
 
 (setq slime-lisp-implementations
       '((sbcl ("/usr/bin/sbcl"  "--noinform") :coding-system utf-8-unix)))
