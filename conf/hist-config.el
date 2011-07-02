@@ -1,8 +1,6 @@
 ;; Savehist
 (setq savehist-file "~/.emacs.d/savehist") ; keep my ~/ clean
 
-(require 'savehist)
-
 (setq savehist-save-minibuffer-history t)
 
 (setq savehist-additional-variables
@@ -21,6 +19,8 @@
         ido-file-history
         file-name-history))
 
+(require 'savehist)
+
 (savehist-mode t)
 
 (defun my-savehist-save-hook ()
@@ -37,9 +37,7 @@
 ;; Recentf
 (setq recentf-save-file "~/.emacs.d/recentf")
 
-(require 'recentf)
-
-(setq recentf-max-saved-items 300)
+(setq recentf-max-saved-items 1000)
 
 (setq recentf-exclude
       '("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" ; images
@@ -49,15 +47,16 @@
         "\\.sfv\\'"
         "\\.m3u\\'"
         "\\.url\\'"
+        "\\.srt\\'"
         "^Thumbs\\.db\\'"))
+
+(require 'recentf)
 
 (recentf-mode 1)
 (recentf-save-list)
 
 
-;; Desktop
-(require 'desktop)
-
+;; desktop
 (setq desktop-path '("~/.emacs.d/")
       desktop-load-locked-desktop t
       desktop-save t
@@ -79,3 +78,7 @@
         buffer-file-coding-system
         indent-tabs-mode
         show-trailing-whitespace))
+
+(require 'desktop)
+
+(desktop-save-mode 1)

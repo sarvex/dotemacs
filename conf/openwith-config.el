@@ -6,7 +6,7 @@
    ("\\.dvd.iso\\'" "cvlc" (file))
    ("\\.chm\\'" "kchmviewer" (file))
    ("\\.ape\\'" "ffplay" (file))
-   ("\\.\\(fb2\\|fb2.zip\\|epub\\)\\'" "fbreader" (file))
+   ("\\.\\(fb2\\(.zip\\)?\\|epub\\)\\'" "fbreader" (file))
    ("\\.\\(mp3\\|ogg\\|flac\\|wav\\|m[k4]a\\|wma\\|ac3\\|aac\\)\\'" "deadbeef" (file))
    ("\\.\\(docx?\\|odt\\|rtf\\)\\'" "oowriter" (file))
    ("\\.\\(xlsx?\\|ods\\)\\'" "oocalc" (file))

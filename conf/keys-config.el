@@ -1,7 +1,7 @@
 (define-key global-map (kbd "C-c ;") 'comment-or-uncomment-current-line-or-region)
+(define-key global-map (kbd "<f1>") 'display-time-world)
 
-
-(eval-after-load "sh-script"
+(eval-after-load 'sh-script
   '(progn
     (define-key sh-mode-map (kbd "<f9>") 'executable-interpret)
     (define-key sh-mode-map (kbd "M-l") 'downcase-word)))
@@ -32,7 +32,7 @@
 (global-unset-key (kbd "C-<backspace>"))
 
 
-;; disable arrow keys in some modes
+;; disable arrow keys in minibuffer
 (dolist (local-mode-map
           '(minibuffer-local-completion-map
             minibuffer-local-filename-completion-map
@@ -41,8 +41,7 @@
             minibuffer-local-map
             minibuffer-local-must-match-filename-map
             minibuffer-local-must-match-map
-            minibuffer-local-ns-map
-            w3m-mode-map))
+            minibuffer-local-ns-map))
   (let ((key-map (symbol-value local-mode-map)))
     (define-key key-map (kbd "<up>") nil)
     (define-key key-map (kbd "<down>") nil)
@@ -145,21 +144,24 @@
 
 (define-key global-map (kbd "C-c j") 'dired-jump)
 
-(eval-after-load "image-mode"
+(eval-after-load 'image-mode
   '(define-key image-mode-map (kbd "q")
     (lambda () (interactive) (kill-buffer-ask (current-buffer)))))
 
-(eval-after-load "arc-mode"
+(eval-after-load 'arc-mode
   '(define-key archive-mode-map (kbd "q")
     (lambda () (interactive) (kill-buffer-ask (current-buffer)))))
 
-(eval-after-load "tar-mode"
+(eval-after-load 'tar-mode
   '(define-key tar-mode-map (kbd "q")
     (lambda () (interactive) (kill-buffer-ask (current-buffer)))))
 
-(eval-after-load "conf-mode"
+(eval-after-load 'conf-mode
   ;; conflicts with project-root
   '(define-key conf-mode-map (kbd "C-c SPC") nil))
+
+(eval-after-load 'time
+  '(define-key display-time-world-mode-map (kbd "<f1>") 'kill-this-buffer))
 
 (define-key global-map (kbd "M-?") 'hippie-expand)
 

@@ -42,6 +42,7 @@
  'my-ibuffer-filter-groups
  '("dired" (or
             (mode . tree-mode)
+            (mode . wdired-mode)
             (mode . dired-mode))))
 
 (add-to-list

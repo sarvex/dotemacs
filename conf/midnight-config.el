@@ -1,8 +1,3 @@
-(require 'midnight)
-
-;; disable midnight mode:
-;; (cancel-timer 'midnight-timer)
-
 (setq clean-buffer-list-delay-general 5
       midnight-period (* 3 60 60))
 
@@ -67,3 +62,8 @@
         "^\\*Smex: "
         "^\\*Calc"
         "\\*anything"))
+
+(require 'midnight)
+
+;; disable midnight mode:
+;; (cancel-timer 'midnight-timer)

@@ -70,8 +70,7 @@
     :features nil)
 
    (:name ioccur
-    :features nil
-    :post-init (lambda () (autoload 'ioccur "ioccur" nil t)))
+    :features nil)
 
    (:name twittering-mode
     :features nil)
@@ -121,8 +120,7 @@
 
    (:name markdown-mode
     :post-init (lambda ()
-                 (dolist (ext '("\\.text\\'" "\\.markdown\\'"
-                                "\\.mdwn\\'" "\\.mk?dt?\\'"))
+                 (dolist (ext '("\\.text\\'" "\\.markdown\\'" "\\.mdwn\\'" "\\.mk?dt?\\'"))
                    (add-to-list 'auto-mode-alist `(,ext . markdown-mode)))))
 
    (:name mic-paren
