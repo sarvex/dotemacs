@@ -23,7 +23,51 @@
       image-dired-thumb-size 196
       image-dired-thumb-width 196)
 
-(eval-after-load "dired"
+(defun my-next-subdir-of-current-dir-parent (&optional jump)
+  "Moves to the n-th next directory of the same level"
+  (interactive "P")
+  (if (and (dired-up-directory)
+           (dired-next-dirline
+            (if jump (prefix-numeric-value jump) 1)))
+      (diredp-find-file-reuse-dir-buffer)))
+
+(defun my-previous-subdir-of-current-dir-parent (&optional jump)
+  "Moves to the n-th previous directory of the same level"
+  (interactive "P")
+  (if (and (dired-up-directory)
+           (dired-prev-dirline
+            (if jump (prefix-numeric-value jump) 1)))
+      (diredp-find-file-reuse-dir-buffer)))
+
+(defun dired-get-size ()
+  "Get size of marked files"
+  (interactive)
+  (let ((files (dired-get-marked-files)))
+    (with-temp-buffer
+      (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
+      (message "Size of all marked files: %s"
+               (progn
+                 (re-search-backward "\\(^[0-9.,]+[A-Za-z]+\\).*total$")
+                 (match-string 1))))))
+
+(defun dired-next-file-line ()
+  "Moves to the next dired line that have a file or directory name on it"
+  (interactive)
+  (call-interactively 'dired-next-line)
+  (if (not (or (dired-move-to-filename) (eobp)))
+      (dired-next-file-line)))
+
+(defun dired-previous-file-line ()
+  "Moves to the previous dired line that have a file or directory name on it"
+  (interactive)
+  (call-interactively 'dired-previous-line)
+  (if (not (or (dired-move-to-filename) (bobp)))
+      (dired-previous-file-line)))
+
+(defun my-dired-mode-hook ()
+  (setq truncate-lines t))
+
+(eval-after-load 'dired
   '(progn
 
     (require 'dired-x)
@@ -56,79 +100,26 @@
             (progn
               (kill-buffer orig)
               (dired up)
-              (dired-goto-file dir)))))))
+              (dired-goto-file dir)))))
 
+    (define-key dired-mode-map (kbd "M-n") 'my-next-subdir-of-current-dir-parent)
+    (define-key dired-mode-map (kbd "M-p") 'my-previous-subdir-of-current-dir-parent)
+    (define-key dired-mode-map (kbd "C-?") 'dired-get-size)
+    (define-key dired-mode-map (kbd ";") 'dired-up-directory)
+    (define-key dired-mode-map (kbd "p") 'dired-previous-file-line)
+    (define-key dired-mode-map (kbd "n") 'dired-next-file-line)
+    (define-key dired-mode-map (kbd "<down>") nil)
+    (define-key dired-mode-map (kbd "<up>") nil)
+    (define-key dired-mode-map (kbd "M-=") nil)
+    (define-key dired-mode-map (kbd "<SPC>") 'dired-next-file-line)
+    (define-key dired-mode-map (kbd "q") (lambda () (interactive) (kill-buffer-ask (current-buffer))))
 
-(defun my-next-subdir-of-current-dir-parent (&optional jump)
-  "Moves to the n-th next directory of the same level"
-  (interactive "P")
-  (if (and (dired-up-directory)
-           (dired-next-dirline
-            (if jump (prefix-numeric-value jump) 1)))
-      (diredp-find-file-reuse-dir-buffer)))
+    (add-hook 'dired-mode-hook 'my-dired-mode-hook)))
 
-(defun my-previous-subdir-of-current-dir-parent (&optional jump)
-  "Moves to the n-th previous directory of the same level"
-  (interactive "P")
-  (if (and (dired-up-directory)
-           (dired-prev-dirline
-            (if jump (prefix-numeric-value jump) 1)))
-      (diredp-find-file-reuse-dir-buffer)))
-
-(define-key dired-mode-map (kbd "M-n") 'my-next-subdir-of-current-dir-parent)
-(define-key dired-mode-map (kbd "M-p") 'my-previous-subdir-of-current-dir-parent)
-
-
-
-;;
-;; Get size of marked files
-;;
-(defun dired-get-size ()
-  (interactive)
-  (let ((files (dired-get-marked-files)))
-    (with-temp-buffer
-      (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
-      (message "Size of all marked files: %s"
-               (progn
-                 (re-search-backward "\\(^[0-9.,]+[A-Za-z]+\\).*total$")
-                 (match-string 1))))))
-(define-key dired-mode-map (kbd "C-?") 'dired-get-size)
-
-;;
-;; movement
-;;
-(defun dired-next-file-line ()
-  "Moves to the next dired line that have a file or directory name on it"
-  (interactive)
-  (call-interactively 'dired-next-line)
-  (if (not (or (dired-move-to-filename) (eobp)))
-      (dired-next-file-line)))
-
-(defun dired-previous-file-line ()
-  "Moves to the previous dired line that have a file or directory name on it"
-  (interactive)
-  (call-interactively 'dired-previous-line)
-  (if (not (or (dired-move-to-filename) (bobp)))
-      (dired-previous-file-line)))
-
-
-(define-key dired-mode-map (kbd ";") 'dired-up-directory)
-(define-key dired-mode-map (kbd "p") 'dired-previous-file-line)
-(define-key dired-mode-map (kbd "n") 'dired-next-file-line)
-(define-key dired-mode-map (kbd "<down>") nil)
-(define-key dired-mode-map (kbd "<up>") nil)
-(define-key dired-mode-map (kbd "M-=") nil)
-(define-key dired-mode-map (kbd "<SPC>") 'dired-next-file-line)
-(define-key dired-mode-map (kbd "q")
-  (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-
-(eval-after-load "wdired"
+(eval-after-load 'wdired
   '(progn
     (define-key wdired-mode-map (kbd "<down>") nil)
     (define-key wdired-mode-map (kbd "<up>") nil)))
 
 
-(defun my-dired-mode-hook ()
-  (setq truncate-lines t))
 
-(add-hook 'dired-mode-hook 'my-dired-mode-hook)
