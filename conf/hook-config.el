@@ -25,8 +25,8 @@
                               '(c-mode-common-hook
                                 python-mode-hook
                                 inf-ruby-mode-hook
-                                js2-mode-hook
                                 js-mode-hook
+                                coffee-mode-hook
                                 ruby-mode-hook
                                 haskell-mode-hook
                                 haml-mode-hook
@@ -46,8 +46,8 @@
                                   cperl-mode-hook
                                   sh-mode-hook
                                   sgml-mode-hook
+                                  coffee-mode-hook
                                   nxml-mode-hook
-                                  js2-mode-hook
                                   markdown-mode-hook
                                   js-mode-hook
                                   ruby-mode-hook
@@ -62,6 +62,7 @@
                                    emacs-lisp-mode-hook
                                    lisp-mode-hook
                                    c-mode-common-hook
+                                   coffee-mode-hook
                                    python-mode-hook
                                    cperl-mode-hook
                                    sh-mode-hook
@@ -69,7 +70,6 @@
                                    sgml-mode-hook
                                    haml-mode-hook
                                    ruby-mode-hook
-                                   js2-mode-hook
                                    css-mode-hook
                                    lisp-interaction-mode-hook
                                    graphviz-dot-mode-hook
