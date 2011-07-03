@@ -130,9 +130,7 @@
       auto-save-list-file-name "~/.emacs.d/saves"
       auto-save-default nil
       version-control t
-      delete-old-versions t
-      kept-new-versions 6
-      kept-old-versions 2)
+      delete-old-versions t)
 
 
 (setq font-lock-maximum-decoration t
@@ -154,7 +152,6 @@
 (setq debug-on-error nil
       diff-switches "-uc"
       echo-keystrokes 0.4
-      history-length 15
       stack-trace-on-error nil
       standard-indent 4
       tab-always-indent 'complete
