@@ -53,3 +53,7 @@
 (load "conf/midnight-config")
 
 (desktop-read "~/.emacs.d/")
+
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
