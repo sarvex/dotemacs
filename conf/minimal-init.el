@@ -7,8 +7,7 @@
 (mouse-wheel-mode -1)
 (mouse-sel-mode -1)
 
-(setq initial-buffer-choice t
-      inhibit-startup-screen t
+(setq inhibit-startup-screen t
       initial-scratch-message ";; *scratch*\n\n")
 
 (setq backup-inhibited t
