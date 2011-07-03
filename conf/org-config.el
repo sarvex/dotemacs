@@ -118,7 +118,7 @@
 (defun my-org-capture-before-finalize-hook ()
   (org-align-all-tags))
 
-(eval-after-load "org-capture"
+(eval-after-load 'org-capture
   '(progn
     ;; C-c C-c is overriden
     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
@@ -214,7 +214,7 @@
   (org-agenda-to-appt t '((headline "IMPORTANT") (category "Appt")))
   (appt-activate t))
 
-(eval-after-load "org-agenda"
+(eval-after-load 'org-agenda
   '(progn
     (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-hook)
 

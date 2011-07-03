@@ -120,6 +120,3 @@
   '(progn
     (define-key wdired-mode-map (kbd "<down>") nil)
     (define-key wdired-mode-map (kbd "<up>") nil)))
-
-
-
