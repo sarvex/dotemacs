@@ -48,9 +48,9 @@
                        (message-narrow-to-headers)
                        (message-fetch-field "from")))
                (account (cond
-                          ((string-match "vderyagin@gmail.com" from)
+                          ((string-match my-email-address from)
                            "google")
-                          ((string-match "deryagin@poshta.te.ua" from)
+                          ((string-match my-dilines-email from)
                            "dilines"))))
           (setq message-sendmail-extra-arguments `("-a" ,account))))))
 (setq message-sendmail-envelope-from 'header)
