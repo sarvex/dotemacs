@@ -73,7 +73,7 @@
     (require 'dired-x)
 
     (require 'dired+)
-    (toggle-dired-find-file-reuse-dir 1)
+    (diredp-toggle-find-file-reuse-dir 1)
 
     (require 'dired-details+)
 
