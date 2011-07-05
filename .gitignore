@@ -28,6 +28,7 @@ ac-comphist.dat
 anything-c-adaptive-history
 bmk-bmenu-state.el
 emacs.bmk
+minimal-init.el
 org-clock-save.el
 project-roots
 recentf
