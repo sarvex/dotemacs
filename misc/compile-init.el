@@ -4,9 +4,7 @@
 
 (setq debug-on-error t)
 
-;; fix el-get-config loading
-(require 'inversion "~/.emacs.d/el-get/cedet/common/inversion")
-
+(load "cedet-config")
 (load "el-get-config")
 (load "elpa-config")
 
