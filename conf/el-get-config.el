@@ -74,6 +74,10 @@
    (:name dired-details
     :lazy t)
 
+   (:name smex
+    :post-init nil
+    :lazy t)
+
    (:name org-mode
     :autoloads t
     :lazy t)
@@ -106,10 +110,6 @@
    (:name crontab-mode
     :url "http://web.archive.org/web/20080716014153/http://www.mahalito.net/~harley/elisp/crontab-mode.el"
     :post-init (lambda () (add-to-list 'auto-mode-alist '("crontab\\'" . crontab-mode))))
-
-   (:name smex
-    :before (lambda () (setq smex-save-file "~/.emacs.d/smex.save"))
-    :after nil)
 
    (:name ac-slime
     :post-init (lambda () (autoload 'set-up-slime-ac "ac-slime")))
