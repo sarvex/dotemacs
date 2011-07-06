@@ -26,15 +26,11 @@
    emacs-jabber
    emacs-w3m
    haskell-mode
-   ;; haskell-mode-exts
-   ;; shime
-   ;; slime
    swank-clojure
    magit
    openwith
    rhtml-mode
    paredit
-   ;; pylookup
    textile-mode
    yaml-mode
 
