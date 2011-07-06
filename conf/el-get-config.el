@@ -189,6 +189,15 @@
     :url "http://www.graphviz.org/Misc/graphviz-dot-mode.el"
     :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))))
 
+   ;; (:name slime
+   ;;  :type cvs
+   ;;  :module "slime"
+   ;;  :url ":pserver:anonymous:anonymous@common-lisp.net:/project/slime/cvsroot"
+   ;;  :build ("cd doc; make slime.info")
+   ;;  :info "doc"
+   ;;  :load-path "."
+   ;;  :compile ".")
+
    ))
 
 ;; (el-get 'sync)
