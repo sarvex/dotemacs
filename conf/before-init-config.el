@@ -1,5 +1,4 @@
 (setq save-abbrevs 'silently)
-(setq anything-command-map-prefix-key "C-c a")
 
 ;; custom theme
 (when (fboundp 'customize-themes)

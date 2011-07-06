@@ -35,6 +35,9 @@
    textile-mode
    yaml-mode
 
+   (:name anything
+    :lazy t)
+
    (:name io-mode
     :lazy t)
 
@@ -157,9 +160,6 @@
     :compile ("\.el$" "util/.*\.el")
     :load-path ("." "util")
     :features nil)
-
-   (:name anything
-    :features (anything-config anything-match-plugin))
 
    (:name feature-mode
     :type git

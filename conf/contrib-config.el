@@ -69,9 +69,6 @@
   '(add-hook 'markdown-mode-hook 'my-markdown-mode-hook))
 
 
-(setq anything-google-suggest-use-curl-p t)
-
-
 (setq coffee-cleanup-whitespace t
       coffee-js-mode 'js-mode
       coffee-tab-width 2)
