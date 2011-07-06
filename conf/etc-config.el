@@ -72,8 +72,7 @@
 
 
 ;; startup
-(setq initial-buffer-choice t
-      inhibit-startup-screen t
+(setq inhibit-startup-screen t
       initial-scratch-message ";; *scratch*\n\n")
 
 
