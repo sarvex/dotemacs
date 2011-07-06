@@ -140,6 +140,7 @@
     :type emacswiki)
 
    (:name markdown-mode
+    :features nil
     :post-init (lambda ()
                  (dolist (ext '("\\.text\\'" "\\.markdown\\'" "\\.mdwn\\'" "\\.mk?dt?\\'"))
                    (add-to-list 'auto-mode-alist `(,ext . markdown-mode)))))
