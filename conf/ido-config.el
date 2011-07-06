@@ -1,9 +1,5 @@
-(require 'ido)
-
-(ido-mode t)
-(ido-everywhere t)
-
 (setq ido-create-new-buffer 'always
+      ido-completion-buffer "*Completions*"
       ido-default-buffer-method 'selected-window
       ido-case-fold t                     ; ignore case
       ido-enable-last-directory-history nil
@@ -52,7 +48,6 @@
         "^\\*WoMan-Log\\*$"
         "^\\*Ediff Registry\\*$"
         "^\\*Quail Completions\\*$"
-        "^\\*Ido Completions\\*$"
         "^\\*Kill Ring\\*$"
         "^snake-scores$"
         "^tetris-scores$"
@@ -113,6 +108,12 @@
         "^\\*About GNU Emacs\\*$"
         "^\\*yari "
         "\\.org\\'"))
+
+(require 'ido)
+
+(ido-mode t)
+(ido-everywhere t)
+
 
 
 (defun my-ido-minibuffer-setup-hook ()
