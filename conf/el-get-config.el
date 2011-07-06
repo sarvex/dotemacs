@@ -160,12 +160,12 @@
    (:name anything
     :features (anything-config anything-match-plugin))
 
-   (:name cucumber
+   (:name feature-mode
     :type git
     :url "https://github.com/michaelklishin/cucumber.el.git"
     :post-init (lambda ()
                  (setq feature-default-language "en"
-                       feature-default-i18n-file (expand-file-name "cucumber/i18n.yml" el-get-dir))
+                       feature-default-i18n-file (expand-file-name "feature-mode/i18n.yml" el-get-dir))
                  (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))))
 
    (:name popwin
