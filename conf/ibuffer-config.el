@@ -27,23 +27,23 @@
 
 (setq my-ibuffer-filter-groups ())
 
-(dolist (p (remove "." (remove ".." (directory-files (expand-file-name "~/dev")))))
-  (add-to-list 'my-ibuffer-filter-groups `(,(format "Project: %s" p) (filename . ,(expand-file-name p "~/dev")))))
-
-(add-to-list
- 'my-ibuffer-filter-groups
- '("dotfiles" (filename . "/.dotfiles/")))
-
-(add-to-list
- 'my-ibuffer-filter-groups
- '("zsh" (filename . "/.zsh/")))
-
 (add-to-list
  'my-ibuffer-filter-groups
  '("dired" (or
             (mode . tree-mode)
             (mode . wdired-mode)
             (mode . dired-mode))))
+
+(add-to-list
+ 'my-ibuffer-filter-groups
+ '("docs" (or
+           (mode . help-mode)
+           (mode . Info-mode)
+           (mode . irfc-mode)
+           (mode . yari-mode)
+           (name . "^\\*Help\\*$")
+           (mode . Man-mode)
+           (mode . woman-mode))))
 
 (add-to-list
  'my-ibuffer-filter-groups
@@ -62,30 +62,9 @@
              (mode . jabber-chat-mode)
              (mode . jabber-roster-mode))))
 
-
 (add-to-list
  'my-ibuffer-filter-groups
  '("erc" (mode . erc-mode)))
-
-
-(add-to-list
- 'my-ibuffer-filter-groups
- '("slime" (or
-            (mode . slime-repl-mode)
-            (mode . sldb-mode)
-            (name . "^\\*slime")
-            (name . "^\\*inferior-lisp\\*$"))))
-
-(add-to-list
- 'my-ibuffer-filter-groups
- '("docs" (or
-           (mode . help-mode)
-           (mode . Info-mode)
-           (mode . irfc-mode)
-           (mode . yari-mode)
-           (name . "^\\*Help\\*$")
-           (mode . Man-mode)
-           (mode . woman-mode))))
 
 (add-to-list
  'my-ibuffer-filter-groups
@@ -98,6 +77,25 @@
             (mode . inferior-emacs-lisp-mode)
             (mode . shell-mode)
             (mode . eshell-mode))))
+
+(dolist (p (remove "." (remove ".." (directory-files (expand-file-name "~/dev")))))
+  (add-to-list 'my-ibuffer-filter-groups `(,(format "Project: %s" p) (filename . ,(expand-file-name p "~/dev")))))
+
+(add-to-list
+ 'my-ibuffer-filter-groups
+ '("dotfiles" (filename . "/.dotfiles/")))
+
+(add-to-list
+ 'my-ibuffer-filter-groups
+ '("zsh" (filename . "/.zsh/")))
+
+(add-to-list
+ 'my-ibuffer-filter-groups
+ '("slime" (or
+            (mode . slime-repl-mode)
+            (mode . sldb-mode)
+            (name . "^\\*slime")
+            (name . "^\\*inferior-lisp\\*$"))))
 
 (add-to-list
  'my-ibuffer-filter-groups
@@ -139,7 +137,6 @@
            (mode . image-dired-display-image-mode)
            (mode . image-dired-thumbnail-mode)
            (mode . image-mode))))
-
 
 (add-to-list
  'my-ibuffer-filter-groups
