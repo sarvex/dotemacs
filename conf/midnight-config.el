@@ -21,7 +21,6 @@
         "*Compile-Log*"
         "*Completions*"
         "*Custom Themes*"
-        "*Ido Completions*"
         "*Quail Completions*"
         "*Kill Ring*"
         "*Dired log*"
@@ -32,7 +31,6 @@
         "*WoMan-Log*"
         "*Keys*"
         "*grep*"
-        "*Pymacs*"
         "*Warnings*"
         "*Calendar*"
         "*Phases of Moon*"
@@ -49,7 +47,6 @@
 (setq clean-buffer-list-kill-regexps
       '("^\\*Customize"
         "^\\*aHg"
-        "^\\*IPython"
         "^\\*magit"
         "^\\*hg "
         "^\\*anything"
@@ -60,8 +57,7 @@
         "^\\*Thumbs: "
         "^\\*yari "
         "^\\*Smex: "
-        "^\\*Calc"
-        "\\*anything"))
+        "^\\*Calc"))
 
 (require 'midnight)
 
