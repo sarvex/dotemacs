@@ -38,6 +38,64 @@
    textile-mode
    yaml-mode
 
+   (:name yari
+    :lazy t)
+
+   (:name sass-mode
+    :lazy t)
+
+   (:name scss-mode
+    :lazy t)
+
+   (:name wikipedia-mode
+    :lazy t)
+
+   (:name iedit
+    :lazy t)
+
+   (:name ioccur
+    :lazy t)
+
+   (:name twittering-mode
+    :lazy t)
+
+   (:name rainbow-mode
+    :lazy t)
+
+   (:name erc-highlight-nicknames
+    :lazy t)
+
+   (:name dired+
+    :lazy t)
+
+   (:name asciidoc
+    :lazy t)
+
+   (:name dired-details
+    :lazy t)
+
+   (:name org-mode
+    :autoloads t
+    :lazy t)
+
+   (:name coffee-mode
+    :post-init nil
+    :lazy t)
+
+   (:name haml-mode
+    :lazy t
+    :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.haml\\'" . haml-mode))))
+
+   (:name drag-stuff
+    :type http
+    :url "https://raw.github.com/rejeep/drag-stuff/master/drag-stuff.el"
+    :lazy t)
+
+   (:name gist
+    :type git
+    :url "https://github.com/defunkt/gist.el.git"
+    :lazy t)
+
    (:name yasnippet
     :type svn
     :url "http://yasnippet.googlecode.com/svn/trunk/"
@@ -49,10 +107,6 @@
     :url "http://web.archive.org/web/20080716014153/http://www.mahalito.net/~harley/elisp/crontab-mode.el"
     :post-init (lambda () (add-to-list 'auto-mode-alist '("crontab\\'" . crontab-mode))))
 
-   (:name org-mode
-    :autoloads t
-    :features nil)
-
    (:name smex
     :before (lambda () (setq smex-save-file "~/.emacs.d/smex.save"))
     :after nil)
@@ -63,30 +117,10 @@
    (:name scratch
     :post-init (lambda () (autoload 'scratch "scratch" nil t)))
 
-   (:name wikipedia-mode
-    :features nil)
-
-   (:name iedit
-    :features nil)
-
-   (:name ioccur
-    :features nil)
-
-   (:name twittering-mode
-    :features nil)
-
-   (:name rainbow-mode
-    :features nil)
-
    (:name multi-term
     :type emacswiki
     :features nil
     :post-init (lambda () (autoload 'multi-term-next "multi-term" nil t)))
-
-   (:name drag-stuff
-    :type http
-    :url "https://raw.github.com/rejeep/drag-stuff/master/drag-stuff.el"
-    :features nil)
 
    (:name irfc
     :type emacswiki
@@ -95,14 +129,8 @@
                  (autoload 'irfc-visit "irfc" nil t)
                  (add-to-list 'auto-mode-alist '("rfc[0-9]+\\.txt\\'" . irfc-mode))))
 
-   (:name dired-details
-    :features nil)
-
    (:name dired-details+
     :type emacswiki)
-
-   (:name asciidoc
-    :features nil)
 
    (:name doc-mode
     :post-init (lambda ()
@@ -112,12 +140,6 @@
    (:name c-eldoc
     :type emacswiki)
 
-   (:name erc-highlight-nicknames
-    :features nil)
-
-   (:name dired+
-    :features nil)
-
    (:name markdown-mode
     :post-init (lambda ()
                  (dolist (ext '("\\.text\\'" "\\.markdown\\'" "\\.mdwn\\'" "\\.mk?dt?\\'"))
@@ -126,31 +148,6 @@
    (:name mic-paren
     :type emacswiki
     :features mic-paren)
-
-   (:name coffee-mode
-    :features nil
-    :post-init nil)
-
-   (:name haml-mode
-    :features nil
-    :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.haml\\'" . haml-mode))))
-
-   (:name sass-mode
-    :features nil
-    :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.sass\\'" . 'sass-mode))))
-
-   (:name scss-mode
-    :type git
-    :url "https://github.com/antonj/scss-mode.git"
-    :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.scss\\'" . 'scss-mode))))
-
-   (:name yari
-    :features nil)
-
-   (:name gist
-    :type git
-    :url "https://github.com/defunkt/gist.el.git"
-    :features nil)
 
    (:name auto-complete
     :features auto-complete-config)
@@ -195,6 +192,3 @@
 
 ;; (el-get 'sync)
 (el-get)
-
-
-
