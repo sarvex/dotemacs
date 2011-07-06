@@ -73,7 +73,9 @@
                                    css-mode-hook
                                    lisp-interaction-mode-hook
                                    graphviz-dot-mode-hook
-                                   makefile-mode-hook))))
+                                   makefile-mode-hook)))
+       (subword-modes-hooks '(haskell-mode-hook
+                              ruby-mode-hook)))
 
   ;; hl-line
   (dolist (hook hl-line-modes-hooks)
@@ -94,7 +96,11 @@
                 (font-lock-add-keywords
                  nil
                  '(("\\<\\(XXX\\|TODO\\|NOTE\\|BUG\\|FIXME\\|HACK\\|REFACTOR\\|IMPORTANT\\|HERE BE DRAGONS\\):"
-                    1 font-lock-warning-face t)))))))
+                    1 font-lock-warning-face t))))))
+
+  ;; for CamelCase
+  (dolist (hook subword-modes-hooks)
+    (add-hook hook (lambda () (subword-mode t)))))
 
 (add-hook 'before-save-hook
           (lambda () (delete-trailing-whitespace)))

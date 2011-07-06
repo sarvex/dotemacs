@@ -11,7 +11,6 @@
 
 (defun my-ruby-mode-hook ()
   (ruby-electric-mode t)
-  (subword-mode t)
   (drag-stuff-mode t)
   (setq comment-column 42))
 
