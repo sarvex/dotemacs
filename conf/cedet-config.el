@@ -1,5 +1,5 @@
 (unless (featurep 'cedet)
-  (load-file "~/.emacs.d/cedet/common/cedet.el"))
+  (load-file "~/.emacs.d/el-get/cedet/common/cedet.el"))
 
 (require 'cedet)
 ;; (require 'semantic-ia)

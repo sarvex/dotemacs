@@ -19,6 +19,7 @@
    autopair
    ack
    ahg
+   cedet
    bbcode-mode
    bookmark+
    clojure-mode
