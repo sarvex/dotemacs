@@ -38,6 +38,9 @@
    textile-mode
    yaml-mode
 
+   (:name io-mode
+    :lazy t)
+
    (:name yari
     :lazy t)
 
