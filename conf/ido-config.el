@@ -193,10 +193,11 @@ FALLBACK-FUNCTION is called when there is no buffers with MODE"
 
 
 
-;; gets loaded by el-get
 (setq smex-auto-update t
-      smex-history-length 10)
+      smex-save-file "~/.emacs.d/smex.save"
+      smex-history-length 100)
 
+(require 'smex)
 (smex-initialize)
 
 (define-key global-map (kbd "M-x") 'smex)
