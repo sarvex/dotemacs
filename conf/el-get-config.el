@@ -5,11 +5,14 @@
      (goto-char (point-max))
      (eval-print-last-sexp))))
 
-(defun el-get-regenerate-autoloads ()
+(defun el-get-regenerate-all-autoloads ()
   "Regenerates all autoloads"
   (interactive)
-  (delete-file el-get-autoload-file)
-  (el-get))
+  (let ((f el-get-autoload-file))
+    (if (not (file-writable-p f))
+        (message "Autoloads file can not be written. Aborting")
+        (when (file-exists-p f) (delete-file f))
+        (el-get))))
 
 ;; (setq  el-get-byte-compile-at-init t)
 
