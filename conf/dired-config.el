@@ -2,13 +2,16 @@
       dired-dwim-target t
       dired-isearch-filenames nil
       dired-keep-marker-rename nil
+      dired-keep-marker-copy nil
+      dired-keep-marker-hardlink nil
+      dired-keep-marker-symlink nil
       dired-listing-switches "-hAFl --group-directories-first"
       dired-ls-F-marks-symlinks t
       dired-omit-files (concat dired-omit-files "\\|^\\..+$")
       list-directory-brief-switches "-CF1shA"
       list-directory-verbose-switches "-lhA"
-      safe-local-variable-values '((dired-omit-mode . t))
-      wdired-allow-to-change-permissions 'advanced)
+      wdired-allow-to-change-permissions 'advanced
+      wdired-allow-to-redirect-links t)
 
 (setq dired-details-hide-extra-lines t
       dired-details-hide-link-targets nil
@@ -108,6 +111,7 @@
     (define-key dired-mode-map (kbd ";") 'dired-up-directory)
     (define-key dired-mode-map (kbd "p") 'dired-previous-file-line)
     (define-key dired-mode-map (kbd "n") 'dired-next-file-line)
+    (define-key dired-mode-map (kbd "C-w") 'dired-unmark-backward)
     (define-key dired-mode-map (kbd "<down>") nil)
     (define-key dired-mode-map (kbd "<up>") nil)
     (define-key dired-mode-map (kbd "M-=") nil)
