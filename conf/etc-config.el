@@ -58,6 +58,7 @@
 
 
 (setq gnus-init-file "~/.emacs.d/conf/gnus-config.el"
+      custom-file "~/.emacs.d/custom.el"
       snake-score-file "~/.emacs.d/games/snake-scores"
       tetris-score-file "~/.emacs.d/games/tetris-scores"
       ;; mpc-mpd-music-directory "/mnt/storage/music/"

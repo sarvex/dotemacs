@@ -50,4 +50,3 @@
              (ahg-status root))
             (t
              (vc-directory root nil)))))))
-

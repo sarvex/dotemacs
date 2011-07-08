@@ -26,6 +26,7 @@ abbrev_defs
 ac-comphist.dat
 anything-c-adaptive-history
 bmk-bmenu-state.el
+custom.el
 emacs.bmk
 minimal-init.el
 org-clock-save.el
