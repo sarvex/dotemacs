@@ -101,6 +101,11 @@
     :url "https://raw.github.com/rejeep/drag-stuff/master/drag-stuff.el"
     :lazy t)
 
+   (:name ruby-electric
+    :type http
+    :url "https://raw.github.com/ruby/ruby/bd90dc80f29a09376e04f5f1b6adbe17806a67fa/misc/ruby-electric.el"
+    :post-init nil)
+
    (:name gist
     :type git
     :url "https://github.com/defunkt/gist.el.git"
