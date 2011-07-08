@@ -50,8 +50,5 @@
 
 (setq cua-enable-cua-keys nil)
 (eval-after-load 'cua-base
-  '(progn
-    (define-key cua--rectangle-keymap (kbd "<left>") 'cua-rotate-rectangle)
-    (define-key cua--rectangle-keymap (kbd "<right>") 'cua-rotate-rectangle)
-    (define-key cua--rectangle-keymap (kbd "<up>") 'cua-rotate-rectangle)
-    (define-key cua--rectangle-keymap (kbd "<down>") 'cua-rotate-rectangle)))
+  '(dolist (k '([right] [left] [up] [down]))
+    (define-key cua--rectangle-keymap k 'cua-rotate-rectangle)))
