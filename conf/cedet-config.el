@@ -1,28 +1,17 @@
-(unless (featurep 'cedet)
-  (load-file "~/.emacs.d/el-get/cedet/common/cedet.el"))
+(setq semanticdb-default-save-directory "~/.emacs.d/semanticdb")
 
-(require 'cedet)
-;; (require 'semantic-ia)
-;; (require 'semantic-gcc)
-;; (require 'ede)
-
-(semantic-load-enable-code-helpers)     ; basic stuff
-;; (semantic-load-enable-guady-code-helpers)
-;; (semantic-load-enable-excessive-code-helpers)
-
-;; (global-ede-mode t)
-;; (global-srecode-minor-mode 1)            ; Enable template insertion menu
-;; (global-semantic-stickyfunc-mode -1)
-
-(which-function-mode t)
 (setq which-func-modes
       (append '(ruby-mode org-mode)
               which-func-modes))
 
-(global-senator-minor-mode -1)
+(unless (featurep 'cedet)
+  (load-file "~/.emacs.d/el-get/cedet/common/cedet.el"))
 
-(setq semanticdb-default-save-directory "~/.emacs.d/semanticdb")
-;; (global-semantic-tag-folding-mode 1)
+(eval-after-load 'cedet
+  '(progn
+    (semantic-load-enable-code-helpers)     ; basic stuff
+    (which-function-mode t)
+    (global-senator-minor-mode -1)))
 
 (defun ido-imenu ()
   "Update the imenu index and then use ido to select a symbol to navigate to.
