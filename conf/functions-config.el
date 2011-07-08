@@ -246,8 +246,7 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
     (when arg
       (save-excursion (insert pw))
       ;; for convenient use with org tables:
-      (when (and (eq major-mode 'org-mode)
-                 (org-at-table-p))
+      (when (org-at-table-p)
         (org-ctrl-c-ctrl-c)))))
 
 
