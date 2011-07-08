@@ -63,9 +63,9 @@
 
 (defun my-markdown-mode-hook ()
   (setq fill-column 78)
-  (auto-fill-mode 1))
+  (auto-fill-mode t))
 
-(eval-after-load 'markdown
+(eval-after-load 'markdown-mode
   '(add-hook 'markdown-mode-hook 'my-markdown-mode-hook))
 
 
