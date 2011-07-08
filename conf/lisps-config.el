@@ -39,6 +39,7 @@
 
 (define-key emacs-lisp-mode-map (kbd "M-;") 'comment-dwim)
 
+(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
 
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 (define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
