@@ -13,17 +13,16 @@
       ac-auto-start nil
       ac-quick-help-delay 0.8)
 (eval-after-load 'auto-complete-config
-  (quote
-   (progn
-     (add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete/dict" el-get-dir))
+  '(progn
+    (add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete/dict" el-get-dir))
 
-     (ac-config-default)
+    (ac-config-default)
 
-     (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-     (define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
-     (define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
-     (define-key ac-complete-mode-map (kbd "C-g") 'ac-stop)
-     (define-key ac-complete-mode-map (kbd "<return>") 'ac-expand))))
+    (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+    (define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
+    (define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
+    (define-key ac-complete-mode-map (kbd "C-g") 'ac-stop)
+    (define-key ac-complete-mode-map (kbd "<return>") 'ac-expand)))
 
 
 (setq multi-term-program "/bin/zsh")
