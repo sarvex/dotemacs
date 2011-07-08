@@ -4,3 +4,5 @@
 
 (require 'anything-config)
 (require 'anything-match-plugin)
+
+(define-key global-map (kbd "M-y") 'anything-show-kill-ring)

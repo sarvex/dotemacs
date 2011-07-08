@@ -146,5 +146,3 @@
 
 (define-key global-map (kbd "C-<f8>") 'multi-term)
 (define-key global-map (kbd "<f8>") 'multi-term-next)
-
-(define-key global-map (kbd "M-y") 'anything-show-kill-ring)
