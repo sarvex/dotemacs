@@ -6,32 +6,6 @@
     (define-key sh-mode-map (kbd "<f9>") 'executable-interpret)
     (define-key sh-mode-map (kbd "M-l") 'downcase-word)))
 
-
-;; Good bye, arrow keys
-(global-unset-key (kbd "<right>"))
-(global-unset-key (kbd "<left>"))
-(global-unset-key (kbd "<up>"))
-(global-unset-key (kbd "<down>"))
-(global-unset-key (kbd "C-<right>"))
-(global-unset-key (kbd "C-<left>"))
-(global-unset-key (kbd "C-<up>"))
-(global-unset-key (kbd "C-<down>"))
-(global-unset-key (kbd "M-<right>"))
-(global-unset-key (kbd "M-<left>"))
-(global-unset-key (kbd "M-<up>"))
-(global-unset-key (kbd "M-<down>"))
-(global-unset-key (kbd "<home>"))
-(global-unset-key (kbd "<end>"))
-(global-unset-key (kbd "<prior>"))
-(global-unset-key (kbd "<next>"))
-(global-unset-key (kbd "S-<insert>"))
-(global-unset-key (kbd "<delete>"))
-(global-unset-key (kbd "C-<delete>"))
-(global-unset-key (kbd "M-<delete>"))
-(global-unset-key (kbd "M-<backspace>"))
-(global-unset-key (kbd "C-<backspace>"))
-
-
 ;; disable arrow keys in minibuffer
 (dolist (local-mode-map
           '(minibuffer-local-completion-map
@@ -43,10 +17,8 @@
             minibuffer-local-must-match-map
             minibuffer-local-ns-map))
   (let ((key-map (symbol-value local-mode-map)))
-    (define-key key-map (kbd "<up>") nil)
-    (define-key key-map (kbd "<down>") nil)
-    (define-key key-map (kbd "<left>") nil)
-    (define-key key-map (kbd "<right>") nil)))
+    (dolist (k '([right] [left] [up] [down]))
+      (define-key key-map k nil))))
 
 ;; make C-l do the right thing in various shells buffs
 (dolist (mode-map
@@ -113,11 +85,15 @@
           (save-buffer))))
     (call-interactively 'save-some-buffers)))
 
+;; Good bye, mouse buttons and arrow keys
 (dolist (k '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]
              [mouse-2] [down-mouse-2] [drag-mouse-2] [double-mouse-2] [triple-mouse-2]
              [mouse-3] [down-mouse-3] [drag-mouse-3] [double-mouse-3] [triple-mouse-3]
              [mouse-4] [down-mouse-4] [drag-mouse-4] [double-mouse-4] [triple-mouse-4]
-             [mouse-5] [down-mouse-5] [drag-mouse-5] [double-mouse-5] [triple-mouse-5]))
+             [mouse-5] [down-mouse-5] [drag-mouse-5] [double-mouse-5] [triple-mouse-5]
+             [right] [left] [up] [down] [home] [end] [prior] [next] [S-insert] [delete]
+             [C-right] [C-left] [C-up] [C-down] [M-right] [M-left] [M-up] [M-down]
+             [C-delete] [M-delete] [M-backspace] [C-backspace]))
   (global-unset-key k))
 
 ;; window switching
