@@ -47,6 +47,9 @@
    (:name yari
     :lazy t)
 
+   (:name haml-mode
+    :lazy t)
+
    (:name sass-mode
     :lazy t)
 
@@ -91,10 +94,6 @@
    (:name coffee-mode
     :post-init nil
     :lazy t)
-
-   (:name haml-mode
-    :lazy t
-    :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.haml\\'" . haml-mode))))
 
    (:name drag-stuff
     :type http
