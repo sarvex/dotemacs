@@ -1,0 +1,15 @@
+#! /usr/bin/env ruby
+
+=begin
+
+Script for finding outdated elisp bytecode. Calls mtime on both source and
+byte-compiled file, complains when bytecode is older then corresponding source
+
+=end
+
+Dir[File.expand_path('~') + '/.emacs.d/**/*.el'].each do |source|
+  bytecode = source + 'c'
+  if File.exists?(bytecode) and File.mtime(source) > File.mtime(bytecode)
+    puts source
+  end
+end
