@@ -1,17 +1,17 @@
 (setq semanticdb-default-save-directory "~/.emacs.d/semanticdb")
 
-(setq which-func-modes
-      (append '(ruby-mode org-mode)
-              which-func-modes))
-
 (unless (featurep 'cedet)
   (load-file "~/.emacs.d/el-get/cedet/common/cedet.el"))
 
 (eval-after-load 'cedet
   '(progn
-    (semantic-load-enable-code-helpers)     ; basic stuff
+    (semantic-load-enable-code-helpers) ; basic stuff
     (which-function-mode t)
-    (global-senator-minor-mode -1)))
+    (global-senator-minor-mode -1)
+
+    (setq which-func-modes
+     (append '(ruby-mode org-mode)
+      which-func-modes))))
 
 (defun ido-imenu ()
   "Update the imenu index and then use ido to select a symbol to navigate to.
