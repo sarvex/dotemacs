@@ -1,3 +1,5 @@
+(require 'ansi-color)
+
 (autoload 'notifications-notify "notifications" nil nil) ; emacs-24+
 
 (require 'uniquify)

@@ -14,8 +14,6 @@
         (when (file-exists-p f) (delete-file f))
         (el-get))))
 
-;; (setq  el-get-byte-compile-at-init t)
-
 (setq
  el-get-sources
  '(el-get
@@ -37,51 +35,21 @@
    paredit
    textile-mode
    yaml-mode
-
-   (:name anything
-    :lazy t)
-
-   (:name io-mode
-    :lazy t)
-
-   (:name yari
-    :lazy t)
-
-   (:name haml-mode
-    :lazy t)
-
-   (:name sass-mode
-    :lazy t)
-
-   (:name scss-mode
-    :lazy t)
-
-   (:name wikipedia-mode
-    :lazy t)
-
-   (:name iedit
-    :lazy t)
-
-   (:name ioccur
-    :lazy t)
-
-   (:name twittering-mode
-    :lazy t)
-
-   (:name rainbow-mode
-    :lazy t)
-
-   (:name erc-highlight-nicknames
-    :lazy t)
-
-   (:name dired+
-    :lazy t)
-
-   (:name asciidoc
-    :lazy t)
-
-   (:name dired-details
-    :lazy t)
+   (:name anything :lazy t)
+   (:name io-mode :lazy t)
+   (:name yari :lazy t)
+   (:name haml-mode :lazy t)
+   (:name sass-mode :lazy t)
+   (:name scss-mode :lazy t)
+   (:name wikipedia-mode :lazy t)
+   (:name iedit :lazy t)
+   (:name ioccur :lazy t)
+   (:name twittering-mode :lazy t)
+   (:name rainbow-mode :lazy t)
+   (:name erc-highlight-nicknames :lazy t)
+   (:name dired+ :lazy t)
+   (:name asciidoc :lazy t)
+   (:name dired-details :lazy t)
 
    (:name smex
     :post-init nil
@@ -111,11 +79,10 @@
     :lazy t)
 
    (:name yasnippet
-    :type svn
-    :url "http://yasnippet.googlecode.com/svn/trunk/"
     :features yasnippet
     :compile ("dropdown-list.el" "yasnippet.el")
-    :post-init (lambda () (add-to-list 'yas/snippet-dirs (expand-file-name "yasnippet/snippets" el-get-dir))))
+    :post-init nil
+    :lazy t)
 
    (:name crontab-mode
     :url "http://web.archive.org/web/20080716014153/http://www.mahalito.net/~harley/elisp/crontab-mode.el"
