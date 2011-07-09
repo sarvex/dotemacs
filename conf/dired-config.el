@@ -7,7 +7,6 @@
       dired-keep-marker-symlink nil
       dired-listing-switches "-hAFl --group-directories-first"
       dired-ls-F-marks-symlinks t
-      dired-omit-files (concat dired-omit-files "\\|^\\..+$")
       list-directory-brief-switches "-CF1shA"
       list-directory-verbose-switches "-lhA"
       wdired-allow-to-change-permissions 'advanced
@@ -74,11 +73,12 @@
   '(progn
 
     (require 'dired-x)
-
     (require 'dired+)
+    (require 'dired-details+)
+
     (diredp-toggle-find-file-reuse-dir 1)
 
-    (require 'dired-details+)
+    (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
 
     (defadvice dired-advertised-find-file (around dired-subst-directory activate)
      "Replace current buffer if file is a directory."
