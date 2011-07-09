@@ -117,5 +117,3 @@
 (add-hook 'text-mode-hook (lambda () (visual-line-mode t)))
 
 (add-hook 'help-mode-hook (lambda () (visual-line-mode t)))
-
-(add-hook 'prog-mode-hook 'yas/minor-mode-on)
