@@ -45,6 +45,7 @@
 (load "conf/rainbow-config")
 (load "conf/mercurial-config")
 (load "conf/git-config")
+(load "conf/anything-config")
 (load "conf/projects-config")
 (load "conf/etc-config")
 (load "conf/i18n-config")
