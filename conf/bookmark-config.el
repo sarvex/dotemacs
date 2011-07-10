@@ -1,5 +1,3 @@
-;; (require 'bookmark)
-
 (setq bookmark-default-file "~/.emacs.d/emacs.bmk"
       bookmark-old-default-file "~/.emacs.d/emacs.bmk"
       bookmark-save-flag 1

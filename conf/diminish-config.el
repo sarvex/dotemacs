@@ -23,6 +23,3 @@
 
 (eval-after-load 'yasnippet
   '(diminish 'yas/minor-mode " Y"))
-
-;; (eval-after-load 'dired-x
-;;  '(diminish 'dired-omit-mode " O"))
