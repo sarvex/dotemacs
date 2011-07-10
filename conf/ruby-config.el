@@ -34,6 +34,9 @@
     (require 'ruby-electric)
     (require 'inf-ruby)
 
+    (inf-ruby-keys)
+    (define-key inf-ruby-mode-map (kbd "<f1>") 'yari)
+
     ;; enable flymake
     (require 'flymake)
     (dolist (f '(".+\\.\\(rb\\|ru\\|rake\\|thor\\|gemspec\\)\\'"
@@ -47,11 +50,6 @@
      (lambda () (interactive) (move-end-of-line 1) (reindent-then-newline-and-indent)))
     (define-key ruby-mode-map (kbd "M-<return>")
      (lambda () (interactive) (previous-line 1) (move-end-of-line 1) (reindent-then-newline-and-indent)))))
-
-(eval-after-load 'inf-ruby
-  '(progn
-    (inf-ruby-keys)
-    (define-key inf-ruby-mode-map (kbd "<f1>") 'yari)))
 
 ;; Clear the compilation buffer between test runs.
 (eval-after-load 'ruby-compilation
