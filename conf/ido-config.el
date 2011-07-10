@@ -182,11 +182,8 @@ FALLBACK-FUNCTION is called when there is no buffers with MODE"
 
 (define-key global-map (kbd "C-x t") 'my-ido-twittering-buffers)
 
-
-(define-key ido-common-completion-map (kbd "<left>") nil)
-(define-key ido-common-completion-map (kbd "<right>") nil)
-(define-key ido-common-completion-map (kbd "<up>") nil)
-(define-key ido-common-completion-map (kbd "<down>") nil)
+(dolist (k '([right] [left] [up] [down]))
+  (define-key ido-common-completion-map k nil))
 
 (define-key ido-common-completion-map (kbd "C-p") 'ido-prev-match)
 (define-key ido-common-completion-map (kbd "C-n") 'ido-next-match)

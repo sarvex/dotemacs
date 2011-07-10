@@ -22,10 +22,8 @@
 (eval-after-load 'w3m
   '(progn
 
-    (define-key w3m-mode-map (kbd "<up>") nil)
-    (define-key w3m-mode-map (kbd "<down>") nil)
-    (define-key w3m-mode-map (kbd "<left>") nil)
-    (define-key w3m-mode-map (kbd "<right>") nil)
+    (dolist (k '([right] [left] [up] [down]))
+      (define-key w3m-mode-map k nil))
 
     (add-hook 'w3m-display-hook
      (lambda (url)

@@ -243,10 +243,9 @@
            activate)
   (setq ad-return-value (nreverse ad-return-value)))
 
-(define-key ibuffer-mode-map (kbd "<up>") nil)
-(define-key ibuffer-mode-map (kbd "<down>") nil)
-(define-key ibuffer-mode-map (kbd "<left>") nil)
-(define-key ibuffer-mode-map (kbd "<right>") nil)
+(dolist (k '([right] [left] [up] [down]))
+  (define-key ibuffer-mode-map k nil))
+
 (define-key ibuffer-mode-map (kbd "C-x C-f") 'ido-find-file)
 (define-key ibuffer-mode-map (kbd "[") 'ibuffer-toggle-filter-group)
 
