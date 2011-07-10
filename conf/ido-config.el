@@ -138,7 +138,7 @@
 FALLBACK-FUNCTION is called when there is no buffers with MODE"
   (let ((buf-list (my-get-bufers-by-mode mode)))
     (if buf-list
-        (switch-to-buffer
+        (pop-to-buffer-same-window
          (if (equal (length buf-list) 1)
              (car buf-list)
              (ido-completing-read choice-string buf-list)))

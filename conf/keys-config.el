@@ -51,16 +51,17 @@
 (define-key global-map (kbd "M-=") 'balance-windows)
 
 
-(defun my-switch-to-scratch ()
-  (interactive)
-  (let ((content initial-scratch-message)
-        (buf "*scratch*"))
-    (when (get-buffer buf)
-      (setq content ""))
-    (switch-to-buffer buf)
-    (insert content)))
 
-(define-key global-map (kbd "C-<f5>") 'my-switch-to-scratch) ; switch to *scratch*
+(define-key global-map (kbd "C-<f5>")   ; switch to *scratch*
+  (lambda ()
+    (interactive)
+    (let ((content initial-scratch-message)
+          (buf "*scratch*"))
+      (when (get-buffer buf)
+        (setq content ""))
+      (pop-to-buffer-same-window buf)
+      (insert content))))
+
 (define-key global-map (kbd "C-<f6>")   ; switch to init.el
   (lambda ()
     (interactive)
