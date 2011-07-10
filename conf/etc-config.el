@@ -1,31 +1,5 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
-
-;; on
-(auto-image-file-mode t)
-(minibuffer-electric-default-mode t)
-(random t)
-(winner-mode t)                       ; window configuration history
-
-;; enabled by default by now:
-;; (auto-compression-mode t)
-;; (transient-mark-mode t)
-;; (global-font-lock-mode t)
-
-;; off
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(mouse-wheel-mode -1)
-(mouse-sel-mode -1)
-
-;; disabled by default by now, but may be uncommented someday:
-;; (column-number-mode -1)
-;; (blink-cursor-mode -1)
-;; (delete-selection-mode -1)
-;; (show-paren-mode -1)
-;; (size-indication-mode -1)
-
-
 (dolist (symb '(upcase-region
                 downcase-region
                 narrow-to-region
@@ -43,9 +17,6 @@
 
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG\\'" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-mode))
-
-(add-to-list 'auto-mode-alist '("\\.nfo\\'" . (lambda () (text-mode) (visual-line-mode t))))
-
 
 (dolist (buf-name '("*Bookmark List*"
                     "*SQL*"
@@ -77,10 +48,6 @@
       initial-scratch-message ";; *scratch*\n\n")
 
 
-(setq ansi-term-color-vector
-      [unspecified "#333333" "#7f1515" "#509f50" "#aeae00"
-                   "#2e5aa7" "#7a3e9d" "#5eadd1" "#999999"])
-
 (setq next-line-add-newlines nil
       require-final-newline t)
 
@@ -102,18 +69,6 @@
                                  (internal-border-width . 1)
                                  (border-width . 1)))
 
-(setq display-time-world-list
-      '(("America/Los_Angeles" "Los Angeles")
-        ("America/Chicago" "Chicago")
-        ("America/New_York" "New York")
-        ("America/Sao_Paulo" "San Paulo")
-        ("Europe/London" "London")
-        ("Europe/Paris" "Paris")
-        ("Europe/Kiev" "Kyiv")
-        ("Europe/Moscow" "Moscow")
-        ("Asia/Shanghai" "Shanghai")
-        ("Asia/Tokyo" "Tokyo")))
-
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq scroll-step 0
       redisplay-dont-pause t
@@ -134,7 +89,6 @@
 
 
 (setq font-lock-maximum-decoration t
-      frame-background-mode 'light
       search-highlight t
       query-replace-highlight t
       nobreak-char-display nil)

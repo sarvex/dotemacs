@@ -62,7 +62,8 @@
 
 (defun my-markdown-mode-hook ()
   (setq fill-column 78)
-  (auto-fill-mode t))
+  (auto-fill-mode t)
+  (turn-on-orgtbl))
 
 (eval-after-load 'markdown-mode
   '(add-hook 'markdown-mode-hook 'my-markdown-mode-hook))

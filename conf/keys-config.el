@@ -1,5 +1,4 @@
 (define-key global-map (kbd "C-c ;") 'comment-or-uncomment-current-line-or-region)
-(define-key global-map (kbd "<f1>") 'display-time-world)
 
 (eval-after-load 'sh-script
   '(progn
@@ -87,7 +86,7 @@
     (call-interactively 'save-some-buffers)))
 
 ;; Good bye, mouse buttons and arrow keys
-(dolist (k '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]
+(dolist (k '([down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]
              [mouse-2] [down-mouse-2] [drag-mouse-2] [double-mouse-2] [triple-mouse-2]
              [mouse-3] [down-mouse-3] [drag-mouse-3] [double-mouse-3] [triple-mouse-3]
              [mouse-4] [down-mouse-4] [drag-mouse-4] [double-mouse-4] [triple-mouse-4]
@@ -96,6 +95,7 @@
              [C-right] [C-left] [C-up] [C-down] [M-right] [M-left] [M-up] [M-down]
              [C-delete] [M-delete] [M-backspace] [C-backspace]))
   (global-unset-key k))
+
 
 ;; window switching
 (define-key global-map (kbd "C-<tab>")
