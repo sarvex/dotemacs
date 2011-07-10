@@ -1,20 +1,8 @@
-(require 'ibuffer)
-
 (define-key global-map (kbd "C-x C-b") 'ibuffer)
-
-;; Use human readable Size column instead of original one
-(define-ibuffer-column size-h
-    (:name "Size" :inline t)
-  (cond
-    ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
-    ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
-    (t (format "%8d" (buffer-size)))))
-
 
 (setq ibuffer-deletion-face 'diredp-deletion-file-name
       ibuffer-marked-face 'diredp-flag-mark
       ibuffer-show-empty-filter-groups nil)
-
 
 (setq ibuffer-formats
       '((mark modified read-only
@@ -24,6 +12,32 @@
          " " filename-and-process)
         (mark " " (name 23 -1) " " filename)))
 
+(defun my-ibuffer-mode-hook ()
+  (ibuffer-switch-to-saved-filter-groups "default"))
+
+(eval-after-load 'ibuffer
+  '(progn
+
+    ;; Use human readable Size column instead of original one
+    (define-ibuffer-column size-h
+        (:name "Size" :inline t)
+      (cond
+        ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
+        ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
+        (t (format "%8d" (buffer-size)))))
+
+    (add-hook 'ibuffer-mode-hook 'my-ibuffer-mode-hook)
+
+    (define-key ibuffer-mode-map (kbd "C-x C-f") 'ido-find-file)
+    (define-key ibuffer-mode-map (kbd "[") 'ibuffer-toggle-filter-group)
+    (dolist (k '([right] [left] [up] [down]))
+      (define-key ibuffer-mode-map k nil))))
+
+
+(defadvice ibuffer-generate-filter-groups
+    (after reverse-ibuffer-groups ()
+           activate)
+  (setq ad-return-value (nreverse ad-return-value)))
 
 (setq my-ibuffer-filter-groups ())
 
@@ -228,25 +242,5 @@
             (name . "^\\*twmode")
             (name . "^newsrc-dribble$"))))
 
-
 (setq ibuffer-saved-filter-groups
       `(("default" ,@my-ibuffer-filter-groups)))
-
-
-
-(defun my-ibuffer-mode-hook ()
-  (ibuffer-switch-to-saved-filter-groups "default"))
-
-
-(defadvice ibuffer-generate-filter-groups
-    (after reverse-ibuffer-groups ()
-           activate)
-  (setq ad-return-value (nreverse ad-return-value)))
-
-(dolist (k '([right] [left] [up] [down]))
-  (define-key ibuffer-mode-map k nil))
-
-(define-key ibuffer-mode-map (kbd "C-x C-f") 'ido-find-file)
-(define-key ibuffer-mode-map (kbd "[") 'ibuffer-toggle-filter-group)
-
-(add-hook 'ibuffer-mode-hook 'my-ibuffer-mode-hook)
