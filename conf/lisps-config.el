@@ -1,5 +1,16 @@
 (require 'ielm)
 (setq ielm-header "")
+
+(dolist (mode-hook '(emacs-lisp-mode-hook
+                     clojure-mode-hook
+                     scheme-mode
+                     lisp-mode-hook
+                     lisp-interaction-mode-hook
+                     slime-repl-mode-hook
+                     ielm-mode-hook))
+  (add-hook mode-hook (lambda () (paredit-mode t))))
+
+
 ;;================================================================
 (defun pretty-lambdas ()
   (font-lock-add-keywords
@@ -20,13 +31,9 @@
                         (pretty-lambdas))))
 ;;================================================================
 
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (setq mode-name "eLisp")))
+(add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "eLisp")))
 
-(add-hook 'lisp-interaction-mode-hook
-          (lambda ()
-            (setq mode-name "Lisp-int")))
+(add-hook 'lisp-interaction-mode-hook (lambda () (setq mode-name "Lisp-int")))
 
 (add-to-list 'interpreter-mode-alist '("sbcl" . lisp-mode))
 
@@ -57,11 +64,8 @@
 
 (add-hook 'emacs-lisp-mode-hook 'my-remove-elc-on-save)
 
-(defun my-eldoc-init-hook ()
-  (eldoc-mode 1))
-
-(add-hook 'emacs-lisp-mode-hook 'my-eldoc-init-hook)
-(add-hook 'inferior-emacs-lisp-mode-hook 'my-eldoc-init-hook)
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'inferior-emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
 (add-hook 'before-save-hook
           (lambda ()
@@ -69,4 +73,3 @@
                                        emacs-lisp-mode
                                        lisp-interaction-mode))
               (indent-region (point-min) (point-max)))))
-
