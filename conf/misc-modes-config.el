@@ -26,13 +26,6 @@
       thumbs-relief 0)
 
 
-(setq epa-armor t
-      epa-popup-info-window nil
-      epg-passphrase-coding-system 'utf-8
-      epa-file-encrypt-to `(,my-email-address)
-      epa-file-select-keys nil)
-
-
 (setq comint-input-ignoredups t
       comint-move-point-for-output 'this
       comint-prompt-read-only nil
@@ -48,6 +41,15 @@
         space-after-tab
         tab-mark))
 (define-key global-map (kbd "C-c w") 'whitespace-mode)
+
+
+(setq epa-armor t
+      epa-file-cache-passphrase-for-symmetric-encryption nil
+      epa-file-encrypt-to `(,my-email-address)
+      epa-file-inhibit-auto-save t
+      epa-file-select-keys nil
+      epa-popup-info-window nil)
+(epa-file-enable)
 
 
 (setq cua-enable-cua-keys nil)
