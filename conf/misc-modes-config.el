@@ -74,7 +74,8 @@
       epa-file-inhibit-auto-save t
       epa-file-select-keys nil
       epa-popup-info-window nil)
-(epa-file-enable)
+(unless (memq epa-file-handler file-name-handler-alist)
+  (epa-file-enable))
 
 
 (setq cua-enable-cua-keys nil)

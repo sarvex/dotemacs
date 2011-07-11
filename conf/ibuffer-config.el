@@ -61,7 +61,8 @@
 
 (add-to-list
  'my-ibuffer-filter-groups
- '("org" (or (mode . org-mode)
+ '("org" (or
+          (mode . org-mode)
           (mode . org-agenda-mode)
           (name . "^\\*Org .*\\*$"))))
 
@@ -89,6 +90,7 @@
             (mode . erlang-shell-mode)
             (mode . term-mode)
             (mode . inferior-emacs-lisp-mode)
+            (mode . sql-interactive-mode)
             (mode . shell-mode)
             (mode . eshell-mode))))
 
@@ -141,6 +143,7 @@
            (mode . gnus-edit-form-mode)
            (mode . gnus-browse-mode)
            (mode . message-mode)
+           (mode . rmail-mode)
            (mode . mail-mode))))
 
 (add-to-list
@@ -211,10 +214,8 @@
             (mode . pylookup-mode)
             (mode . special-mode)
             (mode . speedbar-mode)
-            (mode . sql-interactive-mode)
             (mode . tags-table-mode)
             (mode . vc-dir-mode)
-            (mode . wget-mode)
             (predicate . (equal mode-name "Anything"))
 
             (name . "^\\*About GNU Emacs\\*$")

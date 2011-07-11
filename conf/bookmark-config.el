@@ -16,3 +16,9 @@
         (pop-to-buffer-same-window "*Help*")
         (rename-buffer bn))
     (delete-other-windows)))
+
+(defun bookmarks/jump-to-info (buffer-name)
+  (if (not (get-buffer buffer-name))
+      (rename-buffer buffer-name)
+      (kill-buffer "*info*")
+      (pop-to-buffer-same-window buffer-name)))

@@ -26,7 +26,6 @@
 (load "conf/haskell-config")
 (load "conf/lisps-config")
 (load "conf/slime-config")
-(load "conf/paredit-config")
 (load "conf/perl-config")
 (load "conf/python-config")
 (load "conf/ruby-config")
