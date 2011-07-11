@@ -1,7 +1,7 @@
 (setq
  openwith-associations
  '(("\\.\\(djvu\\|pdf\\|ps\\|dvi\\)\\'" "evince" (file))
-   ("\\.\\(mpe?g\\|avi\\|m[ko]v\\|vob\\|ogv\\|webm\\|m[24]v\\|flv\\|mp[24]\\|asf\\|rm\\(vb\\)?\\|wmv\\|divx\\|ts\\)\\(\\.part\\)?\\'" "mplayer" (file))
+   ("\\.\\(mpe?g\\|avi\\|m[ko]v\\|vob\\|ogv\\|webm\\|m[24]v\\|flv\\|mp[24]\\|asf\\|rm\\(vb\\)?\\|wmv\\|divx\\|ts\\)\\(\\.\\(part\\|crdownload\\)\\)?\\'" "mplayer" (file))
    ;; ("\\.dvd.iso\\'" "mplayer" ("-dvd-device" file "dvdnav://0"))
    ("\\.dvd.iso\\'" "cvlc" (file))
    ("\\.chm\\'" "kchmviewer" (file))
