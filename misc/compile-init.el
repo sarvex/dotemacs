@@ -4,9 +4,9 @@
 
 (setq debug-on-error t)
 
-(load "cedet-config")
-(load "el-get-config")
-(load "elpa-config")
+(load "cedet-configuration")
+(load "el-get-configuration")
+(load "elpa-configuration")
 
 ;; Local Variables:
 ;; no-byte-compile: t
