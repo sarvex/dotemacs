@@ -75,7 +75,12 @@
                                    graphviz-dot-mode-hook
                                    makefile-mode-hook)))
        (subword-modes-hooks '(haskell-mode-hook
-                              ruby-mode-hook)))
+                              ruby-mode-hook))
+       (eldoc-modes-hooks '(;; python-mode-hook
+                            c-mode-hook
+                            emacs-lisp-mode-hook
+                            inferior-emacs-lisp-mode-hook
+                            cperl-mode-hook)))
 
   ;; hl-line
   (dolist (hook hl-line-modes-hooks)
@@ -100,7 +105,11 @@
 
   ;; for CamelCase
   (dolist (hook subword-modes-hooks)
-    (add-hook hook (lambda () (subword-mode t)))))
+    (add-hook hook (lambda () (subword-mode t))))
+
+  ;; eldoc
+  (dolist (hook eldoc-modes-hooks)
+    (add-hook hook 'turn-on-eldoc-mode)))
 
 (add-hook 'before-save-hook
           (lambda () (delete-trailing-whitespace)))

@@ -7,17 +7,6 @@
   (put symb 'disabled nil))
 
 
-;; IMPORTANT: app-arch/unrar-gpl in needed for rar support
-;; executable must be named unrar-free (hardcoded in archive-mode)
-(dolist (ext '("\\.xpi\\'" "\\.crx\\'" "\\.oex\\'" "\\.rar\\'"))
-  (add-to-list 'auto-mode-alist `(,ext . archive-mode)))
-
-(dolist (ext '("\\.cue\\'" "\\.cnf\\'" "^hgrc\\'"))
-  (add-to-list 'auto-mode-alist `(,ext . conf-mode)))
-
-(add-to-list 'auto-mode-alist '("COMMIT_EDITMSG\\'" . diff-mode))
-(add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-mode))
-
 (dolist (buf-name '("*Bookmark List*"
                     "*SQL*"
                     "*Packages*"))
@@ -94,14 +83,6 @@
       nobreak-char-display nil)
 
 
-(setq shell-file-name "/bin/zsh"
-      explicit-shell-file-name "/bin/zsh"
-      term-scroll-to-bottom-on-output nil
-      term-scroll-show-maximum-output nil
-      term-default-bg-color "#e5e5e5"
-      term-default-fg-color "#333333")
-
-
 ;; misc stuff
 (setq debug-on-error nil
       diff-switches "-uc"
@@ -110,6 +91,7 @@
       standard-indent 4
       tab-always-indent 'complete
       grep-scroll-output t
+      compilation-window-height 18
       tramp-default-method "su"
       x-stretch-cursor t)
 

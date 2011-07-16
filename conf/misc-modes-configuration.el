@@ -25,15 +25,15 @@
 
 (autoload 'notifications-notify "notifications" nil nil) ; emacs-24+
 
-(require 'ansi-color)
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
 
-(require 'eldoc)
-(eldoc-add-command 'paredit-backward-delete
-                   'paredit-close-round)
+(eval-after-load 'eldoc
+  '(eldoc-add-command
+    'paredit-backward-delete
+    'paredit-close-round))
 
 
 (setq calendar-date-style 'european
@@ -56,7 +56,8 @@
       comint-prompt-read-only nil
       comint-scroll-show-maximum-output nil
       comint-scroll-to-bottom-on-input 'this)
-
+(eval-after-load 'comint
+  '(define-key comint-mode-map (kbd "C-l") 'recenter-top))
 
 (setq whitespace-style
       '(face
@@ -73,6 +74,7 @@
       epa-file-encrypt-to `(,my-email-address)
       epa-file-inhibit-auto-save t
       epa-file-select-keys nil
+      epg-passphrase-coding-system 'utf-8
       epa-popup-info-window nil)
 (unless (memq epa-file-handler file-name-handler-alist)
   (epa-file-enable))
@@ -96,3 +98,61 @@
         ("Asia/Shanghai" "Shanghai")
         ("Asia/Tokyo" "Tokyo")))
 (define-key global-map (kbd "<f1>") 'display-time-world)
+(eval-after-load 'time
+  '(define-key display-time-world-mode-map (kbd "<f1>") 'kill-this-buffer))
+
+
+;; IMPORTANT: app-arch/unrar-gpl in needed for rar support
+;; executable must be named unrar-free (hardcoded in archive-mode)
+(dolist (ext '("\\.xpi\\'" "\\.crx\\'" "\\.oex\\'" "\\.rar\\'"))
+  (add-to-list 'auto-mode-alist `(,ext . archive-mode)))
+(eval-after-load 'arc-mode
+  '(progn
+    (define-key archive-mode-map (kbd "q")
+     (lambda () (interactive) (kill-buffer-ask (current-buffer))))
+    (add-hook 'archive-mode-hook (lambda () (setq truncate-lines t)))))
+(eval-after-load 'tar-mode
+  '(progn
+    (define-key tar-mode-map (kbd "q")
+     (lambda () (interactive) (kill-buffer-ask (current-buffer))))
+    (add-hook 'tar-mode-hook (lambda () (setq truncate-lines t)))))
+
+
+(dolist (ext '("\\.cue\\'" "\\.cnf\\'" "^hgrc\\'"))
+  (add-to-list 'auto-mode-alist `(,ext . conf-mode)))
+
+
+(add-to-list 'auto-mode-alist '("COMMIT_EDITMSG\\'" . diff-mode))
+(add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-mode))
+
+
+(eval-after-load 'image-mode
+  '(define-key image-mode-map (kbd "q")
+    (lambda () (interactive) (kill-buffer-ask (current-buffer)))))
+
+
+(eval-after-load 'conf-mode
+  ;; conflicts with project-root
+  '(define-key conf-mode-map (kbd "C-c SPC") nil))
+
+
+(eval-after-load 'sh-script
+  '(progn
+    (define-key sh-mode-map (kbd "<f9>") 'executable-interpret)
+    (define-key sh-mode-map (kbd "M-l") 'downcase-word)))
+
+
+
+(eval-after-load 'make-mode
+  '(dolist (mode-map '(makefile-automake-mode-map
+                       makefile-bsdmake-mode-map
+                       makefile-gmake-mode-map
+                       makefile-imake-mode-map
+                       makefile-makepp-mode-map))
+    define-key mode-map (kbd "<f9>") 'recompile))
+
+
+(setq shell-file-name "/bin/zsh"
+      explicit-shell-file-name "/bin/zsh"
+      term-scroll-to-bottom-on-output nil
+      term-scroll-show-maximum-output nil)

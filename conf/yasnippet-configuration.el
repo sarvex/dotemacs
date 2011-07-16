@@ -38,4 +38,4 @@
                 scala-mode-hook
                 snippet-mode-hook
                 text-mode-hook))
-  (add-hook hook (lambda () (yas/minor-mode 1))))
+  (add-hook hook (lambda () (yas/minor-mode t))))

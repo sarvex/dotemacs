@@ -6,3 +6,4 @@
   '(require 'anything-startup))
 
 (define-key global-map (kbd "M-y") 'anything-show-kill-ring)
+(define-key global-map (kbd "C-x f") 'anything-recentf)

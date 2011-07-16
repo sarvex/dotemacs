@@ -1,4 +1,3 @@
-(require 'ielm)
 (setq ielm-header "")
 
 (dolist (mode-hook '(emacs-lisp-mode-hook
@@ -49,8 +48,12 @@
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
 
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
-(define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 (define-key lisp-interaction-mode-map (kbd "M-.") 'find-function-at-point)
+
+(eval-after-load 'ielm
+  '(progn
+    (define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
+    (define-key inferior-emacs-lisp-mode-map (kbd "C-l") 'recenter-top)))
 
 (define-key lisp-interaction-mode-map (kbd "C-c j") 'eval-print-last-sexp)
 
@@ -63,9 +66,6 @@
                   (delete-file (concat buffer-file-name "c"))))))
 
 (add-hook 'emacs-lisp-mode-hook 'my-remove-elc-on-save)
-
-(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'inferior-emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 
 (add-hook 'before-save-hook
           (lambda ()
