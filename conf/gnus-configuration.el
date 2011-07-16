@@ -58,7 +58,7 @@
 (add-hook 'message-send-mail-hook 'my-feed-msmtp)
 
 
-(require 'pgg)                          ; mail signing/encryption
+(require 'epg)
 ;; verify/decrypt only if mml knows about the protocl used
 (setq mm-verify-option 'known
       mm-decrypt-option 'known)
@@ -66,10 +66,6 @@
 (setq gnus-buttonized-mime-types '("multipart/encrypted" "multipart/signed"))
 ;; Automatically sign when sending mails
 ;; (add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
-;; Enough explicit settings
-(setq pgg-passphrase-cache-expiry 300
-      pgg-default-user-id my-from)
-
 
 ;; handling signed and encrypted messages
 (eval-after-load 'mm-decode
@@ -77,14 +73,11 @@
     ;; Tells Gnus to inline the part
     (add-to-list 'mm-inlined-types "application/pgp$")
     ;; Tells Gnus how to display the part when it is requested
-    (add-to-list 'mm-inline-media-tests
-     '("application/pgp$" mm-inline-text identity))
-    ;; Tell Gnus not to wait for a request, just display the thing
-    ;; straight away.
+    (add-to-list 'mm-inline-media-tests '("application/pgp$" mm-inline-text identity))
+    ;; Tell Gnus not to wait for a request, just display the thing straight away.
     (add-to-list 'mm-automatic-display "application/pgp$")
     ;; But don't display the signatures, please.
-    (setq mm-automatic-display
-     (remove "application/pgp-signature" mm-automatic-display))))
+    (setq mm-automatic-display (remove "application/pgp-signature" mm-automatic-display))))
 
 
 
