@@ -1,5 +1,3 @@
-(require 'gnus)
-
 (setq gnus-select-method '(nntp "news.gmane.org"))
 
 (setq gnus-secondary-select-methods
@@ -120,6 +118,10 @@
       nnfolder-directory           "~/.mail/archive"
       nnmail-message-id-cache-file "~/.mail/nnmail-cache")
 
+(setq gnus-treat-from-gravatar 'head
+      gnus-treat-mail-gravatar 'head
+      gnus-treat-mail-picon 'head
+      gnus-treat-x-pgp-sig 'head)
 
 (setq gnus-extract-address-components 'mail-extract-address-components)
 

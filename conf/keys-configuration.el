@@ -1,10 +1,5 @@
 (define-key global-map (kbd "C-c ;") 'comment-or-uncomment-current-line-or-region)
 
-(eval-after-load 'sh-script
-  '(progn
-    (define-key sh-mode-map (kbd "<f9>") 'executable-interpret)
-    (define-key sh-mode-map (kbd "M-l") 'downcase-word)))
-
 ;; disable arrow keys in minibuffer
 (dolist (local-mode-map
           '(minibuffer-local-completion-map
@@ -19,18 +14,6 @@
     (dolist (k '([right] [left] [up] [down]))
       (define-key key-map k nil))))
 
-;; make C-l do the right thing in various shells buffs
-(dolist (mode-map
-          '(inferior-emacs-lisp-mode-map
-            ;; slime-repl-mode-map
-            comint-mode-map
-            inf-ruby-mode-map))
-  (let ((key-map (symbol-value mode-map)))
-    (define-key key-map (kbd "C-l")
-      (lambda ()
-        (interactive)
-        (goto-char (point-max))
-        (recenter-top-bottom 0)))))
 
 (global-unset-key (kbd "<f9>"))         ; do not f***ing pop Gnuplot
 (global-unset-key (kbd "<f10>"))        ; do not f***ing open menu
@@ -48,7 +31,6 @@
 (define-key global-map (kbd "M-6") 'transpose-windows)
 (define-key global-map (kbd "M-7") 'toggle-current-window-dedication)
 (define-key global-map (kbd "M-=") 'balance-windows)
-
 
 
 (define-key global-map (kbd "C-<f5>")   ; switch to *scratch*
@@ -123,25 +105,6 @@
 (define-key global-map (kbd "C-x M-f") 'my-su-edit)
 
 (define-key global-map (kbd "C-c j") 'dired-jump)
-
-(eval-after-load 'image-mode
-  '(define-key image-mode-map (kbd "q")
-    (lambda () (interactive) (kill-buffer-ask (current-buffer)))))
-
-(eval-after-load 'arc-mode
-  '(define-key archive-mode-map (kbd "q")
-    (lambda () (interactive) (kill-buffer-ask (current-buffer)))))
-
-(eval-after-load 'tar-mode
-  '(define-key tar-mode-map (kbd "q")
-    (lambda () (interactive) (kill-buffer-ask (current-buffer)))))
-
-(eval-after-load 'conf-mode
-  ;; conflicts with project-root
-  '(define-key conf-mode-map (kbd "C-c SPC") nil))
-
-(eval-after-load 'time
-  '(define-key display-time-world-mode-map (kbd "<f1>") 'kill-this-buffer))
 
 (define-key global-map (kbd "M-?") 'hippie-expand)
 

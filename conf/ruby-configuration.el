@@ -29,6 +29,12 @@
                    'flymake-display-err-menu-for-current-line)
     (flymake-mode t)))
 
+(defun my-ruby-mode-hook ()
+  (ruby-electric-mode t)
+  (turn-on-drag-stuff-mode)
+  (setq comment-column 42)
+  (flymake-ruby-enable))
+
 (eval-after-load 'ruby-mode
   '(progn
     (require 'ruby-electric)
@@ -36,6 +42,7 @@
 
     (inf-ruby-keys)
     (define-key inf-ruby-mode-map (kbd "<f1>") 'yari)
+    (define-key inf-ruby-mode-map (kbd "C-l") 'recenter-top)
 
     ;; enable flymake
     (require 'flymake)
@@ -49,7 +56,9 @@
     (define-key ruby-mode-map (kbd "C-<return>")
      (lambda () (interactive) (move-end-of-line 1) (reindent-then-newline-and-indent)))
     (define-key ruby-mode-map (kbd "M-<return>")
-     (lambda () (interactive) (previous-line 1) (move-end-of-line 1) (reindent-then-newline-and-indent)))))
+     (lambda () (interactive) (previous-line 1) (move-end-of-line 1) (reindent-then-newline-and-indent)))
+
+    (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)))
 
 ;; Clear the compilation buffer between test runs.
 (eval-after-load 'ruby-compilation
@@ -64,14 +73,6 @@
 
 (eval-after-load 'yari
   '(define-key yari-mode-map (kbd "<f1>") 'yari))
-
-(defun my-ruby-mode-hook ()
-  (ruby-electric-mode t)
-  (drag-stuff-mode t)
-  (setq comment-column 42)
-  (flymake-ruby-enable))
-
-(add-hook 'ruby-mode-hook 'my-ruby-mode-hook)
 
 
 (setq rinari-minor-mode-prefixes '("r")) ; must be set before rinari loading

@@ -115,22 +115,10 @@
 (ido-everywhere t)
 
 
-
 (defun my-ido-minibuffer-setup-hook ()
   "allow line wrapping in the minibuffer"
   (set (make-local-variable 'truncate-lines) nil))
 (add-hook 'ido-minibuffer-setup-hook 'my-ido-minibuffer-setup-hook)
-
-
-(defun recentf-ido-find-file ()
-  "Find a recent file using Ido."
-  (interactive)
-  (let ((file (ido-completing-read "Choose recent file: " recentf-list nil t)))
-    (when file
-      (find-file file))))
-
-(define-key global-map (kbd "C-x f") 'recentf-ido-find-file)
-
 
 
 (defun ido-select-buffer-by-mode (mode choice-string &optional fallback-function)

@@ -19,18 +19,14 @@
         ido-file-history
         file-name-history))
 
-(require 'savehist)
-
-(savehist-mode t)
-
 (defun my-savehist-save-hook ()
   (dolist (var (append savehist-additional-variables
                        savehist-minibuffer-history-variables))
     (when (boundp var)
       (setq var (delete-dups (symbol-value var))))))
 
+(savehist-mode t)
 (add-hook 'savehist-save-hook 'my-savehist-save-hook)
-
 (savehist-save)
 
 
@@ -41,7 +37,7 @@
 
 (setq recentf-exclude
       '("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" ; images
-        "\\.\\(zip\\|rar\\|xpi\\|crx\\|oex\\)\\'" ; archives
+        "\\.\\(zip\\|tar\\|rar\\|xpi\\|crx\\|oex\\)\\'" ; archives
         "\\.nfo\\'"
         "\\.cue\\'"
         "\\.sfv\\'"
@@ -50,9 +46,7 @@
         "\\.srt\\'"
         "^Thumbs\\.db\\'"))
 
-(require 'recentf)
-
-(recentf-mode 1)
+(recentf-mode t)
 (recentf-save-list)
 
 
@@ -79,6 +73,4 @@
         indent-tabs-mode
         show-trailing-whitespace))
 
-(require 'desktop)
-
-(desktop-save-mode 1)
+(desktop-save-mode t)
