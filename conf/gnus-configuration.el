@@ -35,7 +35,8 @@
       mm-inline-text-html-with-images t)
 
 
-(setq sendmail-program "/usr/bin/msmtp")
+(setq message-send-mail-function 'message-send-mail-with-sendmail
+      sendmail-program "/usr/bin/msmtp")
 
 
 ;; Choose account label to feed msmtp -a option based on From header in Message buffer;
