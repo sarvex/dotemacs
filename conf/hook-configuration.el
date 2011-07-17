@@ -123,6 +123,6 @@
 
 ;; (add-hook 'text-mode-hook 'turn-on-orgstruct++)
 ;; (add-hook 'text-mode-hook 'turn-on-orgtbl)
-(add-hook 'text-mode-hook (lambda () (visual-line-mode t)))
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
-(add-hook 'help-mode-hook (lambda () (visual-line-mode t)))
+(add-hook 'help-mode-hook 'turn-on-visual-line-mode)

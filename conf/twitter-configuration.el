@@ -13,9 +13,5 @@
        "%FILL[ ]{%T}\n"
        "%FILL[  ]{%FACE[my-twittering-metainfo-face]{from %f%L%r%R}}\n"))
 
-
-(defun my-twittering-mode-hook ()
-  (visual-line-mode t))
-
 (eval-after-load 'twittering-mode
-  '(add-hook 'twittering-mode-hook 'my-twittering-mode-hook))
+  '(add-hook 'twittering-mode-hook 'turn-on-visual-line-mode))

@@ -162,9 +162,9 @@
 ;; mode hook
 (defun my-org-hook ()
   (org-indent-mode t)
-  (auto-fill-mode t)
+  (turn-on-auto-fill)
   ;; (flyspell-mode t)
-  (visual-line-mode t))
+  (turn-on-visual-line-mode))
 
 (add-hook 'org-mode-hook 'my-org-hook)
 
