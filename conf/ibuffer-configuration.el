@@ -120,14 +120,25 @@
             (filename . ".emacs.d/misc/")
             (mode . lisp-interaction-mode))))
 
-
 (add-to-list
  'my-ibuffer-filter-groups
  '("games" (or
+            (mode . 5x5-mode)
+            (mode . blackbox-mode)
+            (mode . bubbles-mode)
             (mode . doctor-mode)
-            (mode . solitaire-mode)
+            (mode . dun-mode)
+            (mode . gomoku-mode)
+            (mode . landmark-mode)
+            (mode . life-mode)
+            (mode . mpuz-mode)
             (mode . snake-mode)
+            (mode . solitaire-mode)
             (mode . tetris-mode)
+            (name . "^\\*Hanoi\\*$")
+            (name . "^\\*Pong\\*$")
+            (name . "^\\*fortune\\*$")
+            (name . "^bubbles-default-2-10-10-scores$")
             (name . "^snake-scores$")
             (name . "^tetris-scores$"))))
 
