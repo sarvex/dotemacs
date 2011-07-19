@@ -2,62 +2,64 @@
       midnight-period (* 3 60 60))
 
 (setq clean-buffer-list-kill-never-buffer-names
-      '("*scratch*"
+      '("*Group*"
         "*Messages*"
-        "newsrc-dribble"
-        "*Group*"))
+        "*scratch*"
+        "newsrc-dribble"))
 
 (setq clean-buffer-list-kill-never-regexps
       '("^ \\*Minibuf-.*\\*$"
         "^\\*tramp/"
-        "^my-.*-rc.el$"))
+        "^*-configuration.el$"))
 
 (setq clean-buffer-list-kill-buffer-names
       '("*Apropos*"
-        "*Buffer List*"
+        "*Async Shell Command*"
+        "*Backtrace*"
         "*Bookmark List*"
-        "*Process List*"
-        "*Ibuffer*"
+        "*Buffer List*"
+        "*Calendar*"
+        "*Colors*"
         "*Compile-Log*"
         "*Completions*"
         "*Custom Themes*"
-        "*Quail Completions*"
-        "*Kill Ring*"
         "*Dired log*"
-        "*Tetris*"
-        "*Snake*"
-        "*Occur"
         "*Ediff Registry*"
-        "*WoMan-Log*"
-        "*Keys*"
-        "*grep*"
-        "*Warnings*"
-        "*Calendar*"
-        "*Phases of Moon*"
-        "*Marked Files*"
-        "*Locate*"
-        "*Colors*"
-        "*interpretation*"
-        "*Image*"
-        "*Packages*"
-        "*Backtrace*"
         "*Faces*"
-        "*compilation*"))
+        "*Ibuffer*"
+        "*Image*"
+        "*Keys*"
+        "*Kill Ring*"
+        "*Locate*"
+        "*Marked Files*"
+        "*Occur"
+        "*Packages*"
+        "*Phases of Moon*"
+        "*Process List*"
+        "*Quail Completions*"
+        "*Shell Command Output*"
+        "*Snake*"
+        "*Tetris*"
+        "*Warnings*"
+        "*WoMan-Log*"
+        "*compilation*"
+        "*grep*"
+        "*interpretation*"))
 
 (setq clean-buffer-list-kill-regexps
-      '("^\\*Customize"
-        "^\\*aHg"
-        "^\\*magit"
-        "^\\*hg "
-        "^\\*anything"
-        "^\\*Pylookup"
-        "^\\*ioccur"
-        "^\\*image-dired"
+      '("^\\*Calc"
+        "^\\*Customize"
         "^\\*Finder"
-        "^\\*Thumbs: "
-        "^\\*yari "
+        "^\\*Pylookup"
         "^\\*Smex: "
-        "^\\*Calc"))
+        "^\\*Thumbs: "
+        "^\\*aHg"
+        "^\\*anything"
+        "^\\*hg "
+        "^\\*image-dired"
+        "^\\*ioccur"
+        "^\\*magit"
+        "^\\*yari "))
 
 (require 'midnight)
 

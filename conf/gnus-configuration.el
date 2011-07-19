@@ -57,14 +57,9 @@
 
 
 (require 'epg)
-;; verify/decrypt only if mml knows about the protocl used
 (setq mm-verify-option 'known
       mm-decrypt-option 'known)
-;; Here we make button for the multipart
-(setq gnus-buttonized-mime-types '("multipart/encrypted" "multipart/signed"))
-;; Automatically sign when sending mails
-;; (add-hook 'message-setup-hook 'mml-secure-message-sign-pgpmime)
-
+(setq gnus-buttonized-mime-types '("multipart/alternative" "multipart/encrypted" "multipart/signed"))
 ;; handling signed and encrypted messages
 (eval-after-load 'mm-decode
   '(progn
@@ -135,6 +130,7 @@
 (defun my-message-mode-hook ()
   (turn-on-orgstruct++)
   (turn-on-orgtbl)
+  (epa-mail-mode t)
   (flyspell-mode t))
 
 (add-hook 'message-mode-hook 'my-message-mode-hook)
