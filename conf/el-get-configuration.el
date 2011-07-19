@@ -163,6 +163,10 @@
     :url "http://www.graphviz.org/Misc/graphviz-dot-mode.el"
     :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))))
 
+   (:name edit-server
+    :features edit-server
+    :post-init (lambda () (edit-server-start)))
+
    ;; (:name slime
    ;;  :type cvs
    ;;  :module "slime"
