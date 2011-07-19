@@ -72,14 +72,14 @@
 (setq coffee-cleanup-whitespace t
       coffee-js-mode 'js-mode
       coffee-tab-width 2)
+(defun coffee-compile-dwim ()
+  (interactive)
+  (cond
+    ((region-active-p)
+     (call-interactively 'coffee-compile-region))
+    ((buffer-file-name)
+     (coffee-compile-file))
+    (t
+     (coffee-compile-buffer))))
 (eval-after-load 'coffee-mode
-  '(define-key coffee-mode-map (kbd "<f9>")
-    (lambda (&optional compile-file)
-      (interactive "P")
-      (cond
-        (compile-file
-         (coffee-compile-file))
-        ((region-active-p)
-         (call-interactively 'coffee-compile-region))
-        (t
-         (coffee-compile-buffer))))))
+  '(define-key coffee-mode-map (kbd "<f9>") 'coffee-compile-dwim))
