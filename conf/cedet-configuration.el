@@ -58,18 +58,11 @@ Symbols matching the text at point are put first in the completion list."
 (setq speedbar-use-images t
       speedbar-track-mouse-flag nil
       speedbar-update-flag nil
-      speedbar-show-unknown-files t)
+      speedbar-show-unknown-files t
+      speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|_darcs\\|\\.\\(git\\|hg\\|svn\\)\\)\\'")
 
 (eval-after-load 'speedbar
   '(progn
     ;; some dired-like bindings
     (define-key speedbar-key-map (kbd ";") 'speedbar-up-directory)
     (define-key speedbar-key-map (kbd "f") 'speedbar-edit-line)))
-
-(setq sr-speedbar-auto-refresh nil
-      sr-speedbar-right-side nil
-      sr-speedbar-delete-windows t
-      sr-speedbar-width 30)
-
-(autoload 'sr-speedbar-toggle "sr-speedbar" nil t)
-(define-key global-map (kbd "C-c s") 'sr-speedbar-toggle)
