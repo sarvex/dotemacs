@@ -7,7 +7,7 @@
 require 'pathname'
 
 class Pathname
-  def older_then(other)
+  def older_then?(other)
     mtime < other.mtime
   end
 end
@@ -16,7 +16,7 @@ HOME = Pathname.new(Dir.home)
 
 outdated = Pathname.glob("#{HOME}/.emacs.d/**/*.el").select do |src|
   bytecode = Pathname.new "#{src}c"
-  bytecode.exist? and bytecode.older_then src
+  bytecode.exist? and bytecode.older_then?(src)
 end.map { |p| p.relative_path_from HOME }
 
 puts outdated.empty? ? "All bytecode is up-to-date" : outdated
