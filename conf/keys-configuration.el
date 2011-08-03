@@ -110,3 +110,5 @@
 
 (define-key global-map (kbd "C-<f8>") 'multi-term)
 (define-key global-map (kbd "<f8>") 'multi-term-next)
+
+(define-key help-map "a" 'apropos)
