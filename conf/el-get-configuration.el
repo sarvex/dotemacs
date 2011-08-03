@@ -167,6 +167,10 @@
     :features edit-server
     :post-init (lambda () (edit-server-start)))
 
+   (:name project-root
+    :type git
+    :url "https://vderyagin@github.com/vderyagin/project-root.git")
+
    ;; (:name slime
    ;;  :type cvs
    ;;  :module "slime"
