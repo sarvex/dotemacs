@@ -1,5 +1,6 @@
 (setq browse-url-generic-program "/usr/bin/firefox"
-      browse-url-browser-function 'choose-browser)
+      ;; browse-url-browser-function 'choose-browser
+      browse-url-browser-function 'browse-url-generic)
 
 (defun choose-browser (url &rest args)
   (interactive "sURL: ")
