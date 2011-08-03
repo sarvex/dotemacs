@@ -13,6 +13,8 @@
        (hl-line-modes-hooks (append
                              ;; conf-modes-hooks
                              '(bookmark-bmenu-mode-hook
+                               archive-mode-hook
+                               tar-mode-hook
                                speedbar-mode-hook
                                ibuffer-mode-hook
                                twittering-mode-hook
@@ -126,3 +128,11 @@
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 (add-hook 'help-mode-hook 'turn-on-visual-line-mode)
+
+(add-hook 'find-file-hook
+          (lambda ()
+            "Automatically create file's parent path if it does not exist."
+            (let ((dir (file-name-directory buffer-file-name)))
+              (when (and (not (file-exists-p dir))
+                         (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
+                (make-directory dir t)))))
