@@ -169,7 +169,7 @@
 
    (:name project-root
     :type git
-    :url "https://vderyagin@github.com/vderyagin/project-root.git")
+    :url "https://github.com/vderyagin/project-root.git")
 
    ;; (:name slime
    ;;  :type cvs
