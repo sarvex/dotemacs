@@ -1,15 +1,3 @@
-(setq browse-url-generic-program "/usr/bin/firefox"
-      ;; browse-url-browser-function 'choose-browser
-      browse-url-browser-function 'browse-url-generic)
-
-(defun choose-browser (url &rest args)
-  (interactive "sURL: ")
-  (if (y-or-n-p "Use external browser? ")
-      (browse-url-generic url)
-      (w3m-browse-url url)))
-
-(define-key global-map (kbd "C-c f") 'browse-url-at-point)
-
 (setq w3m-default-display-inline-images nil
       w3m-use-cookies t)
 
