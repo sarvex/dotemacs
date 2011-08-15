@@ -28,6 +28,7 @@
 
     (add-hook 'ibuffer-mode-hook 'my-ibuffer-mode-hook)
 
+    (define-key ibuffer-mode-map (kbd "C-w") 'ibuffer-unmark-backward)
     (define-key ibuffer-mode-map (kbd "C-x C-f") 'ido-find-file)
     (define-key ibuffer-mode-map (kbd "[") 'ibuffer-toggle-filter-group)
     (dolist (k '([right] [left] [up] [down]))
@@ -118,6 +119,7 @@
  '("elisp" (or
             (filename . ".emacs.d/conf/")
             (filename . ".emacs.d/misc/")
+            (filename . ".emacs.d/scripts/")
             (mode . lisp-interaction-mode))))
 
 (add-to-list
@@ -135,6 +137,7 @@
             (mode . snake-mode)
             (mode . solitaire-mode)
             (mode . tetris-mode)
+            (name . "^\\*butterfly\\*$")
             (name . "^\\*Hanoi\\*$")
             (name . "^\\*Pong\\*$")
             (name . "^\\*fortune\\*$")
@@ -236,8 +239,9 @@
             (name . "^\\*Colors\\*$")
             (name . "^\\*Dired log\\*$")
             (name . "^\\*Ediff Registry\\*$")
-            (name . "^\\*Messages\\*$")
+            (name . "^\\*Gnuplot ")
             (name . "^\\*Image-Dired Edit Meta Data\\*$")
+            (name . "^\\*Messages\\*$")
             (name . "^\\*Minibuf")
             (name . "^\\*Phases of Moon\\*$")
             (name . "^\\*Quail Completions\\*$")

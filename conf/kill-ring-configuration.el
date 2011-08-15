@@ -19,6 +19,7 @@
        (list
         (region-beginning)
         (region-end))
+       (message "Killed line")
        (list
         (line-beginning-position)
         (line-beginning-position 2)))))

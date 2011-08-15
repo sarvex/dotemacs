@@ -149,10 +149,14 @@
                        makefile-gmake-mode-map
                        makefile-imake-mode-map
                        makefile-makepp-mode-map))
-    define-key mode-map (kbd "<f9>") 'recompile))
+    (define-key mode-map (kbd "<f9>") 'recompile)))
 
 
 (setq shell-file-name "/bin/zsh"
       explicit-shell-file-name "/bin/zsh"
       term-scroll-to-bottom-on-output nil
       term-scroll-show-maximum-output nil)
+
+(setq apropos-do-all t
+      apropos-label-face '(default)
+      apropos-property-face 'bold)

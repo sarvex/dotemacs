@@ -112,3 +112,5 @@
 (define-key global-map (kbd "<f8>") 'multi-term-next)
 
 (define-key help-map "a" 'apropos)
+
+(define-key global-map (kbd "C-c f") 'browse-url-at-point)

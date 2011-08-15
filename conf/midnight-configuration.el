@@ -1,5 +1,5 @@
-(setq clean-buffer-list-delay-general 5
-      midnight-period (* 3 60 60))
+(setq midnight-period 3600              ; one hour
+      clean-buffer-list-delay-general 5)
 
 (setq clean-buffer-list-kill-never-buffer-names
       '("*Group*"

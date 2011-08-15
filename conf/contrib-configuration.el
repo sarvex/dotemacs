@@ -54,17 +54,19 @@
         ("*Shell Command Output*")))
 
 (setq special-display-buffer-names
-      '("*Help*" "*Completions*" "*Occur*"
+      '("*Help*" "*Occur*"
         "*compilation*" "*Compile-Log*"
         "*Async Shell Command*"
+        "*twittering-edit*"
         "*Shell Command Output*"))
+(define-key global-map (kbd "C-h e") 'popwin:messages)
+
 
 
 (defun my-markdown-mode-hook ()
   (setq fill-column 78)
   (turn-on-auto-fill)
   (turn-on-orgtbl))
-
 (eval-after-load 'markdown-mode
   '(add-hook 'markdown-mode-hook 'my-markdown-mode-hook))
 
