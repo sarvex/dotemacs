@@ -1,5 +1,6 @@
 ;; on
 (auto-image-file-mode t)
+(column-number-mode t)
 (minibuffer-electric-default-mode t)
 (random t)
 (winner-mode t)                       ; window configuration history
