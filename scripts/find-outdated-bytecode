@@ -21,5 +21,12 @@ end.map { |p| p.relative_path_from HOME }
 
 bytecode_count = Dir["#{HOME}/.emacs.d/**/*.elc"].count
 
-puts "Total #{bytecode_count} byte-compiled files"
-puts outdated.empty? ? "All bytecode is up-to-date" : outdated
+puts "Total #{bytecode_count} byte-compiled files."
+
+puts (if outdated.empty?
+        "All bytecode is up-to-date."
+      else
+        "Outdated byte-compiled files found:"
+      end)
+
+puts outdated
