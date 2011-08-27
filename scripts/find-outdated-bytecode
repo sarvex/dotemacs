@@ -19,4 +19,7 @@ outdated = Pathname.glob("#{HOME}/.emacs.d/**/*.el").select do |src|
   bytecode.exist? and bytecode.older_then?(src)
 end.map { |p| p.relative_path_from HOME }
 
+bytecode_count = Dir["#{HOME}/.emacs.d/**/*.elc"].count
+
+puts "Total #{bytecode_count} byte-compiled files"
 puts outdated.empty? ? "All bytecode is up-to-date" : outdated
