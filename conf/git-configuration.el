@@ -2,7 +2,7 @@
 
 (setq magit-commit-all-when-nothing-staged 'ask-stage
       magit-repo-dirs-depth 6
-      magit-status-buffer-switch-function 'pop-to-buffer-same-window)
+      magit-status-buffer-switch-function 'switch-to-buffer)
 
 (eval-after-load 'magit
   '(progn

@@ -11,9 +11,9 @@
 (defun bookmarks/diredp-help ()
   (let ((bn "*dired+ help*"))
     (if (get-buffer bn)
-        (pop-to-buffer-same-window bn)
+        (switch-to-buffer bn)
         (diredp-dired-plus-help)
-        (pop-to-buffer-same-window "*Help*")
+        (switch-to-buffer "*Help*")
         (rename-buffer bn))
     (delete-other-windows)))
 
@@ -21,4 +21,4 @@
   (if (not (get-buffer buffer-name))
       (rename-buffer buffer-name)
       (kill-buffer "*info*")
-      (pop-to-buffer-same-window buffer-name)))
+      (switch-to-buffer buffer-name)))

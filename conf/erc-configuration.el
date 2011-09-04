@@ -49,7 +49,7 @@
       (bury-buffer)
       (setq buffers (cdr buffers)))
     (if buffers
-        (pop-to-buffer-same-window (car buffers))
+        (switch-to-buffer (car buffers))
         (call-interactively 'my-join-erc))))
 
 

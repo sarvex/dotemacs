@@ -40,7 +40,7 @@
           (buf "*scratch*"))
       (when (get-buffer buf)
         (setq content ""))
-      (pop-to-buffer-same-window buf)
+      (switch-to-buffer buf)
       (insert content))))
 
 (define-key global-map (kbd "C-<f6>")   ; switch to init.el

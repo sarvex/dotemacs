@@ -99,7 +99,6 @@
         "\\*Occur\\*"
         "-preprocessed\\*"
         "\\*CEDET"
-        ;; gnus
         "^newsrc-dribble$"
         "^\\*gnus trace\\*$"
         "^\\*imap log\\*$"
@@ -113,7 +112,7 @@
 (require 'ido)
 
 (ido-mode t)
-(ido-everywhere t)
+;; (ido-everywhere t)
 
 
 (defun my-ido-minibuffer-setup-hook ()
@@ -127,7 +126,7 @@
 FALLBACK-FUNCTION is called when there is no buffers with MODE"
   (let ((buf-list (my-get-bufers-by-mode mode)))
     (if buf-list
-        (pop-to-buffer-same-window
+        (switch-to-buffer
          (if (equal (length buf-list) 1)
              (car buf-list)
              (ido-completing-read choice-string buf-list)))
