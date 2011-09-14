@@ -35,7 +35,6 @@
    paredit
    textile-mode
    yaml-mode
-   (:name anything :lazy t)
    (:name io-mode :lazy t)
    (:name yari :lazy t)
    (:name haml-mode :lazy t)
@@ -62,6 +61,14 @@
    (:name coffee-mode
     :post-init nil
     :lazy t)
+
+   (:name anything
+    :lazy t
+    :load-path ("." "extensions" "contrib"))
+
+   (:name typing
+    :type emacswiki
+    :post-init (lambda () (autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)))
 
    (:name drag-stuff
     :type http
@@ -129,11 +136,6 @@
 
    (:name auto-complete
     :features auto-complete-config)
-
-   (:name rinari
-    :compile ("\.el$" "util/.*\.el")
-    :load-path ("." "util")
-    :features nil)
 
    (:name feature-mode
     :type git
