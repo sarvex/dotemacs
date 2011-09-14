@@ -141,6 +141,7 @@
             (name . "^\\*Hanoi\\*$")
             (name . "^\\*Pong\\*$")
             (name . "^\\*fortune\\*$")
+            (name . "^\\*The Typing Of Emacs\\*$")
             (name . "^bubbles-default-2-10-10-scores$")
             (name . "^snake-scores$")
             (name . "^tetris-scores$"))))

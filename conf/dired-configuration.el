@@ -1,5 +1,5 @@
 (setq directory-free-space-args "-Pkh"
-      dired-dwim-target t
+      dired-dwim-target nil
       dired-isearch-filenames nil
       dired-keep-marker-rename nil
       dired-keep-marker-copy nil

@@ -6,6 +6,7 @@
 (eval-after-load 'cedet
   '(progn
     (semantic-load-enable-code-helpers) ; basic stuff
+    (semanticdb-toggle-global-mode)
     (which-function-mode t)
     (global-senator-minor-mode -1)
 
