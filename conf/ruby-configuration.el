@@ -1,4 +1,4 @@
-(dolist (f '("\\.\\(rb\\|ru\\|rake\\|thor\\|gemspec\\)\\'"
+(dolist (f '("\\.\\(rb\\|ru\\|builder\\|rake\\|thor\\|gemspec\\)\\'"
              "\\(rake\\|thor\\|guard\\|gem\\|cap\\|vagrant\\)file\\'"))
   (add-to-list 'auto-mode-alist `(,f . ruby-mode)))
 
@@ -75,5 +75,5 @@
   '(define-key yari-mode-map (kbd "<f1>") 'yari))
 
 
-(setq rinari-minor-mode-prefixes '("r")) ; must be set before rinari loading
-(require 'rinari)
+;; (setq rinari-minor-mode-prefixes '("r")) ; must be set before rinari loading
+;; (require 'rinari)
