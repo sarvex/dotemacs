@@ -58,6 +58,7 @@
         "*compilation*" "*Compile-Log*"
         "*Async Shell Command*"
         "*twittering-edit*"
+        "*magit-edit-log*"
         "*Shell Command Output*"))
 (define-key global-map (kbd "C-h e") 'popwin:messages)
 
@@ -85,3 +86,6 @@
      (coffee-compile-buffer))))
 (eval-after-load 'coffee-mode
   '(define-key coffee-mode-map (kbd "<f9>") 'coffee-compile-dwim))
+
+(eval-after-load 'yaml-mode
+  '(define-key yaml-mode-map (kbd "RET") 'newline-and-indent))
