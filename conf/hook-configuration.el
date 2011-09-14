@@ -36,6 +36,7 @@
                                 cperl-mode-hook
                                 sh-mode-hook
                                 graphviz-dot-mode-hook
+                                yaml-mode-hook
                                 makefile-mode-hook)))
        (whitespace-modes-hooks (append
                                 conf-modes-hooks
@@ -57,6 +58,7 @@
                                   graphviz-dot-mode-hook
                                   lisp-interaction-mode-hook
                                   change-log-mode-hook
+                                  yaml-mode-hook
                                   makefile-mode-hook)))
        (hl-keywords-modes-hooks (append
                                  conf-modes-hooks
@@ -75,6 +77,7 @@
                                    css-mode-hook
                                    lisp-interaction-mode-hook
                                    graphviz-dot-mode-hook
+                                   yaml-mode-hook
                                    makefile-mode-hook)))
        (subword-modes-hooks '(haskell-mode-hook
                               ruby-mode-hook))
