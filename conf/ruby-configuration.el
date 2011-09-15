@@ -41,8 +41,8 @@
     (require 'inf-ruby)
 
     (inf-ruby-keys)
-    (define-key inf-ruby-mode-map (kbd "<f1>") 'yari)
-    (define-key inf-ruby-mode-map (kbd "C-l") 'recenter-top)
+    (define-key inferior-ruby-mode-map (kbd "<f1>") 'yari)
+    (define-key inferior-ruby-mode-map (kbd "C-l") 'recenter-top)
 
     ;; enable flymake
     (require 'flymake)

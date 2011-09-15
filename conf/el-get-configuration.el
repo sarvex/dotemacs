@@ -75,9 +75,18 @@
     :url "https://raw.github.com/rejeep/drag-stuff/master/drag-stuff.el"
     :lazy t)
 
+   (:name ruby-mode
+    :type http
+    :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-mode.el")
+
+   (:name inf-ruby
+    :type http
+    :url "https://raw.github.com/ruby/ruby/trunk/misc/inf-ruby.el"
+    :features nil)
+
    (:name ruby-electric
     :type http
-    :url "https://raw.github.com/ruby/ruby/bd90dc80f29a09376e04f5f1b6adbe17806a67fa/misc/ruby-electric.el"
+    :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-electric.el"
     :post-init nil)
 
    (:name gist
@@ -172,15 +181,6 @@
    (:name project-root
     :type git
     :url "https://github.com/vderyagin/project-root.git")
-
-   ;; (:name slime
-   ;;  :type cvs
-   ;;  :module "slime"
-   ;;  :url ":pserver:anonymous:anonymous@common-lisp.net:/project/slime/cvsroot"
-   ;;  :build ("cd doc; make slime.info")
-   ;;  :info "doc"
-   ;;  :load-path "."
-   ;;  :compile ".")
 
    ))
 
