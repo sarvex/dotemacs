@@ -79,8 +79,6 @@
                                    graphviz-dot-mode-hook
                                    yaml-mode-hook
                                    makefile-mode-hook)))
-       (subword-modes-hooks '(haskell-mode-hook
-                              ruby-mode-hook))
        (eldoc-modes-hooks '(;; python-mode-hook
                             c-mode-hook
                             emacs-lisp-mode-hook
@@ -108,9 +106,6 @@
                  '(("\\<\\(XXX\\|TODO\\|NOTE\\|BUG\\|FIXME\\|HACK\\|REFACTOR\\|IMPORTANT\\|HERE BE DRAGONS\\):"
                     1 font-lock-warning-face t))))))
 
-  ;; for CamelCase
-  (dolist (hook subword-modes-hooks)
-    (add-hook hook (lambda () (subword-mode t))))
 
   ;; eldoc
   (dolist (hook eldoc-modes-hooks)

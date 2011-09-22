@@ -1,4 +1,5 @@
 ;; on
+(global-subword-mode t)
 (auto-image-file-mode t)
 (column-number-mode t)
 (minibuffer-electric-default-mode t)
