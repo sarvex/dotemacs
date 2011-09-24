@@ -1,4 +1,6 @@
-(unless (require 'el-get "~/.emacs.d/el-get/el-get/el-get" 'noerror)
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
   (url-retrieve
    "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
    (lambda (s)
