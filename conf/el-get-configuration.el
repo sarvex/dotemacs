@@ -89,9 +89,13 @@
     :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-electric.el"
     :post-init nil)
 
+   (:name gh
+    :type git
+    :url "https://github.com/sigma/gh.el")
+
    (:name gist
     :type git
-    :url "https://github.com/defunkt/gist.el.git"
+    :url "https://github.com/mhayashi1120/gist.el.git"
     :lazy t)
 
    (:name yasnippet

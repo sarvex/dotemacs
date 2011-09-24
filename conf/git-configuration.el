@@ -13,7 +13,12 @@
     (define-key magit-mode-map (kbd "M-4") nil)
     (add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)))
 
-
-(setq gist-view-gist t
+(setq gist-authenticate-function ' gist-basic-authentication
+      ;; gist-authenticate-function 'gist-oauth2-authentication
+      gist-user-password my-github-password
+      gist-view-gist t
       github-user my-github-username
       github-token my-github-token)
+
+(eval-after-load 'gist
+  '(require 'eieio))
