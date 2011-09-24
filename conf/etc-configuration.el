@@ -101,14 +101,15 @@
 
 
 ;; misc stuff
-(setq debug-on-error nil
+(setq compilation-window-height 18
+      debug-on-error nil
       diff-switches "-uc"
       echo-keystrokes 0.4
+      grep-scroll-output t
+      mark-even-if-inactive nil
       stack-trace-on-error nil
       standard-indent 4
       tab-always-indent 'complete
-      grep-scroll-output t
-      compilation-window-height 18
       tramp-default-method "su"
       x-stretch-cursor t)
 
