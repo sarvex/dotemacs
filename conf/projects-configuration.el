@@ -5,22 +5,21 @@
 (setq project-root-storage-file "~/.emacs.d/project-roots")
 
 (setq project-roots
-      `(("Django project"
-         :root-contains-files ("manage.py")
-         :filename-regex ,(regexify-ext-list '(py html css js sh))
-         :exclude-paths ("contrib"))
-        ("Generic Python project"
-         :root-contains-files ("setup.py")
-         :filename-regex ,(regexify-ext-list '(py)))
-        ("Generic Rake project"
+      `(("Generic Rake project"
          :root-contains-files ("Rakefile")
-         :exclude-paths (".git" ".hg"))
+         :exclude-paths '(".git" ".hg" "vendor" "tmp"))
+        ("Generic Guard project"
+         :root-contains-files ("Guardfile")
+         :exclude-paths '(".git" ".hg" "vendor" "tmp"))
+        ("Generic Bundler project"
+         :root-contains-files ("Gemfile")
+         :exclude-paths '(".git" ".hg" "vendor" "tmp"))
         ("Generic Mercurial project"
          :root-contains-files (".hg")
-         :exclude-paths (".hg"))
+         :exclude-paths '(".hg" "vendor" "tmp"))
         ("Generic git project"
          :root-contains-files (".git")
-         :exclude-paths (".git"))))
+         :exclude-paths '(".git" "vendor" "tmp"))))
 
 
 (define-key global-map (kbd "C-c p f") 'project-root-find-file)
