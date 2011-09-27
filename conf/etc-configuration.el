@@ -106,7 +106,6 @@
       diff-switches "-uc"
       echo-keystrokes 0.4
       grep-scroll-output t
-      mark-even-if-inactive nil
       stack-trace-on-error nil
       standard-indent 4
       tab-always-indent 'complete
