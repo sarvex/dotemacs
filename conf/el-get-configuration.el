@@ -1,11 +1,10 @@
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
 (unless (require 'el-get nil 'noerror)
   (url-retrieve
    "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
    (lambda (s)
-     (goto-char (point-max))
-     (eval-print-last-sexp))))
+     (let (el-get-master-branch)
+       (goto-char (point-max))
+       (eval-print-last-sexp)))))
 
 (defun el-get-regenerate-all-autoloads ()
   "Regenerates all autoloads"
@@ -37,6 +36,7 @@
    paredit
    textile-mode
    yaml-mode
+
    (:name io-mode :lazy t)
    (:name yari :lazy t)
    (:name haml-mode :lazy t)
@@ -186,9 +186,7 @@
 
    (:name project-root
     :type git
-    :url "https://github.com/vderyagin/project-root.git")
+    :url "https://github.com/vderyagin/project-root.git")))
 
-   ))
-
-;; (el-get 'sync)
-(el-get)
+(el-get 'wait)
+(load el-get-autoload-file)
