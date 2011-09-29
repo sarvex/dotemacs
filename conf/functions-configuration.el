@@ -289,7 +289,25 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
         (kill-new text)
         (insert text))))
 
+
 (defun recenter-top ()
   (interactive)
   (goto-char (point-max))
   (recenter-top-bottom 0))
+
+
+(defun eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-kill-sexp)
+  (condition-case nil
+      (prin1 (eval (read (current-kill 0)))
+             (current-buffer))
+    (error (message "Invalid expression")
+           (insert (current-kill 0)))))
+
+
+(defun recompile-init (&optional arg)
+  "Byte-compile all emacs configs."
+  (interactive "P")
+  (byte-recompile-directory "~/.emacs.d/dotemacs/conf" 0 arg))
