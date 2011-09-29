@@ -7,5 +7,5 @@
   ;; (enable-theme 'quiet-light)
   (load-file "~/.emacs.d/themes/quiet-light-theme.el"))
 
-(load "misc/temporary-stuff")
-(load "misc/passwords.el.gpg")            ; load passwords
+(load "dotemacs/misc/temporary-stuff")
+(load "dotemacs/misc/passwords.el.gpg") ; load passwords

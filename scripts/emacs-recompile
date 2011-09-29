@@ -1,7 +1,7 @@
 #! /bin/sh
 
-INITFILE=$HOME/.emacs.d/misc/compile-init.el
-COMPILE_PATH=$HOME/.emacs.d/conf
+INITFILE=$HOME/.emacs.d/dotemacs/misc/compile-init.el
+COMPILE_PATH=$HOME/.emacs.d/dotemacs/conf
 ELISP_FILES=$(find -L $COMPILE_PATH -iname "*.el")
 COMPILED_FILES=$(find -L $COMPILE_PATH -iname "*.elc")
 
