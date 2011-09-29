@@ -117,9 +117,9 @@
 (add-to-list
  'my-ibuffer-filter-groups
  '("elisp" (or
-            (filename . ".emacs.d/conf/")
-            (filename . ".emacs.d/misc/")
-            (filename . ".emacs.d/scripts/")
+            (filename . ".emacs.d/dotemacs/conf/")
+            (filename . ".emacs.d/dotemacs/misc/")
+            (filename . ".emacs.d/dotemacs/scripts/")
             (mode . lisp-interaction-mode))))
 
 (add-to-list

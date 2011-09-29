@@ -1,7 +1,7 @@
 (setq twittering-auth-method 'xauth
       twittering-connection-type-order '(curl wget native)
       twittering-icon-mode t
-      twittering-private-info-file (expand-file-name "~/.emacs.d/misc/twittering.gpg")
+      twittering-private-info-file (expand-file-name "~/.emacs.d/dotemacs/misc/twittering.gpg")
       twittering-scroll-mode t
       twittering-timer-interval 150
       twittering-use-master-password t)

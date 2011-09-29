@@ -46,7 +46,7 @@
 (define-key global-map (kbd "C-<f6>")   ; switch to init.el
   (lambda ()
     (interactive)
-    (find-file "~/.emacs.d/conf/init.el")))
+    (find-file "~/.emacs.d/dotemacs/conf/init.el")))
 
 (define-key global-map (kbd "C-x c")
   (lambda ()

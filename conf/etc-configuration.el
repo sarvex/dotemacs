@@ -34,7 +34,7 @@
   (add-to-list 'completion-ignored-extensions ext))
 
 
-(setq gnus-init-file "~/.emacs.d/conf/gnus-configuration.el"
+(setq gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration.el"
       custom-file "~/.emacs.d/custom.el"
       snake-score-file "~/.emacs.d/games/snake-scores"
       tetris-score-file "~/.emacs.d/games/tetris-scores"
