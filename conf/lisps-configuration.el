@@ -2,15 +2,15 @@
 
 (setq ielm-header "")
 
-(define-key emacs-lisp-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
+(define-key lisp-mode-shared-map (kbd "<return>") 'reindent-then-newline-and-indent)
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
+
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 (define-key emacs-lisp-mode-map (kbd "M-;") 'comment-dwim)
-(define-key lisp-interaction-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
+
 (define-key lisp-interaction-mode-map (kbd "C-c j") 'eval-print-last-sexp)
 (define-key lisp-interaction-mode-map (kbd "C-c C-c") 'eval-defun)
 (define-key lisp-interaction-mode-map (kbd "M-.") 'find-function-at-point)
-(define-key lisp-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
 
 (eval-after-load 'ielm
   '(progn
