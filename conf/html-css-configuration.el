@@ -13,8 +13,8 @@
                                     (match-end 1) "ƒ")
                     nil))))))
 
-(eval-after-load 'css-mode
-  '(add-hook 'css-mode-hook (lambda () (rainbow-mode t))))
+;; (eval-after-load 'css-mode
+;;   '(add-hook 'css-mode-hook (lambda () (rainbow-mode t))))
 
 ;; (eval-after-load 'js
 ;;   '(add-hook 'js-mode-hook 'pretty-js-functions))
