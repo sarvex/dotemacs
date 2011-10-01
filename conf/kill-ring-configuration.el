@@ -1,4 +1,4 @@
-(setq delete-active-region 'kill)
+(setq delete-active-region nil)
 
 (defadvice kill-ring-save (before slick-copy activate compile)
   "When called interactively with no active region, copy a single line instead."
