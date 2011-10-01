@@ -13,7 +13,8 @@
     (if (not (file-writable-p f))
         (message "Autoloads file can not be written. Aborting")
         (when (file-exists-p f) (delete-file f))
-        (el-get))))
+        (el-get)
+        (byte-compile-file f))))
 
 (setq
  el-get-sources
@@ -185,4 +186,4 @@
     :url "https://github.com/vderyagin/project-root.git")))
 
 (el-get 'wait)
-(load el-get-autoload-file)
+(load (file-name-sans-extension el-get-autoload-file))
