@@ -9,4 +9,8 @@
 (setq c-eldoc-includes "`pkg-config gtk+-2.0 --cflags` -I./ -I../ -I/usr/include/")
 
 (eval-after-load 'cc-mode
-  '(define-key c-mode-base-map (kbd "<f9>") 'recompile))
+  '(progn
+     (define-key c-mode-base-map (kbd "<return>") 'reindent-then-newline-and-indent)
+     (define-key c-mode-base-map (kbd "<f9>") 'recompile)))
+
+
