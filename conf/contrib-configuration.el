@@ -47,7 +47,6 @@
 (setq popwin:special-display-config
       '(("*Help*")
         ;; ("*Completions*" :noselect nil)
-        ("*compilation*" :noselect t)
         ("*Compile-Log*" :noselect t)
         ("*Occur*" :noselect t)
         ("*Async Shell Command*")
@@ -55,7 +54,7 @@
 
 (setq special-display-buffer-names
       '("*Help*" "*Occur*"
-        "*compilation*" "*Compile-Log*"
+        "*Compile-Log*"
         "*Async Shell Command*"
         "*twittering-edit*"
         "*magit-edit-log*"
