@@ -79,9 +79,6 @@
                                    graphviz-dot-mode-hook
                                    yaml-mode-hook
                                    makefile-mode-hook)))
-       (rainbow-modes-hooks '(css-mode-hook
-                              sass-mode-hook
-                              scss-mode-hook))
        (eldoc-modes-hooks '(;; python-mode-hook
                             c-mode-hook
                             emacs-lisp-mode-hook
@@ -106,11 +103,8 @@
               (lambda ()
                 (font-lock-add-keywords
                  nil
-                 '(("\\<\\(XXX\\|TODO\\|NOTE\\|BUG\\|FIXME\\|HACK\\|REFACTOR\\|IMPORTANT\\|HERE BE DRAGONS\\):"
+                 '(("\\<\\(XXX\\|TODO\\|NOTE\\|BUG\\|FIXME\\|WARNING\\|HACK\\|REFACTOR\\|IMPORTANT\\|HERE BE DRAGONS\\):"
                     1 font-lock-warning-face t))))))
-
-  (dolist (hook rainbow-modes-hooks)
-    (add-hook hook (lambda () (rainbow-mode))))
 
   ;; eldoc
   (dolist (hook eldoc-modes-hooks)

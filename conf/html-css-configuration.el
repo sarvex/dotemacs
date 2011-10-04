@@ -22,4 +22,7 @@
 (eval-after-load 'haml-mode
   '(define-key haml-mode-map (kbd "<return>") 'newline-and-indent))
 
-
+(dolist (hook '(css-mode-hook
+                sass-mode-hook
+                scss-mode-hook))
+  (add-hook hook (lambda () (rainbow-mode))))
