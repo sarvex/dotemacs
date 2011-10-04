@@ -101,8 +101,7 @@
 
 
 ;; misc stuff
-(setq compilation-window-height 18
-      debug-on-error nil
+(setq debug-on-error nil
       diff-switches "-uc"
       echo-keystrokes 0.4
       grep-scroll-output t
