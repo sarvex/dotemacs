@@ -311,3 +311,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
   "Byte-compile all emacs configs."
   (interactive "P")
   (byte-recompile-directory "~/.emacs.d/dotemacs/conf" 0 arg))
+
+(defun truncate-lines ()
+  (setq truncate-lines t))

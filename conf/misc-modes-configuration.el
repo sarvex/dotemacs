@@ -151,6 +151,7 @@
 (eval-after-load 'compile
   '(define-key compilation-mode-map (kbd "<f9>") 'recompile))
 
+(add-hook 'compilation-mode-hook 'truncate-lines)
 
 (setq shell-file-name "/bin/zsh"
       explicit-shell-file-name "/bin/zsh"
