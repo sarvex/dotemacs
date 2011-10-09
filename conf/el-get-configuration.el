@@ -33,6 +33,7 @@
    swank-clojure
    magit
    openwith
+   rdebug
    rhtml-mode
    paredit
    textile-mode
