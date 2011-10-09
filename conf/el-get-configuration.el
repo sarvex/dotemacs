@@ -38,20 +38,21 @@
    textile-mode
    yaml-mode
 
-   (:name io-mode :lazy t)
-   (:name yari :lazy t)
+   (:name asciidoc :lazy t)
+   (:name dired+ :lazy t)
+   (:name dired-details :lazy t)
+   (:name erc-highlight-nicknames :lazy t)
    (:name haml-mode :lazy t)
+   (:name iedit :lazy t)
+   (:name io-mode :lazy t)
+   (:name ioccur :lazy t)
+   (:name quack :lazy t)
+   (:name rainbow-mode :lazy t)
    (:name sass-mode :lazy t)
    (:name scss-mode :lazy t)
-   (:name wikipedia-mode :lazy t)
-   (:name iedit :lazy t)
-   (:name ioccur :lazy t)
    (:name twittering-mode :lazy t)
-   (:name rainbow-mode :lazy t)
-   (:name erc-highlight-nicknames :lazy t)
-   (:name dired+ :lazy t)
-   (:name asciidoc :lazy t)
-   (:name dired-details :lazy t)
+   (:name wikipedia-mode :lazy t)
+   (:name yari :lazy t)
 
    (:name smex
     :post-init nil

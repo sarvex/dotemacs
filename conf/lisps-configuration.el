@@ -39,12 +39,14 @@
           (lambda ()
             (when (member major-mode '(lisp-mode
                                        emacs-lisp-mode
+                                       scheme-mode
                                        lisp-interaction-mode))
               (indent-region (point-min) (point-max)))))
 
 (dolist (mode-hook '(emacs-lisp-mode-hook
                      lisp-mode-hook
                      scheme-mode-hook
+                     inferior-scheme-mode-hook
                      lisp-interaction-mode-hook
                      ;; slime-repl-mode-hook
                      ielm-mode-hook))
@@ -64,9 +66,19 @@
 ;; paredit for all lisp modes
 (dolist (mode-hook '(emacs-lisp-mode-hook
                      clojure-mode-hook
-                     scheme-mode
+                     scheme-mode-hook
+                     inferior-scheme-mode-hook
                      lisp-mode-hook
                      lisp-interaction-mode-hook
                      slime-repl-mode-hook
                      ielm-mode-hook))
   (add-hook mode-hook (lambda () (paredit-mode t))))
+
+
+;; scheme
+
+(setq scheme-program-name "mzscheme"
+      quack-remap-find-file-bindings-p nil)
+
+(eval-after-load 'scheme
+  '(require 'quack))
