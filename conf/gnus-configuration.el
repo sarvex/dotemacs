@@ -95,7 +95,7 @@
       gnus-auto-extend-newsgroup t
       gnus-thread-indent-level 2)
 
-(setq gnus-agent-directory         "~/.news/gnus/agent"
+(setq gnus-agent-directory         "~/.mail/gnus/agent"
       gnus-article-save-directory  "~/.mail/gnus"
       gnus-default-directory       "~/.mail/gnus"
       gnus-directory               "~/.mail/gnus"

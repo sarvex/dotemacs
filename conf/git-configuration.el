@@ -17,6 +17,7 @@
       ;; gist-authenticate-function 'gist-oauth2-authentication
       gist-user-password my-github-password
       gist-view-gist t
+      gist-working-directory "~/dev/gists"
       github-user my-github-username
       github-token my-github-token)
 
