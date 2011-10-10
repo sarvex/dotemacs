@@ -78,7 +78,8 @@
 ;; scheme
 
 (setq scheme-program-name "mzscheme"
-      quack-remap-find-file-bindings-p nil)
+      quack-remap-find-file-bindings-p nil
+      quack-fontify-style 'emacs)
 
 (eval-after-load 'scheme
   '(require 'quack))
