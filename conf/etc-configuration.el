@@ -38,6 +38,7 @@
       custom-file "~/.emacs.d/custom.el"
       snake-score-file "~/.emacs.d/games/snake-scores"
       tetris-score-file "~/.emacs.d/games/tetris-scores"
+      type-break-file-name "~/.emacs.d/type-break"
       ;; mpc-mpd-music-directory "/mnt/storage/music/"
       wget-download-directory "~/temp/")
 
