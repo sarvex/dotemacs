@@ -40,6 +40,7 @@
    yaml-mode
 
    (:name asciidoc :lazy t)
+   (:name csharp-mode :lazy t)
    (:name dired+ :lazy t)
    (:name dired-details :lazy t)
    (:name erc-highlight-nicknames :lazy t)
