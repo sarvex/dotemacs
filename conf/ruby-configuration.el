@@ -31,7 +31,6 @@
 
 (defun my-ruby-mode-hook ()
   (ruby-electric-mode t)
-  (turn-on-drag-stuff-mode)
   (setq comment-column 42)
   (flymake-ruby-enable))
 

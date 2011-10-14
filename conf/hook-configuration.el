@@ -67,6 +67,7 @@
                                    lisp-mode-hook
                                    c-mode-common-hook
                                    coffee-mode-hook
+                                   js-mode-hook
                                    python-mode-hook
                                    cperl-mode-hook
                                    sh-mode-hook
@@ -79,6 +80,23 @@
                                    graphviz-dot-mode-hook
                                    yaml-mode-hook
                                    makefile-mode-hook)))
+       (drag-stuff-modes-hooks (append
+                                conf-modes-hooks
+                                '(haskell-mode-hook
+                                  c-mode-common-hook
+                                  coffee-mode-hook
+                                  js-mode-hook
+                                  python-mode-hook
+                                  cperl-mode-hook
+                                  sh-mode-hook
+                                  nxml-mode-hook
+                                  sgml-mode-hook
+                                  haml-mode-hook
+                                  ruby-mode-hook
+                                  css-mode-hook
+                                  graphviz-dot-mode-hook
+                                  yaml-mode-hook
+                                  makefile-mode-hook)))
        (eldoc-modes-hooks '(;; python-mode-hook
                             c-mode-hook
                             emacs-lisp-mode-hook
@@ -100,6 +118,10 @@
   ;; highlight keywords
   (dolist (hook hl-keywords-modes-hooks)
     (add-hook hook 'my-turn-on-hl-keywords))
+
+  ;; drag-stuff mode
+  (dolist (hook drag-stuff-modes-hooks)
+    (add-hook hook 'turn-on-drag-stuff-mode))
 
   ;; eldoc
   (dolist (hook eldoc-modes-hooks)
