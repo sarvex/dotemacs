@@ -114,3 +114,5 @@
 (define-key help-map "a" 'apropos)
 
 (define-key global-map (kbd "C-c f") 'browse-url-at-point)
+
+(define-key global-map (kbd "C-c l") 'linum-mode)
