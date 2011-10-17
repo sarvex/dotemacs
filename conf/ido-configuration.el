@@ -112,6 +112,7 @@
 (require 'ido)
 
 (ido-mode t)
+(ido-ubiquitous t)
 ;; (ido-everywhere t)
 
 

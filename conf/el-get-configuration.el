@@ -184,6 +184,10 @@
     :url "http://www.graphviz.org/Misc/graphviz-dot-mode.el"
     :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))))
 
+   (:name ido-ubiquitous
+    :type git
+    :url "https://github.com/technomancy/ido-ubiquitous.git")
+
    (:name project-root
     :type git
     :url "https://github.com/vderyagin/project-root.git")))
