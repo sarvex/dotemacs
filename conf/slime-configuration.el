@@ -23,6 +23,7 @@
 
     (add-hook 'slime-mode-hook 'set-up-slime-ac)
     (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+    (add-hook 'slime-repl-mode-hook 'clojure-mode-font-lock-setup)
 
     (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
     (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
