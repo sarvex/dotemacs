@@ -263,6 +263,7 @@
             (name . "^\\*imap log\\*$")
             (name . "^\\*magit-process\\*$")
             (name . "^\\*nnimap ")
+            (name . "^\\*swank\\*$")
             (name . "^\\*tramp/")
             (name . "^\\*twmode")
             (name . "^newsrc-dribble$"))))
