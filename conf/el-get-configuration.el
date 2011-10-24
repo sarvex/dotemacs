@@ -48,6 +48,7 @@
    (:name iedit :lazy t)
    (:name io-mode :lazy t)
    (:name ioccur :lazy t)
+   (:name php-mode :lazy t)
    (:name quack :lazy t)
    (:name rainbow-mode :lazy t)
    (:name sass-mode :lazy t)
