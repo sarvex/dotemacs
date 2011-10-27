@@ -2,6 +2,8 @@
 
 (setq ielm-header "")
 
+(setq lisp-indent-function 'common-lisp-indent-function)
+
 (define-key lisp-mode-shared-map (kbd "<return>") 'reindent-then-newline-and-indent)
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
 

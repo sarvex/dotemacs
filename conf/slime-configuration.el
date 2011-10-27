@@ -1,6 +1,5 @@
 (setq common-lisp-hyperspec-root "file:/usr/share/doc/hyperspec/HyperSpec/"
       inferior-lisp-program "/usr/bin/sbcl --noinform"
-      lisp-indent-function 'common-lisp-indent-function
       slime-autodoc-use-multiline-p t
       slime-header-line-p nil
       slime-net-coding-system 'utf-8-unix
