@@ -16,6 +16,9 @@
     (define-key magit-mode-map (kbd "M-3") nil)
     (define-key magit-mode-map (kbd "M-4") nil)
 
+    (define-key magit-mode-map (kbd "M-n") 'magit-show-commit-forward)
+    (define-key magit-mode-map (kbd "M-p") 'magit-show-commit-backward)
+
     (add-hook 'magit-log-edit-mode-hook 'my-magit-log-edit-hook)))
 
 (setq gist-authenticate-function ' gist-basic-authentication
