@@ -38,6 +38,7 @@
   '(progn
     (require 'ruby-electric)
     (require 'inf-ruby)
+    (require 'rcodetools)
 
     (inf-ruby-keys)
     (define-key inferior-ruby-mode-map (kbd "<f1>") 'yari)
@@ -50,6 +51,7 @@
       (push `(,f flymake-ruby-init) flymake-allowed-file-name-masks))
     (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
+    (define-key ruby-mode-map (kbd "<f9>") 'xmp)
     (define-key ruby-mode-map (kbd "<f1>") 'yari)
     (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
     (define-key ruby-mode-map (kbd "C-<return>")
