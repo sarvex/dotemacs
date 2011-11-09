@@ -96,6 +96,7 @@
                                   css-mode-hook
                                   graphviz-dot-mode-hook
                                   yaml-mode-hook
+                                  magit-log-edit-mode-hook
                                   makefile-mode-hook)))
        (eldoc-modes-hooks '(;; python-mode-hook
                             c-mode-hook
