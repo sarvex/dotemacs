@@ -168,3 +168,8 @@
     (when (and (not (file-exists-p dir))
                (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
       (make-directory dir t))))
+
+
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (load-file "~/.emacs.d/themes/quiet-light-theme.el")))
