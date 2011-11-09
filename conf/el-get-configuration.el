@@ -189,6 +189,10 @@
     :type git
     :url "https://github.com/technomancy/ido-ubiquitous.git")
 
+   (:name nginx-mode
+    :type git
+    :url "https://github.com/ajc/nginx-mode.git")
+
    (:name project-root
     :type git
     :url "https://github.com/vderyagin/project-root.git")))
