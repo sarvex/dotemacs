@@ -26,6 +26,7 @@
 
 (dolist (hook '(c-mode-hook
                 css-mode-hook
+                java-mode-hook
                 emacs-lisp-mode-hook
                 erlang-mode-hook
                 html-mode-hook
