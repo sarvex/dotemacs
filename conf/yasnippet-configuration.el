@@ -40,3 +40,5 @@
                 snippet-mode-hook
                 text-mode-hook))
   (add-hook hook (lambda () (yas/minor-mode t))))
+
+(add-to-list 'auto-mode-alist '("\\.yasnippet\\'" . snippet-mode))
