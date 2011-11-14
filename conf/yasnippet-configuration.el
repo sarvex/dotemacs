@@ -11,10 +11,11 @@
         yas/completing-prompt
         yas/no-prompt))
 
+
 (eval-after-load 'yasnippet
   '(progn
     (require 'dropdown-list)
-    (add-to-list 'yas/snippet-dirs (expand-file-name "~/.emacs.d/yasnippet/snippets/my"))
+    (setq yas/snippet-dirs '("~/.emacs.d/yasnippets"))
     (yas/load-snippet-dirs)
     (add-hook 'snippet-mode-hook 'my-snippet-mode-hook)))
 
