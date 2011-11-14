@@ -26,3 +26,6 @@
                 sass-mode-hook
                 scss-mode-hook))
   (add-hook hook (lambda () (rainbow-mode))))
+
+(eval-after-load 'js
+  '(define-key js-mode-map (kbd "<return>") 'reindent-then-newline-and-indent))

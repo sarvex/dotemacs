@@ -2,4 +2,4 @@
   (add-to-list 'interpreter-mode-alist `(,x . python-mode)))
 
 (eval-after-load 'python
-  '(define-key python-mode-map (kbd "<return>") 'reindent-then-newline-and-indent))
+  '(define-key python-mode-map (kbd "<return>") 'newline-and-indent))
