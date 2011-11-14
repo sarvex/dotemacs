@@ -15,7 +15,11 @@
   '(progn
     (require 'dropdown-list)
     (add-to-list 'yas/snippet-dirs (expand-file-name "~/.emacs.d/yasnippet/snippets/my"))
-    (yas/load-snippet-dirs)))
+    (yas/load-snippet-dirs)
+    (add-hook 'snippet-mode-hook 'my-snippet-mode-hook)))
+
+(defun my-snippet-mode-hook ()
+  (setq require-final-newline nil))
 
 ;; hook for automatic reloading of changed snippets
 (defun my-update-yasnippets-on-save ()
