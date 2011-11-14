@@ -19,7 +19,7 @@
 
 ;; hook for automatic reloading of changed snippets
 (defun my-update-yasnippets-on-save ()
-  (when (string-match "/yasnippet/snippets" buffer-file-name)
+  (when (eq major-mode 'snippet-mode)
     (yas/load-snippet-dirs)))
 
 (add-hook 'after-save-hook 'my-update-yasnippets-on-save)
