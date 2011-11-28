@@ -69,6 +69,8 @@
   (turn-on-orgtbl))
 (eval-after-load 'markdown-mode
   '(add-hook 'markdown-mode-hook 'my-markdown-mode-hook))
+(dolist (ext '("\\.text\\'" "\\.markdown\\'" "\\.mdo?wn\\'" "\\.mk?dt?\\'"))
+  (add-to-list 'auto-mode-alist `(,ext . markdown-mode)))
 
 
 (setq coffee-cleanup-whitespace t

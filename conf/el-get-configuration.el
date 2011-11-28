@@ -146,9 +146,7 @@
 
    (:name markdown-mode
     :features nil
-    :post-init (lambda ()
-                 (dolist (ext '("\\.text\\'" "\\.markdown\\'" "\\.mdwn\\'" "\\.mk?dt?\\'"))
-                   (add-to-list 'auto-mode-alist `(,ext . markdown-mode)))))
+    :post-init nil)
 
    (:name mic-paren
     :type emacswiki
