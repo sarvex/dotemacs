@@ -191,6 +191,10 @@
     :type git
     :url "https://github.com/ajc/nginx-mode.git")
 
+   (:name slim-mode
+    :type http
+    :url "https://raw.github.com/stonean/slim/master/extra/slim-mode.el")
+
    (:name project-root
     :type git
     :url "https://github.com/vderyagin/project-root.git")))
