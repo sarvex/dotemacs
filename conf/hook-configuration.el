@@ -12,92 +12,96 @@
                                  conf-modes))
        (hl-line-modes-hooks (append
                              ;; conf-modes-hooks
-                             '(bookmark-bmenu-mode-hook
-                               archive-mode-hook
-                               tar-mode-hook
-                               speedbar-mode-hook
-                               ibuffer-mode-hook
-                               twittering-mode-hook
-                               org-agenda-mode-hook
-                               irfc-mode-hook
+                             '(archive-mode-hook
+                               bookmark-bmenu-mode-hook
                                gnus-article-mode-hook
-                               gnus-group-mode-hook)))
+                               gnus-group-mode-hook
+                               ibuffer-mode-hook
+                               irfc-mode-hook
+                               org-agenda-mode-hook
+                               speedbar-mode-hook
+                               tar-mode-hook
+                               twittering-mode-hook)))
        (autopair-modes-hooks (append
                               conf-modes-hooks
                               '(c-mode-common-hook
-                                python-mode-hook
+                                coffee-mode-hook
+                                cperl-mode-hook
+                                css-mode-hook
+                                feature-mode-hook
+                                graphviz-dot-mode-hook
+                                haml-mode-hook
+                                haskell-mode-hook
                                 inf-ruby-mode-hook
                                 js-mode-hook
-                                coffee-mode-hook
+                                makefile-mode-hook
+                                python-mode-hook
                                 ruby-mode-hook
-                                haskell-mode-hook
-                                haml-mode-hook
-                                css-mode-hook
-                                cperl-mode-hook
                                 sh-mode-hook
-                                graphviz-dot-mode-hook
-                                yaml-mode-hook
-                                makefile-mode-hook)))
+                                yaml-mode-hook)))
        (whitespace-modes-hooks (append
                                 conf-modes-hooks
-                                '(haskell-mode-hook
-                                  haml-mode-hook
-                                  emacs-lisp-mode-hook
-                                  lisp-mode-hook
-                                  c-mode-common-hook
-                                  python-mode-hook
-                                  cperl-mode-hook
-                                  sh-mode-hook
-                                  sgml-mode-hook
-                                  coffee-mode-hook
-                                  nxml-mode-hook
-                                  markdown-mode-hook
-                                  js-mode-hook
-                                  ruby-mode-hook
-                                  css-mode-hook
-                                  graphviz-dot-mode-hook
-                                  lisp-interaction-mode-hook
+                                '(c-mode-common-hook
                                   change-log-mode-hook
-                                  yaml-mode-hook
-                                  makefile-mode-hook)))
+                                  coffee-mode-hook
+                                  cperl-mode-hook
+                                  css-mode-hook
+                                  emacs-lisp-mode-hook
+                                  feature-mode-hook
+                                  graphviz-dot-mode-hook
+                                  haml-mode-hook
+                                  haskell-mode-hook
+                                  js-mode-hook
+                                  lisp-interaction-mode-hook
+                                  lisp-mode-hook
+                                  makefile-mode-hook
+                                  markdown-mode-hook
+                                  nxml-mode-hook
+                                  python-mode-hook
+                                  ruby-mode-hook
+                                  sgml-mode-hook
+                                  sh-mode-hook
+                                  yaml-mode-hook)))
        (hl-keywords-modes-hooks (append
                                  conf-modes-hooks
-                                 '(haskell-mode-hook
-                                   emacs-lisp-mode-hook
-                                   lisp-mode-hook
-                                   c-mode-common-hook
+                                 '(c-mode-common-hook
                                    coffee-mode-hook
-                                   js-mode-hook
-                                   python-mode-hook
                                    cperl-mode-hook
-                                   sh-mode-hook
-                                   nxml-mode-hook
-                                   sgml-mode-hook
-                                   haml-mode-hook
-                                   ruby-mode-hook
                                    css-mode-hook
-                                   lisp-interaction-mode-hook
+                                   emacs-lisp-mode-hook
+                                   feature-mode-hook
                                    graphviz-dot-mode-hook
-                                   yaml-mode-hook
-                                   makefile-mode-hook)))
+                                   haml-mode-hook
+                                   haskell-mode-hook
+                                   js-mode-hook
+                                   lisp-interaction-mode-hook
+                                   lisp-mode-hook
+                                   makefile-mode-hook
+                                   nxml-mode-hook
+                                   python-mode-hook
+                                   ruby-mode-hook
+                                   sgml-mode-hook
+                                   sh-mode-hook
+                                   yaml-mode-hook)))
        (drag-stuff-modes-hooks (append
                                 conf-modes-hooks
-                                '(haskell-mode-hook
-                                  c-mode-common-hook
+                                '(c-mode-common-hook
                                   coffee-mode-hook
-                                  js-mode-hook
-                                  python-mode-hook
                                   cperl-mode-hook
-                                  sh-mode-hook
-                                  nxml-mode-hook
-                                  sgml-mode-hook
-                                  haml-mode-hook
-                                  ruby-mode-hook
                                   css-mode-hook
+                                  feature-mode-hook
                                   graphviz-dot-mode-hook
-                                  yaml-mode-hook
+                                  haml-mode-hook
+                                  haskell-mode-hook
+                                  js-mode-hook
                                   magit-log-edit-mode-hook
-                                  makefile-mode-hook)))
+                                  makefile-mode-hook
+                                  nxml-mode-hook
+                                  python-mode-hook
+                                  ruby-mode-hook
+                                  sgml-mode-hook
+                                  sh-mode-hook
+                                  yaml-mode-hook)))
        (eldoc-modes-hooks '(;; python-mode-hook
                             c-mode-hook
                             emacs-lisp-mode-hook

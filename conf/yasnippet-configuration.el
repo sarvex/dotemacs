@@ -34,11 +34,12 @@
 
 (dolist (hook '(c-mode-hook
                 css-mode-hook
-                java-mode-hook
-                js-mode-hook
                 emacs-lisp-mode-hook
                 erlang-mode-hook
+                feature-mode-hook
                 html-mode-hook
+                java-mode-hook
+                js-mode-hook
                 markdown-mode-hook
                 nxml-mode-hook
                 perl-mode-hook
