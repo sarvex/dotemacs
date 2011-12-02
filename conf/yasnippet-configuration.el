@@ -3,7 +3,7 @@
  ;; yas/trigger-key "<backtab>"
  ;; yas/trigger-key "<tab>"
  yas/skip-and-clear-key '("C-d")
- yas/also-auto-indent-first-line t
+ yas/also-auto-indent-first-line nil
  yas/good-grace nil
  yas/choose-tables-first t)
 
