@@ -10,7 +10,7 @@
           (notifications-notify
            :title "Org-mode"
            :body notification
-           :app-icon "~/.emacs.d/icons/org-mode-big.png"))))
+           :app-icon "~/.icons/org-mode.png"))))
 
 (setq org-completion-use-ido t
       org-outline-path-complete-in-steps nil
@@ -208,7 +208,7 @@
         (notifications-notify
          :title (format "%s minute(s) left" left)
          :body message
-         :app-icon "~/.emacs.d/icons/org-mode-big.png")))
+         :app-icon "~/.icons/org-mode.png")))
 
 (defun my-org-agenda-mode-hook ()
   (org-agenda-to-appt t '((headline "IMPORTANT") (category "Appt")))
