@@ -89,9 +89,5 @@
   '(define-key coffee-mode-map (kbd "<f9>") 'coffee-compile-dwim))
 
 
-(eval-after-load 'yaml-mode
-  '(define-key yaml-mode-map (kbd "RET") 'newline-and-indent))
-
-
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("nginx.conf\\'" . nginx-mode))

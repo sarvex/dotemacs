@@ -37,8 +37,7 @@
                                 makefile-mode-hook
                                 python-mode-hook
                                 ruby-mode-hook
-                                sh-mode-hook
-                                yaml-mode-hook)))
+                                sh-mode-hook)))
        (whitespace-modes-hooks (append
                                 conf-modes-hooks
                                 '(c-mode-common-hook
