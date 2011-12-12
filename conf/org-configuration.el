@@ -164,7 +164,8 @@
   (org-indent-mode t)
   (turn-on-auto-fill)
   ;; (flyspell-mode t)
-  (turn-on-visual-line-mode))
+  (turn-on-visual-line-mode)
+  (set (make-local-variable 'backup-inhibited) t))
 
 (add-hook 'org-mode-hook 'my-org-hook)
 
