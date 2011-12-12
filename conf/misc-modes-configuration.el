@@ -73,7 +73,7 @@
 
 (setq epa-armor t
       epa-file-cache-passphrase-for-symmetric-encryption nil
-      epa-file-encrypt-to `(,my-email-address)
+      epa-file-encrypt-to my-email-address
       epa-file-inhibit-auto-save t
       epa-file-select-keys nil
       epg-passphrase-coding-system 'utf-8
