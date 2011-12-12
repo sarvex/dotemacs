@@ -88,6 +88,7 @@
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup/"))
       tramp-backup-directory-alist '(("." . "/home/vderyagin/.emacs.d/backup/tramp/"))
+      backup-inhibited nil
       backup-by-copying t
       auto-save-list-file-name "~/.emacs.d/saves"
       auto-save-default nil
