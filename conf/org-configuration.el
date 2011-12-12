@@ -46,12 +46,12 @@
 ;; paths
 ;;
 (setq
- org-directory "~/.emacs.d/org"
+ org-directory "~/org"
  my-org-agenda-directory (expand-file-name "agenda" org-directory)
- my-org-capture-templates-directory (expand-file-name "misc/templates" my-org-agenda-directory)
+ my-org-capture-templates-directory "~/.emacs.d/dotemacs/misc/org-capture-templates"
  org-default-notes-file (expand-file-name "refile.org" my-org-agenda-directory)
  my-org-contacts-file (expand-file-name "contacts.org" my-org-agenda-directory)
- org-archive-location (concat my-org-agenda-directory "/archive/archive_%s::")
+ org-archive-location (concat org-directory "/archive/archive_%s::")
  org-agenda-files `(,(file-name-as-directory my-org-agenda-directory))
  org-contacts-files `(,my-org-contacts-file))
 
@@ -142,7 +142,7 @@
            (fn (file-name-nondirectory f))
            (r org-agenda-file-regexp)
            (c (expand-file-name "misc/clocktable.org"
-                                my-org-agenda-directory)))
+                                org-directory)))
       (when (or (member f org-agenda-files)
                 (and (member d org-agenda-files)
                      (string-match r fn)))
