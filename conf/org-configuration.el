@@ -60,24 +60,6 @@
 
 (setq org-agenda-tags-column -90)
 
-;; ;; agenda category icons
-;; (setq
-;;  my-org-agenda-icons-directory "~/.emacs.d/icons"
-;;  org-agenda-category-icon-alist
-;;  ;; 18px high icons
-;;  `(("Emacs" ,(expand-file-name "emacs.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("Org" ,(expand-file-name "org-mode.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("Ruby" ,(expand-file-name "ruby3.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("Perl" ,(expand-file-name "perl.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("Python" ,(expand-file-name "python.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("Lua" ,(expand-file-name "lua.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("Haskell" ,(expand-file-name "haskell.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("Gnus" ,(expand-file-name "gnus.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("Home" ,(expand-file-name "home.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("\\(Read\\|Book\\)" ,(expand-file-name "book.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("\\(Movie\\|Video\\)" ,(expand-file-name "video.png" my-org-agenda-icons-directory) nil nil :ascent center)
-;;    ("" ,(expand-file-name "blank.png" my-org-agenda-icons-directory) nil nil :ascent center)))
-
 ;;
 ;; org-clock
 ;;
@@ -136,6 +118,7 @@
 
 
 (defun my-org-after-save-hook ()
+  "Generate org-clock-report for agenta files"
   (when (eq major-mode 'org-mode) ; discard non-org files immediately
     (let* ((f (buffer-file-name))
            (d (file-name-directory f))
