@@ -91,3 +91,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("nginx.conf\\'" . nginx-mode))
+
+
+(eval-after-load 'feature-mode
+  '(define-key feature-mode-map (kbd "<return>") 'newline-and-indent))
