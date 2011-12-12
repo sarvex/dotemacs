@@ -32,6 +32,8 @@
 
 (add-hook 'after-save-hook 'my-update-yasnippets-on-save)
 
+(autoload 'yas/minor-mode-on "yasnippet" nil t)
+
 (dolist (hook '(c-mode-hook
                 css-mode-hook
                 emacs-lisp-mode-hook
@@ -49,6 +51,6 @@
                 scala-mode-hook
                 snippet-mode-hook
                 text-mode-hook))
-  (add-hook hook (lambda () (yas/minor-mode t))))
+  (add-hook hook 'yas/minor-mode-on))
 
 (add-to-list 'auto-mode-alist '("\\.yasnippet\\'" . snippet-mode))
