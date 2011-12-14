@@ -62,8 +62,8 @@
 
 (add-to-list
  'my-ibuffer-filter-groups
- '("org" (or
-          (mode . org-mode)
+ `("org" (or
+          (filename . ,(expand-file-name "~/org"))
           (mode . org-agenda-mode)
           (name . "^\\*Org .*\\*$"))))
 
@@ -119,8 +119,6 @@
  'my-ibuffer-filter-groups
  '("elisp" (or
             (filename . ".emacs.d/dotemacs/conf/")
-            (filename . ".emacs.d/dotemacs/misc/")
-            (filename . ".emacs.d/dotemacs/scripts/")
             (mode . lisp-interaction-mode))))
 
 (add-to-list
