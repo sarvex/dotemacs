@@ -18,7 +18,6 @@
                                gnus-group-mode-hook
                                ibuffer-mode-hook
                                irfc-mode-hook
-                               org-agenda-mode-hook
                                speedbar-mode-hook
                                tar-mode-hook
                                twittering-mode-hook)))
@@ -175,4 +174,5 @@
 
 (add-hook 'after-make-frame-functions
           (lambda (frame)
-            (load-file "~/.emacs.d/themes/quiet-light-theme.el")))
+            (when (fboundp 'customize-themes)
+              (load-file "~/.emacs.d/themes/quiet-light-theme.el"))))
