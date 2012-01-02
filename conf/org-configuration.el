@@ -204,7 +204,7 @@
     (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
     (define-key org-agenda-mode-map (kbd "C-S-<right>") nil)
 
-    (define-key org-agenda-mode-map (kbd "M-n") 'org-agenda-next-date-line)
-    (define-key org-agenda-mode-map (kbd "M-p") 'org-agenda-previous-date-line)))
+    (define-key org-agenda-mode-map (kbd "M-n") 'org-next-link)
+    (define-key org-agenda-mode-map (kbd "M-p") 'org-previous-link)))
 
 (require 'org-contacts nil 'noerror)
