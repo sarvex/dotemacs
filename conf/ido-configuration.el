@@ -9,7 +9,8 @@
       ido-max-prospects 15                ; don't spam my minibuffer
       ido-confirm-unique-completion t     ; don't be too smart
       ido-decorations '("\n-> " "" "\n   " "\n   ..." "[" "]"
-                        " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]"))
+                        " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")
+      ido-ubiquitous-command-exceptions '(gnus-topic-move-group))
 
 (setq ido-ignore-buffers
       '("^ "
@@ -113,6 +114,8 @@
 
 (ido-mode t)
 (ido-ubiquitous t)
+
+
 ;; (ido-everywhere t)
 
 
