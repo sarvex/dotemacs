@@ -1,5 +1,7 @@
 (require 'org-install)
 
+(add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
+
 (setq org-modules
       '(org-crypt org-docview org-gnus
         org-info org-jsinfo org-irc org-w3m))
@@ -97,14 +99,11 @@
         (file ,(expand-file-name "current.org" my-org-agenda-directory))
         (file ,(expand-file-name "current" my-org-capture-templates-directory)))))
 
-(defun my-org-capture-before-finalize-hook ()
-  (org-align-all-tags))
-
 (eval-after-load 'org-capture
   '(progn
     ;; C-c C-c is overriden
     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
-    (add-hook 'org-capture-before-finalize-hook 'my-org-capture-before-finalize-hook)))
+    (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags)))
 
 ;;================================================================
 ;; refile setup
