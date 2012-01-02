@@ -195,6 +195,8 @@
 
 (eval-after-load 'org-agenda
   '(progn
+    (require 'org-contacts)
+
     (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-hook)
 
     (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
