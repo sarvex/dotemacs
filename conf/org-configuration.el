@@ -1,10 +1,9 @@
-(require 'org-install)
-
 (add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
 
-(setq org-modules
-      '(org-crypt org-docview org-gnus
-        org-info org-jsinfo org-irc org-w3m))
+(define-key global-map (kbd "C-x o") 'org-iswitchb)
+(define-key global-map (kbd "<f11>") 'org-capture)
+(define-key global-map (kbd "<f12>") 'org-agenda)
+
 
 (when (fboundp 'notifications-notify)
   (setq org-show-notification-handler
@@ -76,7 +75,6 @@
       org-clock-persist 'history
       org-clock-report-include-clocking-task t)
 
-(org-clock-persistence-insinuate)
 
 ;;================================================================
 ;; org-capture
@@ -101,6 +99,7 @@
 
 (eval-after-load 'org-capture
   '(progn
+    (require 'org-contacts)
     ;; C-c C-c is overriden
     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
     (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags)))
@@ -141,7 +140,6 @@
 
 (add-hook 'before-save-hook 'my-org-before-save-hook)
 
-;; mode hook
 (defun my-org-hook ()
   (org-indent-mode t)
   (turn-on-auto-fill)
@@ -149,7 +147,21 @@
   (turn-on-visual-line-mode)
   (set (make-local-variable 'backup-inhibited) t))
 
-(add-hook 'org-mode-hook 'my-org-hook)
+(eval-after-load 'org
+  '(progn
+    (require 'org-install)
+
+    (add-hook 'org-mode-hook 'my-org-hook)
+
+    (org-clock-persistence-insinuate)
+
+    (define-key org-mode-map (kbd "M-n") 'org-next-link)
+    (define-key org-mode-map (kbd "M-p") 'org-previous-link)
+
+    ;; resolving conflicts with global bindings
+    (define-key org-mode-map (kbd "S-C-<left>") nil)
+    (define-key org-mode-map (kbd "S-C-<right>") nil)
+    (define-key org-mode-map (kbd "C-<tab>") nil)))
 
 ;; get rid of clocking drawer if empty
 (defun my-remove-empty-drawer-on-clock-out ()
@@ -157,24 +169,8 @@
     (beginning-of-line 0)
     (org-remove-empty-drawer-at "LOGBOOK" (point))))
 
-(add-hook 'org-clock-out-hook 'my-remove-empty-drawer-on-clock-out 'append)
-
-;;================================================================
-;; Keys
-;;
-(define-key global-map (kbd "C-x o") 'org-iswitchb)
-(define-key global-map (kbd "<f11>") 'org-capture)
-(define-key global-map (kbd "<f12>") 'org-agenda)
-
-(define-key org-mode-map (kbd "M-n") 'org-next-link)
-(define-key org-mode-map (kbd "M-p") 'org-previous-link)
-
-
-
-;; resolving conflicts with global bindings
-(define-key org-mode-map (kbd "S-C-<left>") nil)
-(define-key org-mode-map (kbd "S-C-<right>") nil)
-(define-key org-mode-map (kbd "C-<tab>") nil)
+(eval-after-load 'org-clock
+  '(add-hook 'org-clock-out-hook 'my-remove-empty-drawer-on-clock-out 'append))
 
 
 ;;
@@ -206,5 +202,3 @@
 
     (define-key org-agenda-mode-map (kbd "M-n") 'org-next-link)
     (define-key org-agenda-mode-map (kbd "M-p") 'org-previous-link)))
-
-(require 'org-contacts nil 'noerror)
