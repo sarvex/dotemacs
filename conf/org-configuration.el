@@ -92,10 +92,10 @@
    ("t" "todo" entry
         (file ,org-default-notes-file)
         (file ,(expand-file-name "todo" my-org-capture-templates-directory)))
-   ("C" "contacts" entry
+   ("c" "contacts" entry
         (file ,my-org-contacts-file)
         (file ,(expand-file-name "contacts" my-org-capture-templates-directory)))
-   ("c" "current" entry
+   ("u" "current" entry
         (file ,(expand-file-name "current.org" my-org-agenda-directory))
         (file ,(expand-file-name "current" my-org-capture-templates-directory)))))
 
