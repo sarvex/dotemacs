@@ -2,6 +2,7 @@
 
 (setq magit-commit-all-when-nothing-staged 'ask-stage
       magit-repo-dirs-depth 6
+      magit-log-auto-more t
       magit-status-buffer-switch-function 'switch-to-buffer)
 
 (defun my-magit-log-edit-hook ()
