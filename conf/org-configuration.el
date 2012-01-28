@@ -1,5 +1,3 @@
-(add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
-
 (define-key global-map (kbd "C-x o") 'org-iswitchb)
 (define-key global-map (kbd "<f11>") 'org-capture)
 (define-key global-map (kbd "<f12>") 'org-agenda)
@@ -157,6 +155,10 @@
 
     (define-key org-mode-map (kbd "M-n") 'org-next-link)
     (define-key org-mode-map (kbd "M-p") 'org-previous-link)
+
+    ;; disable keys for adding/removing files from agenda:
+    (define-key org-mode-map (kbd "C-c [") nil)
+    (define-key org-mode-map (kbd "C-c ]") nil)
 
     ;; resolving conflicts with global bindings
     (define-key org-mode-map (kbd "S-C-<left>") nil)
