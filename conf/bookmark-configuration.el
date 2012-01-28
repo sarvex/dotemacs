@@ -1,5 +1,6 @@
-(setq bookmark-default-file "~/.emacs.d/emacs.bmk"
-      bookmark-old-default-file "~/.emacs.d/emacs.bmk"
+(setq bookmark-default-file "~/.emacs.d/bookmarks"
+      bookmark-old-default-file "~/.emacs.d/bookmarks"
+      bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks"
       bookmark-save-flag 1
       bookmark-bmenu-file-column 52)
 
