@@ -101,7 +101,7 @@
 
 (add-to-list
  'my-ibuffer-filter-groups
- '("dotfiles" (filename . "/.dotfiles/")))
+ '("dotfiles" (filename . "/misc/dotfiles/")))
 
 (add-to-list
  'my-ibuffer-filter-groups
