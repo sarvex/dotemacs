@@ -16,3 +16,5 @@
 
 (eval-after-load 'js
   '(define-key js-mode-map (kbd "<return>") 'reindent-then-newline-and-indent))
+
+(add-to-list 'interpreter-mode-alist '("node" . js-mode))
