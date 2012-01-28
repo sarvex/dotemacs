@@ -11,6 +11,7 @@
 
 (setq savehist-ignored-variables
       '(bmkp-tag-history
+        grep-history
         bookmark-history
         buffer-name-history
         minibuffer-history
