@@ -23,7 +23,6 @@
    ack
    ahg
    cedet
-   bbcode-mode
    bookmark+
    clojure-mode
    diminish
@@ -114,9 +113,6 @@
    (:name crontab-mode
     :url "http://web.archive.org/web/20080716014153/http://www.mahalito.net/~harley/elisp/crontab-mode.el"
     :post-init (lambda () (add-to-list 'auto-mode-alist '("crontab\\'" . crontab-mode))))
-
-   (:name ac-slime
-    :post-init (lambda () (autoload 'set-up-slime-ac "ac-slime")))
 
    (:name scratch
     :post-init (lambda () (autoload 'scratch "scratch" nil t)))
