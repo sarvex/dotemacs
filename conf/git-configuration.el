@@ -29,6 +29,3 @@
       gist-working-directory "~/dev/gists"
       github-user my-github-username
       github-token my-github-token)
-
-(eval-after-load 'gist
-  '(require 'eieio))

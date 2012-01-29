@@ -96,9 +96,9 @@
     :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-electric.el"
     :post-init nil)
 
-   (:name gh
-    :type git
-    :url "https://github.com/sigma/gh.el")
+   ;; (:name gh
+   ;;  :type git
+   ;;  :url "https://github.com/sigma/gh.el")
 
    (:name gist
     :type git
