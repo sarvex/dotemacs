@@ -2,21 +2,22 @@
 
 INITFILE=$HOME/.emacs.d/dotemacs/misc/compile-init.el
 COMPILE_PATH=$HOME/.emacs.d/dotemacs/conf
-ELISP_FILES=$(find -L $COMPILE_PATH -iname "*.el")
-COMPILED_FILES=$(find -L $COMPILE_PATH -iname "*.elc")
+
+elisp_files=$(find -L $COMPILE_PATH -iname "*.el")
+compiled_files=$(find -L $COMPILE_PATH -iname "*.elc")
 
 EMACS_ARGS="
 --quick
 --load $INITFILE
 --batch
---funcall batch-byte-compile $ELISP_FILES
+--funcall batch-byte-compile $elisp_files
 "
 
-rm -f $COMPILED_FILES
+rm -f $compiled_files
 
 nice -n 5 ionice -c 3 emacs $EMACS_ARGS 2>&1 | grep -E "^Debugger entered|Error"
 
-NUMBER_OF_ELISP_FILES=$(find -L $COMPILE_PATH -iname "*.el" | wc -l)
-NUMBER_OF_COMPILED_FILES=$(find -L $COMPILE_PATH -iname "*.elc" | wc -l)
+number_of_elisp_files=$(find -L $COMPILE_PATH -iname "*.el" | wc -l)
+number_of_compiled_files=$(find -L $COMPILE_PATH -iname "*.elc" | wc -l)
 
-echo "Compiled" $NUMBER_OF_COMPILED_FILES/$NUMBER_OF_ELISP_FILES "files"
+echo "Compiled" $number_of_compiled_files/$number_of_elisp_files "files"
