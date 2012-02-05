@@ -53,7 +53,6 @@
    (:name sass-mode :lazy t)
    (:name scss-mode :lazy t)
    (:name twittering-mode :lazy t)
-   (:name wikipedia-mode :lazy t)
    (:name yari :lazy t)
 
    (:name smex
