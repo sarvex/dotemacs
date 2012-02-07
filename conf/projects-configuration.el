@@ -49,3 +49,8 @@
              (ahg-status root))
             (t
              (vc-directory root nil)))))))
+
+(defun project-root-generate-tags ()
+  (interactive)
+  (with-project-root
+      (shell-command "exuberant-ctags -e -R .")))
