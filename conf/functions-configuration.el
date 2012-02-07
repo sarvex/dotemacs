@@ -312,5 +312,27 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
   (interactive "P")
   (byte-recompile-directory "~/.emacs.d/dotemacs/conf" 0 arg))
 
+
 (defun truncate-lines ()
   (setq truncate-lines t))
+
+
+(defun find-tag-in-project ()
+  (interactive)
+  (let ((current-dir (expand-file-name default-directory))
+        tags)
+    (setq tags
+          (catch :terminate-search
+            (while t
+              (when (equal current-dir "/")
+                (throw :terminate-search nil))
+              (setq tags (expand-file-name "TAGS" current-dir))
+              (if (file-exists-p tags)
+                  (throw :terminate-search tags)
+                  (setq current-dir (expand-file-name ".." current-dir))))))
+    (if tags
+        (progn
+          (setq tags-file-name tags
+                tags-table-list nil)
+          (call-interactively 'find-tag))
+        (message "no tags file found"))))
