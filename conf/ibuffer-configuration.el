@@ -233,6 +233,7 @@
             (mode . rdebug-secondary-window-help-mode)
             (mode . rdebug-variables-mode)
             (mode . rdebug-watch-mode)
+            (mode . select-tags-table-mode)
             (mode . special-mode)
             (mode . speedbar-mode)
             (mode . tags-table-mode)
