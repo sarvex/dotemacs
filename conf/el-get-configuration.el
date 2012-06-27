@@ -136,8 +136,8 @@
                  (autoload 'doc-mode "doc-mode" nil t)
                  (add-to-list 'auto-mode-alist '("\\.a\\(scii\\)?doc\\'" . doc-mode))))
 
-   (:name c-eldoc
-    :type emacswiki)
+   ;; (:name c-eldoc
+   ;;  :type emacswiki)
 
    (:name markdown-mode
     :features nil
