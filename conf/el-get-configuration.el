@@ -73,7 +73,7 @@
 
    (:name typing
     :type emacswiki
-    :post-init (lambda () (autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)))
+    :post-init (progn (autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)))
 
    (:name drag-stuff
     :type http
@@ -111,19 +111,19 @@
 
    (:name crontab-mode
     :url "http://web.archive.org/web/20080716014153/http://www.mahalito.net/~harley/elisp/crontab-mode.el"
-    :post-init (lambda () (add-to-list 'auto-mode-alist '("crontab\\'" . crontab-mode))))
+    :post-init (progn (add-to-list 'auto-mode-alist '("crontab\\'" . crontab-mode))))
 
    (:name scratch
-    :post-init (lambda () (autoload 'scratch "scratch" nil t)))
+    :post-init (progn (autoload 'scratch "scratch" nil t)))
 
    (:name multi-term
     :type emacswiki
     :features nil
-    :post-init (lambda () (autoload 'multi-term-next "multi-term" nil t)))
+    :post-init (progn (autoload 'multi-term-next "multi-term" nil t)))
 
    (:name irfc
     :type emacswiki
-    :post-init (lambda ()
+    :post-init (progn
                  (autoload 'irfc-mode "irfc" "Mode for viewing IETF RFC documents" t)
                  (autoload 'irfc-visit "irfc" nil t)
                  (add-to-list 'auto-mode-alist '("rfc[0-9]+\\.txt\\'" . irfc-mode))))
@@ -132,7 +132,7 @@
     :type emacswiki)
 
    (:name doc-mode
-    :post-init (lambda ()
+    :post-init (progn
                  (autoload 'doc-mode "doc-mode" nil t)
                  (add-to-list 'auto-mode-alist '("\\.a\\(scii\\)?doc\\'" . doc-mode))))
 
@@ -153,7 +153,7 @@
    (:name feature-mode
     :type git
     :url "https://github.com/michaelklishin/cucumber.el.git"
-    :post-init (lambda ()
+    :post-init (progn
                  (setq feature-default-language "en"
                        feature-default-i18n-file (expand-file-name "feature-mode/i18n.yml" el-get-dir))
                  (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))))
@@ -167,7 +167,7 @@
    (:name pomodoro
     :type git
     :url "https://github.com/vderyagin/pomodoro.el.git"
-    :post-init (lambda () (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir))))
+    :post-init (progn (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir))))
 
    (:name sass-convert
     :type git
@@ -176,7 +176,7 @@
    (:name graphviz-dot-mode
     :type http
     :url "http://www.graphviz.org/Misc/graphviz-dot-mode.el"
-    :post-init (lambda () (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))))
+    :post-init (progn (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))))
 
    (:name ido-ubiquitous
     :type git
