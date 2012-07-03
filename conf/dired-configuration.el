@@ -121,4 +121,8 @@
 (eval-after-load 'wdired
   '(progn
     (define-key wdired-mode-map (kbd "<down>") nil)
-    (define-key wdired-mode-map (kbd "<up>") nil)))
+    (define-key wdired-mode-map (kbd "<up>") nil)
+
+    (add-hook 'wdired-mode-hook
+     (defun turn-on-cua-mode ()
+       (cua-mode t)))))
