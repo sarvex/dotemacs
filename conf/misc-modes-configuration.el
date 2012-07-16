@@ -15,7 +15,6 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (mouse-wheel-mode -1)
-(mouse-sel-mode -1)
 
 ;; disabled by default by now, but may be uncommented someday:
 ;; (column-number-mode -1)
