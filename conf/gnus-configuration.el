@@ -134,5 +134,3 @@
   (flyspell-mode t))
 
 (add-hook 'message-mode-hook 'my-message-mode-hook)
-
-(gnus-compile)
