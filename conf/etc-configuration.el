@@ -6,10 +6,9 @@
         (interactive "sURL: ")
         (let ((browser (ido-completing-read
                         (format "Browse %s with: " url)
-                        '("chromium" "firefox" "emacs-w3m"))))
+                        '("firefox" "chromium" "emacs-w3m"))))
           (cond
             ((equal browser "chromium")
-             (require 'anything)
              (browse-url-chromium url))
             ((equal browser "firefox")
              (browse-url-firefox url))
