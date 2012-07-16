@@ -1,4 +1,5 @@
 (setq w3m-default-display-inline-images nil
+      w3m-use-favicon t
       w3m-use-cookies t)
 
 (setq w3m-coding-system 'utf-8
