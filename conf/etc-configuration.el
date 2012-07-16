@@ -54,6 +54,9 @@
       initial-scratch-message ";; *scratch*\n\n")
 
 
+(setq vc-follow-symlinks t)
+
+
 (setq next-line-add-newlines nil
       require-final-newline t)
 
