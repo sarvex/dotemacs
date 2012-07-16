@@ -102,7 +102,7 @@
 
 (define-key global-map (kbd "C-c c") 'my-duplicate-line)
 (define-key global-map (kbd "C-%") 'goto-match-paren)
-(define-key global-map (kbd "C-x M-f") 'my-su-edit)
+(define-key global-map (kbd "C-x M-f") 'my-sudo-edit)
 
 (define-key global-map (kbd "C-c j") 'dired-jump)
 

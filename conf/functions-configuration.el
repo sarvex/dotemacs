@@ -118,11 +118,9 @@
                          (backward-char 1)))))))))
 
 
-(defun my-su-edit (&optional arg)
-  (interactive "p")
-  (if (or arg (not buffer-file-name))
-      (find-file (concat "/su::" (ido-read-file-name "File (Tramp): " "/")))
-      (find-alternate-file (concat "/su::" buffer-file-name))))
+(defun my-sudo-edit ()
+  (interactive)
+  (find-file (concat "/sudo::" (ido-read-file-name "File (Tramp): " "/"))))
 
 
 (defun minor-modes ()

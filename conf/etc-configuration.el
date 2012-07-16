@@ -113,7 +113,7 @@
       stack-trace-on-error nil
       standard-indent 4
       tab-always-indent 'complete
-      tramp-default-method "su"
+      tramp-default-method "sudo"
       x-stretch-cursor t)
 
 (setq-default comment-column 42
