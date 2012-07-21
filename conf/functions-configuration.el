@@ -239,7 +239,7 @@ for 2- or 3-windowed frames"
   "Generates random password and adds it to kill-ring.
 If ARG is non-nil also inserts result at point. Requires pwgen(1)"
   (interactive "P")
-  (let ((pw (strip (shell-command-to-string "pwgen -A1n 16"))))
+  (let ((pw (strip (shell-command-to-string "pwgen --secure --numerals --no-capitalize -1 16"))))
     (kill-new pw)
     (when arg
       (save-excursion (insert pw))
