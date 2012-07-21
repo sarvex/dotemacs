@@ -238,6 +238,7 @@
             (mode . speedbar-mode)
             (mode . tags-table-mode)
             (mode . vc-dir-mode)
+            (mode . vc-annotate-mode)
             (predicate . (equal mode-name "Anything"))
 
             (name . "^\\*About GNU Emacs\\*$")
