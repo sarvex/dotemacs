@@ -26,6 +26,7 @@
                               '(c-mode-common-hook
                                 coffee-mode-hook
                                 cperl-mode-hook
+                                sgml-mode-hook
                                 css-mode-hook
                                 feature-mode-hook
                                 graphviz-dot-mode-hook
