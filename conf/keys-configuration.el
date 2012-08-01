@@ -21,6 +21,12 @@
 
 (define-key global-map (kbd "M-g") 'goto-line)
 
+(define-key global-map (kbd "C-x k")
+  (lambda (&optional choose)
+    (interactive "P")
+    (if choose
+        (call-interactively 'ido-kill-buffer)
+        (kill-buffer (current-buffer)))))
 
 (define-key global-map (kbd "M-0") 'delete-window)
 (define-key global-map (kbd "M-1") 'delete-other-windows)
