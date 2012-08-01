@@ -305,10 +305,10 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
            (insert (current-kill 0)))))
 
 
-(defun recompile-init (&optional arg)
+(defun recompile-init (&optional force)
   "Byte-compile all emacs configs."
   (interactive "P")
-  (byte-recompile-directory "~/.emacs.d/dotemacs/conf" 0 arg))
+  (byte-recompile-directory "~/.emacs.d/dotemacs/conf" 0 force))
 
 
 (defun truncate-lines ()
