@@ -89,6 +89,7 @@
 
 (setq display-time-world-list
       '(("America/Los_Angeles" "Los Angeles")
+        ("America/Denver" "Denver")
         ("America/Chicago" "Chicago")
         ("America/New_York" "New York")
         ("America/Sao_Paulo" "San Paulo")
