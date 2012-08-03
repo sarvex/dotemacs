@@ -99,6 +99,9 @@
 (dolist (p (remove "." (remove ".." (directory-files (expand-file-name "~/dev")))))
   (add-to-list 'my-ibuffer-filter-groups `(,(format "Project: %s" p) (filename . ,(expand-file-name p "~/dev")))))
 
+(dolist (p (remove "." (remove ".." (directory-files (expand-file-name "~/src")))))
+  (add-to-list 'my-ibuffer-filter-groups `(,(format "Source: %s" p) (filename . ,(expand-file-name p "~/src")))))
+
 (add-to-list
  'my-ibuffer-filter-groups
  '("dotfiles" (filename . "/misc/dotfiles/")))
