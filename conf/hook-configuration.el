@@ -16,10 +16,12 @@
                                bookmark-bmenu-mode-hook
                                gnus-article-mode-hook
                                gnus-group-mode-hook
+                               grep-mode
                                ibuffer-mode-hook
                                irfc-mode-hook
                                speedbar-mode-hook
                                tar-mode-hook
+                               vc-annotate-mode-hook
                                twittering-mode-hook)))
        (autopair-modes-hooks (append
                               conf-modes-hooks
@@ -41,6 +43,7 @@
        (whitespace-modes-hooks (append
                                 conf-modes-hooks
                                 '(c-mode-common-hook
+                                  text-mode-hook
                                   change-log-mode-hook
                                   coffee-mode-hook
                                   cperl-mode-hook
@@ -173,7 +176,8 @@
       (make-directory dir t))))
 
 
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (when (fboundp 'customize-themes)
-              (load-file "~/.emacs.d/themes/quiet-light-theme.el"))))
+(when (fboundp 'customize-themes)
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+  (setq custom-safe-themes '("87ba78c22fd1148594fef4d250cac75cdbecfa99a41916bd450f72ccdbf4b60b" default))
+  (load-theme 'quiet-light)
+  (add-hook 'after-make-frame-functions (lambda (frame) (load-file "~/.emacs.d/themes/quiet-light-theme.el"))))
