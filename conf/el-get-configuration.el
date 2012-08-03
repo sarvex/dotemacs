@@ -31,7 +31,12 @@
    haskell-mode
    swank-clojure
    magit
-   openwith
+   (:name   openwith
+    :description "Open files with external programs"
+    :type hg
+    :url "https://bitbucket.org/jpkotta/openwith"
+    :features openwith
+    :post-init (openwith-mode t))
    rdebug
    rhtml-mode
    paredit
