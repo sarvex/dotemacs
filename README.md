@@ -6,7 +6,6 @@ configuration tricks may be useful.
 
 ## Compatibility ##
 
-I usually build Emacs from bzr, so code should be compatible with latest
-trunk, but is not guaranteed to work good with release versions (though, for
-the time of this writing everything, except for trunk-specific stuff, works
-fine with GNU Emacs 23.3).
+Currently I use this configuration with GNU Emacs 24.1, except for some
+packages like org-mode or gnus, trunk versions of which are used instead of
+ones included in Emacs distribution.
