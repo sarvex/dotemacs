@@ -45,6 +45,7 @@
    (:name erc-highlight-nicknames :lazy t)
    (:name haml-mode :lazy t)
    (:name iedit :lazy t)
+   (:name nognus :lazy t)
    (:name io-mode :lazy t)
    (:name ioccur :lazy t)
    (:name php-mode :lazy t)
