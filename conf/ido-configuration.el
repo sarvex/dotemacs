@@ -10,7 +10,8 @@
       ido-confirm-unique-completion t     ; don't be too smart
       ido-decorations '("\n-> " "" "\n   " "\n   ..." "[" "]"
                         " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")
-      ido-ubiquitous-command-exceptions '(gnus-topic-move-group))
+      ido-ubiquitous-command-exceptions '(gnus-topic-move-group
+                                          bookmark-set))
 
 (setq ido-ignore-buffers
       '("^ "
