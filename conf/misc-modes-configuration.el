@@ -112,12 +112,12 @@
   '(progn
     (define-key archive-mode-map (kbd "q")
      (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-    (add-hook 'archive-mode-hook (lambda () (setq truncate-lines t)))))
+    (add-hook 'archive-mode-hook 'truncate-lines)))
 (eval-after-load 'tar-mode
   '(progn
     (define-key tar-mode-map (kbd "q")
      (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-    (add-hook 'tar-mode-hook (lambda () (setq truncate-lines t)))))
+    (add-hook 'tar-mode-hook 'truncate-lines)))
 
 
 (dolist (ext '("\\.cue\\'" "\\.cnf\\'" "^hgrc\\'"))
