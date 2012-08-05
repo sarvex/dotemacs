@@ -31,12 +31,6 @@
    haskell-mode
    swank-clojure
    magit
-   (:name   openwith
-    :description "Open files with external programs"
-    :type hg
-    :url "https://bitbucket.org/jpkotta/openwith"
-    :features openwith
-    :post-init (openwith-mode t))
    rdebug
    rhtml-mode
    paredit
@@ -81,6 +75,13 @@
     :type emacswiki
     :post-init (progn (autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)))
 
+   (:name   openwith
+    :description "Open files with external programs"
+    :type hg
+    :url "https://bitbucket.org/jpkotta/openwith"
+    :features openwith
+    :post-init (openwith-mode t))
+
    (:name drag-stuff
     :type http
     :url "https://raw.github.com/rejeep/drag-stuff/master/drag-stuff.el"
@@ -100,10 +101,6 @@
     :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-electric.el"
     :post-init nil)
 
-   ;; (:name gh
-   ;;  :type git
-   ;;  :url "https://github.com/sigma/gh.el")
-
    (:name gist
     :type git
     :url "https://github.com/mhayashi1120/gist.el.git"
@@ -113,6 +110,11 @@
     :features yasnippet
     :compile ("dropdown-list.el" "yasnippet.el")
     :post-init nil
+    :lazy t)
+
+   (:name projector
+    :type git
+    :url "https://github.com/vderyagin/projector.el.git"
     :lazy t)
 
    (:name crontab-mode
@@ -194,11 +196,7 @@
 
    (:name slim-mode
     :type http
-    :url "https://raw.github.com/stonean/slim/master/extra/slim-mode.el")
-
-   (:name project-root
-    :type git
-    :url "https://github.com/vderyagin/project-root.git")))
+    :url "https://raw.github.com/stonean/slim/master/extra/slim-mode.el")))
 
 (el-get 'wait)
 (load (file-name-sans-extension el-get-autoload-file))
