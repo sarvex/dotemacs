@@ -20,18 +20,6 @@
   (view-mode))
 
 
-(defun insert-time-stamp ()
-  "Inserts a time stamp 'DD-MM-YYYY HH:MM AM/PM'"
-  (interactive "*")
-  (let ((beg (when (region-active-p)
-               (region-beginning)))
-        (end (when (region-active-p)
-               (region-end))))
-    (when (and beg end)
-      (delete-region beg end)))
-  (insert (format-time-string "%d-%m-%Y - %I:%M %p")))
-
-
 (defun rename-file-and-buffer ()
   "Renames current buffer and file it is visiting."
   (interactive)
