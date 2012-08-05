@@ -29,7 +29,7 @@
   (add-to-list 'same-window-buffer-names buf-name))
 
 
-(dolist (ext '(".rbc"))
+(dolist (ext '(".rbc" ".sassc" ".scssc" ".sqlite3"))
   (add-to-list 'completion-ignored-extensions ext))
 
 
