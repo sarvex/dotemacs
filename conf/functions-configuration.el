@@ -322,3 +322,10 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
                 tags-table-list nil)
           (call-interactively 'find-tag))
         (message "no tags file found"))))
+
+(defun indent-region-or-buffer ()
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (call-interactively 'indent-region)
+        (indent-region (region-beginning) (region-end)))))
