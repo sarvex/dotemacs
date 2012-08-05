@@ -106,9 +106,9 @@
                          (backward-char 1)))))))))
 
 
-(defun my-sudo-edit ()
+(defun ido-sudo-find-file ()
   (interactive)
-  (find-file (concat "/sudo::" (ido-read-file-name "File (Tramp): " "/"))))
+  (find-file (concat "/sudo::" (ido-read-file-name "File (sudo): " "/"))))
 
 
 (defun minor-modes ()
