@@ -74,7 +74,7 @@
   (indent-region (point-min) (point-max)))
 
 
-(defun clean-up-buffer-or-region ()
+(defun clean-up-region-or-buffer ()
   "Untabifies, indents and deletes trailing whitespace from buffer or region."
   (interactive)
   (save-excursion
