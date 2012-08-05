@@ -103,7 +103,6 @@
 
 (define-key global-map (kbd "C-c c") 'my-duplicate-line)
 (define-key global-map (kbd "C-%") 'goto-match-paren)
-(define-key global-map (kbd "C-x M-f") 'my-sudo-edit)
 
 (define-key global-map (kbd "C-c j") 'dired-jump)
 
@@ -117,3 +116,14 @@
 (define-key global-map (kbd "C-c f") 'browse-url-at-point)
 
 (define-key global-map (kbd "C-c l") 'linum-mode)
+
+(define-key global-map (kbd "C-c i") 'ispell-word)
+
+
+(define-key global-map (kbd "C-x C-f")
+  (defun find-file-maybe-sudo (&optional sudo)
+    (interactive "P")
+    (call-interactively
+     (if sudo
+         'ido-sudo-find-file
+         'ido-find-file))))
