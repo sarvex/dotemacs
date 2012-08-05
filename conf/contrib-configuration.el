@@ -5,10 +5,10 @@
 (define-key global-map (kbd "C-;") 'iedit-mode)
 (define-key global-map (kbd "<f7>") 'scratch)
 
-(define-key global-map (kbd "C-c i") 'ioccur)
 (setq ioccur-buffer-completion-style 'ido
       ioccur-buffer-completion-use-ido t
       ioccur-fontify-buffer-p t)
+
 
 (setq ac-comphist-file "~/.emacs.d/ac-comphist.dat"
       ac-auto-show-menu nil
