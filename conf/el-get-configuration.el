@@ -112,9 +112,9 @@
     :post-init nil
     :lazy t)
 
-   (:name projector
+   (:name projectur
     :type git
-    :url "https://github.com/vderyagin/projector.el.git"
+    :url "https://github.com/vderyagin/projectur.git"
     :lazy t)
 
    (:name crontab-mode

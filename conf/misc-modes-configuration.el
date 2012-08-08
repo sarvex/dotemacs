@@ -133,11 +133,6 @@
     (lambda () (interactive) (kill-buffer-ask (current-buffer)))))
 
 
-(eval-after-load 'conf-mode
-  ;; conflicts with project-root
-  '(define-key conf-mode-map (kbd "C-c SPC") nil))
-
-
 (eval-after-load 'sh-script
   '(progn
     (define-key sh-mode-map (kbd "<f9>") 'executable-interpret)

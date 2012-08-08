@@ -108,7 +108,6 @@
 (setq debug-on-error nil
       diff-switches "-uc"
       echo-keystrokes 0.4
-      grep-scroll-output t
       isearch-allow-scroll t
       stack-trace-on-error nil
       standard-indent 4
@@ -131,3 +130,6 @@
 
 (setq user-mail-address my-email-address
       user-full-name my-full-name)
+
+(setq grep-scroll-output t
+      grep-command "grep --recursive --with-filename --line-number -e ")

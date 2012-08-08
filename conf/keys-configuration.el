@@ -113,17 +113,17 @@
 
 (define-key help-map "a" 'apropos)
 
-(define-key global-map (kbd "C-c f") 'browse-url-at-point)
-
 (define-key global-map (kbd "C-c l") 'linum-mode)
 
 (define-key global-map (kbd "C-c i") 'ispell-word)
 
+(defun find-file-maybe-sudo (&optional sudo)
+  (interactive "P")
+  (call-interactively
+   (if sudo
+       'ido-sudo-find-file
+       'ido-find-file)))
 
-(define-key global-map (kbd "C-x C-f")
-  (defun find-file-maybe-sudo (&optional sudo)
-    (interactive "P")
-    (call-interactively
-     (if sudo
-         'ido-sudo-find-file
-         'ido-find-file))))
+(define-key global-map (kbd "C-x C-f") 'find-file-maybe-sudo)
+
+(define-key global-map (kbd "C-c m") 'imenu)

@@ -87,7 +87,7 @@
  '("shell" (or
             (name . "^\\*Python\\*$")
             (name . "^\\*interpretation\\*$")
-            (mode . inf-ruby-mode)
+            (mode . inferior-ruby-mode)
             (mode . erlang-shell-mode)
             (mode . term-mode)
             (mode . inferior-emacs-lisp-mode)

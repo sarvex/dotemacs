@@ -22,10 +22,8 @@
 
     (add-hook 'magit-log-edit-mode-hook 'my-magit-log-edit-hook)))
 
-(setq gist-authenticate-function ' gist-basic-authentication
-      ;; gist-authenticate-function 'gist-oauth2-authentication
-      gist-user-password my-github-password
-      gist-view-gist t
-      gist-working-directory "~/dev/gists"
+(setq gist-authenticate-function 'gist-basic-authentication
       github-user my-github-username
-      github-token my-github-token)
+      gist-user-password my-github-password
+      gist-view-gist nil
+      gist-working-directory "~/gists")
