@@ -23,23 +23,6 @@
                                tar-mode-hook
                                vc-annotate-mode-hook
                                twittering-mode-hook)))
-       (autopair-modes-hooks (append
-                              conf-modes-hooks
-                              '(c-mode-common-hook
-                                coffee-mode-hook
-                                cperl-mode-hook
-                                sgml-mode-hook
-                                css-mode-hook
-                                feature-mode-hook
-                                graphviz-dot-mode-hook
-                                haml-mode-hook
-                                haskell-mode-hook
-                                inf-ruby-mode-hook
-                                js-mode-hook
-                                makefile-mode-hook
-                                python-mode-hook
-                                ruby-mode-hook
-                                sh-mode-hook)))
        (whitespace-modes-hooks (append
                                 conf-modes-hooks
                                 '(c-mode-common-hook
@@ -112,19 +95,15 @@
 
   ;; hl-line
   (dolist (hook hl-line-modes-hooks)
-    (add-hook hook 'my-turn-on-hl-line-mode))
-
-  ;; automatic matching paren insertion
-  (dolist (hook autopair-modes-hooks)
-    (add-hook hook 'my-turn-on-autopair-mode))
+    (add-hook hook 'turn-on-hl-line-mode))
 
   ;; whitespaces
   (dolist (hook whitespace-modes-hooks)
-    (add-hook hook 'my-turn-on-whitespace-mode))
+    (add-hook hook 'turn-on-whitespace-mode))
 
   ;; highlight keywords
   (dolist (hook hl-keywords-modes-hooks)
-    (add-hook hook 'my-turn-on-hl-keywords))
+    (add-hook hook 'turn-on-hl-keywords))
 
   ;; drag-stuff mode
   (dolist (hook drag-stuff-modes-hooks)
@@ -134,16 +113,13 @@
   (dolist (hook eldoc-modes-hooks)
     (add-hook hook 'turn-on-eldoc-mode)))
 
-(defun my-turn-on-hl-line-mode ()
+(defun turn-on-hl-line-mode ()
   (hl-line-mode t))
 
-(defun my-turn-on-autopair-mode ()
-  (autopair-mode t))
-
-(defun my-turn-on-whitespace-mode ()
+(defun turn-on-whitespace-mode ()
   (whitespace-mode t))
 
-(defun my-turn-on-hl-keywords ()
+(defun turn-on-hl-keywords ()
   (font-lock-add-keywords
    nil
    '(("\\<\\(XXX\\|TODO\\|NOTE\\|BUG\\|FIXME\\|WARNING\\|HACK\\|REFACTOR\\|IMPORTANT\\|HERE BE DRAGONS\\):"
@@ -157,9 +133,9 @@
 
 (add-hook 'after-save-hook 'desktop-save-in-desktop-dir)
 
-(add-hook 'term-mode-hook 'my-turn-off-word-wrap)
-(defun my-turn-off-word-wrap ()
+(defun turn-off-word-wrap ()
   (setq word-wrap nil))
+(add-hook 'term-mode-hook 'turn-off-word-wrap)
 
 ;; (add-hook 'text-mode-hook 'turn-on-orgstruct++)
 ;; (add-hook 'text-mode-hook 'turn-on-orgtbl)
@@ -167,8 +143,8 @@
 
 (add-hook 'help-mode-hook 'turn-on-visual-line-mode)
 
-(add-hook 'find-file-hook 'my-create-parent-directories-for-file)
-(defun my-create-parent-directories-for-file ()
+(add-hook 'find-file-hook 'create-parent-directories-for-file)
+(defun create-parent-directories-for-file ()
   "Automatically create file's parent path if it does not exist."
   (let ((dir (file-name-directory buffer-file-name)))
     (when (and (not (file-exists-p dir))
@@ -178,6 +154,8 @@
 
 (when (fboundp 'customize-themes)
   (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-  (setq custom-safe-themes '("87ba78c22fd1148594fef4d250cac75cdbecfa99a41916bd450f72ccdbf4b60b" default))
+  (setq custom-safe-themes
+        '("60271da14f965d259a3ba716308a3bea8cb278ce3298f8d6b27ab87352b67703"
+          default))
   (load-theme 'quiet-light)
   (add-hook 'after-make-frame-functions (lambda (frame) (load-file "~/.emacs.d/themes/quiet-light-theme.el"))))

@@ -36,6 +36,10 @@
   '(paren-activate))
 
 
+(setq autopair-skip-whitespace 'chomp)
+(autopair-global-mode)
+
+
 (eval-after-load 'doc-mode
   '(add-hook 'doc-mode-hook
     '(lambda ()
