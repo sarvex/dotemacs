@@ -16,7 +16,7 @@
                                bookmark-bmenu-mode-hook
                                gnus-article-mode-hook
                                gnus-group-mode-hook
-                               grep-mode
+                               compilation-mode-hook
                                ibuffer-mode-hook
                                irfc-mode-hook
                                speedbar-mode-hook
