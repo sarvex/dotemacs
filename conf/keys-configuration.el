@@ -127,3 +127,6 @@
 (define-key global-map (kbd "C-x C-f") 'find-file-maybe-sudo)
 
 (define-key global-map (kbd "C-c m") 'imenu)
+
+(define-key global-map (kbd "M-P") 'scroll-down-line)
+(define-key global-map (kbd "M-N") 'scroll-up-line)
