@@ -154,8 +154,6 @@
 
 (when (fboundp 'customize-themes)
   (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-  (setq custom-safe-themes
-        '("60271da14f965d259a3ba716308a3bea8cb278ce3298f8d6b27ab87352b67703"
-          default))
+  (setq custom-safe-themes t)
   (load-theme 'quiet-light)
   (add-hook 'after-make-frame-functions (lambda (frame) (load-file "~/.emacs.d/themes/quiet-light-theme.el"))))
