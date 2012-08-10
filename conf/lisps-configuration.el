@@ -22,6 +22,8 @@
 
 ;; hooks
 
+(add-hook 'lisp-mode-hook (lambda () (autopair-mode -1)) 'append)
+
 (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "eLisp")))
 
 (add-hook 'lisp-interaction-mode-hook (lambda () (setq mode-name "Lisp-int")))
