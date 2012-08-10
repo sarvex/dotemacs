@@ -79,22 +79,6 @@
   (add-to-list 'auto-mode-alist `(,ext . markdown-mode)))
 
 
-(setq coffee-cleanup-whitespace t
-      coffee-js-mode 'js-mode
-      coffee-tab-width 2)
-(defun coffee-compile-dwim ()
-  (interactive)
-  (cond
-    ((region-active-p)
-     (call-interactively 'coffee-compile-region))
-    ((buffer-file-name)
-     (coffee-compile-file))
-    (t
-     (coffee-compile-buffer))))
-(eval-after-load 'coffee-mode
-  '(define-key coffee-mode-map (kbd "<f9>") 'coffee-compile-dwim))
-
-
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("nginx.conf\\'" . nginx-mode))
 

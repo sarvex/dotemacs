@@ -31,6 +31,7 @@
 (load "dotemacs/conf/perl-configuration")
 (load "dotemacs/conf/python-configuration")
 (load "dotemacs/conf/ruby-configuration")
+(load "dotemacs/conf/javascript-configuration")
 (load "dotemacs/conf/html-css-configuration")
 
 (load "dotemacs/conf/dired-configuration")
