@@ -329,3 +329,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
     (if (region-active-p)
         (call-interactively 'indent-region)
         (indent-region (region-beginning) (region-end)))))
+
+(defun turn-on-flymake-mode ()
+  (flymake-mode t))
