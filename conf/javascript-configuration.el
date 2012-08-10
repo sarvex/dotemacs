@@ -1,8 +1,5 @@
 (setq js-indent-level 4)
 
-(eval-after-load 'js
-  '(define-key js-mode-map (kbd "<return>") 'reindent-then-newline-and-indent))
-
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 
 (setq coffee-cleanup-whitespace t
@@ -63,5 +60,10 @@
                '("\\.js\\(on\\)?\\'" flymake-jshint-init)))
 
 
-(add-hook 'js-mode-hook 'turn-on-flymake-mode)
-(add-hook 'js-mode-hook 'turn-on-jshint-flymake)
+(eval-after-load 'js
+  '(progn
+    (require 'flymake)
+    (turn-on-jshint-flymake)
+    (define-key js-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
+    (define-key js-mode-map (kbd "C-c e") 'flymake-display-err-menu-for-current-line)
+    (add-hook 'js-mode-hook 'turn-on-flymake-mode)))
