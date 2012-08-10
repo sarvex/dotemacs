@@ -38,7 +38,6 @@
    yaml-mode
 
    (:name asciidoc :lazy t)
-   (:name csharp-mode :lazy t)
    (:name dired+ :lazy t)
    (:name dired-details :lazy t)
    (:name erc-highlight-nicknames :lazy t)
@@ -71,11 +70,7 @@
     :lazy t
     :load-path ("." "extensions" "contrib"))
 
-   (:name typing
-    :type emacswiki
-    :post-init (progn (autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)))
-
-   (:name   openwith
+   (:name openwith
     :description "Open files with external programs"
     :type hg
     :url "https://bitbucket.org/jpkotta/openwith"
@@ -102,8 +97,8 @@
     :post-init nil)
 
    (:name gist
-    :type git
-    :url "https://github.com/mhayashi1120/gist.el.git"
+    :type github
+    :pkgname "mhayashi1120/gist.el"
     :lazy t)
 
    (:name yasnippet
@@ -113,8 +108,8 @@
     :lazy t)
 
    (:name projectur
-    :type git
-    :url "https://github.com/vderyagin/projectur.git"
+    :type github
+    :pkgname "vderyagin/projectur"
     :lazy t)
 
    (:name crontab-mode
@@ -144,9 +139,6 @@
                  (autoload 'doc-mode "doc-mode" nil t)
                  (add-to-list 'auto-mode-alist '("\\.a\\(scii\\)?doc\\'" . doc-mode))))
 
-   ;; (:name c-eldoc
-   ;;  :type emacswiki)
-
    (:name markdown-mode
     :features nil
     :post-init nil)
@@ -159,27 +151,27 @@
     :features auto-complete-config)
 
    (:name feature-mode
-    :type git
-    :url "https://github.com/michaelklishin/cucumber.el.git"
+    :type github
+    :pkgname "michaelklishin/cucumber.el"
     :post-init (progn
                  (setq feature-default-language "en"
                        feature-default-i18n-file (expand-file-name "feature-mode/i18n.yml" el-get-dir))
                  (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))))
 
    (:name popwin
-    :type git
-    :url "https://github.com/m2ym/popwin-el.git"
+    :type github
+    :pkgname "m2ym/popwin-el"
     :compile "popwin.el"
     :features popwin)
 
    (:name pomodoro
-    :type git
-    :url "https://github.com/vderyagin/pomodoro.el.git"
+    :type github
+    :pkgname "vderyagin/pomodoro.el"
     :post-init (progn (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir))))
 
    (:name sass-convert
-    :type git
-    :url "https://github.com/vderyagin/sass-convert.el.git")
+    :type github
+    :pkgname "vderyagin/sass-convert.el")
 
    (:name graphviz-dot-mode
     :type http
@@ -187,16 +179,16 @@
     :post-init (progn (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))))
 
    (:name ido-ubiquitous
-    :type git
-    :url "https://github.com/technomancy/ido-ubiquitous.git")
+    :type github
+    :pkgname "technomancy/ido-ubiquitous")
 
    (:name nginx-mode
-    :type git
-    :url "https://github.com/ajc/nginx-mode.git")
+    :type github
+    :pkgname "ajc/nginx-mode")
 
    (:name slim-mode
     :type http
-    :url "https://raw.github.com/stonean/slim/master/extra/slim-mode.el")))
+    :url "htps://raw.github.com/stonean/slim/master/extra/slim-mode.el")))
 
 (el-get 'wait)
 (load (file-name-sans-extension el-get-autoload-file))
