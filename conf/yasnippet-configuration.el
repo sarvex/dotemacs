@@ -37,18 +37,12 @@
 
 (autoload 'yas/minor-mode-on "yasnippet" nil t)
 
-(dolist (hook '(c-mode-hook
-                css-mode-hook
-                emacs-lisp-mode-hook
+(dolist (hook '(css-mode-hook
                 erlang-mode-hook
                 feature-mode-hook
                 html-mode-hook
-                java-mode-hook
-                js-mode-hook
                 markdown-mode-hook
                 nxml-mode-hook
-                perl-mode-hook
-                python-mode-hook
                 rst-mode-hook
                 ruby-mode-hook
                 scala-mode-hook

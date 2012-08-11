@@ -11,11 +11,11 @@
                                                    "-hook")))
                                  conf-modes))
        (hl-line-modes-hooks (append
-                             ;; conf-modes-hooks
                              '(archive-mode-hook
                                bookmark-bmenu-mode-hook
                                gnus-article-mode-hook
                                gnus-group-mode-hook
+                               gist-list-mode-hook
                                compilation-mode-hook
                                ibuffer-mode-hook
                                irfc-mode-hook
@@ -25,24 +25,19 @@
                                twittering-mode-hook)))
        (whitespace-modes-hooks (append
                                 conf-modes-hooks
-                                '(c-mode-common-hook
-                                  text-mode-hook
+                                '(text-mode-hook
                                   change-log-mode-hook
                                   coffee-mode-hook
-                                  cperl-mode-hook
+                                  prog-mode-hook
                                   css-mode-hook
-                                  emacs-lisp-mode-hook
                                   feature-mode-hook
                                   graphviz-dot-mode-hook
                                   haml-mode-hook
                                   haskell-mode-hook
-                                  js-mode-hook
                                   lisp-interaction-mode-hook
-                                  lisp-mode-hook
                                   makefile-mode-hook
                                   markdown-mode-hook
                                   nxml-mode-hook
-                                  python-mode-hook
                                   ruby-mode-hook
                                   sgml-mode-hook
                                   sh-mode-hook
