@@ -6,8 +6,8 @@
  yas/choose-tables-first t)
 
 (setq yas/prompt-functions
-      '(yas/dropdown-prompt
-        yas/ido-prompt
+      '(yas/ido-prompt
+        yas/dropdown-prompt
         yas/x-prompt
         yas/completing-prompt
         yas/no-prompt))
@@ -15,7 +15,6 @@
 
 (eval-after-load 'yasnippet
   '(progn
-    (require 'dropdown-list)
     (setq yas/snippet-dirs '("~/.emacs.d/yasnippets"))
     (yas/load-snippet-dirs)
     (add-hook 'snippet-mode-hook 'my-snippet-mode-hook)))
