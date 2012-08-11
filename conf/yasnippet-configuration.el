@@ -17,13 +17,13 @@
   '(progn
     (setq yas/snippet-dirs '("~/.emacs.d/yasnippets"))
     (yas/load-snippet-dirs)
-    (add-hook 'snippet-mode-hook 'my-snippet-mode-hook)))
+    (add-hook 'snippet-mode-hook 'dont-require-final-newline)))
 
-(defun my-snippet-mode-hook ()
+(defun dont-require-final-newline ()
   (setq require-final-newline nil))
 
 ;; hook for automatic reloading of changed snippets
-(defun my-update-yasnippets-on-save ()
+(defun yasnippets-recompile-and-reload-on-save ()
   (when (eq major-mode 'snippet-mode)
     (let ((compiled
            (expand-file-name ".yas-compiled-snippets.el"
