@@ -1,20 +1,18 @@
 (setq semanticdb-default-save-directory "~/.emacs.d/semanticdb")
 
+(add-to-list 'load-path "~/.emacs.d/el-get/cedet")
+
 (unless (featurep 'cedet)
-  (load-file "~/.emacs.d/el-get/cedet/common/cedet.el"))
+  (require 'cedet-devel-load))
 
 (eval-after-load 'cedet
   '(progn
     (semantic-load-enable-code-helpers) ; basic stuff
-    (semanticdb-toggle-global-mode)
     (which-function-mode t)
-    (global-senator-minor-mode -1)
 
     (setq which-func-modes
      (append '(ruby-mode org-mode)
       which-func-modes))))
-
-
 
 ;; Speedbar
 
