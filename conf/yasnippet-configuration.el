@@ -32,21 +32,8 @@
     (yas/recompile-all)
     (yas/reload-all)))
 
-(add-hook 'after-save-hook 'my-update-yasnippets-on-save)
-
-(autoload 'yas/minor-mode-on "yasnippet" nil t)
-
-(dolist (hook '(css-mode-hook
-                erlang-mode-hook
-                feature-mode-hook
-                html-mode-hook
-                markdown-mode-hook
-                nxml-mode-hook
-                rst-mode-hook
-                ruby-mode-hook
-                scala-mode-hook
-                snippet-mode-hook
-                text-mode-hook))
-  (add-hook hook 'yas/minor-mode-on))
+(add-hook 'after-save-hook 'yasnippets-recompile-and-reload-on-save)
 
 (add-to-list 'auto-mode-alist '("\\.yasnippet\\'" . snippet-mode))
+
+(yas/global-mode t)
