@@ -10,6 +10,23 @@
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 (define-key emacs-lisp-mode-map (kbd "M-;") 'comment-dwim)
 
+(define-key emacs-lisp-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)
+
+(eval-after-load 'ert
+  '(define-key ert-results-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively))
+
+(defun ert-run-all-tests-or-interactively (&optional arg)
+  "Run all ERT tests, when ARG is true - specify selector for tests to run."
+  (interactive "P")
+  (if arg
+      (call-interactively 'ert-run-tests-interactively)
+      (ert-run-tests-interactively t)))
+
+(font-lock-add-keywords
+ 'emacs-lisp-mode
+ '(("\\<\\(ert-deftest\\)" . 'font-lock-keyword-face)))
+
+
 (define-key lisp-interaction-mode-map (kbd "C-c j") 'eval-print-last-sexp)
 (define-key lisp-interaction-mode-map (kbd "C-c C-c") 'eval-defun)
 (define-key lisp-interaction-mode-map (kbd "M-.") 'find-function-at-point)

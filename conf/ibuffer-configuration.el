@@ -203,6 +203,8 @@
             (mode . display-time-world-mode)
             (mode . epa-key-list-mode)
             (mode . epa-key-mode)
+            (mode . ert-results-mode)
+            (mode . ert-simple-view-mode)
             (mode . finder-mode)
             (mode . gdb-breakpoints-mode)
             (mode . gdb-frames-mode)
