@@ -59,12 +59,18 @@
         ("*Shell Command Output*")))
 
 (setq special-display-buffer-names
-      '("*Help*" "*Occur*"
+      '("*Help*"
+        "*Occur*"
         "*Compile-Log*"
         "*Async Shell Command*"
         "*twittering-edit*"
         "*magit-edit-log*"
-        "*Shell Command Output*"))
+        "*Shell Command Output*"
+        "*ert*"
+        "*ERT list of should forms*"
+        "*ERT timings*"
+        "*ERT Backtrace*"
+        "*ERT Messages*"))
 (define-key global-map (kbd "C-h e") 'popwin:messages)
 
 
