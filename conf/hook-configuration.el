@@ -12,6 +12,8 @@
                                  conf-modes))
        (hl-line-modes-hooks (append
                              '(archive-mode-hook
+                               Info-mode-hook
+                               special-mode-hook
                                bookmark-bmenu-mode-hook
                                gnus-article-mode-hook
                                gnus-group-mode-hook
