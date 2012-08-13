@@ -66,7 +66,6 @@
 
 (dolist (mode-hook '(emacs-lisp-mode-hook
                      lisp-mode-hook
-                     scheme-mode-hook
                      inferior-scheme-mode-hook
                      lisp-interaction-mode-hook
                      ;; slime-repl-mode-hook
