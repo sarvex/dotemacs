@@ -108,8 +108,8 @@
 (setq debug-on-error nil
       diff-switches "-uc"
       echo-keystrokes 0.4
+      eval-expression-print-level nil
       isearch-allow-scroll t
-      stack-trace-on-error nil
       standard-indent 4
       tab-always-indent 'complete
       tramp-default-method "sudo"

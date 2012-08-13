@@ -24,10 +24,6 @@
 ;; hook for automatic reloading of changed snippets
 (defun yasnippets-recompile-and-reload-on-save ()
   (when (eq major-mode 'snippet-mode)
-    (let ((compiled
-           (expand-file-name ".yas-compiled-snippets.el"
-                             (file-name-directory buffer-file-name))))
-      (delete-file compiled))
     (yas/recompile-all)
     (yas/reload-all)))
 
