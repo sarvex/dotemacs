@@ -31,6 +31,10 @@
     (define-key ibuffer-mode-map (kbd "C-w") 'ibuffer-unmark-backward)
     (define-key ibuffer-mode-map (kbd "C-x C-f") 'ido-find-file)
     (define-key ibuffer-mode-map (kbd "[") 'ibuffer-toggle-filter-group)
+
+    ;; Do not shadow global binding:
+    (define-key ibuffer-mode-map (kbd "C-x C-f") nil)
+
     (dolist (k '([right] [left] [up] [down]))
       (define-key ibuffer-mode-map k nil))))
 
