@@ -83,8 +83,10 @@
 
 (setq cua-enable-cua-keys nil)
 (eval-after-load 'cua-base
-  '(dolist (k '([right] [left] [up] [down]))
-    (define-key cua--rectangle-keymap k 'cua-rotate-rectangle)))
+  (mapc
+   (lambda (key)
+     (define-key cua--rectangle-keymap key 'cua-rotate-rectangle))
+   '([right] [left] [up] [down])))
 
 
 (setq display-time-world-list
@@ -106,8 +108,11 @@
 
 ;; IMPORTANT: app-arch/unrar-gpl in needed for rar support
 ;; executable must be named unrar-free (hardcoded in archive-mode)
-(dolist (ext '("\\.xpi\\'" "\\.crx\\'" "\\.oex\\'" "\\.rar\\'"))
-  (add-to-list 'auto-mode-alist `(,ext . archive-mode)))
+(mapc
+ (lambda (extension)
+   (add-to-list 'auto-mode-alist `(,extension . archive-mode)))
+ '("\\.xpi\\'" "\\.crx\\'" "\\.oex\\'" "\\.rar\\'"))
+(add-to-list 'auto-mode-alist '("\\.gem\\'" . tar-mode))
 (eval-after-load 'arc-mode
   '(progn
     (define-key archive-mode-map (kbd "q")
@@ -120,8 +125,10 @@
     (add-hook 'tar-mode-hook 'truncate-lines)))
 
 
-(dolist (ext '("\\.cue\\'" "\\.cnf\\'" "^hgrc\\'"))
-  (add-to-list 'auto-mode-alist `(,ext . conf-mode)))
+(mapc
+ (lambda (extension)
+   (add-to-list 'auto-mode-alist `(,extension . conf-mode)))
+ '("\\.cue\\'" "\\.cnf\\'" "^hgrc\\'"))
 
 
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG\\'" . diff-mode))

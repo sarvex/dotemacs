@@ -20,10 +20,12 @@
         file-name-history))
 
 (defun my-savehist-save-hook ()
-  (dolist (var (append savehist-additional-variables
-                       savehist-minibuffer-history-variables))
-    (when (boundp var)
-      (setq var (delete-dups (symbol-value var))))))
+  (mapc
+   (lambda (var)
+     (when (boundp var)
+       (setq var (delete-dups (symbol-value var)))))
+   (append savehist-additional-variables
+           savehist-minibuffer-history-variables)))
 
 (savehist-mode t)
 (add-hook 'savehist-save-hook 'my-savehist-save-hook)

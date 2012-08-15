@@ -91,24 +91,34 @@
                             cperl-mode-hook)))
 
   ;; hl-line
-  (dolist (hook hl-line-modes-hooks)
-    (add-hook hook 'turn-on-hl-line-mode))
+  (mapc
+   (lambda (hooks)
+     (add-hook hooks 'turn-on-hl-line-mode))
+   hl-line-modes-hooks)
 
   ;; whitespaces
-  (dolist (hook whitespace-modes-hooks)
-    (add-hook hook 'turn-on-whitespace-mode))
+  (mapc
+   (lambda (hooks)
+     (add-hook hooks 'turn-on-whitespace-mode))
+   whitespace-modes-hooks)
 
   ;; highlight keywords
-  (dolist (hook hl-keywords-modes-hooks)
-    (add-hook hook 'turn-on-hl-keywords))
+  (mapc
+   (lambda (hooks)
+     (add hook hooks 'turn-on-hl-keywords))
+   hl-keywords-modes-hooks)
 
   ;; drag-stuff mode
-  (dolist (hook drag-stuff-modes-hooks)
-    (add-hook hook 'turn-on-drag-stuff-mode))
+  (mapc
+   (lambda (hooks)
+     (add-hook hooks 'turn-on-drag-stuff-mode))
+   drag-stuff-modes-hooks)
 
   ;; eldoc
-  (dolist (hook eldoc-modes-hooks)
-    (add-hook hook 'turn-on-eldoc-mode)))
+  (mapc
+   (lambda (hooks)
+     (add-hook hooks 'turn-on-eldoc-mode))
+   eldoc-modes-hooks))
 
 (defun turn-on-hl-line-mode ()
   (hl-line-mode t))

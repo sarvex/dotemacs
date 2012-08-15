@@ -16,21 +16,25 @@
              (w3m-browse-url url))))))
 
 
-(dolist (symb '(upcase-region
-                downcase-region
-                narrow-to-region
-                narrow-to-page))
-  (put symb 'disabled nil))
+(mapc
+ (lambda (symbol)
+   (put symbol 'disabled nil))
+ '(upcase-region
+   downcase-region
+   narrow-to-region
+   narrow-to-page))
 
+(mapc
+ (lambda (buf-name)
+   (add-to-list 'same-window-buffer-names buf-name))
+ '("*Bookmark List*"
+   "*SQL*"
+   "*Packages*"))
 
-(dolist (buf-name '("*Bookmark List*"
-                    "*SQL*"
-                    "*Packages*"))
-  (add-to-list 'same-window-buffer-names buf-name))
-
-
-(dolist (ext '(".rbc" ".sassc" ".scssc" ".sqlite3"))
-  (add-to-list 'completion-ignored-extensions ext))
+(mapc
+ (lambda (extension)
+   (add-to-list 'completion-ignored-extensions extension))
+ '(".rbc" ".sassc" ".scssc" ".sqlite3"))
 
 
 (setq gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration.el"

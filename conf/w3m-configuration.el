@@ -12,8 +12,10 @@
 (eval-after-load 'w3m
   '(progn
 
-    (dolist (k '([right] [left] [up] [down]))
-      (define-key w3m-mode-map k nil))
+    (mapc
+     (lambda (key)
+       (define-key w3m-mode-map key nil))
+     '([right] [left] [up] [down]))
 
     (add-hook 'w3m-display-hook
      (lambda (url)

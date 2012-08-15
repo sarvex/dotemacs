@@ -81,8 +81,10 @@
   (turn-on-orgtbl))
 (eval-after-load 'markdown-mode
   '(add-hook 'markdown-mode-hook 'my-markdown-mode-hook))
-(dolist (ext '("\\.text\\'" "\\.markdown\\'" "\\.mdo?wn\\'" "\\.mk?dt?\\'"))
-  (add-to-list 'auto-mode-alist `(,ext . markdown-mode)))
+(mapc
+ (lambda (extension)
+   (add-to-list 'auto-mode-alist `(,extension . markdown-mode)))
+ '("\\.text\\'" "\\.markdown\\'" "\\.mdo?wn\\'" "\\.mk?dt?\\'"))
 
 
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))

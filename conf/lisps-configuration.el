@@ -64,35 +64,39 @@
                                        lisp-interaction-mode))
               (indent-region (point-min) (point-max)))))
 
-(dolist (mode-hook '(emacs-lisp-mode-hook
-                     lisp-mode-hook
-                     inferior-scheme-mode-hook
-                     lisp-interaction-mode-hook
-                     ;; slime-repl-mode-hook
-                     ielm-mode-hook))
-  (add-hook mode-hook
-            (lambda ()
-              "Display pretty lambdas in lisp modes"
-              (font-lock-add-keywords
-               nil
-               `(("(?\\(lambda\\>\\)"
-                  (0 (progn
-                       (compose-region
-                        (match-beginning 1)
-                        (match-end 1)
-                        ,(make-char 'greek-iso8859-7 107))
-                       nil))))))))
+
+(mapc
+ (lambda (hooks)
+   (add-hook hooks
+             (lambda ()
+               "Display pretty lambdas in lisp modes"
+               (font-lock-add-keywords
+                nil
+                `(("(?\\(lambda\\>\\)"
+                   (0 (progn
+                        (compose-region
+                         (match-beginning 1)
+                         (match-end 1)
+                         ,(make-char 'greek-iso8859-7 107))
+                        nil))))))))
+ '(emacs-lisp-mode-hook
+   lisp-mode-hook
+   inferior-scheme-mode-hook
+   lisp-interaction-mode-hook
+   ielm-mode-hook))
 
 ;; paredit for all lisp modes
-(dolist (mode-hook '(emacs-lisp-mode-hook
-                     clojure-mode-hook
-                     scheme-mode-hook
-                     inferior-scheme-mode-hook
-                     lisp-mode-hook
-                     lisp-interaction-mode-hook
-                     slime-repl-mode-hook
-                     ielm-mode-hook))
-  (add-hook mode-hook (lambda () (paredit-mode t))))
+(mapc
+ (lambda (hooks)
+   (add-hook hooks (lambda () (paredit-mode t))))
+ '(emacs-lisp-mode-hook
+   clojure-mode-hook
+   scheme-mode-hook
+   inferior-scheme-mode-hook
+   lisp-mode-hook
+   lisp-interaction-mode-hook
+   slime-repl-mode-hook
+   ielm-mode-hook))
 
 
 ;; scheme

@@ -1,6 +1,8 @@
-(dolist (f '("\\.\\(rb\\|ru\\|builder\\|rake\\|thor\\|gemspec\\)\\'"
-             "\\(rake\\|thor\\|guard\\|gem\\|cap\\|vagrant\\)file\\'"))
-  (add-to-list 'auto-mode-alist `(,f . ruby-mode)))
+(mapc
+ (lambda (file)
+   (add-to-list 'auto-mode-alist `(,file . ruby-mode)))
+ '("\\.\\(rb\\|ru\\|builder\\|rake\\|thor\\|gemspec\\)\\'"
+   "\\(rake\\|thor\\|guard\\|gem\\|cap\\|vagrant\\)file\\'"))
 
 (setq ruby-electric-matching-delimeter-alist nil
       ruby-electric-expand-delimiters-list '(124))
@@ -46,9 +48,13 @@
 
     ;; enable flymake
     (require 'flymake)
-    (dolist (f '(".+\\.\\(rb\\|ru\\|rake\\|thor\\|gemspec\\)\\'"
-                 "\\([Rr]ake\\|[Tt]hor\\|[Gg]\\(uard\\|em\\)\\|[Cc]ap\\|[Vv]agrant\\)file\\'"))
-      (push `(,f flymake-ruby-init) flymake-allowed-file-name-masks))
+
+    (mapc
+     (lambda (file)
+       (push `(,file flymake-ruby-init) flymake-allowed-file-name-masks))
+     '(".+\\.\\(rb\\|ru\\|rake\\|thor\\|gemspec\\)\\'"
+       "\\([Rr]ake\\|[Tt]hor\\|[Gg]\\(uard\\|em\\)\\|[Cc]ap\\|[Vv]agrant\\)file\\'"))
+
     (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
     (define-key ruby-mode-map (kbd "<f9>") 'xmp)

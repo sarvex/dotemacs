@@ -35,8 +35,10 @@
     ;; Do not shadow global binding:
     (define-key ibuffer-mode-map (kbd "C-x C-f") nil)
 
-    (dolist (k '([right] [left] [up] [down]))
-      (define-key ibuffer-mode-map k nil))))
+    (mapc
+     (lambda (key)
+       (define-key ibuffer-mode-map key nil))
+     '([right] [left] [up] [down]))))
 
 
 (defadvice ibuffer-generate-filter-groups
@@ -100,11 +102,19 @@
             (mode . shell-mode)
             (mode . eshell-mode))))
 
-(dolist (p (remove "." (remove ".." (directory-files (expand-file-name "~/dev")))))
-  (add-to-list 'my-ibuffer-filter-groups `(,(format "Project: %s" p) (filename . ,(expand-file-name p "~/dev")))))
+(mapc
+ (lambda (project)
+   (add-to-list 'my-ibuffer-filter-groups
+                `(,(format "Project: %s" project)
+                   (filename . ,(expand-file-name project "~/dev")))))
+ (remove "." (remove ".." (directory-files (expand-file-name "~/dev")))))
 
-(dolist (p (remove "." (remove ".." (directory-files (expand-file-name "~/src")))))
-  (add-to-list 'my-ibuffer-filter-groups `(,(format "Source: %s" p) (filename . ,(expand-file-name p "~/src")))))
+(mapc
+ (lambda (project)
+   (add-to-list 'my-ibuffer-filter-groups
+                `(,(format "Source: %s" project)
+                   (filename . ,(expand-file-name project "~/src")))))
+ (remove "." (remove ".." (directory-files (expand-file-name "~/src")))))
 
 (add-to-list
  'my-ibuffer-filter-groups

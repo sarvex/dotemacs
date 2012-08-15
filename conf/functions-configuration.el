@@ -116,31 +116,37 @@
   (let (minor-modes)
     ;; Older packages do not register in minor-mode-list but only in
     ;; minor-mode-alist.
-    (dolist (x minor-mode-alist)
-      (setq x (car x))
-      (unless (memq x minor-mode-list)
-        (push x minor-mode-list)))
+    (mapc
+     (lambda (x)
+       (setq x (car x))
+       (unless (memq x minor-mode-list)
+         (push x minor-mode-list)))
+     minor-mode-alist)
     ;; Find enabled minor mode we will want to mention.
-    (dolist (mode minor-mode-list)
-      ;; Document a minor mode if it is listed in minor-mode-alist,
-      ;; non-nil, and has a function definition.
-      (let ((fmode (or (get mode :minor-mode-function) mode)))
-        (and (boundp mode) (symbol-value mode)
-             (fboundp fmode)
-             (push fmode minor-modes))))
+    (mapc
+     (lambda (mode)
+       ;; Document a minor mode if it is listed in minor-mode-alist,
+       ;; non-nil, and has a function definition.
+       (let ((fmode (or (get mode :minor-mode-function) mode)))
+         (and (boundp mode) (symbol-value mode)
+              (fboundp fmode)
+              (push fmode minor-modes))))
+     minor-mode-list)
     minor-modes))
 
 
 (defun recursively-add-to-load-path (dir)
   "Adds DIR and all its subdirs (except hidden) to `load-path'
 recursively, if they contain elisp code"
-  (dolist (file (directory-files dir t "^[^\\.]"))
-    (if (file-directory-p file)
-        ;; process subdirectories
-        (recursively-add-to-load-path file)
-        ;; check if directory contains elisp files
-        (when (equal (file-name-extension file) "el")
-          (add-to-list 'load-path dir)))))
+  (mapc
+   (lambda (file)
+     (if (file-directory-p file)
+         ;; process subdirectories
+         (recursively-add-to-load-path file)
+         ;; check if directory contains elisp files
+         (when (equal (file-name-extension file) "el")
+           (add-to-list 'load-path dir))))
+   (directory-files dir t "^[^\\.]")))
 
 
 (defun my-get-bufers-by-mode (mode)

@@ -1,18 +1,21 @@
 (define-key global-map (kbd "C-c ;") 'comment-or-uncomment-current-line-or-region)
 
 ;; disable arrow keys in minibuffer
-(dolist (local-mode-map
-          '(minibuffer-local-completion-map
-            minibuffer-local-filename-completion-map
-            minibuffer-local-filename-must-match-map
-            minibuffer-local-isearch-map
-            minibuffer-local-map
-            minibuffer-local-must-match-filename-map
-            minibuffer-local-must-match-map
-            minibuffer-local-ns-map))
-  (let ((key-map (symbol-value local-mode-map)))
-    (dolist (k '([right] [left] [up] [down]))
-      (define-key key-map k nil))))
+(mapc
+ (lambda (local-mode-map)
+   (let ((key-map (symbol-value local-mode-map)))
+     (mapc
+      (lambda (key)
+        (define-key key-map key nil))
+      '([right] [left] [up] [down]))))
+ '(minibuffer-local-completion-map
+   minibuffer-local-filename-completion-map
+   minibuffer-local-filename-must-match-map
+   minibuffer-local-isearch-map
+   minibuffer-local-map
+   minibuffer-local-must-match-filename-map
+   minibuffer-local-must-match-map
+   minibuffer-local-ns-map))
 
 
 (global-unset-key (kbd "<f9>"))         ; do not f***ing pop Gnuplot
@@ -69,15 +72,17 @@
     (call-interactively 'save-some-buffers)))
 
 ;; Good bye, mouse buttons and arrow keys
-(dolist (k '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]
-             [mouse-2] [down-mouse-2] [drag-mouse-2] [double-mouse-2] [triple-mouse-2]
-             [mouse-3] [down-mouse-3] [drag-mouse-3] [double-mouse-3] [triple-mouse-3]
-             [mouse-4] [down-mouse-4] [drag-mouse-4] [double-mouse-4] [triple-mouse-4]
-             [mouse-5] [down-mouse-5] [drag-mouse-5] [double-mouse-5] [triple-mouse-5]
-             [right] [left] [up] [down] [home] [end] [prior] [next] [S-insert] [delete]
-             [C-right] [C-left] [C-up] [C-down] [M-right] [M-left] [M-up] [M-down]
-             [C-delete] [M-delete] [M-backspace] [C-backspace]))
-  (global-unset-key k))
+(mapc
+ (lambda (key)
+   (global-unset-key key))
+ '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]
+   [mouse-2] [down-mouse-2] [drag-mouse-2] [double-mouse-2] [triple-mouse-2]
+   [mouse-3] [down-mouse-3] [drag-mouse-3] [double-mouse-3] [triple-mouse-3]
+   [mouse-4] [down-mouse-4] [drag-mouse-4] [double-mouse-4] [triple-mouse-4]
+   [mouse-5] [down-mouse-5] [drag-mouse-5] [double-mouse-5] [triple-mouse-5]
+   [right] [left] [up] [down] [home] [end] [prior] [next] [S-insert] [delete]
+   [C-right] [C-left] [C-up] [C-down] [M-right] [M-left] [M-up] [M-down]
+   [C-delete] [M-delete] [M-backspace] [C-backspace]))
 
 
 ;; window switching
@@ -115,7 +120,7 @@
 
 (define-key global-map (kbd "C-c l") 'linum-mode)
 
-(define-key global-map (kbd "C-c i") 'ispell-word)
+(define-key global-map (kbd "C-c s") 'ispell-word)
 
 (defun find-file-maybe-sudo (&optional sudo)
   (interactive "P")
