@@ -27,7 +27,8 @@
       org-yank-adjusted-subtrees t
       org-drawers '("PROPERTIES" "CLOCK" "LOGBOOK" "HIDDEN"))
 
-(add-to-list 'org-babel-load-languages '(ruby . t))
+(eval-after-load 'ob
+  '(add-to-list 'org-babel-load-languages '(ruby . t)))
 
 ;;
 ;; TODO keywords
