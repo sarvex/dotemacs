@@ -84,8 +84,7 @@
                                   sgml-mode-hook
                                   sh-mode-hook
                                   yaml-mode-hook)))
-       (eldoc-modes-hooks '(;; python-mode-hook
-                            c-mode-hook
+       (eldoc-modes-hooks '(c-mode-hook
                             emacs-lisp-mode-hook
                             inferior-emacs-lisp-mode-hook
                             cperl-mode-hook)))
@@ -105,7 +104,7 @@
   ;; highlight keywords
   (mapc
    (lambda (hooks)
-     (add hook hooks 'turn-on-hl-keywords))
+     (add-hook hooks 'turn-on-hl-keywords))
    hl-keywords-modes-hooks)
 
   ;; drag-stuff mode

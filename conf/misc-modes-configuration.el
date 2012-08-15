@@ -83,10 +83,10 @@
 
 (setq cua-enable-cua-keys nil)
 (eval-after-load 'cua-base
-  (mapc
-   (lambda (key)
-     (define-key cua--rectangle-keymap key 'cua-rotate-rectangle))
-   '([right] [left] [up] [down])))
+  '(mapc
+    (lambda (key)
+      (define-key cua--rectangle-keymap key 'cua-rotate-rectangle))
+    '([right] [left] [up] [down])))
 
 
 (setq display-time-world-list
