@@ -117,35 +117,28 @@
 
 (defun my-org-after-save-hook ()
   "Generate org-clock-report for agenta files"
-  (when (eq major-mode 'org-mode) ; discard non-org files immediately
-    (let* ((f (buffer-file-name))
-           (d (file-name-directory f))
-           (fn (file-name-nondirectory f))
-           (r org-agenda-file-regexp)
-           (c (expand-file-name "misc/clocktable.org"
-                                org-directory)))
-      (when (or (member f org-agenda-files)
-                (and (member d org-agenda-files)
-                     (string-match r fn)))
-        (with-current-buffer (find-file-noselect c)
-          (org-clock-report t)
-          (save-buffer))))))
+  (let* ((f (buffer-file-name))
+         (d (file-name-directory f))
+         (fn (file-name-nondirectory f))
+         (r org-agenda-file-regexp)
+         (c (expand-file-name "misc/clocktable.org"
+                              org-directory)))
+    (when (or (member f org-agenda-files)
+              (and (member d org-agenda-files)
+                   (string-match r fn)))
+      (with-current-buffer (find-file-noselect c)
+        (org-clock-report t)
+        (save-buffer)))))
 
-(add-hook 'after-save-hook 'my-org-after-save-hook)
-
-;; aligning all tags on save
-(defun my-org-before-save-hook ()
-  (when (eq major-mode 'org-mode)
-    (org-align-all-tags)))
-
-(add-hook 'before-save-hook 'my-org-before-save-hook)
 
 (defun my-org-hook ()
   (org-indent-mode t)
   (turn-on-auto-fill)
   ;; (flyspell-mode t)
   (turn-on-visual-line-mode)
-  (set (make-local-variable 'backup-inhibited) t))
+  (set (make-local-variable 'backup-inhibited) t)
+  (add-hook 'before-save-hook 'org-align-all-tags nil 'make-it-local)
+  (add-hook 'after-save-hook 'my-org-after-save-hook nil 'make-it-local))
 
 (eval-after-load 'org
   '(progn

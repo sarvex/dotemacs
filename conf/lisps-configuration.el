@@ -56,14 +56,12 @@
                       nil
                       'make-it-local)))
 
-(add-hook 'before-save-hook
+(add-hook 'lisp-mode-hook
           (lambda ()
-            (when (member major-mode '(lisp-mode
-                                       emacs-lisp-mode
-                                       scheme-mode
-                                       lisp-interaction-mode))
-              (indent-region (point-min) (point-max)))))
-
+            (add-hook 'before-save-hook
+                      (lambda () (indent-region (point-min) (point-max)))
+                      nil
+                      'make-it-local)))
 
 (mapc
  (lambda (hooks)
