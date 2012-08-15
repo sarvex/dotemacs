@@ -131,6 +131,11 @@
         (org-clock-report t)
         (save-buffer)))))
 
+(defun my-org-update-agenda ()
+  "Update org agenda buffer (if any)."
+  (when (get-buffer "*Org Agenda*")
+    (save-window-excursion
+      (org-agenda-redo))))
 
 (defun my-org-hook ()
   (org-indent-mode t)
@@ -139,7 +144,8 @@
   (turn-on-visual-line-mode)
   (set (make-local-variable 'backup-inhibited) t)
   (add-hook 'before-save-hook 'org-align-all-tags nil 'make-it-local)
-  (add-hook 'after-save-hook 'my-org-after-save-hook nil 'make-it-local))
+  (add-hook 'after-save-hook 'my-org-after-save-hook nil 'make-it-local)
+  (add-hook 'after-save-hook 'my-org-update-agenda nil 'make-it-local))
 
 (eval-after-load 'org
   '(progn
