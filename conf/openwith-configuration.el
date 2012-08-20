@@ -8,5 +8,5 @@
    ("\\.\\(fb2\\(.zip\\)?\\|epub\\)\\'" "fbreader" (file))
    ("\\.\\(mp3\\|ogg\\|flac\\|wav\\|m[k4]a\\|wma\\|ac3\\|aac\\|ape\\)\\'" "deadbeef" (file))
    ("\\.\\(\\(doc\\|xls\\)x?\\|od[ts]\\|rtf\\)\\'" "libreoffice" (file))
-   ("\\.bmp\\'" "feh" (file))
+   ("\\.\\(bmp\\|ico\\)\\'" "feh" (file))
    ("\\.cb[abgrz]\\'" "qcomicbook" (file))))
