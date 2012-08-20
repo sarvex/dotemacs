@@ -135,3 +135,5 @@
 
 (define-key global-map (kbd "M-P") 'scroll-down-line)
 (define-key global-map (kbd "M-N") 'scroll-up-line)
+
+(define-key global-map (kbd "C-x g") 'gnus)
