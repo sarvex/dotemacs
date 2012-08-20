@@ -1,28 +1,24 @@
 (setq delete-active-region nil)
 
-(defadvice kill-ring-save (before slick-copy activate compile)
-  "When called interactively with no active region, copy a single line instead."
-  (interactive
-   (if mark-active
-       (list
-        (region-beginning)
-        (region-end))
-       (message "Copied line")
-       (list
-        (line-beginning-position)
-        (line-beginning-position 2)))))
-
-(defadvice kill-region (before slick-cut activate compile)
-  "When called interactively with no active region, kill a single line instead."
-  (interactive
-   (if mark-active
-       (list
-        (region-beginning)
-        (region-end))
-       (message "Killed line")
-       (list
-        (line-beginning-position)
-        (line-beginning-position 2)))))
-
 (define-key global-map (kbd "C-w") 'backward-kill-word)
 (define-key global-map (kbd "C-x C-k") 'kill-region)
+
+(define-key global-map (kbd "M-w")
+  (lambda ()
+    (interactive)
+    (if (region-active-p)
+        (call-interactively 'kill-ring-save)
+        (kill-ring-save
+         (line-beginning-position)
+         (line-beginning-position 2))
+        (message "Copied line"))))
+
+(define-key global-map (kbd "C-x C-k")
+  (lambda ()
+    (interactive)
+    (if (region-active-p)
+        (call-interactively 'kill-region)
+        (kill-region
+         (line-beginning-position)
+         (line-beginning-position 2))
+        (message "Killed line"))))
