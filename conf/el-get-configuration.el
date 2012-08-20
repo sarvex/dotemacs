@@ -101,6 +101,12 @@
     :pkgname "mhayashi1120/gist.el"
     :lazy t)
 
+   (:name handlebars-mode
+    :type github
+    :pkgname "danielevans/handlebars-mode"
+    :lazy t
+    :features nil)
+
    (:name yasnippet
     :features yasnippet
     :compile ("dropdown-list.el" "yasnippet.el")
