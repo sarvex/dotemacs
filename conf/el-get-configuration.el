@@ -29,7 +29,6 @@
    emacs-jabber
    emacs-w3m
    haskell-mode
-   swank-clojure
    magit
    rdebug
    rhtml-mode
@@ -113,9 +112,10 @@
     :post-init nil
     :lazy t)
 
-   (:name projectur
+   (:name nrepl.el
     :type github
-    :pkgname "vderyagin/projectur"
+    :pkgname " kingtim/nrepl.el"
+    :features nil
     :lazy t)
 
    (:name crontab-mode
