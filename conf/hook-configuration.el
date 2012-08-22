@@ -13,7 +13,9 @@
        (hl-line-modes-hooks (append
                              '(archive-mode-hook
                                Info-mode-hook
+                               emacs-lisp-mode-hook
                                special-mode-hook
+                               scheme-mode-hook
                                bookmark-bmenu-mode-hook
                                gnus-article-mode-hook
                                gnus-group-mode-hook
