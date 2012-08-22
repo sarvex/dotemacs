@@ -100,7 +100,12 @@
             (mode . inferior-scheme-mode)
             (mode . sql-interactive-mode)
             (mode . shell-mode)
-            (mode . eshell-mode))))
+            (mode . eshell-mode)
+            (mode . slime-repl-mode)
+            (mode . sldb-mode)
+            (name . "^\\*slime")
+            (name . "^\\*inferior-lisp\\*$")
+            (mode . nrepl-mode))))
 
 (mapc
  (lambda (project)
@@ -123,14 +128,6 @@
 (add-to-list
  'my-ibuffer-filter-groups
  '("zsh" (filename . "/.zsh/")))
-
-(add-to-list
- 'my-ibuffer-filter-groups
- '("slime" (or
-            (mode . slime-repl-mode)
-            (mode . sldb-mode)
-            (name . "^\\*slime")
-            (name . "^\\*inferior-lisp\\*$"))))
 
 (add-to-list
  'my-ibuffer-filter-groups
@@ -282,7 +279,9 @@
             (name . "^\\*gnus trace\\*$")
             (name . "^\\*imap log\\*$")
             (name . "^\\*magit-process\\*$")
+            (name . "^\\*nREPL error\\*$")
             (name . "^\\*nnimap ")
+            (name . "^\\*nrepl-connection\\*$")
             (name . "^\\*swank\\*$")
             (name . "^\\*tramp/")
             (name . "^\\*twmode")
