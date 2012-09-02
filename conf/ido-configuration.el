@@ -4,7 +4,7 @@
       ido-case-fold t                     ; ignore case
       ido-enable-last-directory-history nil
       ido-use-filename-at-point nil       ; don't use filename at point (annoying)
-      ido-use-url-at-pointt nil           ; don't use url at point (annoying)
+      ido-use-url-at-point nil            ; don't use url at point (annoying)
       ido-enable-flex-matching t          ; be smart
       ido-max-prospects 15                ; don't spam my minibuffer
       ido-confirm-unique-completion t     ; don't be too smart
@@ -129,7 +129,8 @@
 (defun ido-select-buffer-by-mode (mode choice-string &optional fallback-function)
   "Uses `ido-completing-read' for selecting buffers by MODE
 FALLBACK-FUNCTION is called when there is no buffers with MODE"
-  (let ((buf-list (my-get-bufers-by-mode mode)))
+  (let ((buf-list (mapcar (lambda (buf) (buffer-name buf))
+                          (get-buffers-with-major-mode mode))))
     (if buf-list
         (switch-to-buffer
          (if (equal (length buf-list) 1)

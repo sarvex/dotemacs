@@ -1,3 +1,6 @@
+(eval-when-compile
+  (require 'cl))
+
 (defun my-duplicate-line (&optional commentfirst)
   "comment line at point; if COMMENTFIRST is non-nil, comment the original"
   (interactive "P")
@@ -149,17 +152,14 @@ recursively, if they contain elisp code"
    (directory-files dir t "^[^\\.]")))
 
 
-(defun my-get-bufers-by-mode (mode)
-  "returns list of names of buffers with specific major-mode"
-  (save-excursion
-    (delq nil
-          (mapcar
-           (lambda (buf)
-             (when (buffer-live-p buf)
-               (with-current-buffer buf
-                 (and (eq major-mode mode)
-                      (buffer-name buf)))))
-           (buffer-list)))))
+(defun get-buffers-with-major-mode (mode)
+  "Returns list of buffers with major-mode MODE."
+  (loop
+     for buf in (buffer-list)
+     if (and (buffer-live-p buf)
+             (with-current-buffer buf
+               (eq major-mode mode)))
+     collect buf))
 
 
 (defun transpose-windows (arg)
