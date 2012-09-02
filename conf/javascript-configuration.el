@@ -28,9 +28,8 @@
                      'flymake-create-temp-inplace))
          (local-file (file-relative-name
                       temp-file
-                      (file-name-directory buffer-file-name)))
-         (jslint (expand-file-name "~/.emacs.d/dotemacs/scripts/jslint-wrapper")))
-    (list jslint (list local-file))))
+                      (file-name-directory buffer-file-name))))
+    (list "flymake-jslint-wrapper" (list local-file))))
 
 (defun flymake-jshint-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
