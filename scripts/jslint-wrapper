@@ -1,2 +1,0 @@
-#! /bin/sh
-`which jslint` $@ | sed 'N;s/\n/\I BLAME BOTH FLYMAKE AND JSLINT/'
