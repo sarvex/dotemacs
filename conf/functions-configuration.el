@@ -308,6 +308,8 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
 (defun truncate-lines ()
   (setq truncate-lines t))
 
+(defun truncate-lines-off ()
+  (setq truncate-lines nil))
 
 (defun find-tag-in-project ()
   (interactive)
