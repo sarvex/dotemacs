@@ -19,7 +19,7 @@
         ido-file-history
         file-name-history))
 
-(defun my-savehist-save-hook ()
+(defun get-rid-of-duplicates-in-savehist-variables ()
   (mapc
    (lambda (var)
      (when (boundp var)
@@ -28,7 +28,7 @@
            savehist-minibuffer-history-variables)))
 
 (savehist-mode t)
-(add-hook 'savehist-save-hook 'my-savehist-save-hook)
+(add-hook 'savehist-save-hook 'get-rid-of-duplicates-in-savehist-variables)
 (savehist-save)
 
 

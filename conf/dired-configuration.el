@@ -25,7 +25,7 @@
       image-dired-thumb-size 196
       image-dired-thumb-width 196)
 
-(defun my-next-subdir-of-current-dir-parent (&optional jump)
+(defun dired-next-subdir-of-current-dir-parent (&optional jump)
   "Moves to the n-th next directory of the same level"
   (interactive "P")
   (if (and (dired-up-directory)
@@ -33,7 +33,7 @@
             (if jump (prefix-numeric-value jump) 1)))
       (diredp-find-file-reuse-dir-buffer)))
 
-(defun my-previous-subdir-of-current-dir-parent (&optional jump)
+(defun dired-previous-subdir-of-current-dir-parent (&optional jump)
   "Moves to the n-th previous directory of the same level"
   (interactive "P")
   (if (and (dired-up-directory)
@@ -102,8 +102,8 @@
               (dired up)
               (dired-goto-file dir)))))
 
-    (define-key dired-mode-map (kbd "M-n") 'my-next-subdir-of-current-dir-parent)
-    (define-key dired-mode-map (kbd "M-p") 'my-previous-subdir-of-current-dir-parent)
+    (define-key dired-mode-map (kbd "M-n") 'dired-next-subdir-of-current-dir-parent)
+    (define-key dired-mode-map (kbd "M-p") 'dired-previous-subdir-of-current-dir-parent)
     (define-key dired-mode-map (kbd "C-?") 'dired-get-size)
     (define-key dired-mode-map (kbd ";") 'dired-up-directory)
     (define-key dired-mode-map (kbd "p") 'dired-previous-file-line)

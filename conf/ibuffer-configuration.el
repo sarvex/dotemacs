@@ -12,7 +12,7 @@
          " " filename-and-process)
         (mark " " (name 23 -1) " " filename)))
 
-(defun my-ibuffer-mode-hook ()
+(defun ibuffer-switch-to-default-filter-groups ()
   (ibuffer-switch-to-saved-filter-groups "default"))
 
 (eval-after-load 'ibuffer
@@ -26,7 +26,7 @@
         ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
         (t (format "%8d" (buffer-size)))))
 
-    (add-hook 'ibuffer-mode-hook 'my-ibuffer-mode-hook)
+    (add-hook 'ibuffer-mode-hook 'ibuffer-switch-to-default-filter-groups)
 
     (define-key ibuffer-mode-map (kbd "C-w") 'ibuffer-unmark-backward)
     (define-key ibuffer-mode-map (kbd "C-x C-f") 'ido-find-file)
@@ -46,17 +46,17 @@
            activate)
   (setq ad-return-value (nreverse ad-return-value)))
 
-(setq my-ibuffer-filter-groups ())
+(setq vderyagin/ibuffer-filter-groups ())
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("dired" (or
             (mode . tree-mode)
             (mode . wdired-mode)
             (mode . dired-mode))))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("docs" (or
            (mode . help-mode)
            (mode . Info-mode)
@@ -67,29 +67,29 @@
            (mode . woman-mode))))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  `("org" (or
           (filename . ,(expand-file-name "~/org"))
           (mode . org-agenda-mode)
           (name . "^\\*Org .*\\*$"))))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("w3m" (mode . w3m-mode)))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("jabber" (or
              (name . "^\\*fsm-debug\\*$")
              (mode . jabber-chat-mode)
              (mode . jabber-roster-mode))))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("erc" (mode . erc-mode)))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("shell" (or
             (name . "^\\*Python\\*$")
             (name . "^\\*interpretation\\*$")
@@ -109,34 +109,34 @@
 
 (mapc
  (lambda (project)
-   (add-to-list 'my-ibuffer-filter-groups
+   (add-to-list 'vderyagin/ibuffer-filter-groups
                 `(,(format "Project: %s" project)
                    (filename . ,(expand-file-name project "~/dev")))))
  (remove "." (remove ".." (directory-files (expand-file-name "~/dev")))))
 
 (mapc
  (lambda (project)
-   (add-to-list 'my-ibuffer-filter-groups
+   (add-to-list 'vderyagin/ibuffer-filter-groups
                 `(,(format "Source: %s" project)
                    (filename . ,(expand-file-name project "~/src")))))
  (remove "." (remove ".." (directory-files (expand-file-name "~/src")))))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("dotfiles" (filename . "/misc/dotfiles/")))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("zsh" (filename . "/.zsh/")))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("elisp" (or
             (filename . ".emacs.d/dotemacs/conf/")
             (mode . lisp-interaction-mode))))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("games" (or
             (mode . 5x5-mode)
             (mode . blackbox-mode)
@@ -160,7 +160,7 @@
             (name . "^tetris-scores$"))))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("mail" (or
            (filename . ".mail/archive/sent/")
            (mode . gnus-group-mode)
@@ -175,7 +175,7 @@
            (mode . mail-mode))))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("misc" (or
            (mode . twittering-mode)
            (mode . twittering-edit-mode)
@@ -186,7 +186,7 @@
            (mode . image-mode))))
 
 (add-to-list
- 'my-ibuffer-filter-groups
+ 'vderyagin/ibuffer-filter-groups
  '("emacs" (or
             (mode . Buffer-menu-mode)
             (mode . Custom-mode)
@@ -288,4 +288,4 @@
             (name . "^newsrc-dribble$"))))
 
 (setq ibuffer-saved-filter-groups
-      `(("default" ,@my-ibuffer-filter-groups)))
+      `(("default" ,@vderyagin/ibuffer-filter-groups)))

@@ -1,7 +1,7 @@
 (setq ahg-subprocess-coding-system 'utf-8
       ahg-global-key-prefix (kbd "C-c h g"))
 
-(defun my-ahg-status-hook ()
+(defun vderyagin/ahg-status-hook ()
   (define-key ahg-status-mode-map (kbd "m") 'ahg-status-toggle-mark)
   (define-key ahg-status-mode-map (kbd "n") 'next-line)
   (define-key ahg-status-mode-map (kbd "<SPC>") 'next-line)
@@ -10,7 +10,7 @@
     (lambda () (interactive) (ahg-do-command "push"))))
 
 (eval-after-load 'ahg
-  '(add-hook 'ahg-status-mode-hook 'my-ahg-status-hook))
+  '(add-hook 'ahg-status-mode-hook 'vderyagin/ahg-status-hook))
 
 
 ;; MQ patches:
