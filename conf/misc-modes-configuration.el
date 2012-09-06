@@ -168,3 +168,6 @@
       '(read-only t
         point-entered minibuffer-avoid-prompt
         face minibuffer-prompt))
+
+(eval-after-load 'debug
+  '(add-hook 'debugger-mode-hook 'truncate-lines-off))
