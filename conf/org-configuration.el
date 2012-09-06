@@ -59,7 +59,7 @@
  org-agenda-files `(,(file-name-as-directory my-org-agenda-directory))
  org-contacts-files `(,my-org-contacts-file))
 
-(setq org-agenda-window-setup 'reorganize-frame
+(setq org-agenda-window-setup 'current-window
       org-agenda-restore-windows-after-quit t)
 
 (setq org-agenda-tags-column -90)
