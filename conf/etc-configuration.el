@@ -117,6 +117,7 @@
       standard-indent 4
       tab-always-indent 'complete
       tramp-default-method "sudo"
+      global-mark-ring-max 50
       x-stretch-cursor t)
 
 (setq-default comment-column 42
