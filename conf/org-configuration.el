@@ -49,15 +49,14 @@
 ;;
 ;; paths
 ;;
-(setq
- org-directory "~/org"
- my-org-agenda-directory (expand-file-name "agenda" org-directory)
- my-org-capture-templates-directory "~/.emacs.d/dotemacs/misc/org-capture-templates"
- org-default-notes-file (expand-file-name "refile.org" my-org-agenda-directory)
- my-org-contacts-file (expand-file-name "contacts.org" my-org-agenda-directory)
- org-archive-location (concat org-directory "/archive/archive_%s::")
- org-agenda-files `(,(file-name-as-directory my-org-agenda-directory))
- org-contacts-files `(,my-org-contacts-file))
+(setq org-directory "~/org"
+      my-org-agenda-directory (expand-file-name "agenda" org-directory)
+      my-org-capture-templates-directory "~/.emacs.d/dotemacs/misc/org-capture-templates"
+      org-default-notes-file (expand-file-name "refile.org" my-org-agenda-directory)
+      my-org-contacts-file (expand-file-name "contacts.org" my-org-agenda-directory)
+      org-archive-location (concat org-directory "/archive/archive_%s::")
+      org-agenda-files `(,(file-name-as-directory my-org-agenda-directory))
+      org-contacts-files `(,my-org-contacts-file))
 
 (setq org-agenda-window-setup 'current-window
       org-agenda-restore-windows-after-quit t)
