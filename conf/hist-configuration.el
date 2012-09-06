@@ -5,6 +5,7 @@
 
 (setq savehist-additional-variables
       '(search-ring
+        global-mark-ring
         ioccur-history
         ido-work-directory-list
         regexp-search-ring))
