@@ -223,10 +223,20 @@ for 2- or 3-windowed frames"
          (funcall split-3 1stBuf 2ndBuf 3rdBuf split-type-1 split-type-2))))))
 
 
-(defun strip (str)
-  "Strip leading and trailing whitespaces from STR."
-  (let ((s (if (symbolp str) (symbol-name str) str)))
-    (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" s)))
+(defun strip (string)
+  "Strip leading and trailing whitespaces from STRING.
+STRING can be string or symbol, in latter case symbol's name is used."
+  (let ((string (if (symbolp string)
+                    (symbol-name string)
+                    string)))
+    (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" string)))
+
+(ert-deftest strip ()
+  (should (equal (strip "foo")            "foo"))
+  (should (equal (strip "  foo  ")        "foo"))
+  (should (equal (strip "\tfoo\t")        "foo"))
+  (should (equal (strip "\nfoo\n")        "foo"))
+  (should (equal (strip "\n \tfoo\n  \t") "foo")))
 
 
 (defun generate-password (&optional arg)
