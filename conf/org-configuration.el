@@ -1,3 +1,5 @@
+;; -*- eval: (rainbow-mode 1) -*-
+
 (define-key global-map (kbd "C-x o") 'org-iswitchb)
 (define-key global-map (kbd "<f11>") 'org-capture)
 (define-key global-map (kbd "<f12>") 'org-agenda)
