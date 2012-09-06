@@ -338,3 +338,47 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
 
 (defun turn-on-flymake-mode ()
   (flymake-mode t))
+
+(defun snake-case (text)
+  "Return snake_case version of TEXT.
+Works with 'names with spaces', names-with-dashes, camelCase,
+UpperCamelCase and combinations of those."
+  (let ((case-fold-search nil))
+    (flet ((downcase-first-character (text)
+             (when (string-match-p "^[[:upper:]]" text)
+               (let ((first-char (substring text 0 1)))
+                 (setq text (replace-regexp-in-string "^." "" text)
+                       text (format "%s%s" (downcase first-char) text))))
+             text)
+           (insert-underscores-before-upcase-letters (text)
+             (replace-regexp-in-string "[[:upper:]]" "_\\&" text))
+           (replace-dashes-and-spaces-with-underscores (text)
+             (replace-regexp-in-string  "-\\| " "_" text))
+           (get-rid-of-multiple-underscores-in-row (text)
+             (replace-regexp-in-string "_+" "_" text)))
+
+      (setq text (downcase-first-character text)
+            text (replace-dashes-and-spaces-with-underscores text)
+            text (insert-underscores-before-upcase-letters text)
+            text (get-rid-of-multiple-underscores-in-row text))
+      (downcase text))))
+
+(ert-deftest snake-case-test-spaces ()
+  (should (equal (snake-case " foo bar baz ")
+                 "_foo_bar_baz_")))
+
+(ert-deftest snake-case-test-dashes ()
+  (should (equal (snake-case "-foo-bar-baz-")
+                 "_foo_bar_baz_")))
+
+(ert-deftest snake-case-test-lowerCamelCase ()
+  (should (equal (snake-case "fooBarBaz")
+                 "foo_bar_baz")))
+
+(ert-deftest snake-case-test-UpperCamelCase ()
+  (should (equal (snake-case "FooBarBaz")
+                 "foo_bar_baz")))
+
+(ert-deftest snake-case-test-combination-of-stuff ()
+  (should (equal (snake-case "Foo-barBaz quux_Corge--GraultABC")
+                 "foo_bar_baz_quux_corge_grault_a_b_c")))
