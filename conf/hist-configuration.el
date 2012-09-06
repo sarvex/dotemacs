@@ -36,7 +36,7 @@
 ;; Recentf
 (setq recentf-save-file "~/.emacs.d/recentf")
 
-(setq recentf-max-saved-items 1000)
+(setq recentf-max-saved-items 3000)
 
 (setq recentf-exclude
       '("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" ; images
