@@ -163,3 +163,8 @@
 (setq apropos-do-all t
       apropos-label-face '(default)
       apropos-property-face 'bold)
+
+(setq minibuffer-prompt-properties
+      '(read-only t
+        point-entered minibuffer-avoid-prompt
+        face minibuffer-prompt))
