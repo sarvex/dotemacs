@@ -118,7 +118,7 @@
       org-refile-allow-creating-parent-nodes 'confirm)
 
 
-(defun my-org-after-save-hook ()
+(defun vderyagin/generate-org-clock-report ()
   "Generate org-clock-report for agenta files"
   (let* ((f (buffer-file-name))
          (d (file-name-directory f))
@@ -133,21 +133,23 @@
         (org-clock-report t)
         (save-buffer)))))
 
-(defun my-org-update-agenda ()
-  "Update org agenda buffer (if any)."
-  (when (get-buffer "*Org Agenda*")
-    (save-window-excursion
-      (org-agenda-redo))))
+(defun vderyagin/org-update-agenda-view ()
+  "Update all org agenda buffers (if any)."
+  (save-window-excursion
+    (mapc
+     (lambda (buf)
+       (with-current-buffer buf
+         (org-agenda-redo t)))
+     (get-buffers-with-major-mode 'org-agenda-mode))))
 
 (defun my-org-hook ()
   (org-indent-mode t)
   (turn-on-auto-fill)
-  ;; (flyspell-mode t)
   (turn-on-visual-line-mode)
   (set (make-local-variable 'backup-inhibited) t)
   (add-hook 'before-save-hook 'org-align-all-tags nil 'make-it-local)
-  (add-hook 'after-save-hook 'my-org-after-save-hook nil 'make-it-local)
-  (add-hook 'after-save-hook 'my-org-update-agenda nil 'make-it-local))
+  (add-hook 'after-save-hook 'vderyagin/generate-org-clock-report nil 'make-it-local)
+  (add-hook 'after-save-hook 'vderyagin/org-update-agenda-view nil 'make-it-local))
 
 (eval-after-load 'org
   '(progn
@@ -170,13 +172,13 @@
     (define-key org-mode-map (kbd "C-<tab>") nil)))
 
 ;; get rid of clocking drawer if empty
-(defun my-remove-empty-drawer-on-clock-out ()
+(defun vderyagin/remove-empty-drawer-on-clock-out ()
   (save-excursion
     (beginning-of-line 0)
     (org-remove-empty-drawer-at "LOGBOOK" (point))))
 
 (eval-after-load 'org-clock
-  '(add-hook 'org-clock-out-hook 'my-remove-empty-drawer-on-clock-out 'append))
+  '(add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
 
 (defun vderyagin/org-agenda-activate-appt ()
   (setq appt-audible nil
