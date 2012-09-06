@@ -2,7 +2,7 @@
   (require 'cl))
 
 (defun my-duplicate-line (&optional commentfirst)
-  "comment line at point; if COMMENTFIRST is non-nil, comment the original"
+  "Copy line at point; if COMMENTFIRST is non-nil, comment out the original"
   (interactive "P")
   (beginning-of-line)
   (push-mark)
@@ -55,7 +55,7 @@
 
 
 (defun comment-or-uncomment-current-line-or-region ()
-  "Comments or uncomments current current line or whole lines in region."
+  "Comments or uncomments (if already commented) current line or lines in region."
   (interactive)
   (save-excursion
     (let (min max)
