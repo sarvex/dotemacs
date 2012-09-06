@@ -178,24 +178,20 @@
 (eval-after-load 'org-clock
   '(add-hook 'org-clock-out-hook 'my-remove-empty-drawer-on-clock-out 'append))
 
+(defun vderyagin/org-agenda-activate-appt ()
+  (setq appt-audible nil
+        appt-message-warning-time 15
+        appt-display-format 'window
+        appt-display-diary nil
+        appt-display-interval 3)
 
-;;
-;; appt
-;;
-(setq appt-audible nil
-      appt-message-warning-time 15
-      appt-display-format 'window
-      appt-display-diary nil
-      appt-display-interval 3)
+  (setq appt-disp-window-function
+        (lambda (left time message)
+          (notifications-notify
+           :title (format "%s minute(s) left" left)
+           :body message
+           :app-icon "~/.icons/org-mode.png")))
 
-(setq appt-disp-window-function
-      (lambda (left time message)
-        (notifications-notify
-         :title (format "%s minute(s) left" left)
-         :body message
-         :app-icon "~/.icons/org-mode.png")))
-
-(defun my-org-agenda-mode-hook ()
   (org-agenda-to-appt t '((headline "IMPORTANT") (category "Appt")))
   (appt-activate t))
 
@@ -203,7 +199,7 @@
   '(progn
     (require 'org-contacts)
 
-    (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-hook)
+    (add-hook 'org-agenda-mode-hook 'vderyagin/org-agenda-activate-appt)
 
     (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
     (define-key org-agenda-mode-map (kbd "C-S-<right>") nil)
