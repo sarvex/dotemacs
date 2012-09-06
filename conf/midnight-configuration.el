@@ -14,7 +14,6 @@
 
 (setq clean-buffer-list-kill-buffer-names
       '("*Apropos*"
-        "*Async Shell Command*"
         "*Backtrace*"
         "*Bookmark List*"
         "*Buffer List*"
@@ -47,7 +46,8 @@
         "*interpretation*"))
 
 (setq clean-buffer-list-kill-regexps
-      '("^\\*Calc"
+      '("^\\*Async Shell Command"
+        "^\\*Calc"
         "^\\*Customize"
         "^\\*Finder"
         "^\\*Pylookup"

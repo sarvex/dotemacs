@@ -84,7 +84,7 @@
         "\\.cvsignore"
         "\\*cvs-commit"
         "\\*reg group-leader\\*"
-        "\\*Async Shell Command\\*"
+        "\\*Async Shell Command"
         "^[gG]?[tT][aA][gG][sS]$"
         "\\*semantic"
         "\\*Calc"
