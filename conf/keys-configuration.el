@@ -136,4 +136,11 @@
 (define-key global-map (kbd "M-P") 'scroll-down-line)
 (define-key global-map (kbd "M-N") 'scroll-up-line)
 
-(define-key global-map (kbd "C-x g") 'gnus)
+(define-key global-map (kbd "C-x g")
+  (lambda (arg)
+    (interactive "P")
+    (let ((gnus-buffer (get-buffer "*Group*")))
+      (when gnus-buffer
+        (switch-to-buffer "*Group*"))
+      (if (or arg (not gnus-buffer))
+          (gnus)))))
