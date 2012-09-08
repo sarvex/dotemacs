@@ -134,4 +134,8 @@
 
     (add-hook 'wdired-mode-hook
      (defun turn-on-cua-mode ()
-       (cua-mode t)))))
+       (cua-mode t)))
+
+    (add-hook 'wdired-mode-hook
+     (defun turn-on-autopair-mode ()
+       (autopair-mode t)))))
