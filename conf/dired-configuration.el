@@ -5,7 +5,7 @@
       dired-keep-marker-copy nil
       dired-keep-marker-hardlink nil
       dired-keep-marker-symlink nil
-      dired-listing-switches "-hAFl --group-directories-first"
+      dired-listing-switches "-hAl --group-directories-first"
       dired-ls-F-marks-symlinks t
       list-directory-brief-switches "-CF1shA"
       list-directory-verbose-switches "-lhA"
