@@ -53,14 +53,14 @@
                  (match-string 1))))))
 
 (defun dired-next-file-line ()
-  "Moves to the next dired line that have a file or directory name on it"
+  "Moves to the next line in dired buffer that have a file or directory name on it"
   (interactive)
   (call-interactively 'dired-next-line)
   (if (not (or (dired-move-to-filename) (eobp)))
       (dired-next-file-line)))
 
 (defun dired-previous-file-line ()
-  "Moves to the previous dired line that have a file or directory name on it"
+  "Moves to the previous line in dired buffer that have a file or directory name on it"
   (interactive)
   (call-interactively 'dired-previous-line)
   (if (not (or (dired-move-to-filename) (bobp)))
