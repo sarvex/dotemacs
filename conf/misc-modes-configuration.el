@@ -145,7 +145,7 @@
 (eval-after-load 'sh-script
   '(progn
     (define-key sh-mode-map (kbd "<f9>") 'executable-interpret)
-    (define-key sh-mode-map (kbd "M-l") 'downcase-word)))
+    (define-key sh-mode-map (kbd "M-l") nil)))
 
 
 (eval-after-load 'make-mode
