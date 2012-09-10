@@ -140,6 +140,8 @@
     (lambda () (interactive) (kill-buffer-ask (current-buffer)))))
 
 
+(add-to-list 'auto-mode-alist '("\\.zsh" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.zsh-theme" . sh-mode))
 (eval-after-load 'sh-script
   '(progn
     (define-key sh-mode-map (kbd "<f9>") 'executable-interpret)
