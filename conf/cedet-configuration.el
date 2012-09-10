@@ -25,8 +25,7 @@
       speedbar-tag-split-minimum-length 50
       speedbar-track-mouse-flag nil
       speedbar-update-flag nil
-      speedbar-use-images t
-      speedbar-update-flag t)
+      speedbar-use-images t)
 
 
 (setq speedbar-visiting-tag-hook
