@@ -141,6 +141,6 @@
     (interactive "P")
     (let ((gnus-buffer (get-buffer "*Group*")))
       (when gnus-buffer
-        (switch-to-buffer "*Group*"))
+        (switch-to-buffer gnus-buffer))
       (if (or arg (not gnus-buffer))
           (gnus)))))
