@@ -1,4 +1,5 @@
 (eval-when-compile
+  (require 'ert)
   (require 'cl))
 
 (defun my-duplicate-line (&optional commentfirst)
