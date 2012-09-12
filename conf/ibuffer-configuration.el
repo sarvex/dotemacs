@@ -127,10 +127,6 @@
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
- '("zsh" (filename . "/.zsh/")))
-
-(add-to-list
- 'vderyagin/ibuffer-filter-groups
  '("elisp" (or
             (filename . ".emacs.d/dotemacs/conf/")
             (mode . lisp-interaction-mode))))
