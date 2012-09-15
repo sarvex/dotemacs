@@ -26,4 +26,4 @@
       github-user my-github-username
       gist-user-password my-github-password
       gist-view-gist nil
-      gist-working-directory "~/gists")
+      gist-working-directory "~/repos/gists")
