@@ -22,4 +22,4 @@
   '(diminish 'flymake-mode "Fly"))
 
 (eval-after-load 'yasnippet
-  '(diminish 'yas/minor-mode " Y"))
+  '(diminish 'yas-minor-mode " Y"))
