@@ -141,9 +141,14 @@
 
 (add-hook 'after-save-hook 'desktop-save-in-desktop-dir)
 
-(defun turn-off-word-wrap ()
-  (setq word-wrap nil))
-(add-hook 'term-mode-hook 'turn-off-word-wrap)
+
+(add-hook 'term-mode-hook
+          (defun turn-off-word-wrap ()
+            (setq word-wrap nil)))
+
+(add-hook 'term-mode-hook
+          (defun turn-off-autopair-mode ()
+            (autopair-mode -1)))
 
 ;; (add-hook 'text-mode-hook 'turn-on-orgstruct++)
 ;; (add-hook 'text-mode-hook 'turn-on-orgtbl)
