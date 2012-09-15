@@ -111,25 +111,44 @@
  (lambda (project)
    (add-to-list 'vderyagin/ibuffer-filter-groups
                 `(,(format "Project: %s" project)
-                   (filename . ,(expand-file-name project "~/dev")))))
- (remove "." (remove ".." (directory-files (expand-file-name "~/dev")))))
+                   (filename . ,(expand-file-name project "~/repos/dev")))))
+ (remove "." (remove ".." (directory-files (expand-file-name "~/repos/dev")))))
+
+(mapc
+ (lambda (project)
+   (add-to-list 'vderyagin/ibuffer-filter-groups
+                `(,(format "Fork: %s" project)
+                   (filename . ,(expand-file-name project "~/repos/forks")))))
+ (remove "." (remove ".." (directory-files (expand-file-name "~/repos/forks")))))
+
+(mapc
+ (lambda (project)
+   (add-to-list 'vderyagin/ibuffer-filter-groups
+                `(,(format "Gist: %s" project)
+                   (filename . ,(expand-file-name project "~/repos/gists")))))
+ (remove "." (remove ".." (directory-files (expand-file-name "~/repos/gists")))))
 
 (mapc
  (lambda (project)
    (add-to-list 'vderyagin/ibuffer-filter-groups
                 `(,(format "Source: %s" project)
-                   (filename . ,(expand-file-name project "~/src")))))
- (remove "." (remove ".." (directory-files (expand-file-name "~/src")))))
+                   (filename . ,(expand-file-name project "~/repos/src")))))
+ (remove "." (remove ".." (directory-files (expand-file-name "~/repos/src")))))
 
-(add-to-list
- 'vderyagin/ibuffer-filter-groups
- '("dotfiles" (filename . "/misc/dotfiles/")))
+(mapc
+ (lambda (project)
+   (add-to-list 'vderyagin/ibuffer-filter-groups
+                `(,(format "Repo: %s" project)
+                   (filename . ,(expand-file-name project "~/repos/misc")))))
+ (remove "." (remove ".." (directory-files (expand-file-name "~/repos/misc")))))
 
-(add-to-list
- 'vderyagin/ibuffer-filter-groups
- '("elisp" (or
-            (filename . ".emacs.d/dotemacs/conf/")
-            (mode . lisp-interaction-mode))))
+(mapc
+ (lambda (project)
+   (add-to-list 'vderyagin/ibuffer-filter-groups
+                `(,(format "Archive repo: %s" project)
+                   (filename . ,(expand-file-name project "~/repos/archive")))))
+ (remove "." (remove ".." (directory-files (expand-file-name "~/repos/archive")))))
+
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
