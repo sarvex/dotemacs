@@ -109,12 +109,17 @@
 (define-key global-map (kbd "C-c c") 'my-duplicate-line)
 (define-key global-map (kbd "C-%") 'goto-match-paren)
 
-(define-key global-map (kbd "C-c j") 'dired-jump)
+(define-key global-map (kbd "C-c .") 'dired-jump)
 
 (define-key global-map (kbd "M-?") 'hippie-expand)
 
-(define-key global-map (kbd "C-<f8>") 'multi-term)
-(define-key global-map (kbd "<f8>") 'multi-term-next)
+(define-key global-map (kbd "<f8>")
+  (lambda (&optional open-new)
+    (interactive "P")
+    (call-interactively
+     (if open-new
+         'multi-term
+         'multi-term-next))))
 
 (define-key help-map "a" 'apropos)
 
@@ -144,3 +149,10 @@
         (switch-to-buffer gnus-buffer))
       (if (or arg (not gnus-buffer))
           (gnus)))))
+
+
+(define-key global-map (kbd "C-c j") 'pop-global-mark)
+(define-key global-map (kbd "C-c b")
+  (lambda ()
+    (interactive)
+    (push-mark (point) nil nil)))
