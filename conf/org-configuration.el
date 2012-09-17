@@ -32,14 +32,16 @@
 
 (setq
  org-todo-keywords
- '((sequence "TODO(t)" "WAITING(w)" "STARTED(s)" "PAUSED(p)" "|" "DONE(d)" "CANCELLED(c)"))
+ '((sequence "TODO(t)" "QUEUED(q)" "HOLD(h)" "STARTED(s)" "PAUSED(p)" "|" "DONE(d)" "CANCELLED(c)"))
  org-todo-keyword-faces
  '(("TODO" .      (:foreground "#df3800" :weight bold))
-   ("WAITING" .   (:foreground "#566ea2" :weight bold))
+   ("QUEUED" .    (:foreground "#566ea2" :weight bold))
+   ("HOLD" .      (:foreground "#b68800" :weight bold))
    ("STARTED" .   (:foreground "#4d9694" :weight bold))
    ("PAUSED" .    (:foreground "#888888" :weight bold))
    ("CANCELLED" . (:foreground "#e00051" :weight bold))
    ("DONE" .      (:foreground "#448c27" :weight bold))))
+
 ;; Paths:
 (setq org-directory "~/org"
       my-org-agenda-directory (expand-file-name "agenda" org-directory)
