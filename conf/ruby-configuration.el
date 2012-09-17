@@ -69,3 +69,7 @@
 
 (eval-after-load 'yari
   '(define-key yari-mode-map (kbd "<f1>") 'yari))
+
+(defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
+  "Clean up buffer of trailing whitespaces after indentation."
+  (delete-trailing-whitespace))
