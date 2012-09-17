@@ -156,6 +156,11 @@
   '(define-key compilation-mode-map (kbd "<f9>") 'recompile))
 
 (add-hook 'compilation-mode-hook 'truncate-lines)
+(require 'ansi-color)
+(add-hook 'compilation-filter-hook
+          (defun colorize-compilation-buffer ()
+            (let ((inhibit-read-only t))
+              (ansi-color-apply-on-region (point-min) (point-max)))))
 
 (setq shell-file-name "/bin/zsh"
       explicit-shell-file-name "/bin/zsh"
