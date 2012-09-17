@@ -4,14 +4,12 @@
 (define-key global-map (kbd "<f11>") 'org-capture)
 (define-key global-map (kbd "<f12>") 'org-agenda)
 
-
-(when (fboundp 'notifications-notify)
-  (setq org-show-notification-handler
-        (lambda (notification)
-          (notifications-notify
-           :title "Org-mode"
-           :body notification
-           :app-icon "~/.icons/org-mode.png"))))
+(setq org-show-notification-handler
+      (lambda (notification)
+        (notifications-notify
+         :title "Org-mode"
+         :body notification
+         :app-icon "~/.icons/org-mode.png")))
 
 (setq org-completion-use-ido t
       org-outline-path-complete-in-steps nil
@@ -32,9 +30,6 @@
 (eval-after-load 'ob
   '(add-to-list 'org-babel-load-languages '(ruby . t)))
 
-;;
-;; TODO keywords
-;;
 (setq
  org-todo-keywords
  '((sequence "TODO(t)" "WAITING(w)" "STARTED(s)" "PAUSED(p)" "|" "DONE(d)" "CANCELLED(c)"))
@@ -45,10 +40,7 @@
    ("PAUSED" .    (:foreground "#888888" :weight bold))
    ("CANCELLED" . (:foreground "#e00051" :weight bold))
    ("DONE" .      (:foreground "#448c27" :weight bold))))
-
-;;
-;; paths
-;;
+;; Paths:
 (setq org-directory "~/org"
       my-org-agenda-directory (expand-file-name "agenda" org-directory)
       my-org-capture-templates-directory "~/.emacs.d/dotemacs/misc/org-capture-templates"
@@ -63,9 +55,7 @@
 
 (setq org-agenda-tags-column -90)
 
-;;
-;; org-clock
-;;
+
 (setq org-clock-auto-clock-resolution 'when-no-clock-is-running
       org-clock-clocktable-default-properties '(:maxlevel 3 :scope file)
       org-clock-history-length 28
@@ -78,9 +68,6 @@
       org-clock-report-include-clocking-task t)
 
 
-;;================================================================
-;; org-capture
-;;
 (setq
  org-capture-templates
  `(("n" "note" entry
@@ -106,9 +93,7 @@
     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
     (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags)))
 
-;;================================================================
-;; refile setup
-;;
+;; Refile setup:
 (setq org-refile-targets
       '((org-agenda-files :maxlevel . 5)
         (nil :maxlevel . 5)))
@@ -170,8 +155,8 @@
     (define-key org-mode-map (kbd "S-C-<right>") nil)
     (define-key org-mode-map (kbd "C-<tab>") nil)))
 
-;; get rid of clocking drawer if empty
 (defun vderyagin/remove-empty-drawer-on-clock-out ()
+  "Delete clocking drawer if it is empty."
   (save-excursion
     (beginning-of-line 0)
     (org-remove-empty-drawer-at "LOGBOOK" (point))))
