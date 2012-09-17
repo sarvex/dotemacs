@@ -102,21 +102,6 @@
       org-refile-allow-creating-parent-nodes 'confirm)
 
 
-(defun vderyagin/generate-org-clock-report ()
-  "Generate org-clock-report for agenta files"
-  (let* ((f (buffer-file-name))
-         (d (file-name-directory f))
-         (fn (file-name-nondirectory f))
-         (r org-agenda-file-regexp)
-         (c (expand-file-name "misc/clocktable.org"
-                              org-directory)))
-    (when (or (member f org-agenda-files)
-              (and (member d org-agenda-files)
-                   (string-match r fn)))
-      (with-current-buffer (find-file-noselect c)
-        (org-clock-report t)
-        (save-buffer)))))
-
 (defun vderyagin/org-update-agenda-view ()
   "Update all org agenda buffers (if any)."
   (save-window-excursion
@@ -132,7 +117,6 @@
   (turn-on-visual-line-mode)
   (set (make-local-variable 'backup-inhibited) t)
   (add-hook 'before-save-hook 'org-align-all-tags nil 'make-it-local)
-  (add-hook 'after-save-hook 'vderyagin/generate-org-clock-report nil 'make-it-local)
   (add-hook 'after-save-hook 'vderyagin/org-update-agenda-view nil 'make-it-local))
 
 (eval-after-load 'org
