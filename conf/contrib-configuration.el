@@ -52,7 +52,7 @@
  special-display-function 'popwin:special-display-popup-window)
 (setq popwin:special-display-config
       '(("*Help*")
-        ;; ("*Completions*" :noselect nil)
+        ("*Completions*" :noselect nil)
         ("*Compile-Log*" :noselect t)
         ("*Occur*" :noselect t)
         ("*Async Shell Command*")
