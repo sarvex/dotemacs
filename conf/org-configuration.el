@@ -44,13 +44,13 @@
 
 ;; Paths:
 (setq org-directory "~/org"
-      my-org-agenda-directory (expand-file-name "agenda" org-directory)
-      my-org-capture-templates-directory "~/.emacs.d/dotemacs/misc/org-capture-templates"
-      org-default-notes-file (expand-file-name "refile.org" my-org-agenda-directory)
-      my-org-contacts-file (expand-file-name "contacts.org" my-org-agenda-directory)
+      vderyagin/org-agenda-directory (expand-file-name "agenda" org-directory)
+      vderyagin/org-capture-templates-directory (expand-file-name "capture-templates" org-directory)
+      org-default-notes-file (expand-file-name "refile.org" vderyagin/org-agenda-directory)
+      vderyagin/org-contacts-file (expand-file-name "contacts.org" vderyagin/org-agenda-directory)
       org-archive-location (concat org-directory "/archive/archive_%s::")
-      org-agenda-files `(,(file-name-as-directory my-org-agenda-directory))
-      org-contacts-files `(,my-org-contacts-file))
+      org-agenda-files `(,(file-name-as-directory vderyagin/org-agenda-directory))
+      org-contacts-files `(,vderyagin/org-contacts-file))
 
 (setq org-agenda-window-setup 'current-window
       org-agenda-restore-windows-after-quit t)
@@ -74,19 +74,19 @@
  org-capture-templates
  `(("n" "note" entry
         (file ,org-default-notes-file)
-        (file ,(expand-file-name "note" my-org-capture-templates-directory)))
+        (file ,(expand-file-name "note" vderyagin/org-capture-templates-directory)))
    ("l" "link" entry
         (file ,org-default-notes-file)
-        (file ,(expand-file-name "link" my-org-capture-templates-directory)))
+        (file ,(expand-file-name "link" vderyagin/org-capture-templates-directory)))
    ("t" "todo" entry
         (file ,org-default-notes-file)
-        (file ,(expand-file-name "todo" my-org-capture-templates-directory)))
+        (file ,(expand-file-name "todo" vderyagin/org-capture-templates-directory)))
    ("c" "contacts" entry
-        (file ,my-org-contacts-file)
-        (file ,(expand-file-name "contacts" my-org-capture-templates-directory)))
+        (file ,vderyagin/org-contacts-file)
+        (file ,(expand-file-name "contacts" vderyagin/org-capture-templates-directory)))
    ("u" "current" entry
-        (file ,(expand-file-name "current.org" my-org-agenda-directory))
-        (file ,(expand-file-name "current" my-org-capture-templates-directory)))))
+        (file ,(expand-file-name "current.org" vderyagin/org-agenda-directory))
+        (file ,(expand-file-name "current" vderyagin/org-capture-templates-directory)))))
 
 (eval-after-load 'org-capture
   '(progn
@@ -113,7 +113,7 @@
          (org-agenda-redo t)))
      (get-buffers-with-major-mode 'org-agenda-mode))))
 
-(defun my-org-hook ()
+(defun vderyagin/org-mode-hook ()
   (org-indent-mode t)
   (turn-on-auto-fill)
   (turn-on-visual-line-mode)
@@ -125,7 +125,7 @@
   '(progn
     (require 'org-install)
 
-    (add-hook 'org-mode-hook 'my-org-hook)
+    (add-hook 'org-mode-hook 'vderyagin/org-mode-hook)
 
     (org-clock-persistence-insinuate)
 
