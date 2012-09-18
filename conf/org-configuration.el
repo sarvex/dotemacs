@@ -137,6 +137,10 @@
       '((vderyagin/org-refile-target-files :maxlevel . 2)
         (nil :maxlevel . 3)))
 
+(setq org-refile-target-verify-function
+      (lambda ()
+        "Exclude todo keywords with a done state from refile targets."
+        (not (member (nth 2 (org-heading-components)) org-done-keywords))))
 
 (defun vderyagin/org-update-agenda-view ()
   "Update all org agenda buffers (if any)."
