@@ -95,7 +95,7 @@
  org-capture-templates
  `(("n" "note" entry
         (file "")
-        "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        "* %? :NOTE:\n:PROPERTIES:\n:Captured_at: %U\n:END:"
         :clock-resume t)
    ("l" "link" entry
         (file "")
