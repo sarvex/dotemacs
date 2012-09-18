@@ -16,7 +16,7 @@
       org-return-follows-link t
       org-special-ctrl-a/e t
       org-special-ctrl-k t
-      org-cycle-separator-lines -1
+      org-cycle-separator-lines 2
       org-startup-truncated nil
       org-src-fontify-natively t
       org-tags-column -85
