@@ -45,7 +45,6 @@
 ;; Paths:
 (setq org-directory "~/org"
       vderyagin/org-agenda-directory (expand-file-name "agenda" org-directory)
-      vderyagin/org-capture-templates-directory (expand-file-name "capture-templates" org-directory)
       org-default-notes-file (expand-file-name "refile.org" vderyagin/org-agenda-directory)
       vderyagin/org-contacts-file (expand-file-name "contacts.org" vderyagin/org-agenda-directory)
       org-archive-location (concat org-directory "/archive/archive_%s::")
@@ -73,20 +72,20 @@
 (setq
  org-capture-templates
  `(("n" "note" entry
-        (file ,org-default-notes-file)
-        (file ,(expand-file-name "note" vderyagin/org-capture-templates-directory)))
+        (file "")
+        "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:")
    ("l" "link" entry
-        (file ,org-default-notes-file)
-        (file ,(expand-file-name "link" vderyagin/org-capture-templates-directory)))
+        (file "")
+        "* %^L\n:PROPERTIES:\n:Captured_at: %U\n:END:")
    ("t" "todo" entry
-        (file ,org-default-notes-file)
-        (file ,(expand-file-name "todo" vderyagin/org-capture-templates-directory)))
+        (file "")
+        "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:")
    ("c" "contacts" entry
         (file ,vderyagin/org-contacts-file)
-        (file ,(expand-file-name "contacts" vderyagin/org-capture-templates-directory)))
+        "* %?%(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\n:END:")
    ("u" "current" entry
         (file ,(expand-file-name "current.org" vderyagin/org-agenda-directory))
-        (file ,(expand-file-name "current" vderyagin/org-capture-templates-directory)))))
+        "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:")))
 
 (eval-after-load 'org-capture
   '(progn
