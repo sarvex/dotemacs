@@ -133,9 +133,5 @@
     (define-key wdired-mode-map (kbd "<up>") nil)
 
     (add-hook 'wdired-mode-hook
-     (defun turn-on-cua-mode ()
-       (cua-mode t)))
-
-    (add-hook 'wdired-mode-hook
      (defun turn-on-autopair-mode ()
        (autopair-mode t)))))
