@@ -242,6 +242,7 @@
             (mode . gud-mode)
             (mode . ioccur-mode)
             (mode . locate-mode)
+            (mode . magit-branch-manager-mode)
             (mode . magit-commit-mode)
             (mode . magit-diff-mode)
             (mode . magit-key-mode)
