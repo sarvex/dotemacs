@@ -11,6 +11,7 @@
       ido-decorations '("\n-> " "" "\n   " "\n   ..." "[" "]"
                         " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")
       ido-ubiquitous-command-exceptions '(gnus-topic-move-group
+                                          execute-extended-command
                                           bookmark-set))
 
 (setq ido-ignore-buffers
@@ -195,6 +196,4 @@ FALLBACK-FUNCTION is called when there is no buffers with MODE"
 
 (define-key global-map (kbd "M-x") 'smex)
 (define-key global-map (kbd "M-X") 'smex-major-mode-commands)
-
-;; This is your old M-x.
 (define-key global-map (kbd "C-c C-m") 'execute-extended-command)
