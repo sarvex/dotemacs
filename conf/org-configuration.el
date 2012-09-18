@@ -73,19 +73,24 @@
  org-capture-templates
  `(("n" "note" entry
         (file "")
-        "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:")
+        "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        :clock-resume t)
    ("l" "link" entry
         (file "")
-        "* %^L\n:PROPERTIES:\n:Captured_at: %U\n:END:")
+        "* %^L\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        :clock-resume t)
    ("t" "todo" entry
         (file "")
-        "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:")
-   ("c" "contacts" entry
+        "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        :clock-resume t)
+   ("c" "contact" entry
         (file ,vderyagin/org-contacts-file)
-        "* %?%(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\n:END:")
+        "* %?%(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\n:END:"
+        :clock-resume t)
    ("u" "current" entry
         (file ,(expand-file-name "current.org" vderyagin/org-agenda-directory))
-        "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:")))
+        "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        :clock-resume t)))
 
 (eval-after-load 'org-capture
   '(progn
