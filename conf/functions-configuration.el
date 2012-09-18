@@ -239,6 +239,14 @@ STRING can be string or symbol, in latter case symbol's name is used."
   (should (equal (strip "\nfoo\n")        "foo"))
   (should (equal (strip "\n \tfoo\n  \t") "foo")))
 
+(defun chomp (string)
+  "Return copy of STRING without trailing newlines."
+  (replace-regexp-in-string "\n$" "" string))
+
+(ert-deftest chomp ()
+  (should (equal (chomp "foo") "foo"))
+  (should (equal (chomp "foo\n") "foo"))
+  (should (equal (chomp "foo\n\n") "foo")))
 
 (defun generate-password (&optional arg)
   "Generates random password and adds it to kill-ring.
