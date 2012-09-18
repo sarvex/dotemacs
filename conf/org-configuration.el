@@ -89,7 +89,7 @@
       org-clock-persist 'history
       org-clock-report-include-clocking-task t)
 
-
+;; org-capture setup:
 (setq
  org-capture-templates
  `(("n" "note" entry
@@ -120,13 +120,21 @@
     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
     (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags)))
 
-;; Refile setup:
-(setq org-refile-targets
-      '((org-agenda-files :maxlevel . 5)
-        (nil :maxlevel . 5)))
-
-(setq org-refile-use-outline-path 'file
+;; org-refile setup:
+(setq org-refile-use-outline-path nil
       org-refile-allow-creating-parent-nodes 'confirm)
+
+(defun vderyagin/org-refile-target-files ()
+  (mapcar
+   (lambda (file)
+     (expand-file-name file vderyagin/org-agenda-directory))
+   '("current.org"
+     "projects.org"
+     "recurring.org")))
+
+(setq org-refile-targets
+      '((vderyagin/org-refile-target-files :maxlevel . 2)
+        (nil :maxlevel . 3)))
 
 
 (defun vderyagin/org-update-agenda-view ()
