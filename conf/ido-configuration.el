@@ -110,15 +110,25 @@
         "^\\*Summary "
         "^\\*About GNU Emacs\\*$"
         "^\\*yari "
-        "\\.org\\'"))
+
+        (lambda (name)
+          "Ignore all dired buffers."
+          (with-current-buffer name
+            (derived-mode-p 'dired-mode)))
+
+        (lambda (name)
+          "Ignore all org buffers that are in `org-directory'."
+          (with-current-buffer name
+            (and
+             buffer-file-name
+             (eq major-mode 'org-mode)
+             (string-prefix-p (expand-file-name org-directory)
+                              buffer-file-name))))))
 
 (require 'ido)
 
 (ido-mode t)
 (ido-ubiquitous t)
-
-
-;; (ido-everywhere t)
 
 
 (defun my-ido-minibuffer-setup-hook ()
