@@ -14,9 +14,10 @@
            (expand-file-name rel org-directory))
          (org-files ()
            (split-string
-            (shell-command-to-string
-             (let ((default-directory org-directory))
-               (find-cmd '(type "f") '(iname "*.org"))))
+            (chomp
+             (shell-command-to-string
+              (let ((default-directory org-directory))
+                (find-cmd '(type "f") '(iname "*.org*")))))
             "\n")))
     (let ((files (org-files)) relative-path absolute-path)
       (setq relative-path (ido-completing-read
