@@ -1,8 +1,29 @@
 ;; -*- eval: (rainbow-mode 1) -*-
 
-(define-key global-map (kbd "C-x o") 'org-iswitchb)
 (define-key global-map (kbd "<f11>") 'org-capture)
 (define-key global-map (kbd "<f12>") 'org-agenda)
+
+(define-key global-map (kbd "C-c o") 'vderyagin/find-org-file)
+
+(defun vderyagin/find-org-file ()
+  "Select and open org file from `org-directory' or one if its subdirectories."
+  (interactive)
+  (flet ((get-relative-path (abs)
+           (file-relative-name abs org-directory))
+         (get-absolute-path (rel)
+           (expand-file-name rel org-directory))
+         (org-files ()
+           (split-string
+            (shell-command-to-string
+             (let ((default-directory org-directory))
+               (find-cmd '(type "f") '(iname "*.org"))))
+            "\n")))
+    (let ((files (org-files)) relative-path absolute-path)
+      (setq relative-path (ido-completing-read
+                           "Open org file: "
+                           (mapcar 'get-relative-path files))
+            absolute-path (get-absolute-path relative-path))
+      (find-file absolute-path))))
 
 (setq org-show-notification-handler
       (lambda (notification)
