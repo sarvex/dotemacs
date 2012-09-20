@@ -70,3 +70,15 @@
 (defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
   "Clean up buffer of trailing whitespaces after indentation."
   (delete-trailing-whitespace))
+
+(define-key ruby-mode-map (kbd "C-c C-c")
+  (lambda (whole-file)
+    (interactive "P")
+    (let ((file buffer-file-name)
+          (line (number-to-string (line-number-at-pos)))
+          command)
+      (setq command (format "rspec --color %s" file))
+      (unless whole-file
+        (setq command (concat command ":" line)))
+      (save-buffer)
+      (compile command))))
