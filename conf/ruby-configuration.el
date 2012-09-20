@@ -70,13 +70,21 @@
   (delete-trailing-whitespace))
 
 (define-key ruby-mode-map (kbd "C-c C-c")
-  (lambda (whole-file)
-    (interactive "P")
-    (let ((file (shell-quote-argument buffer-file-name))
-          (line (number-to-string (line-number-at-pos)))
-          command)
-      (setq command (format "rspec --color %s" file))
-      (unless whole-file
-        (setq command (concat command ":" line)))
-      (save-buffer)
-      (compile command))))
+  (lambda (arg)
+    "C-c C-c runs spec at point.
+C-u C-c C-c runs all specs in current file.
+C-u C-u C-c C-c runs whole spec suite (depends on `cpr-rspec' from `current-project' package).
+"
+    (interactive "p")
+    (message "arg = %s" arg)
+    (if (eq arg 16)
+        (call-interactively 'cpr-rspec)
+        (let ((file (shell-quote-argument buffer-file-name))
+              (line (line-number-at-pos))
+              (args "--color --order random")
+              command)
+          (if (eq arg 1)
+            (setq args (concat args (format " --line_number %s" line))))
+          (setq command (format "rspec %s %s" args file))
+          (save-buffer)
+          (compile command)))))
