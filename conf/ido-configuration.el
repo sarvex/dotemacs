@@ -32,7 +32,7 @@
         "\\*cvs-commit"
         "\\*git-"
         "\\*hg "
-        "\\*magit-"
+        "\\*magit"
         "\\*reg group-leader\\*"
         "\\*semantic"
         "\\*svn"
