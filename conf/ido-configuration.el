@@ -1,13 +1,14 @@
-(setq ido-create-new-buffer 'always
+(setq ido-case-fold t                   ; ignore case
       ido-completion-buffer "*Completions*"
+      ido-confirm-unique-completion t   ; don't be too smart
+      ido-create-new-buffer 'always
       ido-default-buffer-method 'selected-window
-      ido-case-fold t                     ; ignore case
+      ido-enable-flex-matching nil      ; too slow at times
       ido-enable-last-directory-history nil
-      ido-use-filename-at-point nil       ; don't use filename at point (annoying)
-      ido-use-url-at-point nil            ; don't use url at point (annoying)
-      ido-enable-flex-matching t          ; be smart
-      ido-max-prospects 15                ; don't spam my minibuffer
-      ido-confirm-unique-completion t     ; don't be too smart
+      ido-max-prospects 15            ; don't spam my minibuffer
+      ido-use-filename-at-point nil   ; don't use filename at point (annoying)
+      ido-use-url-at-point nil        ; don't use url at point (annoying)
+
       ido-decorations '("\n-> " "" "\n   " "\n   ..." "[" "]"
                         " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")
       ido-ubiquitous-command-exceptions '(gnus-topic-move-group
