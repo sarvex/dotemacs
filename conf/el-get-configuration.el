@@ -188,6 +188,10 @@
     :type github
     :pkgname "ajc/nginx-mode")
 
+   (:name rake.el
+    :type github
+    :pkgname "vderyagin/rake.el")
+
    (:name slim-mode
     :type http
     :url "htps://raw.github.com/stonean/slim/master/extra/slim-mode.el")))
