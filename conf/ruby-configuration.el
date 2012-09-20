@@ -33,11 +33,6 @@
   (setq comment-column 42)
   (flymake-ruby-enable))
 
-(defun yari-no-ido-flex-matching ()
-  (interactive)
-  (let ((ido-enable-flex-matching nil))
-    (call-interactively 'yari)))
-
 (eval-after-load 'ruby-mode
   '(progn
     (require 'ruby-electric)
@@ -45,7 +40,7 @@
     (require 'rcodetools)
 
     (inf-ruby-keys)
-    (define-key inferior-ruby-mode-map (kbd "<f1>") 'yari-no-ido-flex-matching)
+    (define-key inferior-ruby-mode-map (kbd "<f1>") 'yari)
     (define-key inferior-ruby-mode-map (kbd "C-l") 'recenter-top)
 
     ;; enable flymake
@@ -60,7 +55,7 @@
     (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
     (define-key ruby-mode-map (kbd "<f9>") 'xmp)
-    (define-key ruby-mode-map (kbd "<f1>") 'yari-no-ido-flex-matching)
+    (define-key ruby-mode-map (kbd "<f1>") 'yari)
     (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
     (define-key ruby-mode-map (kbd "C-<return>")
      (lambda () (interactive) (move-end-of-line 1) (reindent-then-newline-and-indent)))
@@ -70,7 +65,7 @@
     (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)))
 
 (eval-after-load 'yari
-  '(define-key yari-mode-map (kbd "<f1>") 'yari-no-ido-flex-matching))
+  '(define-key yari-mode-map (kbd "<f1>") 'yari))
 
 (defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
   "Clean up buffer of trailing whitespaces after indentation."
