@@ -74,7 +74,7 @@
 (define-key ruby-mode-map (kbd "C-c C-c")
   (lambda (whole-file)
     (interactive "P")
-    (let ((file buffer-file-name)
+    (let ((file (shell-quote-argument buffer-file-name))
           (line (number-to-string (line-number-at-pos)))
           command)
       (setq command (format "rspec --color %s" file))
