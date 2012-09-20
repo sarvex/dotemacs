@@ -7,6 +7,8 @@
 (define-key global-map (kbd "C-c l") 'linum-mode)
 (define-key global-map (kbd "C-c s") 'ispell-word)
 
+(define-key global-map (kbd "C-c r") 'rake)
+
 (define-key global-map (kbd "M-0") 'delete-window)
 (define-key global-map (kbd "M-1") 'delete-other-windows)
 (define-key global-map (kbd "M-2") 'split-window-vertically)
