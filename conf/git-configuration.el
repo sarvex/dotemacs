@@ -2,6 +2,8 @@
 
 (setq magit-commit-all-when-nothing-staged 'ask-stage
       magit-repo-dirs-depth 6
+      magit-process-popup-time 5
+      magit-save-some-buffers t
       magit-log-auto-more t
       magit-status-buffer-switch-function 'switch-to-buffer)
 
