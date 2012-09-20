@@ -175,10 +175,6 @@
     :pkgname "vderyagin/pomodoro.el"
     :post-init (progn (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir))))
 
-   (:name sass-convert
-    :type github
-    :pkgname "vderyagin/sass-convert.el")
-
    (:name graphviz-dot-mode
     :type http
     :url "http://www.graphviz.org/Misc/graphviz-dot-mode.el"
