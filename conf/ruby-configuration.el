@@ -20,9 +20,7 @@
               (file-name-directory buffer-file-name))
              (file-writable-p buffer-file-name)
              (if (fboundp 'tramp-list-remote-buffers)
-                 (not (subsetp
-                       (list (current-buffer))
-                       (tramp-list-remote-buffers)))
+                 (not (member (current-buffer) (tramp-list-remote-buffers)))
                  t))
     (local-set-key (kbd "C-c e")
                    'flymake-display-err-menu-for-current-line)
