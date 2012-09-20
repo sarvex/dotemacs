@@ -22,7 +22,8 @@
  '(upcase-region
    downcase-region
    narrow-to-region
-   narrow-to-page))
+   narrow-to-page
+   set-goal-column))
 
 (mapc
  (lambda (buf-name)
