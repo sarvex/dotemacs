@@ -151,9 +151,13 @@
 (eval-after-load 'make-mode
   '(define-key makefile-mode-map (kbd "<f9>") 'recompile))
 
-
 (eval-after-load 'compile
   '(define-key compilation-mode-map (kbd "<f9>") 'recompile))
+
+(setq compilation-ask-about-save nil
+      compilation-auto-jump-to-first-error t
+      compilation-disable-input t
+      compilation-scroll-output 'first-error)
 
 (add-hook 'compilation-mode-hook 'truncate-lines)
 (require 'ansi-color)
