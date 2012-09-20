@@ -258,6 +258,7 @@
             (mode . package-menu-mode)
             (mode . process-menu-mode)
             (mode . pylookup-mode)
+            (mode . rake-mode)
             (mode . rdebug-breakpoint-mode)
             (mode . rdebug-frames-mode)
             (mode . rdebug-info-mode)
@@ -269,9 +270,9 @@
             (mode . special-mode)
             (mode . speedbar-mode)
             (mode . tags-table-mode)
+            (mode . vc-annotate-mode)
             (mode . vc-dir-mode)
             (mode . vc-git-log-view-mode)
-            (mode . vc-annotate-mode)
             (predicate . (equal mode-name "Anything"))
 
             (name . "^\\*About GNU Emacs\\*$")

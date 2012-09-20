@@ -66,6 +66,7 @@
         "*twittering-edit*"
         "*magit-edit-log*"
         "*Shell Command Output*"
+        "*rake*"
         "*ert*"
         "*ERT list of should forms*"
         "*ERT timings*"
