@@ -26,6 +26,25 @@
                    'flymake-display-err-menu-for-current-line)
     (turn-on-flymake-mode)))
 
+(defun ruby-run-rspec (arg)
+  "Runs spec at point.
+With prefix argument runs all specs in current file.  With double
+prefix argument runs whole spec suite (depends on `cpr-rspec'
+from `current-project' package)."
+  (interactive "p")
+  (if (eq arg 16)
+      (call-interactively 'cpr-rspec)
+      (let ((file (shell-quote-argument buffer-file-name))
+            (line (line-number-at-pos))
+            (command `("rspec" "--color" "--order" "random")))
+        (when (eq arg 1)
+          (add-to-list 'command "--line_number" 'append)
+          (add-to-list 'command (number-to-string line) 'append))
+        (add-to-list 'command file 'append)
+        (setq command (mapconcat 'identity command " "))
+        (save-buffer)
+        (compile command))))
+
 (defun my-ruby-mode-hook ()
   (ruby-electric-mode t)
   (setq comment-column 42)
@@ -52,6 +71,7 @@
 
     (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
+    (define-key ruby-mode-map (kbd "C-c C-c") 'ruby-run-rspec)
     (define-key ruby-mode-map (kbd "<f9>") 'xmp)
     (define-key ruby-mode-map (kbd "<f1>") 'yari)
     (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
@@ -68,23 +88,3 @@
 (defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
   "Clean up buffer of trailing whitespaces after indentation."
   (delete-trailing-whitespace))
-
-(define-key ruby-mode-map (kbd "C-c C-c")
-  (lambda (arg)
-    "C-c C-c runs spec at point.
-C-u C-c C-c runs all specs in current file.
-C-u C-u C-c C-c runs whole spec suite (depends on `cpr-rspec' from `current-project' package).
-"
-    (interactive "p")
-    (message "arg = %s" arg)
-    (if (eq arg 16)
-        (call-interactively 'cpr-rspec)
-        (let ((file (shell-quote-argument buffer-file-name))
-              (line (line-number-at-pos))
-              (args "--color --order random")
-              command)
-          (if (eq arg 1)
-            (setq args (concat args (format " --line_number %s" line))))
-          (setq command (format "rspec %s %s" args file))
-          (save-buffer)
-          (compile command)))))
