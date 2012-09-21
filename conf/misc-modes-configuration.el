@@ -157,6 +157,7 @@
 (setq compilation-ask-about-save nil
       compilation-auto-jump-to-first-error t
       compilation-disable-input t
+      compilation-window-height 20
       compilation-scroll-output 'first-error)
 
 (add-hook 'compilation-mode-hook 'truncate-lines)
