@@ -8,7 +8,8 @@
         global-mark-ring
         ioccur-history
         ido-work-directory-list
-        regexp-search-ring))
+        regexp-search-ring
+        cpr-history))
 
 (setq savehist-ignored-variables
       '(bmkp-tag-history
