@@ -17,7 +17,10 @@
                    (split-string
                     (shell-command-to-string
                      (let ((default-directory org-directory))
-                       (find-cmd '(type "f") '(iname "*.org*") '(print0))))
+                       (find-cmd
+                        '(type "f")
+                        '(iname "*.org" "*.org.gpg")
+                        '(print0))))
                     "\0"))))
     (let ((files (org-files)) relative-path absolute-path)
       (setq relative-path (ido-completing-read
