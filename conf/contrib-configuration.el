@@ -49,6 +49,7 @@
 
 (setq
  ;; display-buffer-function 'popwin:display-buffer
+ popwin:popup-window-height 20
  special-display-function 'popwin:special-display-popup-window)
 (setq popwin:special-display-config
       '(("*Help*")
