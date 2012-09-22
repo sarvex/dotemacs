@@ -68,7 +68,7 @@
    ("DONE" .      (:foreground "#448c27" :weight bold))))
 
 ;; Paths:
-(setq org-directory "~/org"
+(setq org-directory (expand-file-name "~/org")
       vderyagin/org-agenda-directory (expand-file-name "agenda" org-directory)
       org-default-notes-file (expand-file-name "refile.org" vderyagin/org-agenda-directory)
       vderyagin/org-contacts-file (expand-file-name "contacts.org" vderyagin/org-agenda-directory)
