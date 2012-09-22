@@ -72,7 +72,7 @@
       vderyagin/org-agenda-directory (expand-file-name "agenda" org-directory)
       org-default-notes-file (expand-file-name "refile.org" vderyagin/org-agenda-directory)
       vderyagin/org-contacts-file (expand-file-name "contacts.org" vderyagin/org-agenda-directory)
-      org-archive-location (concat org-directory "/archive/archive_%s::")
+      org-archive-location (expand-file-name  "archive/archive_%s::" org-directory)
       org-agenda-files `(,(file-name-as-directory vderyagin/org-agenda-directory))
       org-contacts-files `(,vderyagin/org-contacts-file))
 
