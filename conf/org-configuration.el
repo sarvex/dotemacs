@@ -131,7 +131,7 @@
           "Exclude todo keywords with a done state from refile targets."
           (not (member (nth 2 (org-heading-components)) org-done-keywords)))))
 
-(defun vderyagin/org-update-agenda-view ()
+(defun vderyagin/org-update-agenda-views ()
   "Update all org agenda buffers (if any)."
   (save-window-excursion
     (mapc
@@ -147,7 +147,7 @@
   (set (make-local-variable 'backup-inhibited) t)
   (vderyagin/org-set-up-refile)
   (add-hook 'before-save-hook 'org-align-all-tags nil 'make-it-local)
-  (add-hook 'after-save-hook 'vderyagin/org-update-agenda-view nil 'make-it-local))
+  (add-hook 'after-save-hook 'vderyagin/org-update-agenda-views nil 'make-it-local))
 
 (eval-after-load 'org
   '(progn
