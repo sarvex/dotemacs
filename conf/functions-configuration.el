@@ -403,3 +403,18 @@ UpperCamelCase and combinations of those."
 (ert-deftest snake-case-test-combination-of-stuff ()
   (should (equal (snake-case "Foo-barBaz quux_Corge--GraultABC")
                  "foo_bar_baz_quux_corge_grault_a_b_c")))
+(defun foo (count)
+  "Inserts at point position COUNT metasyntactic variable names separated by spaces.
+Compatible with RFC-3092."
+  (interactive "p")
+  (insert
+   (mapconcat
+    'identity
+    (loop
+       repeat count
+       with foos = '("bar" "baz" "qux" "quux" "corge"
+                     "grault" "garply" "waldo" "fred"
+                     "plugh" "xyzzy" "thud")
+       for foo = (nth (random (length foos)) foos)
+       collect foo)
+    " ")))
