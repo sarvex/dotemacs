@@ -183,3 +183,8 @@
 
 (eval-after-load 'debug
   '(add-hook 'debugger-mode-hook 'truncate-lines-off))
+
+(eval-after-load 'help-mode
+  '(progn
+    (define-key help-mode-map (kbd "M-p") 'help-go-back)
+    (define-key help-mode-map (kbd "M-n") 'help-go-forward)))
