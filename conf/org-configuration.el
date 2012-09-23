@@ -37,6 +37,7 @@
          :app-icon (expand-file-name "~/.icons/org-mode.png"))))
 
 (setq org-completion-use-ido t
+      org-cycle-level-faces nil
       org-outline-path-complete-in-steps nil
       org-return-follows-link t
       org-special-ctrl-a/e t
