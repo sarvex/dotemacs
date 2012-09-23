@@ -34,7 +34,7 @@
         (notifications-notify
          :title "Org-mode"
          :body notification
-         :app-icon "~/.icons/org-mode.png")))
+         :app-icon (expand-file-name "~/.icons/org-mode.png"))))
 
 (setq org-completion-use-ido t
       org-outline-path-complete-in-steps nil
