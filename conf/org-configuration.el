@@ -77,74 +77,59 @@
       org-agenda-files (list vderyagin/org-agenda-directory)
       org-contacts-files (list vderyagin/org-contacts-file))
 
-(setq org-agenda-window-setup 'current-window
-      org-agenda-restore-windows-after-quit t)
 
-(setq org-agenda-tags-column -90)
-
-
-(setq org-clock-auto-clock-resolution 'when-no-clock-is-running
-      org-clock-clocktable-default-properties '(:maxlevel 3 :scope file)
-      org-clock-history-length 28
-      org-clock-in-resume t
-      org-clock-in-switch-to-state "STARTED"
-      org-clock-out-remove-zero-time-clocks t
-      org-clock-out-switch-to-state "PAUSED"
-      org-clock-out-when-done t
-      org-clock-persist 'history
-      org-clock-report-include-clocking-task t)
 
 ;; org-capture setup:
-(setq
- org-capture-templates
- `(("n" "note" entry
-        (file "")
-        "* %? :NOTE:\n:PROPERTIES:\n:Captured_at: %U\n:END:"
-        :clock-resume t)
-   ("l" "link" entry
-        (file "")
-        "* %^L\n:PROPERTIES:\n:Captured_at: %U\n:END:"
-        :clock-resume t)
-   ("t" "todo" entry
-        (file "")
-        "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
-        :clock-resume t)
-   ("c" "contact" entry
-        (file ,vderyagin/org-contacts-file)
-        "* %?%(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\n:END:"
-        :clock-resume t)
-   ("u" "current" entry
-        (file ,(expand-file-name "current.org" vderyagin/org-agenda-directory))
-        "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
-        :clock-resume t)))
+
+(defun vderyagin/org-capture-set-up-templates ()
+  (setq
+   org-capture-templates
+   `(("n" "note" entry
+          (file "")
+          "* %? :NOTE:\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+          :clock-resume t)
+     ("l" "link" entry
+          (file "")
+          "* %^L\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+          :clock-resume t)
+     ("t" "todo" entry
+          (file "")
+          "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+          :clock-resume t)
+     ("c" "contact" entry
+          (file ,vderyagin/org-contacts-file)
+          "* %?%(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\n:END:"
+          :clock-resume t)
+     ("u" "current" entry
+          (file ,(expand-file-name "current.org" vderyagin/org-agenda-directory))
+          "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+          :clock-resume t))))
 
 (eval-after-load 'org-capture
   '(progn
+    (vderyagin/org-capture-set-up-templates)
     (require 'org-contacts)
     ;; C-c C-c is overriden
     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
     (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags)))
 
-;; org-refile setup:
-(setq org-refile-use-outline-path nil
-      org-refile-allow-creating-parent-nodes 'confirm)
+(defun vderyagin/org-set-up-refile ()
+  (defun vderyagin/org-refile-target-files ()
+    (mapcar
+     (lambda (file) (expand-file-name file vderyagin/org-agenda-directory))
+     '("current.org" "projects.org" "recurring.org")))
 
-(defun vderyagin/org-refile-target-files ()
-  (mapcar
-   (lambda (file)
-     (expand-file-name file vderyagin/org-agenda-directory))
-   '("current.org"
-     "projects.org"
-     "recurring.org")))
+  (setq org-refile-use-outline-path nil
+        org-refile-allow-creating-parent-nodes 'confirm)
 
-(setq org-refile-targets
-      '((vderyagin/org-refile-target-files :maxlevel . 2)
-        (nil :maxlevel . 3)))
+  (setq org-refile-targets
+        '((vderyagin/org-refile-target-files :maxlevel . 2)
+          (nil :maxlevel . 3)))
 
-(setq org-refile-target-verify-function
-      (lambda ()
-        "Exclude todo keywords with a done state from refile targets."
-        (not (member (nth 2 (org-heading-components)) org-done-keywords))))
+  (setq org-refile-target-verify-function
+        (lambda ()
+          "Exclude todo keywords with a done state from refile targets."
+          (not (member (nth 2 (org-heading-components)) org-done-keywords)))))
 
 (defun vderyagin/org-update-agenda-view ()
   "Update all org agenda buffers (if any)."
@@ -160,6 +145,7 @@
   (turn-on-auto-fill)
   (turn-on-visual-line-mode)
   (set (make-local-variable 'backup-inhibited) t)
+  (vderyagin/org-set-up-refile)
   (add-hook 'before-save-hook 'org-align-all-tags nil 'make-it-local)
   (add-hook 'after-save-hook 'vderyagin/org-update-agenda-view nil 'make-it-local))
 
@@ -190,7 +176,20 @@
     (org-remove-empty-drawer-at "LOGBOOK" (point))))
 
 (eval-after-load 'org-clock
-  '(add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
+  (quote
+   (progn
+     (setq org-clock-auto-clock-resolution 'when-no-clock-is-running
+           org-clock-clocktable-default-properties '(:maxlevel 3 :scope file)
+           org-clock-history-length 28
+           org-clock-in-resume t
+           org-clock-in-switch-to-state "STARTED"
+           org-clock-out-remove-zero-time-clocks t
+           org-clock-out-switch-to-state "PAUSED"
+           org-clock-out-when-done t
+           org-clock-persist 'history
+           org-clock-report-include-clocking-task t)
+
+     (add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))))
 
 (defun vderyagin/org-agenda-activate-appt ()
   (setq appt-audible nil
@@ -210,13 +209,18 @@
   (appt-activate t))
 
 (eval-after-load 'org-agenda
-  '(progn
-    (require 'org-contacts)
+  (quote
+   (progn
+     (require 'org-contacts)
 
-    (add-hook 'org-agenda-mode-hook 'vderyagin/org-agenda-activate-appt)
+     (setq org-agenda-window-setup 'current-window
+           org-agenda-restore-windows-after-quit t
+           org-agenda-tags-column -90)
 
-    (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
-    (define-key org-agenda-mode-map (kbd "C-S-<right>") nil)
+     (add-hook 'org-agenda-mode-hook 'vderyagin/org-agenda-activate-appt)
 
-    (define-key org-agenda-mode-map (kbd "M-n") 'org-next-link)
-    (define-key org-agenda-mode-map (kbd "M-p") 'org-previous-link)))
+     (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
+     (define-key org-agenda-mode-map (kbd "C-S-<right>") nil)
+
+     (define-key org-agenda-mode-map (kbd "M-n") 'org-next-link)
+     (define-key org-agenda-mode-map (kbd "M-p") 'org-previous-link))))
