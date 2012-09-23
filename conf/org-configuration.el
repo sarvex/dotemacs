@@ -74,8 +74,8 @@
       org-default-notes-file (expand-file-name "refile.org" vderyagin/org-agenda-directory)
       vderyagin/org-contacts-file (expand-file-name "contacts.org" vderyagin/org-agenda-directory)
       org-archive-location (expand-file-name  "archive/archive_%s::" org-directory)
-      org-agenda-files `(,(file-name-as-directory vderyagin/org-agenda-directory))
-      org-contacts-files `(,vderyagin/org-contacts-file))
+      org-agenda-files (list vderyagin/org-agenda-directory)
+      org-contacts-files (list vderyagin/org-contacts-file))
 
 (setq org-agenda-window-setup 'current-window
       org-agenda-restore-windows-after-quit t)
@@ -204,7 +204,7 @@
           (notifications-notify
            :title (format "%s minute(s) left" left)
            :body message
-           :app-icon "~/.icons/org-mode.png")))
+           :app-icon (expand-file-name "~/.icons/org-mode.png"))))
 
   (org-agenda-to-appt t '((headline "IMPORTANT") (category "Appt")))
   (appt-activate t))
