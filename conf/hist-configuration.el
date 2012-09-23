@@ -60,7 +60,25 @@
       desktop-save t
       desktop-save-mode t)
 
-(setq desktop-files-not-to-save "\\(^/[^/:]*:\\|(ftp)$\\|\\.gpg\\'\\|recentf\\|newsrc-dribble\\|archive_.*\\.org\\)")
+(setq desktop-files-not-to-save
+      (concat
+       "\\("
+       "^/[^/:]*:"
+       "\\|"
+       "(ftp)$"
+       "\\|"
+       "\\.gpg\\'"
+       "\\|"
+       "/\\.emacs\\.d/recentf"
+       "\\|"
+       ;; "newsrc-dribble"
+       ;; "\\|"
+       "archive_.*\\.org"
+       "\\|"
+       (expand-file-name "~/repos/")
+       "\\|"
+       (expand-file-name "~/org/")
+       "\\)"))
 
 (setq desktop-globals-to-save nil)      ; not needed, `savehist' does the thing
 
