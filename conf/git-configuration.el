@@ -7,7 +7,7 @@
       magit-log-auto-more t
       magit-status-buffer-switch-function 'switch-to-buffer)
 
-(defun my-magit-log-edit-hook ()
+(defun vderyagin/magit-log-edit-hook ()
   (turn-on-auto-fill)
   (flyspell-mode t))
 
@@ -22,10 +22,10 @@
     (define-key magit-mode-map (kbd "M-n") 'magit-show-commit-forward)
     (define-key magit-mode-map (kbd "M-p") 'magit-show-commit-backward)
 
-    (add-hook 'magit-log-edit-mode-hook 'my-magit-log-edit-hook)))
 
 (setq gist-authenticate-function 'gist-basic-authentication
       github-user my-github-username
       gist-user-password my-github-password
       gist-view-gist nil
       gist-working-directory "~/repos/gists")
+    (add-hook 'magit-log-edit-mode-hook 'vderyagin/magit-log-edit-hook)))
