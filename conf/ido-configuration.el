@@ -201,7 +201,7 @@ FALLBACK-FUNCTION is called when there is no buffers with MODE"
 
 (setq smex-auto-update t
       smex-save-file "~/.emacs.d/smex.save"
-      smex-history-length 10)
+      smex-history-length 500)
 
 (require 'smex)
 (smex-initialize)
