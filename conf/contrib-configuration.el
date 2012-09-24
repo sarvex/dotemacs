@@ -73,6 +73,7 @@
         "*ERT Backtrace*"
         "*ERT Messages*"))
 (define-key global-map (kbd "C-h e") 'popwin:messages)
+(define-key global-map (kbd "C-z") popwin:keymap)
 
 
 
