@@ -120,8 +120,8 @@
       org-refile-allow-creating-parent-nodes 'confirm)
 
 (setq org-refile-targets
-        '((vderyagin/org-refile-target-files :maxlevel . 2)
-          (nil :maxlevel . 3)))
+      '((vderyagin/org-refile-target-files :maxlevel . 2)
+        (nil :maxlevel . 3)))
 
 (setq org-refile-target-verify-function
       (lambda ()
@@ -203,16 +203,18 @@
   (org-agenda-to-appt t '((headline "IMPORTANT") (category "Appt")))
   (appt-activate t))
 
-(setq org-agenda-window-setup 'current-window
-           org-agenda-restore-windows-after-quit t
-           org-agenda-tags-column -90
-           org-agenda-compact-blocks nil
-           org-agenda-block-separator (make-string 90 61)
-           org-agenda-todo-list-sublevels nil
-           org-agenda-show-inherited-tags nil)
+(setq org-agenda-block-separator (make-string 90 61)
+      org-agenda-compact-blocks nil
+      org-agenda-restore-windows-after-quit t
+      org-agenda-show-inherited-tags nil
+      org-agenda-tags-column -90
+      org-agenda-todo-list-sublevels nil
+      org-agenda-window-setup 'current-window)
 
-(setq org-agenda-start-with-log-mode t
-      org-agenda-start-with-clockreport-mode nil)
+(setq org-agenda-start-with-clockreport-mode nil
+      org-agenda-start-with-entry-text-mode nil
+      org-agenda-start-with-follow-mode nil
+      org-agenda-start-with-log-mode t)
 
 (setq org-agenda-custom-commands
       '((" " "Agenda"
