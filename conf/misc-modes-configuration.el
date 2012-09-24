@@ -38,7 +38,9 @@
 
 
 (setq calendar-date-style 'european
-      calendar-week-start-day 1)
+      calendar-week-start-day 1
+      calendar-latitude 49.55
+      calendar-longitude 25.58)
 
 
 (setq Man-fontify-manpage-flag t
