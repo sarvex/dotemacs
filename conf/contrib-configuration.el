@@ -3,7 +3,11 @@
 
 (define-key global-map (kbd "C-c d") 'drag-stuff-mode)
 (define-key global-map (kbd "C-;") 'iedit-mode)
-(define-key global-map (kbd "<f7>") 'scratch)
+(define-key global-map (kbd "<f7>")
+  (lambda (&optional arg)
+    (interactive "P")
+    (let ((current-prefix-arg (not arg)))
+      (scratch))))
 
 
 (setq ac-comphist-file "~/.emacs.d/ac-comphist.dat"
