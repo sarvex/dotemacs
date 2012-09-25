@@ -28,7 +28,8 @@
   (erc-select :server "irc.freenode.net"
               :port 6667
               :nick my-freenode-username
-              :password my-freenode-password)
+              :password my-freenode-password
+              :full-name my-full-name)
   (erc-services-mode t)
   (erc-nickserv-mode t)
   (erc-autojoin-enable))
