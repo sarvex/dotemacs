@@ -151,8 +151,8 @@
             (autopair-mode -1)))
 
 (add-hook 'term-mode-hook
-          (defun load-quiet-light-theme ()
-            (load-file "~/.emacs.d/themes/quiet-light-theme.el")))
+          (defun load-quiet-light-theme (&rest args)
+            (load-file "~/repos/misc/quiet-light-theme/quiet-light-theme.el")))
 
 ;; (add-hook 'text-mode-hook 'turn-on-orgstruct++)
 ;; (add-hook 'text-mode-hook 'turn-on-orgtbl)
@@ -170,7 +170,7 @@
 
 
 (when (fboundp 'customize-themes)
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+  (add-to-list 'custom-theme-load-path "~/repos/misc/quiet-light-theme")
   (setq custom-safe-themes t)
   (load-theme 'quiet-light)
-  (add-hook 'after-make-frame-functions (lambda (frame) (load-file "~/.emacs.d/themes/quiet-light-theme.el"))))
+  (add-hook 'after-make-frame-functions 'load-quiet-light-theme))
