@@ -35,6 +35,7 @@
    paredit
    textile-mode
    yaml-mode
+   (:name helm)
 
    (:name asciidoc :lazy t)
    (:name dired+ :lazy t)
@@ -64,10 +65,6 @@
    (:name coffee-mode
     :post-init nil
     :lazy t)
-
-   (:name anything
-    :lazy t
-    :load-path ("." "extensions" "contrib"))
 
    (:name openwith
     :description "Open files with external programs"
