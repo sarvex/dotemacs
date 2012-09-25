@@ -18,24 +18,24 @@
 
 (setq
  el-get-sources
- '(el-get
-   autopair
-   ack
-   ahg
-   cedet
-   bookmark+
-   clojure-mode
-   diminish
-   emacs-jabber
-   emacs-w3m
-   haskell-mode
-   magit
-   rdebug
-   rhtml-mode
-   paredit
-   textile-mode
-   yaml-mode
+ '((:name el-get)
+   (:name ack)
+   (:name ahg)
+   (:name autopair)
+   (:name bookmark+)
+   (:name cedet)
+   (:name clojure-mode)
+   (:name diminish)
+   (:name emacs-jabber)
+   (:name emacs-w3m)
+   (:name haskell-mode)
    (:name helm)
+   (:name magit)
+   (:name paredit)
+   (:name rdebug)
+   (:name rhtml-mode)
+   (:name textile-mode)
+   (:name yaml-mode)
 
    (:name asciidoc :lazy t)
    (:name dired+ :lazy t)
@@ -43,8 +43,8 @@
    (:name erc-highlight-nicknames :lazy t)
    (:name haml-mode :lazy t)
    (:name iedit :lazy t)
-   (:name nognus :lazy t)
    (:name io-mode :lazy t)
+   (:name nognus :lazy t)
    (:name php-mode :lazy t)
    (:name quack :lazy t)
    (:name rainbow-mode :lazy t)
