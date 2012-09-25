@@ -7,14 +7,14 @@
        (eval-print-last-sexp)))))
 
 (defun el-get-regenerate-all-autoloads ()
-  "Regenerates all autoloads"
+  "Regenerates all autoloads for el-get"
   (interactive)
   (let ((f el-get-autoload-file))
-    (if (not (file-writable-p f))
-        (message "Autoloads file can not be written. Aborting")
-        (when (file-exists-p f) (delete-file f))
-        (el-get)
-        (byte-compile-file f))))
+    (unless (file-writable-p f)
+      (error "Autoloads file can not be written"))
+    (delete-file f)
+    (el-get)
+    (byte-compile-file f)))
 
 (setq
  el-get-sources
