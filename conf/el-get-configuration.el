@@ -41,6 +41,7 @@
    (:name dired+ :lazy t)
    (:name dired-details :lazy t)
    (:name erc-highlight-nicknames :lazy t)
+   (:name gist :lazy t)
    (:name haml-mode :lazy t)
    (:name iedit :lazy t)
    (:name io-mode :lazy t)
@@ -92,10 +93,7 @@
     :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-electric.el"
     :post-init nil)
 
-   (:name gist
-    :type github
-    :pkgname "mhayashi1120/gist.el"
-    :lazy t)
+
 
    (:name handlebars-mode
     :type github
