@@ -7,6 +7,6 @@
 
 (require 'helm-config)
 
-
+(define-key global-map (kbd "C-c h o") 'helm-occur)
 (define-key global-map (kbd "M-y") 'helm-show-kill-ring)
 (define-key global-map (kbd "C-x f") 'helm-recentf)
