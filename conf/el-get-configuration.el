@@ -51,6 +51,7 @@
    (:name rainbow-mode :lazy t)
    (:name sass-mode :lazy t)
    (:name scss-mode :lazy t)
+   (:name slim-mode :lazy t)
    (:name twittering-mode :lazy t)
    (:name yari :lazy t)
 
@@ -189,9 +190,6 @@
     :type github
     :pkgname "vderyagin/rake.el")
 
-   (:name slim-mode
-    :type http
-    :url "htps://raw.github.com/stonean/slim/master/extra/slim-mode.el")))
 
 (el-get 'wait)
 (load (file-name-sans-extension el-get-autoload-file))
