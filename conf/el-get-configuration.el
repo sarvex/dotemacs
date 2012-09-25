@@ -189,6 +189,10 @@
     :type github
     :pkgname "vderyagin/rake.el")
 
+   (:name projectur
+    :type github
+    :pkgname "vderyagin/projectur"
+    :features (projectur projectur-rspec))))
 
 (el-get 'wait)
 (load (file-name-sans-extension el-get-autoload-file))
