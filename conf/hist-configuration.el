@@ -8,7 +8,7 @@
         global-mark-ring
         ido-work-directory-list
         regexp-search-ring
-        cpr-history))
+        projectur-history))
 
 (setq savehist-ignored-variables
       '(bmkp-tag-history
