@@ -157,7 +157,7 @@
   '(define-key compilation-mode-map (kbd "<f9>") 'recompile))
 
 (setq compilation-ask-about-save nil
-      compilation-auto-jump-to-first-error t
+      compilation-auto-jump-to-first-error nil
       compilation-disable-input t
       compilation-window-height 20
       compilation-scroll-output 'first-error)

@@ -46,7 +46,7 @@
 (load "dotemacs/conf/rainbow-configuration")
 (load "dotemacs/conf/mercurial-configuration")
 (load "dotemacs/conf/git-configuration")
-(load "dotemacs/conf/anything-configuration")
+(load "dotemacs/conf/helm-configuration")
 (load "dotemacs/conf/projects-configuration")
 (load "dotemacs/conf/etc-configuration")
 (load "dotemacs/conf/i18n-configuration")

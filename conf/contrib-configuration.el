@@ -5,10 +5,6 @@
 (define-key global-map (kbd "C-;") 'iedit-mode)
 (define-key global-map (kbd "<f7>") 'scratch)
 
-(setq ioccur-buffer-completion-style 'ido
-      ioccur-buffer-completion-use-ido t
-      ioccur-fontify-buffer-p t)
-
 
 (setq ac-comphist-file "~/.emacs.d/ac-comphist.dat"
       ac-auto-show-menu nil
@@ -67,6 +63,7 @@
         "*twittering-edit*"
         "*magit-edit-log*"
         "*Shell Command Output*"
+        "*rspec*"
         "*ert*"
         "*ERT list of should forms*"
         "*ERT timings*"

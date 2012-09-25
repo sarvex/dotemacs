@@ -69,9 +69,7 @@
 (add-to-list
  'vderyagin/ibuffer-filter-groups
  `("org" (or
-          (filename . ,(expand-file-name "~/org"))
-          (mode . org-agenda-mode)
-          (name . "^\\*Org .*\\*$"))))
+          (filename . ,(expand-file-name "~/org/")))))
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
@@ -240,7 +238,6 @@
             (mode . gnus-custom-mode)
             (mode . grep-mode)
             (mode . gud-mode)
-            (mode . ioccur-mode)
             (mode . locate-mode)
             (mode . magit-branch-manager-mode)
             (mode . magit-commit-mode)
@@ -255,6 +252,7 @@
             (mode . magit-status-mode)
             (mode . magit-wazzup-mode)
             (mode . occur-mode)
+            (mode . org-agenda-mode)
             (mode . package-menu-mode)
             (mode . process-menu-mode)
             (mode . pylookup-mode)
@@ -265,6 +263,7 @@
             (mode . rdebug-output-mode)
             (mode . rdebug-secondary-window-help-mode)
             (mode . rdebug-variables-mode)
+            (mode . rspec-mode)
             (mode . rdebug-watch-mode)
             (mode . select-tags-table-mode)
             (mode . special-mode)
@@ -273,7 +272,7 @@
             (mode . vc-annotate-mode)
             (mode . vc-dir-mode)
             (mode . vc-git-log-view-mode)
-            (predicate . (equal mode-name "Anything"))
+            (predicate . (equal mode-name "Helm"))
 
             (name . "^\\*About GNU Emacs\\*$")
             (name . "^\\*Apropos\\*$")
@@ -283,9 +282,12 @@
             (name . "^\\*Dired log\\*$")
             (name . "^\\*Ediff Registry\\*$")
             (name . "^\\*Gnuplot ")
+            (name . "^\\*Helm Log\\*$")
+            (name . "^\\*Holidays\\*$")
             (name . "^\\*Image-Dired Edit Meta Data\\*$")
             (name . "^\\*Messages\\*$")
             (name . "^\\*Minibuf")
+            (name . "^\\*Org .*\\*$")
             (name . "^\\*Phases of Moon\\*$")
             (name . "^\\*Quail Completions\\*$")
             (name . "^\\*Shell Command Output\\*$")

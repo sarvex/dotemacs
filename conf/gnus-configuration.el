@@ -20,13 +20,10 @@
 (setq user-full-name my-full-name
       user-mail-address my-email-address)
 
-;; html
-(if (require 'gnus-html nil 'noerror)   ; emacs24+
-    (setq gnus-blocked-images "\\(advert\\|lbs_emba_global\\)"
-          gnus-max-image-proportion 100.0
-          mm-text-html-renderer 'shr)
-    (setq mm-text-html-renderer 'w3m
-          mm-w3m-safe-url-regexp nil))
+(require 'gnus-html)
+(setq gnus-max-image-proportion 100.0
+      mm-text-html-renderer 'shr)
+
 
 (setq mm-discouraged-alternatives nil
       mm-inline-large-images t
@@ -127,10 +124,9 @@
 (define-key gnus-summary-mode-map (kbd "[") 'gnus-summary-refer-thread)
 
 
-(defun my-message-mode-hook ()
-  (turn-on-orgstruct++)
-  (turn-on-orgtbl)
-  (epa-mail-mode t)
-  (flyspell-mode t))
-
-(add-hook 'message-mode-hook 'my-message-mode-hook)
+(add-hook 'message-mode-hook 'turn-on-orgstruct++)
+(add-hook 'message-mode-hook 'turn-on-orgtbl)
+(add-hook 'message-mode-hook
+          (defun vderyagin/message-mode-hook ()
+            (epa-mail-mode t)
+            (flyspell-mode t)))

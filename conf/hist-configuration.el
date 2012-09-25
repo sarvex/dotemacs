@@ -6,7 +6,6 @@
 (setq savehist-additional-variables
       '(search-ring
         global-mark-ring
-        ioccur-history
         ido-work-directory-list
         regexp-search-ring
         cpr-history))
@@ -70,10 +69,6 @@
        "\\.gpg\\'"
        "\\|"
        "/\\.emacs\\.d/recentf"
-       "\\|"
-       ;; "newsrc-dribble"
-       ;; "\\|"
-       "archive_.*\\.org"
        "\\|"
        (expand-file-name "~/repos/")
        "\\|"

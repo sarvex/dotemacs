@@ -31,7 +31,7 @@
               :password my-freenode-password)
   (erc-services-mode t)
   (erc-nickserv-mode t)
-  (erc-autojoin-mode t))
+  (erc-autojoin-enable))
 
 (setq erc-user-full-name my-full-name
       erc-email-userid my-email-address)

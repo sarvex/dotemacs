@@ -54,10 +54,9 @@
         "^\\*Smex: "
         "^\\*Thumbs: "
         "^\\*aHg"
-        "^\\*anything"
+        "^\\*helm"
         "^\\*hg "
         "^\\*image-dired"
-        "^\\*ioccur"
         "^\\*magit"
         "^\\*yari "))
 

@@ -85,15 +85,15 @@
  org-capture-templates
  `(("n" "note" entry
         (file "")
-        "* %? :NOTE:REFILE:\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        "* %? :NOTE:\n:PROPERTIES:\n:Captured_at: %U\n:END:"
         :clock-resume t)
    ("l" "link" entry
         (file "")
-        "* %^L :REFILE:\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        "* %^L\n:PROPERTIES:\n:Captured_at: %U\n:END:"
         :clock-resume t)
    ("t" "todo" entry
         (file "")
-        "* TODO %? :REFILE:\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
         :clock-resume t)
    ("c" "contact" entry
         (file ,vderyagin/org-contacts-file)
@@ -186,20 +186,20 @@
 (eval-after-load 'org-clock
   '(add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
 
+(setq appt-audible nil
+      appt-message-warning-time 15
+      appt-display-format 'window
+      appt-display-diary nil
+      appt-display-interval 3)
+
+(setq appt-disp-window-function
+      (lambda (left time message)
+        (notifications-notify
+         :title (format "%s minute(s) left" left)
+         :body message
+         :app-icon (expand-file-name "~/.icons/org-mode.png"))))
+
 (defun vderyagin/org-agenda-activate-appt ()
-  (setq appt-audible nil
-        appt-message-warning-time 15
-        appt-display-format 'window
-        appt-display-diary nil
-        appt-display-interval 3)
-
-  (setq appt-disp-window-function
-        (lambda (left time message)
-          (notifications-notify
-           :title (format "%s minute(s) left" left)
-           :body message
-           :app-icon (expand-file-name "~/.icons/org-mode.png"))))
-
   (org-agenda-to-appt t '((headline "IMPORTANT") (category "Appt")))
   (appt-activate t))
 
