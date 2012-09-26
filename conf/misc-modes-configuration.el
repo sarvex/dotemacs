@@ -103,9 +103,6 @@
         ("Europe/Moscow" "Moscow")
         ("Asia/Shanghai" "Shanghai")
         ("Asia/Tokyo" "Tokyo")))
-(define-key global-map (kbd "<f1>") 'display-time-world)
-(eval-after-load 'time
-  '(define-key display-time-world-mode-map (kbd "<f1>") 'delete-window))
 
 
 ;; IMPORTANT: app-arch/unrar-gpl in needed for rar support
