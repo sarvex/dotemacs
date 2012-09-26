@@ -219,6 +219,7 @@
             (mode . calc-trail-mode)
             (mode . calculator-mode)
             (mode . calendar-mode)
+            (mode . checkdoc-output-mode)
             (mode . compilation-mode)
             (mode . completion-list-mode)
             (mode . custom-theme-choose-mode)
