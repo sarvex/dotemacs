@@ -1,7 +1,7 @@
 ;; -*- eval: (rainbow-mode 1) -*-
 
 (define-key global-map (kbd "<f11>") 'org-capture)
-(define-key global-map (kbd "<f12>") 'org-agenda)
+(define-key global-map (kbd "C-c a") 'org-agenda)
 
 (define-key global-map (kbd "C-c o") 'vderyagin/find-org-file)
 
