@@ -1,6 +1,7 @@
 (eval-when-compile
-  (require 'ert)
   (require 'cl))
+
+(require 'ert)
 
 (defun my-duplicate-line (&optional commentfirst)
   "Copy line at point; if COMMENTFIRST is non-nil, comment out the original"
