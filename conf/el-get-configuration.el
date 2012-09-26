@@ -189,8 +189,7 @@
 
    (:name projectur
     :type github
-    :pkgname "vderyagin/projectur"
-    :features (projectur projectur-rspec))))
+    :pkgname "vderyagin/projectur")))
 
 (el-get 'wait)
 (load (file-name-sans-extension el-get-autoload-file))
