@@ -48,7 +48,7 @@
                            "google")
                           ((string-match my-dilines-email from)
                            "dilines"))))
-          (setq message-sendmail-extra-arguments `("-a" ,account))))))
+          (setq message-sendmail-extra-arguments (list "-a" account))))))
 (setq message-sendmail-envelope-from 'header)
 (add-hook 'message-send-mail-hook 'my-feed-msmtp)
 
