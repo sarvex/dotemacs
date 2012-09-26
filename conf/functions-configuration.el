@@ -404,6 +404,31 @@ UpperCamelCase and combinations of those."
 (ert-deftest snake-case-test-combination-of-stuff ()
   (should (equal (snake-case "Foo-barBaz quux_Corge--GraultABC")
                  "foo_bar_baz_quux_corge_grault_a_b_c")))
+
+
+(defun haml-to-html ()
+  (interactive)
+  (let ((error-buffer "*haml error*")
+        (position (point))
+        beginning
+        end
+        original)
+    (if (region-active-p)
+        (setq beginning (region-beginning)
+              end (region-end))
+        (setq beginning (point-min)
+              end (point-max)))
+
+    (when (get-buffer error-buffer)
+      (kill-buffer error-buffer))
+
+    (setq original (buffer-substring beginning end))
+    (shell-command-on-region beginning end "haml" nil 'replace error-buffer 'display-error-buffer)
+
+    (when (get-buffer error-buffer)
+      (insert original)
+      (goto-char position))))
+
 (defun foo (count)
   "Inserts at point position COUNT metasyntactic variable names separated by spaces.
 Compatible with RFC-3092."
