@@ -1,20 +1,10 @@
 (setq gnus-select-method '(nntp "news.gmane.org"))
 
 (setq gnus-secondary-select-methods
-      '(
-        ;; (nnml "")
-        (nnimap "gmail"
+      '((nnimap "gmail"
          (nnimap-address "imap.gmail.com")
          (nnimap-server-port 993)
          (nnimap-stream ssl))))
-
-
-(require 'pop3)
-(setq mail-sources
-      `((pop
-         :server ,my-dilines-server
-         :user ,my-dilines-username
-         :password ,my-dilines-password)))
 
 
 (setq user-full-name my-full-name
@@ -31,26 +21,11 @@
 
 
 (setq message-send-mail-function 'message-send-mail-with-sendmail
-      sendmail-program "/usr/bin/msmtp")
+      send-mail-function 'message-send-mail-with-sendmail
+      sendmail-program "msmtp")
 
 
-;; Choose account label to feed msmtp -a option based on From header in Message buffer;
-;; This function must be added to message-send-mail-hook for on-the-fly change of From address
-;; before sending message since message-send-mail-hook is processed right before sending message.
-(defun my-feed-msmtp ()
-  (if (message-mail-p)
-      (save-excursion
-        (let* ((from (save-restriction
-                       (message-narrow-to-headers)
-                       (message-fetch-field "from")))
-               (account (cond
-                          ((string-match my-email-address from)
-                           "google")
-                          ((string-match my-dilines-email from)
-                           "dilines"))))
-          (setq message-sendmail-extra-arguments (list "-a" account))))))
 (setq message-sendmail-envelope-from 'header)
-(add-hook 'message-send-mail-hook 'my-feed-msmtp)
 
 
 (require 'epg)
