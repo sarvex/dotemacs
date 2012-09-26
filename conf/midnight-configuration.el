@@ -43,6 +43,9 @@
         "*WoMan-Log*"
         "*compilation*"
         "*grep*"
+        "*ack*"
+        "*rake*"
+        "*rspec*"
         "*interpretation*"))
 
 (setq clean-buffer-list-kill-regexps
