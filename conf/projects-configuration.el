@@ -10,5 +10,5 @@
 (define-key global-map (kbd "C-c p g") 'projectur-rgrep)
 (define-key global-map (kbd "C-c p r") 'projectur-goto-root)
 (define-key global-map (kbd "C-c p s") 'projectur-execute-shell-command)
-(define-key global-map (kbd "C-c p t") 'projectur-generate-tags)
+(define-key global-map (kbd "C-c p T") 'projectur-generate-tags)
 (define-key global-map (kbd "C-c p v") 'projectur-version-control)
