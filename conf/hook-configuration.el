@@ -143,7 +143,7 @@
 
 (add-hook 'term-mode-hook
           (defun load-quiet-light-theme (&rest args)
-            (load-file "~/repos/misc/quiet-light-theme/quiet-light-theme.el")))
+            (load-file "~/repos/misc/color-theme-quiet-light/quiet-light-theme.el")))
 
 ;; (add-hook 'text-mode-hook 'turn-on-orgstruct++)
 ;; (add-hook 'text-mode-hook 'turn-on-orgtbl)
@@ -162,7 +162,7 @@
 
 
 (when (fboundp 'customize-themes)
-  (add-to-list 'custom-theme-load-path "~/repos/misc/quiet-light-theme")
+  (add-to-list 'custom-theme-load-path "~/repos/misc/color-theme-quiet-light")
   (setq custom-safe-themes t)
   (load-theme 'quiet-light)
   (add-hook 'after-make-frame-functions 'load-quiet-light-theme))
