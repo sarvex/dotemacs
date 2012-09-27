@@ -17,16 +17,16 @@
 (setq erc-prompt-for-nickserv-password nil
       erc-prompt-for-password nil)
 
-(defun my-join-erc ()
+(defun vderyagin/erc-join-irc ()
   (interactive)
+  (erc-services-mode t)
+  (erc-nickserv-mode t)
+  (erc-autojoin-enable)
   (erc-select :server "irc.freenode.net"
               :port 6667
               :nick my-freenode-username
               :password my-freenode-password
-              :full-name my-full-name)
-  (erc-services-mode t)
-  (erc-nickserv-mode t)
-  (erc-autojoin-enable))
+              :full-name my-full-name))
 
 (setq erc-user-full-name my-full-name
       erc-email-userid my-email-address)
@@ -35,7 +35,7 @@
       erc-autojoin-delay most-positive-fixnum)
 
 (defun switch-to-irc ()
-  "Switch to an IRC buffer, or run `my-join-erc'.
+  "Switch to an IRC buffer, or run `vderyagin/erc-join-irc'.
     When called repeatedly, cycle through the buffers."
   (interactive)
   (let ((buffers (and (fboundp 'erc-buffer-list)
@@ -45,7 +45,7 @@
       (setq buffers (cdr buffers)))
     (if buffers
         (switch-to-buffer (car buffers))
-        (call-interactively 'my-join-erc))))
+        (call-interactively 'vderyagin/erc-join-irc))))
 
 
 ;; check channels
