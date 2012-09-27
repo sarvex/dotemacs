@@ -143,6 +143,13 @@
 (mapc
  (lambda (project)
    (add-to-list 'vderyagin/ibuffer-filter-groups
+                `(,(format "Repo: %s" project)
+                   (filename . ,(expand-file-name project "~/repos/exercises")))))
+ (remove "." (remove ".." (directory-files (expand-file-name "~/repos/exercises")))))
+
+(mapc
+ (lambda (project)
+   (add-to-list 'vderyagin/ibuffer-filter-groups
                 `(,(format "Archive repo: %s" project)
                    (filename . ,(expand-file-name project "~/repos/archive")))))
  (remove "." (remove ".." (directory-files (expand-file-name "~/repos/archive")))))
