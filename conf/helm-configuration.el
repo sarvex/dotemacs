@@ -1,5 +1,7 @@
-(setq helm-c-kill-ring-max-lines-number 5
-      helm-candidate-number-limit 500
+(setq helm-buffer-max-length 40
+      helm-c-default-external-file-browser "pcmanfm"
+      helm-c-kill-ring-max-lines-number 5
+      helm-candidate-number-limit 1000
       helm-command-prefix-key "C-c h"
       helm-google-suggest-use-curl-p t)
 
