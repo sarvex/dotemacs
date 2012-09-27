@@ -13,6 +13,7 @@
        (hl-line-modes-hooks (append
                              '(archive-mode-hook
                                Info-mode-hook
+                               org-agenda-mode-hook
                                emacs-lisp-mode-hook
                                special-mode-hook
                                scheme-mode-hook
