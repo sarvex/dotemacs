@@ -100,3 +100,6 @@
 
 (eval-after-load 'feature-mode
   '(define-key feature-mode-map (kbd "<return>") 'newline-and-indent))
+
+
+(setq ack-command "ack --color-match='bold underline' ")
