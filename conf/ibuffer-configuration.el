@@ -62,7 +62,6 @@
            (mode . Info-mode)
            (mode . irfc-mode)
            (mode . yari-mode)
-           (name . "^\\*Help\\*$")
            (mode . Man-mode)
            (mode . woman-mode))))
 

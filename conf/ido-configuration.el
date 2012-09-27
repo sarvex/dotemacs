@@ -55,7 +55,7 @@
         "^\\*Faces\\*$"
         "^\\*Finder"
         "^\\*Grep\\*$"
-        "^\\*Help\\*$"
+        "^\\*Help"
         "^\\*IPython "
         "^\\*Ibuffer\\*$"
         "^\\*Image\\*$"
