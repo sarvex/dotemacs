@@ -5,8 +5,8 @@
       yas-choose-tables-first t)
 
 (setq yas-prompt-functions
-      '(yas-ido-prompt
-        yas-dropdown-prompt
+      '(yas-dropdown-prompt
+        yas-ido-prompt
         yas-x-prompt
         yas-completing-prompt
         yas-no-prompt))
