@@ -96,13 +96,13 @@
   ;; hl-line
   (mapc
    (lambda (hooks)
-     (add-hook hooks 'turn-on-hl-line-mode))
+     (add-hook hooks (lambda () (hl-line-mode t))))
    hl-line-modes-hooks)
 
   ;; whitespaces
   (mapc
    (lambda (hooks)
-     (add-hook hooks 'turn-on-whitespace-mode))
+     (add-hook hooks (lambda () (whitespace-mode t))))
    whitespace-modes-hooks)
 
   ;; highlight keywords
@@ -123,18 +123,11 @@
      (add-hook hooks 'turn-on-eldoc-mode))
    eldoc-modes-hooks))
 
-(defun turn-on-hl-line-mode ()
-  (hl-line-mode t))
-
-(defun turn-on-whitespace-mode ()
-  (whitespace-mode t))
-
 (defun turn-on-hl-keywords ()
   (font-lock-add-keywords
    nil
    '(("\\<\\(XXX\\|TODO\\|NOTE\\|BUG\\|FIXME\\|WARNING\\|HACK\\|REFACTOR\\|IMPORTANT\\|HERE BE DRAGONS\\):"
       1 font-lock-warning-face t))))
-
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -144,13 +137,9 @@
 (add-hook 'after-save-hook 'desktop-save-in-desktop-dir)
 
 
-(add-hook 'term-mode-hook
-          (defun turn-off-word-wrap ()
-            (setq word-wrap nil)))
+(add-hook 'term-mode-hook (lambda () (setq word-wrap nil)))
 
-(add-hook 'term-mode-hook
-          (defun turn-off-autopair-mode ()
-            (autopair-mode -1)))
+(add-hook 'term-mode-hook (lambda () (autopair-mode -1)))
 
 (add-hook 'term-mode-hook
           (defun load-quiet-light-theme (&rest args)
@@ -163,6 +152,7 @@
 (add-hook 'help-mode-hook 'turn-on-visual-line-mode)
 
 (add-hook 'find-file-hook 'create-parent-directories-for-file)
+
 (defun create-parent-directories-for-file ()
   "Automatically create file's parent path if it does not exist."
   (let ((dir (file-name-directory buffer-file-name)))
