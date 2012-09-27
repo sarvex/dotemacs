@@ -1,18 +1,12 @@
 (eval-after-load 'erc
   '(progn
-
     (require 'erc-highlight-nicknames)
     (require 'erc-services)
     (require 'erc-join)
     (require 'erc-fill)
 
-    (define-key erc-mode-map (kbd "C-c <return>") 'erc-send-current-line)
-    (define-key erc-mode-map (kbd "C-c C-<return>") 'erc-send-current-line)
-    (define-key erc-mode-map (kbd "C-c n") 'switch-to-irc)
-    (define-key erc-mode-map (kbd "<return>")
-     (lambda () (interactive) (message "Press 'C-c <return>' to send message.")))))
-
-
+    (define-key erc-mode-map (kbd "<return>") 'browse-url-at-point)
+    (define-key erc-mode-map (kbd "C-c C-<return>") 'erc-send-current-line)))
 
 (setq erc-fill-column 67
       erc-fill-mode t
