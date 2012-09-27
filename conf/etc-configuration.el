@@ -51,6 +51,7 @@
       auto-mode-case-fold t
       safe-local-variable-values '((dired-omit-mode . t)
                                    (dired-listing-switches . "-LhAFl --group-directories-first")
+                                   (eval progn (rainbow-mode 1) (hl-line-mode -1))
                                    (encoding . utf-8)))
 
 
