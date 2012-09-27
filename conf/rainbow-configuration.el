@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp; mode: rainbow -*-
+;; -*- mode: emacs-lisp; eval: (progn (rainbow-mode 1) (hl-line-mode -1)) -*-
 
 (setq rainbow-html-colors t
       rainbow-x-colors t
