@@ -1,7 +1,7 @@
-(setq package-archives
-      '(("ELPA" . "http://tromey.com/elpa/")
-        ("gnu" . "http://elpa.gnu.org/packages/")
-        ("marmalade" . "http://marmalade-repo.org/packages/")))
+(package-initialize)
 
-(when (require 'package nil 'noerror)
-  (package-initialize))
+(mapc
+ (lambda (item)
+   (add-to-list 'package-archives item))
+ '(("ELPA"      . "http://tromey.com/elpa/")
+   ("marmalade" . "http://marmalade-repo.org/packages/")))
