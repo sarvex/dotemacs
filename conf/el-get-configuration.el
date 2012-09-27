@@ -19,7 +19,6 @@
 (setq
  el-get-sources
  '((:name el-get)
-   (:name ack)
    (:name ahg)
    (:name autopair)
    (:name bookmark+)
@@ -92,8 +91,6 @@
     :type http
     :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-electric.el"
     :post-init nil)
-
-
 
    (:name handlebars-mode
     :type github
@@ -186,6 +183,11 @@
    (:name rake.el
     :type github
     :pkgname "vderyagin/rake.el")
+
+   (:name ack
+    :type github
+    :pkgname "leoliu/ack-el"
+    :features nil)
 
    (:name projectur
     :type github
