@@ -214,7 +214,7 @@
 (setq org-agenda-start-with-clockreport-mode nil
       org-agenda-start-with-entry-text-mode nil
       org-agenda-start-with-follow-mode nil
-      org-agenda-start-with-log-mode t)
+      org-agenda-start-with-log-mode nil)
 
 (setq org-agenda-custom-commands
       '((" " "Agenda"
