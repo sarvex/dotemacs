@@ -19,6 +19,7 @@
                                bookmark-bmenu-mode-hook
                                gnus-article-mode-hook
                                gnus-group-mode-hook
+                               gnus-summary-mode-hook
                                gist-list-mode-hook
                                compilation-mode-hook
                                ibuffer-mode-hook
