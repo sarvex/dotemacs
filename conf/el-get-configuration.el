@@ -45,6 +45,7 @@
    (:name iedit :lazy t)
    (:name io-mode :lazy t)
    (:name nognus :lazy t)
+   (:name nrepl :lazy t)
    (:name php-mode :lazy t)
    (:name quack :lazy t)
    (:name rainbow-mode :lazy t)
@@ -102,12 +103,6 @@
     :features yasnippet
     :compile ("dropdown-list.el" "yasnippet.el")
     :post-init nil
-    :lazy t)
-
-   (:name nrepl.el
-    :type github
-    :pkgname " kingtim/nrepl.el"
-    :features nil
     :lazy t)
 
    (:name crontab-mode
