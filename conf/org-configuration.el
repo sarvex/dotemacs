@@ -75,9 +75,9 @@
       org-default-notes-file (expand-file-name "refile.org" vderyagin/org-agenda-directory)
       vderyagin/org-contacts-file (expand-file-name "contacts.org" vderyagin/org-agenda-directory)
       org-archive-location (expand-file-name  "archive/archive_%s::" org-directory)
-      org-agenda-files (list vderyagin/org-agenda-directory)
-      org-contacts-files (list vderyagin/org-contacts-file))
-
+      org-contacts-files (list vderyagin/org-contacts-file)
+      org-agenda-files (list vderyagin/org-agenda-directory
+                             (expand-file-name "projects" vderyagin/org-agenda-directory)))
 
 
 ;; org-capture setup:
