@@ -99,6 +99,10 @@
         (file ,vderyagin/org-contacts-file)
         "* %?%(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\n:END:"
         :clock-resume t)
+   ("h" "habit" entry
+        (file ,(expand-file-name "habits.org" vderyagin/org-agenda-directory))
+        "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        :clock-resume t)
    ("u" "current" entry
         (file ,(expand-file-name "current.org" vderyagin/org-agenda-directory))
         "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
