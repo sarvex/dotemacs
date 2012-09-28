@@ -174,55 +174,25 @@ recursively, if they contain elisp code"
 
 
 (defun my-change-split-type ()
-  "Changes splitting from vertical to horizontal and vice-versa
-for 2- or 3-windowed frames"
+  "Changes splitting from vertical to horizontal and vice-versa for 2-windowed frames."
   (interactive)
-  (let ((number-of-windows (length (window-list))))
-    (cond
-      ((= 2 number-of-windows)
-       (let ((thisBuf (window-buffer))
-             (nextBuf (progn (other-window 1) (buffer-name)))
-             (split-type (if (= (window-width) (frame-width))
-                             'split-window-horizontally
-                             'split-window-vertically)))
-         (progn
-           (delete-other-windows)
-           (funcall split-type)
-           (set-window-buffer nil thisBuf)
-           (set-window-buffer (next-window) nextBuf))))
-      ((= 3 number-of-windows)
-       (select-window (get-largest-window))
-       (let* ((winList (window-list))
-              (1stBuf (window-buffer (car winList)))
-              (2ndBuf (window-buffer (cadr winList)))
-              (3rdBuf (window-buffer (car (cddr winList))))
-              (split-3
-               (lambda (1stBuf 2ndBuf 3rdBuf split-1 split-2)
-                 (message "%s %s %s" 1stBuf 2ndBuf 3rdBuf)
-                 (delete-other-windows)
-                 (funcall split-1)
-                 (set-window-buffer nil 1stBuf)
-                 (other-window 1)
-                 (set-window-buffer nil 2ndBuf)
-                 (funcall split-2)
-                 (set-window-buffer (next-window) 3rdBuf)
-                 (select-window (get-largest-window))))
-              (split-type-1 nil)
-              (split-type-2 nil))
-         (if (= (window-width) (frame-width))
-             (setq split-type-1 'split-window-horizontally
-                   split-type-2 'split-window-vertically)
-             (setq split-type-1 'split-window-vertically
-                   split-type-2 'split-window-horizontally))
-         (funcall split-3 1stBuf 2ndBuf 3rdBuf split-type-1 split-type-2))))))
+  (when (= 2 (length (window-list)))
+    (let ((thisBuf (window-buffer))
+          (nextBuf (progn (other-window 1) (buffer-name)))
+          (split-type (if (>= (window-total-width) (frame-width))
+                          'split-window-horizontally
+                          'split-window-vertically)))
+      (delete-other-windows)
+      (funcall split-type)
+      (set-window-buffer nil thisBuf)
+      (set-window-buffer (next-window) nextBuf))))
 
 
-(defun strip (string)
-  "Strip leading and trailing whitespaces from STRING.
-STRING can be string or symbol, in latter case symbol's name is used."
-  (let ((string (if (symbolp string)
-                    (symbol-name string)
-                    string)))
+(defun strip (string-or-symbol)
+  "Strip leading and trailing whitespaces from STRING-OR-SYMBOL."
+  (let ((string (if (symbolp string-or-symbol)
+                    (symbol-name string-or-symbol)
+                    string-or-symbol)))
     (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" string)))
 
 (ert-deftest strip ()
