@@ -82,7 +82,7 @@
                 :password my-freenode-password
                 :full-name my-full-name)))
 
-(defun vderyagin/irc ()
+(defun vderyagin/switch-to-irc-buffer ()
   "Switch to an IRC buffer, or run `vderyagin/erc-join'."
   (interactive)
   (let ((buffers (and (fboundp 'erc-buffer-list)

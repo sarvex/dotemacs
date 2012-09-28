@@ -1,7 +1,7 @@
 (define-key global-map (kbd "C-c .") 'dired-jump)
 (define-key global-map (kbd "C-c ;") 'comment-or-uncomment-current-line-or-region)
 (define-key global-map (kbd "C-c c") 'my-duplicate-line)
-(define-key global-map (kbd "C-c e") 'vderyagin/irc)
+(define-key global-map (kbd "C-c e") 'vderyagin/switch-to-irc-buffer)
 (define-key global-map (kbd "C-c i") 'imenu)
 (define-key global-map (kbd "C-c l") 'linum-mode)
 (define-key global-map (kbd "C-c r") 'rake)
