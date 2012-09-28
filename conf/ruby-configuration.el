@@ -24,7 +24,7 @@
                  t))
     (local-set-key (kbd "C-c e")
                    'flymake-display-err-menu-for-current-line)
-    (turn-on-flymake-mode)))
+    (flymake-mode t)))
 
 (defun my-ruby-mode-hook ()
   (ruby-electric-mode t)

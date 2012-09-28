@@ -125,7 +125,7 @@
     (define-key dired-mode-map (kbd "<SPC>") 'dired-next-file-line)
     (define-key dired-mode-map (kbd "q") (lambda () (interactive) (kill-buffer-ask (current-buffer))))
 
-    (add-hook 'dired-mode-hook 'truncate-lines)))
+    (add-hook 'dired-mode-hook (lambda () (setq truncate-lines t)))))
 
 (eval-after-load 'wdired
   '(progn

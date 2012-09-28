@@ -17,14 +17,6 @@
     (forward-line -1)))
 
 
-(defun fbread-mode()
-  (interactive)
-  (sgml-mode)
-  (sgml-tags-invisible 0)
-  (longlines-mode)
-  (view-mode))
-
-
 (defun rename-file-and-buffer ()
   "Renames current buffer and file it is visiting."
   (interactive)
@@ -325,32 +317,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
   (byte-recompile-directory "~/.emacs.d/dotemacs/conf" 0 force))
 
 
-(defun truncate-lines ()
-  (setq truncate-lines t))
-
-(defun truncate-lines-off ()
-  (setq truncate-lines nil))
-
-(defun find-tag-in-project ()
-  (interactive)
-  (let ((current-dir (expand-file-name default-directory))
-        tags)
-    (setq tags
-          (catch :terminate-search
-            (while t
-              (when (equal current-dir "/")
-                (throw :terminate-search nil))
-              (setq tags (expand-file-name "TAGS" current-dir))
-              (if (file-exists-p tags)
-                  (throw :terminate-search tags)
-                  (setq current-dir (expand-file-name ".." current-dir))))))
-    (if tags
-        (progn
-          (setq tags-file-name tags
-                tags-table-list nil)
-          (call-interactively 'find-tag))
-        (message "no tags file found"))))
-
 (defun indent-region-or-buffer ()
   (interactive)
   (save-excursion
@@ -358,8 +324,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
         (call-interactively 'indent-region)
         (indent-region (region-beginning) (region-end)))))
 
-(defun turn-on-flymake-mode ()
-  (flymake-mode t))
 
 (defun snake-case (text)
   "Return snake_case version of TEXT.

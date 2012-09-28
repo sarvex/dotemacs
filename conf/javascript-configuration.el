@@ -68,4 +68,4 @@
     (turn-on-jshint-flymake)
     (define-key js-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
     (define-key js-mode-map (kbd "C-c e") 'flymake-display-err-menu-for-current-line)
-    (add-hook 'js-mode-hook 'turn-on-flymake-mode)))
+    (add-hook 'js-mode-hook (lambda () (flymake-mode t)))))

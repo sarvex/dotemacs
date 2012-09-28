@@ -116,12 +116,12 @@
   '(progn
     (define-key archive-mode-map (kbd "q")
      (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-    (add-hook 'archive-mode-hook 'truncate-lines)))
+    (add-hook 'archive-mode-hook (lambda () (setq truncate-lines t)))))
 (eval-after-load 'tar-mode
   '(progn
     (define-key tar-mode-map (kbd "q")
      (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-    (add-hook 'tar-mode-hook 'truncate-lines)))
+    (add-hook 'tar-mode-hook (lambda () (setq truncate-lines t)))))
 
 
 (mapc
@@ -157,7 +157,7 @@
       compilation-window-height 20
       compilation-scroll-output 'first-error)
 
-(add-hook 'compilation-mode-hook 'truncate-lines)
+(add-hook 'compilation-mode-hook (lambda () (setq truncate-lines t)))
 (require 'ansi-color)
 (add-hook 'compilation-filter-hook
           (defun colorize-compilation-buffer ()
@@ -179,7 +179,7 @@
         face minibuffer-prompt))
 
 (eval-after-load 'debug
-  '(add-hook 'debugger-mode-hook 'truncate-lines-off))
+  '(add-hook 'debugger-mode-hook (lambda () (setq truncate-lines nil))))
 
 (eval-after-load 'help-mode
   '(progn
