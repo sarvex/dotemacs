@@ -103,6 +103,10 @@
         (file ,(expand-file-name "habits.org" vderyagin/org-agenda-directory))
         "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
         :clock-resume t)
+   ("p" "project" entry
+        (file ,(expand-file-name "projects.org" vderyagin/org-agenda-directory))
+        "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        :clock-resume t)
    ("u" "current" entry
         (file ,(expand-file-name "current.org" vderyagin/org-agenda-directory))
         "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
