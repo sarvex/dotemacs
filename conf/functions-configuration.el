@@ -147,12 +147,12 @@ recursively, if they contain elisp code"
 
 
 (defun get-buffers-with-major-mode (mode)
-  "Returns list of buffers with major-mode MODE."
+  "Returns list of buffers with major-mode MODE or derived from MODE."
   (loop
      for buf in (buffer-list)
      if (and (buffer-live-p buf)
              (with-current-buffer buf
-               (eq major-mode mode)))
+               (derived-mode-p mode)))
      collect buf))
 
 

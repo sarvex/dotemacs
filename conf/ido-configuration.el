@@ -1,19 +1,21 @@
-(setq ido-case-fold t                   ; ignore case
-      ido-completion-buffer "*Completions*"
-      ido-confirm-unique-completion t   ; don't be too smart
-      ido-create-new-buffer 'always
+(setq ido-case-fold t
+      ido-completion-buffer nil
+      ido-confirm-unique-completion t
+      ido-create-new-buffer 'prompt
       ido-default-buffer-method 'selected-window
-      ido-enable-flex-matching nil      ; too slow at times
-      ido-enable-last-directory-history nil
-      ido-max-prospects 15            ; don't spam my minibuffer
-      ido-use-filename-at-point nil   ; don't use filename at point (annoying)
-      ido-use-url-at-point nil        ; don't use url at point (annoying)
+      ido-enable-flex-matching nil
+      ido-enable-last-directory-history t
+      ido-use-filename-at-point nil
+      ido-use-url-at-point nil)
 
-      ido-decorations '("\n-> " "" "\n   " "\n   ..." "[" "]"
-                        " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")
-      ido-ubiquitous-command-exceptions '(gnus-topic-move-group
-                                          execute-extended-command
-                                          bookmark-set))
+(setq ido-ubiquitous-command-exceptions
+      '(gnus-topic-move-group
+        execute-extended-command
+        bookmark-set))
+
+(setq ido-decorations
+      '("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]"
+        " [Matched]" " [Not readable]" " [Too big]" " [Confirm]"))
 
 (setq ido-ignore-buffers
       '("-preprocessed\\*"
@@ -128,63 +130,30 @@
              (string-prefix-p (expand-file-name org-directory)
                               buffer-file-name))))))
 
+
 (require 'ido)
 
 (ido-mode t)
 (ido-ubiquitous t)
 
-
-(defun my-ido-minibuffer-setup-hook ()
-  "allow line wrapping in the minibuffer"
-  (set (make-local-variable 'truncate-lines) nil))
-(add-hook 'ido-minibuffer-setup-hook 'my-ido-minibuffer-setup-hook)
-
-
-(defun ido-select-buffer-by-mode (mode choice-string &optional fallback-function)
-  "Uses `ido-completing-read' for selecting buffers by MODE
-FALLBACK-FUNCTION is called when there is no buffers with MODE"
-  (let ((buf-list (mapcar (lambda (buf) (buffer-name buf))
-                          (get-buffers-with-major-mode mode))))
-    (if buf-list
-        (switch-to-buffer
-         (if (equal (length buf-list) 1)
-             (car buf-list)
-             (ido-completing-read choice-string buf-list)))
-        (when (boundp 'fallback-function)
-          (funcall fallback-function)))))
-
-
-(defun my-ido-dired-buffers()
-  "Switch to one of the Dired buffers or open home directory"
-  (interactive)
-  (ido-select-buffer-by-mode
-   'dired-mode "Dired buffer: "
-   (lambda () (dired "~"))))
-
 (define-key global-map (kbd "C-x C-d") 'ido-dired)
-(define-key global-map (kbd "C-x d") 'my-ido-dired-buffers)
 
 
-(defun my-ido-twittering-buffers ()
-  "Switch to on of the twittering-mode buffers or open one"
-  (interactive)
-  (ido-select-buffer-by-mode
-   'twittering-mode "Twittering buffer: "
-   (lambda ()
-     (if (y-or-n-p "Read Twitter? ")
-         (twit)
-         (message "As you wish.")))))
+(add-hook 'ido-minibuffer-setup-hook
+          (defun vderyagin/ido-minibuffer-setup-hook ()
+            "allow line wrapping in the minibuffer"
+            (set (make-local-variable 'truncate-lines) nil)))
 
-(define-key global-map (kbd "C-x t") 'my-ido-twittering-buffers)
+(add-hook 'ido-setup-hook
+          (defun vderyagin/ido-setup-hook ()
+            "Set up key bindings for use for `ido-mode' completion"
+            (mapc
+             (lambda (key)
+               (define-key ido-completion-map key nil))
+             '([right] [left] [up] [down]))
 
-(mapc
- (lambda (key)
-   (define-key ido-common-completion-map key nil))
- '([right] [left] [up] [down]))
-
-(define-key ido-common-completion-map (kbd "C-p") 'ido-prev-match)
-(define-key ido-common-completion-map (kbd "C-n") 'ido-next-match)
-
+            (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
+            (define-key ido-completion-map (kbd "C-n") 'ido-next-match)))
 
 
 (setq smex-auto-update t

@@ -66,6 +66,17 @@
   (if (not (or (dired-move-to-filename) (bobp)))
       (dired-previous-file-line)))
 
+(defun vderyagin/switch-to-dired-buffer()
+  "Switch to one of the Dired buffers or open home directory if none."
+  (interactive)
+  (let ((dired-buffers (mapcar 'buffer-name (get-buffers-with-major-mode 'dired-mode))))
+    (if dired-buffers
+        (switch-to-buffer
+         (if (equal 1 (length dired-buffers))
+             (car dired-buffers)
+             (ido-completing-read "Dired buffer: " dired-buffers)))
+        (dired "~"))))
+
 (eval-after-load 'dired
   '(progn
 
