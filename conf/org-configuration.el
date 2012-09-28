@@ -119,8 +119,8 @@
       org-refile-allow-creating-parent-nodes 'confirm)
 
 (setq org-refile-targets
-      '((vderyagin/org-refile-target-files :maxlevel . 2)
-        (nil :maxlevel . 3)))
+      '((org-agenda-files :maxlevel . 1)
+        (nil :maxlevel . 2)))
 
 (setq org-refile-target-verify-function
       (lambda ()
