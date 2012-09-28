@@ -250,7 +250,8 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
     (when arg
       (save-excursion (insert pw))
       ;; for convenient use with org tables:
-      (when (org-at-table-p)
+      (when (and (fboundp 'org-at-table-p)
+                 (org-at-table-p))
         (org-ctrl-c-ctrl-c)))))
 
 
@@ -274,8 +275,8 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
   (let* ((window (selected-window))
          (dedicated (window-dedicated-p window)))
     (set-window-dedicated-p window (not dedicated))
-    (message "Window %s dedicated to %s"
-             (if dedicated "is no longer" "currently")
+    (message "Window is %s dedicated to %s"
+             (if dedicated "no longer" "currently")
              (buffer-name))))
 
 
@@ -373,25 +374,25 @@ UpperCamelCase and combinations of those."
 (defun haml-to-html ()
   (interactive)
   (let ((error-buffer "*haml error*")
-        (position (point))
-        beginning
-        end
-        original)
+        (original-position (point))
+        original-content
+        beg end)
+
     (if (region-active-p)
-        (setq beginning (region-beginning)
+        (setq beg (region-beginning)
               end (region-end))
-        (setq beginning (point-min)
+        (setq beg (point-min)
               end (point-max)))
 
     (when (get-buffer error-buffer)
       (kill-buffer error-buffer))
 
-    (setq original (buffer-substring beginning end))
-    (shell-command-on-region beginning end "haml" nil 'replace error-buffer 'display-error-buffer)
+    (setq original-content (buffer-substring beg end))
+    (shell-command-on-region beg end "haml" nil 'replace error-buffer 'display-error-buffer)
 
     (when (get-buffer error-buffer)
-      (insert original)
-      (goto-char position))))
+      (insert original-content)
+      (goto-char original-position))))
 
 (defun foo (count)
   "Inserts at point position COUNT metasyntactic variable names separated by spaces.
@@ -402,9 +403,8 @@ Compatible with RFC-3092."
     'identity
     (loop
        repeat count
-       with foos = '("bar" "baz" "qux" "quux" "corge"
-                     "grault" "garply" "waldo" "fred"
-                     "plugh" "xyzzy" "thud")
+       with foos = '("foo" "bar" "baz" "qux" "quux" "corge" "grault"
+                     "garply" "waldo" "fred" "plugh" "xyzzy" "thud")
        for foo = (nth (random (length foos)) foos)
        collect foo)
     " ")))
