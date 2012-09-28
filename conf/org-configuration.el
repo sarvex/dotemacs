@@ -115,11 +115,6 @@
     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
     (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags)))
 
-(defun vderyagin/org-refile-target-files ()
-  (mapcar
-   (lambda (file) (expand-file-name file vderyagin/org-agenda-directory))
-   '("current.org" "projects.org" "recurring.org" "habits.org")))
-
 (setq org-refile-use-outline-path 'file
       org-refile-allow-creating-parent-nodes 'confirm)
 
