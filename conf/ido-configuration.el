@@ -154,19 +154,6 @@ FALLBACK-FUNCTION is called when there is no buffers with MODE"
           (funcall fallback-function)))))
 
 
-(defun my-ido-erc-buffers()
-  "Switch to one of the ERC channel buffers or connect to IRC"
-  (interactive)
-  (ido-select-buffer-by-mode
-   'erc-mode "Irc channel: "
-   (lambda ()
-     (if (y-or-n-p "Connect to IRC? ")
-         (my-join-erc)
-         (message "As you wish.")))))
-
-(define-key global-map (kbd "C-x e") 'my-ido-erc-buffers)
-
-
 (defun my-ido-dired-buffers()
   "Switch to one of the Dired buffers or open home directory"
   (interactive)
