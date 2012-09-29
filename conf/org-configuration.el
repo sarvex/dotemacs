@@ -59,10 +59,10 @@
 
 (setq
  org-todo-keywords
- '((sequence "TODO(t)" "QUEUED(q)" "HOLD(h)" "STARTED(s)" "PAUSED(p)" "|" "DONE(d)" "CANCELLED(c)"))
+ '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "STARTED(s)" "PAUSED(p)" "|" "DONE(d)" "CANCELLED(c)"))
  org-todo-keyword-faces
  '(("TODO" .      (:foreground "#df3800" :weight bold))
-   ("QUEUED" .    (:foreground "#566ea2" :weight bold))
+   ("NEXT" .      (:foreground "#566ea2" :weight bold))
    ("HOLD" .      (:foreground "#b68800" :weight bold))
    ("STARTED" .   (:foreground "#4d9694" :weight bold))
    ("PAUSED" .    (:foreground "#888888" :weight bold))
