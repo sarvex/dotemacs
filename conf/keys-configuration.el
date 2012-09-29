@@ -1,12 +1,15 @@
-(define-key global-map (kbd "C-c .") 'dired-jump)
 (define-key global-map (kbd "C-c ;") 'comment-or-uncomment-current-line-or-region)
+(define-key global-map (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-c c") 'my-duplicate-line)
 (define-key global-map (kbd "C-c e") 'vderyagin/switch-to-irc-buffer)
 (define-key global-map (kbd "C-c i") 'imenu)
+(define-key global-map (kbd "C-c j") 'dired-jump)
 (define-key global-map (kbd "C-c l") 'linum-mode)
+(define-key global-map (kbd "C-c o") 'vderyagin/find-org-file)
 (define-key global-map (kbd "C-c r") 'rake)
 (define-key global-map (kbd "C-c s") 'ispell-word)
 
+(define-key global-map (kbd "<f11>") 'org-capture)
 (define-key global-map (kbd "C-x d") 'vderyagin/switch-to-dired-buffer)
 (define-key global-map (kbd "C-x t") 'vderyagin/switch-to-twittering-buffer)
 
