@@ -146,7 +146,7 @@
       org-clock-in-switch-to-state "STARTED"
       org-clock-out-remove-zero-time-clocks t
       org-clock-out-switch-to-state "PAUSED"
-      org-clock-out-when-done t
+      org-clock-out-when-done '("HOLD" "PAUSED" "CANCELLED" "DONE")
       org-clock-persist 'history
       org-clock-report-include-clocking-task t)
 
