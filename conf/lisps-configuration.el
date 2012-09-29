@@ -27,7 +27,7 @@
  '(("\\<\\(ert-deftest\\)" . 'font-lock-keyword-face)))
 
 
-(define-key lisp-interaction-mode-map (kbd "C-c j") 'eval-print-last-sexp)
+(define-key lisp-interaction-mode-map (kbd "M-j") 'eval-print-last-sexp)
 (define-key lisp-interaction-mode-map (kbd "C-c C-c") 'eval-defun)
 (define-key lisp-interaction-mode-map (kbd "M-.") 'find-function-at-point)
 
