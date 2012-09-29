@@ -1,20 +1,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
-
-(setq browse-url-browser-function
-      (lambda (url &rest args)
-        (interactive "sURL: ")
-        (let ((browser (ido-completing-read
-                        (format "Browse %s with: " url)
-                        '("firefox" "chromium" "emacs-w3m"))))
-          (cond
-            ((equal browser "chromium")
-             (browse-url-chromium url))
-            ((equal browser "firefox")
-             (browse-url-firefox url))
-            ((equal browser "emacs-w3m")
-             (w3m-browse-url url))))))
-
+(setq browse-url-browser-function 'browse-url-firefox)
 
 (mapc
  (lambda (symbol)
