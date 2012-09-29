@@ -1,3 +1,5 @@
+(autoload 'dired-jump "dired-x" nil t)
+
 (setq directory-free-space-args "-Pkh"
       dired-dwim-target nil
       dired-isearch-filenames nil
