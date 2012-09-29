@@ -1,34 +1,4 @@
-;; -*- eval: (rainbow-mode 1) -*-
-
-(define-key global-map (kbd "<f11>") 'org-capture)
-(define-key global-map (kbd "C-c a") 'org-agenda)
-
-(define-key global-map (kbd "C-c o") 'vderyagin/find-org-file)
-
-(defun vderyagin/find-org-file ()
-  "Select and open org file from `org-directory' or one if its subdirectories."
-  (interactive)
-  (flet ((get-relative-path (abs)
-           (file-relative-name abs org-directory))
-         (get-absolute-path (rel)
-           (expand-file-name rel org-directory)))
-    (let ((files
-           (delete ""
-                   (split-string
-                    (shell-command-to-string
-                     (let ((default-directory org-directory))
-                       (find-cmd
-                        '(type "f")
-                        '(iname "*.org" "*.org.gpg")
-                        '(print0))))
-                    "\0")))
-          relative-path
-          absolute-path)
-      (setq relative-path (ido-completing-read
-                           "Open org file: "
-                           (mapcar 'get-relative-path files))
-            absolute-path (get-absolute-path relative-path))
-      (find-file absolute-path))))
+;; -*- eval: (progn (rainbow-mode 1) (hl-line-mode -1)) -*-
 
 (setq org-show-notification-handler
       (lambda (notification)
@@ -171,7 +141,7 @@
 
 (setq org-clock-auto-clock-resolution 'when-no-clock-is-running
       org-clock-clocktable-default-properties '(:maxlevel 3 :scope file)
-      org-clock-history-length 28
+      org-clock-history-length 20
       org-clock-in-resume t
       org-clock-in-switch-to-state "STARTED"
       org-clock-out-remove-zero-time-clocks t
@@ -220,7 +190,7 @@
       org-agenda-start-with-log-mode nil)
 
 (setq org-agenda-custom-commands
-      '((" " "Agenda"
+      '((" " "Block agenda"
          ((agenda)
           (tags "REFILE"
                 ((org-agenda-overriding-header "List of tasks to refile:")
@@ -247,3 +217,29 @@
          (interactive)
          (org-agenda-redo 'rebuild-all)
          (org-agenda-goto-today))))))
+
+
+(defun vderyagin/find-org-file ()
+  "Select and open org file from `org-directory' or one if its subdirectories."
+  (interactive)
+  (flet ((get-relative-path (abs)
+           (file-relative-name abs org-directory))
+         (get-absolute-path (rel)
+           (expand-file-name rel org-directory)))
+    (let ((files
+           (delete ""
+                   (split-string
+                    (shell-command-to-string
+                     (let ((default-directory org-directory))
+                       (find-cmd
+                        '(type "f")
+                        '(iname "*.org" "*.org.gpg")
+                        '(print0))))
+                    "\0")))
+          relative-path
+          absolute-path)
+      (setq relative-path (ido-completing-read
+                           "Open org file: "
+                           (mapcar 'get-relative-path files))
+            absolute-path (get-absolute-path relative-path))
+      (find-file absolute-path))))
