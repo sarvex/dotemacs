@@ -34,11 +34,19 @@
 
 
 (setq large-file-warning-threshold nil
-      auto-mode-case-fold t
-      safe-local-variable-values '((dired-omit-mode . t)
-                                   (dired-listing-switches . "-LhAFl --group-directories-first")
-                                   (eval progn (rainbow-mode 1) (hl-line-mode -1))
-                                   (encoding . utf-8)))
+      auto-mode-case-fold t)
+
+
+(setq
+ safe-local-variable-values
+ '((eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook" (add-hook 'write-contents-functions (lambda nil (delete-trailing-whitespace) nil)) (require 'whitespace) "Sometimes the mode needs to be toggled off and on." (whitespace-mode 0) (whitespace-mode 1))
+   (dired-omit-mode . t)
+   (dired-listing-switches . "-LhAFl --group-directories-first")
+   (eval progn (rainbow-mode 1) (hl-line-mode -1))
+   (whitespace-line-column . 80)
+   (whitespace-style face trailing lines-tail)
+   (require-final-newline . t)
+   (encoding . utf-8)))
 
 
 ;; startup
