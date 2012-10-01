@@ -171,6 +171,7 @@
       org-agenda-compact-blocks nil
       org-agenda-restore-windows-after-quit t
       org-agenda-show-inherited-tags nil
+      org-agenda-span 'day
       org-agenda-tags-column -90
       org-agenda-todo-list-sublevels nil
       org-agenda-window-setup 'current-window)
