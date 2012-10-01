@@ -29,12 +29,11 @@
 
 (setq
  org-todo-keywords
- '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "STARTED(s)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)"))
+ '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)"))
  org-todo-keyword-faces
  '(("TODO" .      (:foreground "#df3800" :weight bold))
    ("NEXT" .      (:foreground "#566ea2" :weight bold))
    ("HOLD" .      (:foreground "#b68800" :weight bold))
-   ("STARTED" .   (:foreground "#4d9694" :weight bold))
    ("WAITING" .   (:foreground "#888888" :weight bold))
    ("CANCELLED" . (:foreground "#e00051" :weight bold))
    ("DONE" .      (:foreground "#448c27" :weight bold))))
@@ -141,9 +140,9 @@
       org-clock-clocktable-default-properties '(:maxlevel 3 :scope file)
       org-clock-history-length 20
       org-clock-in-resume t
-      org-clock-in-switch-to-state "STARTED"
+      org-clock-in-switch-to-state nil
       org-clock-out-remove-zero-time-clocks t
-      org-clock-out-switch-to-state "WAITING"
+      org-clock-out-switch-to-state nil
       org-clock-out-when-done '("HOLD" "WAITING" "CANCELLED" "DONE")
       org-clock-persist 'history
       org-clock-report-include-clocking-task t)
