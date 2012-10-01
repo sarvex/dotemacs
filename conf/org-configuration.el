@@ -127,7 +127,14 @@
     ;; resolving conflicts with global bindings
     (define-key org-mode-map (kbd "S-C-<left>") nil)
     (define-key org-mode-map (kbd "S-C-<right>") nil)
-    (define-key org-mode-map (kbd "C-<tab>") nil)))
+    (define-key org-mode-map (kbd "C-<tab>") nil)
+
+    (define-key org-mode-map (kbd "C-x C-s")
+     (lambda ()
+       "Save current buffer and update all agenda views."
+       (interactive)
+       (call-interactively 'save-buffer)
+       (vderyagin/org-update-agenda-views)))))
 
 
 (setq org-clock-auto-clock-resolution 'when-no-clock-is-running
