@@ -224,7 +224,7 @@
                      (let ((default-directory org-directory))
                        (find-cmd
                         '(type "f")
-                        '(iname "*.org" "*.org.gpg")
+                        '(iname "*.org" "*.gpg")
                         '(print0))))
                     "\0")))
           relative-path
