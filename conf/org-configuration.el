@@ -63,6 +63,10 @@
         :clock-resume t)
    ("t" "todo" entry
         (file "")
+        "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        :clock-resume t)
+   ("r" "read" entry
+        (file ,(expand-file-name "reading.org" vderyagin/org-agenda-directory))
         "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
         :clock-resume t)
    ("c" "contact" entry
@@ -76,10 +80,6 @@
    ("p" "project" entry
         (file ,(expand-file-name "projects.org" vderyagin/org-agenda-directory))
         "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
-        :clock-resume t)
-   ("u" "current" entry
-        (file ,(expand-file-name "current.org" vderyagin/org-agenda-directory))
-        "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
         :clock-resume t)))
 
 (eval-after-load 'org-capture
