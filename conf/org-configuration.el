@@ -191,11 +191,18 @@
 (setq org-agenda-custom-commands
       '((" " "Block agenda"
          ((agenda)
+          (tags "ONGOING"
+                ((org-agenda-overriding-header "Ongoing tasks:")
+                 (org-agenda-skip-function
+                  '(or
+                    (org-agenda-skip-entry-if 'todo 'done)
+                    (org-agenda-skip-entry-if 'timestamp)))))
           (tags "REFILE"
                 ((org-agenda-overriding-header "List of tasks to refile:")
-                 (org-tags-match-list-sublevels nil)))
-          (alltodo)
-          ))))
+                 (org-tags-match-list-sublevels nil)))))
+        ("A" "List of tasks to archive" todo "DONE|CANCELLED"
+         ((org-agenda-overriding-header "List of tasks to archive:")
+          (org-tags-match-list-sublevels nil)))))
 
 (eval-after-load 'org-agenda
   (quote
