@@ -66,7 +66,7 @@
         :clock-resume t)
    ("r" "read" entry
         (file ,(expand-file-name "reading.org" vderyagin/org-agenda-directory))
-        "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+        "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
         :clock-resume t)
    ("c" "contact" entry
         (file ,vderyagin/org-contacts-file)
