@@ -311,6 +311,7 @@
             (name . "^\\*swank\\*$")
             (name . "^\\*tramp/")
             (name . "^\\*twmode")
+            (name . "^ido-history$")
             (name . "^newsrc-dribble$"))))
 
 (setq ibuffer-saved-filter-groups
