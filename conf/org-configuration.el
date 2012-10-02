@@ -214,14 +214,7 @@
      (define-key org-agenda-mode-map (kbd "C-S-<right>") nil)
 
      (define-key org-agenda-mode-map (kbd "M-p") 'org-previous-link)
-     (define-key org-agenda-mode-map (kbd "M-n") 'org-next-link)
-
-     (define-key org-agenda-mode-map (kbd "r")
-       (lambda ()
-         "Rebuild all agenda views in current buffer and jump to today."
-         (interactive)
-         (org-agenda-redo 'rebuild-all)
-         (org-agenda-goto-today))))))
+     (define-key org-agenda-mode-map (kbd "M-n") 'org-next-link))))
 
 
 (defun vderyagin/find-org-file ()
