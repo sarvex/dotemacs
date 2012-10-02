@@ -1,4 +1,5 @@
 (setq ido-case-fold t
+      ido-save-directory-list-file (expand-file-name "~/.emacs.d/ido-history")
       ido-completion-buffer nil
       ido-confirm-unique-completion t
       ido-create-new-buffer 'prompt
