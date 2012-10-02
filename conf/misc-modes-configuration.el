@@ -127,7 +127,7 @@
 (mapc
  (lambda (extension)
    (add-to-list 'auto-mode-alist `(,extension . conf-mode)))
- '("\\.cue\\'" "\\.cnf\\'" "^hgrc\\'"))
+ '("\\.cue\\'" "\\.cnf\\'" "^hgrc\\'" "\\.gitignore\\'"))
 
 
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG\\'" . diff-mode))
