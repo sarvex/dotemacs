@@ -86,6 +86,7 @@
     (require 'org-contacts)
     ;; C-c C-c is overriden
     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
+    (add-hook 'org-capture-after-finalize-hook 'vderyagin/org-update-agenda-views)
     (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags)))
 
 (setq org-refile-use-outline-path 'file
@@ -127,7 +128,7 @@
     (define-key org-mode-map (kbd "C-<tab>") nil)
 
     (define-key org-mode-map (kbd "C-x C-s")
-     (lambda ()
+     (defun save-buffer-and-update-agenda-views ()
        "Save current buffer and update all agenda views."
        (interactive)
        (call-interactively 'save-buffer)
