@@ -110,11 +110,9 @@
 
 (eval-after-load 'org
   '(progn
-    (require 'org-install)
+    (org-clock-persistence-insinuate)
 
     (add-hook 'org-mode-hook 'vderyagin/org-mode-hook)
-
-    (org-clock-persistence-insinuate)
 
     (define-key org-mode-map (kbd "M-n") 'org-next-link)
     (define-key org-mode-map (kbd "M-p") 'org-previous-link)
