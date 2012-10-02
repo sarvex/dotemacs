@@ -34,7 +34,7 @@
  '(("TODO" .      (:foreground "#df3800" :weight bold))
    ("NEXT" .      (:foreground "#566ea2" :weight bold))
    ("HOLD" .      (:foreground "#b68800" :weight bold))
-   ("WAITING" .   (:foreground "#888888" :weight bold))
+   ("WAITING" .   (:foreground "#4d9694" :weight bold))
    ("CANCELLED" . (:foreground "#e00051" :weight bold))
    ("DONE" .      (:foreground "#448c27" :weight bold))))
 
