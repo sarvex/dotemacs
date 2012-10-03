@@ -17,24 +17,29 @@
          :body notification
          :app-icon (expand-file-name "~/.icons/org-mode.png"))))
 
-(setq org-completion-use-ido t
 (setq org-crypt-key "279C2900"
       org-crypt-disable-auto-save t)
+
+(setq org-catch-invisible-edits 'error
+      org-completion-use-ido t
       org-cycle-level-faces nil
-      org-outline-path-complete-in-steps nil
-      org-return-follows-link t
-      org-special-ctrl-a/e nil
-      org-special-ctrl-k t
       org-cycle-separator-lines -2
-      org-startup-truncated nil
-      org-src-fontify-natively t
-      org-tags-column -77
+      org-drawers '("PROPERTIES" "CLOCK" "LOGBOOK" "HIDDEN")
+      org-enforce-todo-dependencies t
       org-log-done 'time
       org-log-into-drawer t
-      org-use-fast-todo-selection t
+      org-outline-path-complete-in-steps nil
+      org-return-follows-link t
+      org-special-ctrl-a/e 'reversed
+      org-special-ctrl-k t
+      org-src-fontify-natively t
+      org-startup-indented t
+      org-startup-truncated nil
+      org-tags-column -77
+      org-tags-exclude-from-inheritance '("crypt")
       org-treat-S-cursor-todo-selection-as-state-change nil
-      org-yank-adjusted-subtrees t
-      org-drawers '("PROPERTIES" "CLOCK" "LOGBOOK" "HIDDEN"))
+      org-use-fast-todo-selection t
+      org-yank-adjusted-subtrees t)
 
 (eval-after-load 'ob
   '(add-to-list 'org-babel-load-languages '(ruby . t)))
@@ -114,7 +119,6 @@
 
 
 (defun vderyagin/org-mode-hook ()
-  (org-indent-mode t)
   (turn-on-auto-fill)
   (turn-on-visual-line-mode)
   (set (make-local-variable 'backup-inhibited) t)
