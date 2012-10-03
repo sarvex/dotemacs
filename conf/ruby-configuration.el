@@ -1,17 +1,17 @@
+;;; -*- lexical-binding: t -*-
+
 (add-to-list 'auto-mode-alist '("\\.\\(rb\\|ru\\|builder\\|rake\\|thor\\|gemspec\\)\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\(rake\\|thor\\|guard\\|gem\\|cap\\|vagrant\\)file\\'" . ruby-mode))
 
 (setq ruby-electric-matching-delimeter-alist nil
       ruby-electric-expand-delimiters-list '(124))
 
-;; Flymake setup
 (defun flymake-ruby-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
                      'flymake-create-temp-inplace))
          (local-file (file-relative-name
                       temp-file
                       (file-name-directory buffer-file-name))))
-    ;; Invoke ruby with '-c' to get syntax checking
     (list "ruby" (list "-c" local-file))))
 
 (defun flymake-ruby-enable ()
