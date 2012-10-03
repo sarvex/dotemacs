@@ -33,7 +33,6 @@
 (setq erc-header-line-format nil
       erc-hide-list '("324" "329" "333" "353" "MODE" "JOIN" "PART" "QUIT" )
       erc-hide-prompt nil
-      erc-input-line-position -4
       erc-interpret-mirc-color t
       erc-join-buffer 'buffer
       erc-log-channels-directory "~/.irclogs"
