@@ -53,7 +53,8 @@
     (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
     (define-key ruby-mode-map (kbd "C-c C-c") 'projectur-rspec)
-    (define-key ruby-mode-map (kbd "<f9>") 'xmp)
+    (define-key ruby-mode-map (kbd "<f9>")
+     (lambda () (interactive) (call-interactively 'xmp) (delete-trailing-whitespace)))
     (define-key ruby-mode-map (kbd "<f1>") 'yari)
     (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
     (define-key ruby-mode-map (kbd "C-<return>")
