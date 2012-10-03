@@ -2,6 +2,7 @@
 
 (setq org-modules
       '(org-checklist
+        org-crypt
         org-contacts
         org-docview
         org-gnus
@@ -17,6 +18,8 @@
          :app-icon (expand-file-name "~/.icons/org-mode.png"))))
 
 (setq org-completion-use-ido t
+(setq org-crypt-key "279C2900"
+      org-crypt-disable-auto-save t)
       org-cycle-level-faces nil
       org-outline-path-complete-in-steps nil
       org-return-follows-link t
@@ -120,6 +123,7 @@
 (eval-after-load 'org
   '(progn
     (org-clock-persistence-insinuate)
+    (org-crypt-use-before-save-magic)
 
     (add-hook 'org-mode-hook 'vderyagin/org-mode-hook)
 
