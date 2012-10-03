@@ -111,6 +111,8 @@
 
 (eval-after-load 'org
   '(progn
+    (require 'org-checklist)
+
     (org-clock-persistence-insinuate)
 
     (add-hook 'org-mode-hook 'vderyagin/org-mode-hook)
