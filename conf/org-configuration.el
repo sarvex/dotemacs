@@ -1,5 +1,14 @@
 ;; -*- eval: (progn (rainbow-mode 1) (hl-line-mode -1)) -*-
 
+(setq org-modules
+      '(org-checklist
+        org-contacts
+        org-docview
+        org-gnus
+        org-habit
+        org-info
+        org-jsinfo))
+
 (setq org-show-notification-handler
       (lambda (notification)
         (notifications-notify
@@ -83,7 +92,6 @@
 
 (eval-after-load 'org-capture
   '(progn
-    (require 'org-contacts)
     ;; C-c C-c is overriden
     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
     (add-hook 'org-capture-after-finalize-hook 'vderyagin/org-update-agenda-views)
@@ -111,8 +119,6 @@
 
 (eval-after-load 'org
   '(progn
-    (require 'org-checklist)
-
     (org-clock-persistence-insinuate)
 
     (add-hook 'org-mode-hook 'vderyagin/org-mode-hook)
@@ -207,8 +213,6 @@
 (eval-after-load 'org-agenda
   (quote
    (progn
-     (require 'org-contacts)
-
      (add-hook 'org-agenda-mode-hook 'vderyagin/org-agenda-activate-appt)
 
      (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
