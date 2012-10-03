@@ -150,14 +150,13 @@
 
 (add-hook 'help-mode-hook 'turn-on-visual-line-mode)
 
-(add-hook 'find-file-hook 'create-parent-directories-for-file)
-
-(defun create-parent-directories-for-file ()
-  "Automatically create file's parent path if it does not exist."
-  (let ((dir (file-name-directory buffer-file-name)))
-    (when (and (not (file-exists-p dir))
-               (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
-      (make-directory dir t))))
+(add-hook 'find-file-hook
+          (defun create-parent-directories-for-file ()
+            "Automatically create file's parent path if it does not exist."
+            (let ((dir (file-name-directory buffer-file-name)))
+              (when (and (not (file-directory-p dir))
+                         (y-or-n-p (format "Directory %s does not exist. Create it?" (abbreviate-file-name dir))))
+                (make-directory dir t)))))
 
 
 (when (fboundp 'customize-themes)
