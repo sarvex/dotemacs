@@ -26,11 +26,6 @@
                    'flymake-display-err-menu-for-current-line)
     (flymake-mode t)))
 
-(defun my-ruby-mode-hook ()
-  (ruby-electric-mode t)
-  (setq comment-column 42)
-  (flymake-ruby-enable))
-
 (eval-after-load 'ruby-mode
   '(progn
     (require 'ruby-electric)
@@ -47,12 +42,18 @@
 
     (define-key ruby-mode-map (kbd "C-c C-c") 'projectur-rspec)
     (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
-    (define-key ruby-mode-map (kbd "<f9>")
-     (lambda () (interactive) (call-interactively 'xmp) (delete-trailing-whitespace)))
+    (define-key ruby-mode-map (kbd "<f9>") 'xmp)
 
-    (add-hook 'ruby-mode-hook 'my-ruby-mode-hook)))
+    (add-hook 'ruby-mode-hook
+     (defun vderyagin/ruby-mode-hook ()
+       (ruby-electric-mode t)
+       (setq comment-column 42)
+       (flymake-ruby-enable)))
 
+    (defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
+     "Clean buffer of trailing whitespaces after indentation."
+     (delete-trailing-whitespace))
 
-(defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
-  "Clean up buffer of trailing whitespaces after indentation."
-  (delete-trailing-whitespace))
+    (defadvice xmp (after delete-trailing-whitespace-on-execution activate)
+     "Clean buffer of trailing whitespaces after execution via `xmp'."
+     (delete-trailing-whitespace))))
