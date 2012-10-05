@@ -134,9 +134,14 @@
 (add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-mode))
 
 
+(setq image-animate-loop t)
 (eval-after-load 'image-mode
-  '(define-key image-mode-map (kbd "q")
-    (lambda () (interactive) (kill-buffer-ask (current-buffer)))))
+  '(progn
+    (define-key image-mode-map (kbd "a") 'image-toggle-animation)
+    (define-key image-mode-map (kbd "q")
+     (lambda ()
+       (interactive)
+       (kill-buffer-ask (current-buffer))))))
 
 
 (add-to-list 'auto-mode-alist '("\\.zsh" . sh-mode))
