@@ -6,6 +6,5 @@ configuration tricks may be useful.
 
 ## Compatibility ##
 
-Currently I use this configuration with GNU Emacs 24.2.1, except for some
-packages like org-mode or gnus, trunk versions of which are used instead of
-ones included in Emacs distribution.
+I use this configuration with Emacs built from trunk (currently 24.2.50.1),
+but is should work on current stable release.
