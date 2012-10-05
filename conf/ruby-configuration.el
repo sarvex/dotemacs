@@ -45,11 +45,9 @@
     (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
     (define-key ruby-mode-map (kbd "<f9>") 'xmp)
 
-    (add-hook 'ruby-mode-hook
-     (defun vderyagin/ruby-mode-hook ()
-       (ruby-electric-mode t)
-       (setq comment-column 42)
-       (flymake-ruby-enable)))
+    (add-hook 'ruby-mode-hook 'flymake-ruby-enable)
+    (add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
+    (add-hook 'ruby-mode-hook (lambda () (setq comment-column 42)))
 
     (defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
      "Clean buffer of trailing whitespaces after indentation."
