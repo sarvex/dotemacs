@@ -130,6 +130,12 @@
     (org-clock-persistence-insinuate)
     (org-crypt-use-before-save-magic)
 
+    ;; Get rid of strike-through emphasis
+    (when (featurep 'cl-lib)
+      (cl-delete-if
+       (lambda (item) (string= "+" (car item)))
+       org-emphasis-alist))
+
     (add-hook 'org-mode-hook 'vderyagin/org-mode-hook)
 
     (define-key org-mode-map (kbd "M-n") 'org-next-link)
