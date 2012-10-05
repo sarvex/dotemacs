@@ -31,6 +31,7 @@
     (require 'ruby-electric)
     (require 'inf-ruby)
     (require 'rcodetools)
+    (require 'flymake)
 
     (inf-ruby-keys)
     (define-key inferior-ruby-mode-map (kbd "C-l") 'recenter-top)
