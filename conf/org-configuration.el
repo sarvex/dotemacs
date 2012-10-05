@@ -1,15 +1,5 @@
 ;; -*- eval: (progn (rainbow-mode 1) (hl-line-mode -1)) -*-
 
-(setq org-modules
-      '(org-checklist
-        org-crypt
-        org-contacts
-        org-docview
-        org-gnus
-        org-habit
-        org-info
-        org-jsinfo))
-
 (setq org-show-notification-handler
       (lambda (notification)
         (notifications-notify
@@ -24,6 +14,7 @@
       org-completion-use-ido t
       org-cycle-level-faces nil
       org-cycle-separator-lines -2
+      org-habit-graph-column 62
       org-drawers '("PROPERTIES" "CLOCK" "LOGBOOK" "HIDDEN")
       org-enforce-todo-dependencies t
       org-log-done 'time
@@ -126,6 +117,16 @@
 
 (eval-after-load 'org
   '(progn
+    (require 'org-checklist)
+    (require 'org-crypt)
+    (require 'org-contacts)
+    (require 'org-habit)
+
+    (require 'ob-ruby)
+    (require 'ob-python)
+    (require 'ob-js)
+    (require 'ob-sh)
+
     (org-clock-persistence-insinuate)
     (org-crypt-use-before-save-magic)
 
