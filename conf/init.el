@@ -5,6 +5,8 @@
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
+(require 'cl-lib nil 'noerror)
+
 ;; loads passwords and othre stuff, required on startup
 (load "dotemacs/conf/before-init-configuration")
 
