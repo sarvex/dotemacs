@@ -33,7 +33,9 @@
       org-yank-adjusted-subtrees t)
 
 (eval-after-load 'ob
-  '(add-to-list 'org-babel-load-languages '(ruby . t)))
+  '(mapc
+    (lambda (language) (add-to-list 'org-babel-load-languages `(,language . t)))
+    '(awk dot haskell js lisp perl python ruby scheme sh)))
 
 (setq
  org-todo-keywords
@@ -121,11 +123,6 @@
     (require 'org-crypt)
     (require 'org-contacts)
     (require 'org-habit)
-
-    (require 'ob-ruby)
-    (require 'ob-python)
-    (require 'ob-js)
-    (require 'ob-sh)
 
     (org-clock-persistence-insinuate)
     (org-crypt-use-before-save-magic)
