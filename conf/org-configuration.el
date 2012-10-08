@@ -34,7 +34,7 @@
 
 (eval-after-load 'ob
   '(mapc
-    (lambda (language) (add-to-list 'org-babel-load-languages `(,language . t)))
+    (lambda (language) (add-to-list 'org-babel-load-languages (cons language t)))
     '(awk dot haskell js lisp perl python ruby scheme sh)))
 
 (setq
