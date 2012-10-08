@@ -32,6 +32,7 @@
     (require 'inf-ruby)
     (require 'rcodetools)
     (require 'flymake)
+    (require 'ffap)
 
     (inf-ruby-keys)
     (define-key inferior-ruby-mode-map (kbd "C-l") 'recenter-top)
@@ -48,6 +49,14 @@
     (add-hook 'ruby-mode-hook 'flymake-ruby-enable)
     (add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
     (add-hook 'ruby-mode-hook (lambda () (setq comment-column 42)))
+
+    (add-to-list 'ffap-alist
+     (cons
+      'ruby-mode
+      (lambda (library)
+        "Figure out path to ruby LIBRARY file. Depends on 'devel-which' gem."
+        (shell-command-to-string
+         (format "ruby -r devel/which -r %s -e 'print which_library %%(%s)'" name name)))))
 
     (defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
      "Clean buffer of trailing whitespaces after indentation."
