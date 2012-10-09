@@ -109,7 +109,7 @@
 ;; executable must be named unrar-free (hardcoded in archive-mode)
 (mapc
  (lambda (extension)
-   (add-to-list 'auto-mode-alist `(,extension . archive-mode)))
+   (add-to-list 'auto-mode-alist (cons extension 'archive-mode)))
  '("\\.xpi\\'" "\\.crx\\'" "\\.oex\\'" "\\.rar\\'"))
 (add-to-list 'auto-mode-alist '("\\.gem\\'" . tar-mode))
 (eval-after-load 'arc-mode

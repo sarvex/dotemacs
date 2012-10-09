@@ -1,6 +1,6 @@
 (mapc
- (lambda (py)
-   (add-to-list 'interpreter-mode-alist `(,py . python-mode)))
+ (lambda (interpreter)
+   (add-to-list 'interpreter-mode-alist (cons interpreter 'python-mode)))
  '("python" "python2" "python3" "jython"))
 
 (eval-after-load 'python

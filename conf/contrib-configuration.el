@@ -90,7 +90,7 @@
   '(add-hook 'markdown-mode-hook 'my-markdown-mode-hook))
 (mapc
  (lambda (extension)
-   (add-to-list 'auto-mode-alist `(,extension . markdown-mode)))
+   (add-to-list 'auto-mode-alist (cons extension 'markdown-mode)))
  '("\\.text\\'" "\\.markdown\\'" "\\.mdo?wn\\'" "\\.mk?dt?\\'"))
 
 

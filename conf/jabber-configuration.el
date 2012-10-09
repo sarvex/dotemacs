@@ -1,7 +1,8 @@
 (setq jabber-account-list
-      `((,my-jabber-org-jid
-         (:network-server . "jabber.org")
-         (:password . ,my-jabber-org-password)
-         (:disabled . nil))))
+      (list
+       (list my-jabber-org-jid
+             (cons :network-server "jabber.org")
+             (cons :password my-jabber-org-password)
+             (cons :disabled nil))))
 
 (setq jabber-mode-line-compact t)
