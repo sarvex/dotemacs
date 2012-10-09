@@ -37,7 +37,6 @@
       erc-join-buffer 'buffer
       erc-log-channels-directory "~/.irclogs"
       erc-log-file-coding-system 'utf-8
-      erc-log-insert-log-on-open t
       erc-max-buffer-size 20000
       erc-prompt ">>>"
       erc-send-whitespace-lines nil
