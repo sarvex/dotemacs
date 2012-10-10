@@ -40,7 +40,6 @@
 (load "dotemacs/conf/diminish-configuration")
 (load "dotemacs/conf/w3m-configuration")
 (load "dotemacs/conf/org-configuration")
-(load "dotemacs/conf/kill-ring-configuration")
 (load "dotemacs/conf/twitter-configuration")
 (load "dotemacs/conf/bookmark-configuration")
 (load "dotemacs/conf/eshell-configuration")

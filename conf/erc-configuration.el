@@ -65,9 +65,6 @@
         stamp
         truncate))
 
-;; (erc-update-modules)
-
-
 (defun vderyagin/erc-join ()
   (interactive)
   (when (y-or-n-p "Connect to IRC? ")
