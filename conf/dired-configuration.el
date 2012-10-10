@@ -1,31 +1,98 @@
 (autoload 'dired-jump "dired-x" nil t)
 
-(setq directory-free-space-args "-Pkh"
-      dired-dwim-target nil
-      dired-isearch-filenames nil
-      dired-keep-marker-rename nil
-      dired-keep-marker-copy nil
-      dired-keep-marker-hardlink nil
-      dired-keep-marker-symlink nil
-      dired-listing-switches "-hAFl --group-directories-first"
-      dired-ls-F-marks-symlinks t
-      list-directory-brief-switches "-CF1shA"
-      list-directory-verbose-switches "-lhA"
-      wdired-allow-to-change-permissions 'advanced
-      wdired-allow-to-redirect-links t)
+(custom-set-variables
+ '(dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+ '(directory-free-space-args "-Pkh")
+ '(dired-details-hidden-string "")
+ '(dired-details-hide-extra-lines t)
+ '(dired-details-hide-link-targets nil)
+ '(dired-dwim-target nil)
+ '(dired-isearch-filenames nil)
+ '(dired-keep-marker-copy nil)
+ '(dired-keep-marker-hardlink nil)
+ '(dired-keep-marker-rename nil)
+ '(dired-keep-marker-symlink nil)
+ '(dired-listing-switches "-hAFl --group-directories-first")
+ '(dired-ls-F-marks-symlinks t)
+ '(image-dired-external-viewer "feh")
+ '(image-dired-line-up-method 'dynamic)
+ '(image-dired-show-all-from-dir-max-files 150)
+ '(image-dired-thumb-height 160)
+ '(image-dired-thumb-margin 4)
+ '(image-dired-thumb-relief 0)
+ '(image-dired-thumb-size 196)
+ '(image-dired-thumb-width 196)
+ '(list-directory-brief-switches "-CF1shA")
+ '(list-directory-verbose-switches "-lhA")
+ '(wdired-allow-to-change-permissions 'advanced)
+ '(wdired-allow-to-redirect-links t))
 
-(setq dired-details-hide-extra-lines t
-      dired-details-hide-link-targets nil
-      dired-details-hidden-string "")
+(eval-after-load 'dired
+  (quote
+   (progn
 
-(setq image-dired-external-viewer "feh"
-      image-dired-line-up-method 'dynamic
-      image-dired-show-all-from-dir-max-files 150
-      image-dired-thumb-height 160
-      image-dired-thumb-margin 4
-      image-dired-thumb-relief 0
-      image-dired-thumb-size 196
-      image-dired-thumb-width 196)
+     (require 'dired-x)
+     (require 'dired+)
+     (require 'dired-details+)
+
+     (diredp-toggle-find-file-reuse-dir 1)
+
+     (defadvice dired-do-async-shell-command (before rename-async-shell-buffer-before-running-new-command activate)
+       "Rename currently existing *Async Shell Command* buffer, so that new one with the same name could be created"
+       (let* ((buf-name "*Async Shell Command*")
+              (buf (get-buffer buf-name)))
+         (when (and buf
+                    (get-buffer-process buf))
+           (with-current-buffer buf
+             (rename-buffer (generate-new-buffer-name buf-name))))))
+
+     (defadvice dired-advertised-find-file (around dired-subst-directory activate)
+       "Replace current buffer if file is a directory."
+       (interactive)
+       (let ((orig (current-buffer))
+             (filename (dired-get-filename)))
+         ad-do-it
+         (when (and (file-directory-p filename)
+                    (not (eq (current-buffer) orig)))
+           (kill-buffer orig))))
+
+     (defun dired-up-directory (&optional other-window)
+       "Run Dired on parent directory of current directory."
+       (interactive "P")
+       (let* ((dir (dired-current-directory))
+              (orig (current-buffer))
+              (up (file-name-directory (directory-file-name dir))))
+         (or (dired-goto-file (directory-file-name dir))
+             ;; Only try dired-goto-subdir if buffer has more than one dir.
+             (and (cdr dired-subdir-alist)
+                  (dired-goto-subdir up))
+             (progn
+               (kill-buffer orig)
+               (dired up)
+               (dired-goto-file dir)))))
+
+     (define-key dired-mode-map (kbd "M-n") 'dired-next-subdir-of-current-dir-parent)
+     (define-key dired-mode-map (kbd "M-p") 'dired-previous-subdir-of-current-dir-parent)
+     (define-key dired-mode-map (kbd "C-?") 'dired-get-size)
+     (define-key dired-mode-map (kbd ";") 'dired-up-directory)
+     (define-key dired-mode-map (kbd "p") 'dired-previous-file-line)
+     (define-key dired-mode-map (kbd "n") 'dired-next-file-line)
+     (define-key dired-mode-map (kbd "C-w") 'dired-unmark-backward)
+     (define-key dired-mode-map (kbd "<down>") nil)
+     (define-key dired-mode-map (kbd "<up>") nil)
+     (define-key dired-mode-map (kbd "M-=") nil)
+     (define-key dired-mode-map (kbd "M-b") 'backward-word)
+     (define-key dired-mode-map (kbd "<SPC>") 'dired-next-file-line)
+     (define-key dired-mode-map (kbd "q") (lambda () (interactive) (kill-buffer-ask (current-buffer))))
+
+     (add-hook 'dired-mode-hook (lambda () (setq truncate-lines t))))))
+
+(eval-after-load 'wdired
+  '(progn
+    (define-key wdired-mode-map (kbd "<down>") nil)
+    (define-key wdired-mode-map (kbd "<up>") nil)
+
+    (add-hook 'wdired-mode-hook (lambda () (autopair-mode t)))))
 
 (defun dired-next-subdir-of-current-dir-parent (&optional jump)
   "Moves to the n-th next directory of the same level"
@@ -78,73 +145,3 @@
              (car dired-buffers)
              (ido-completing-read "Dired buffer: " dired-buffers)))
         (dired "~"))))
-
-(eval-after-load 'dired
-  '(progn
-
-    (require 'dired-x)
-    (require 'dired+)
-    (require 'dired-details+)
-
-    (diredp-toggle-find-file-reuse-dir 1)
-
-    (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
-
-    (defadvice dired-do-async-shell-command (before rename-async-shell-buffer-before-running-new-command activate)
-     "Rename currently existing *Async Shell Command* buffer, so that new one with the same name could be created"
-     (let* ((buf-name "*Async Shell Command*")
-            (buf (get-buffer buf-name)))
-       (when (and buf
-                  (get-buffer-process buf))
-         (with-current-buffer buf
-           (rename-buffer (generate-new-buffer-name buf-name))))))
-
-    (defadvice dired-advertised-find-file (around dired-subst-directory activate)
-     "Replace current buffer if file is a directory."
-     (interactive)
-     (let ((orig (current-buffer))
-           (filename (dired-get-filename)))
-       ad-do-it
-       (when (and (file-directory-p filename)
-                  (not (eq (current-buffer) orig)))
-         (kill-buffer orig))))
-
-    (defun dired-up-directory (&optional other-window)
-      "Run Dired on parent directory of current directory."
-      (interactive "P")
-      (let* ((dir (dired-current-directory))
-             (orig (current-buffer))
-             (up (file-name-directory (directory-file-name dir))))
-        (or (dired-goto-file (directory-file-name dir))
-            ;; Only try dired-goto-subdir if buffer has more than one dir.
-            (and (cdr dired-subdir-alist)
-                 (dired-goto-subdir up))
-            (progn
-              (kill-buffer orig)
-              (dired up)
-              (dired-goto-file dir)))))
-
-    (define-key dired-mode-map (kbd "M-n") 'dired-next-subdir-of-current-dir-parent)
-    (define-key dired-mode-map (kbd "M-p") 'dired-previous-subdir-of-current-dir-parent)
-    (define-key dired-mode-map (kbd "C-?") 'dired-get-size)
-    (define-key dired-mode-map (kbd ";") 'dired-up-directory)
-    (define-key dired-mode-map (kbd "p") 'dired-previous-file-line)
-    (define-key dired-mode-map (kbd "n") 'dired-next-file-line)
-    (define-key dired-mode-map (kbd "C-w") 'dired-unmark-backward)
-    (define-key dired-mode-map (kbd "<down>") nil)
-    (define-key dired-mode-map (kbd "<up>") nil)
-    (define-key dired-mode-map (kbd "M-=") nil)
-    (define-key dired-mode-map (kbd "M-b") 'backward-word)
-    (define-key dired-mode-map (kbd "<SPC>") 'dired-next-file-line)
-    (define-key dired-mode-map (kbd "q") (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-
-    (add-hook 'dired-mode-hook (lambda () (setq truncate-lines t)))))
-
-(eval-after-load 'wdired
-  '(progn
-    (define-key wdired-mode-map (kbd "<down>") nil)
-    (define-key wdired-mode-map (kbd "<up>") nil)
-
-    (add-hook 'wdired-mode-hook
-     (defun turn-on-autopair-mode ()
-       (autopair-mode t)))))
