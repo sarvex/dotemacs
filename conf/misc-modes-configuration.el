@@ -147,13 +147,7 @@
 (add-to-list 'auto-mode-alist '("\\.zsh" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh-theme" . sh-mode))
 (eval-after-load 'sh-script
-  '(progn
-    (define-key sh-mode-map (kbd "<f9>") 'executable-interpret)
-    (define-key sh-mode-map (kbd "M-l") nil)))
-
-
-(eval-after-load 'make-mode
-  '(define-key makefile-mode-map (kbd "<f9>") 'recompile))
+  '(define-key sh-mode-map (kbd "M-l") nil))
 
 
 (setq compilation-ask-about-save nil

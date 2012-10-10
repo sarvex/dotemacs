@@ -10,15 +10,15 @@
  '(w3m-terminal-coding-system 'utf-8))
 
 (eval-after-load 'w3m
-  '(progn
+  (quote
+   (progn
+     (mapc
+      (lambda (key)
+        (define-key w3m-mode-map key nil))
+      '([right] [left] [up] [down]))
 
-    (mapc
-     (lambda (key)
-       (define-key w3m-mode-map key nil))
-     '([right] [left] [up] [down]))
-
-    (add-hook 'w3m-display-hook
-     (lambda (url)
-       (rename-buffer
-        (format "*%s - w3m*" (or w3m-current-title
-                                 w3m-current-url)) t)))))
+     (add-hook 'w3m-display-hook
+               (lambda (url)
+                 (rename-buffer
+                  (format "*%s - w3m*" (or w3m-current-title
+                                           w3m-current-url)) t))))))

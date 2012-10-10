@@ -5,5 +5,3 @@
 
 (eval-after-load 'python
   '(define-key python-mode-map (kbd "<return>") 'newline-and-indent))
-
-(remove-hook 'python-mode-hook 'wisent-python-default-setup)

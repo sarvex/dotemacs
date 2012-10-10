@@ -19,10 +19,6 @@
     (t
      (coffee-compile-buffer))))
 
-(eval-after-load 'coffee-mode
-  '(define-key coffee-mode-map (kbd "<f9>") 'coffee-compile-dwim))
-
-
 (defun flymake-jslint-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
                      'flymake-create-temp-inplace))

@@ -1,4 +1,5 @@
-(setq file-name-coding-system 'utf-8
+(setq default-file-name-coding-system 'utf-8
+      file-name-coding-system 'utf-8
       locale-coding-system 'utf-8)
 
 (set-language-environment 'utf-8)
@@ -14,9 +15,6 @@
 (prefer-coding-system 'utf-8)
 
 
-;;================================================================
-;; Switching input methods
-;;================================================================
 (defun toggle-specified-isearch-input-method (new-input-method)
   "Toggle specified input method in interactive search."
   (interactive)
@@ -31,7 +29,7 @@
         input-method-function nil)
   (isearch-update))
 
-;; isearch
+
 (define-key isearch-mode-map (kbd "<f31>")
   (lambda ()
     (interactive)
@@ -47,7 +45,7 @@
     (interactive)
     (toggle-specified-isearch-input-method 'russian-computer)))
 
-;; switching
+
 (define-key global-map (kbd "<f31>")
   (lambda ()
     (interactive)

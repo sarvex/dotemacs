@@ -12,9 +12,6 @@
 (eval-after-load 'ahg
   '(add-hook 'ahg-status-mode-hook 'vderyagin/ahg-status-hook))
 
-
-;; MQ patches:
-
 (add-to-list 'auto-mode-alist '("\\.hg/patches\\(?:-[^/]+\\)?/" . diff-mode))
 
 (defun mq-patch-set-default-directory ()
