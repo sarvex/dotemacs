@@ -105,3 +105,10 @@
 (add-hook 'message-mode-hook 'turn-on-orgtbl)
 (add-hook 'message-mode-hook (lambda () (epa-mail-mode t)))
 (add-hook 'message-mode-hook (lambda () (flyspell-mode t)))
+
+(defadvice save-some-buffers (before save-gnus-dribble-file activate)
+  "Unconditionally save gnus dribble file."
+  (let ((buf (get-buffer "newsrc-dribble")))
+    (when buf
+      (with-current-buffer buf
+        (save-buffer)))))
