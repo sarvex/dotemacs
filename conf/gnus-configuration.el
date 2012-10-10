@@ -1,5 +1,7 @@
 (setq gnus-select-method '(nntp "news.gmane.org"))
 
+(setq gnus-always-read-dribble-file t)
+
 (setq gnus-secondary-select-methods
       '((nnimap "gmail"
          (nnimap-address "imap.gmail.com")
