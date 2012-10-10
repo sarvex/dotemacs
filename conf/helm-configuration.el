@@ -9,6 +9,8 @@
  '(helm-google-suggest-use-curl-p t))
 
 (define-key global-map (kbd "C-c h") helm-command-map)
+
 (define-key global-map (kbd "C-c h o") 'helm-occur)
-(define-key global-map (kbd "M-y") 'helm-show-kill-ring)
 (define-key global-map (kbd "C-x f") 'helm-recentf)
+(define-key global-map (kbd "M-:") 'helm-eval-expression-with-eldoc)
+(define-key global-map (kbd "M-y") 'helm-show-kill-ring)
