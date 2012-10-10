@@ -11,7 +11,6 @@
 
 (setq ido-ubiquitous-command-exceptions
       '(gnus-topic-move-group
-        execute-extended-command
         bookmark-set))
 
 (setq ido-decorations
@@ -155,15 +154,3 @@
 
             (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
             (define-key ido-completion-map (kbd "C-n") 'ido-next-match)))
-
-
-(setq smex-auto-update t
-      smex-save-file "~/.emacs.d/smex.save"
-      smex-history-length 500)
-
-(require 'smex)
-(smex-initialize)
-
-(define-key global-map (kbd "M-x") 'smex)
-(define-key global-map (kbd "M-X") 'smex-major-mode-commands)
-(define-key global-map (kbd "C-c C-m") 'execute-extended-command)

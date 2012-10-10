@@ -53,10 +53,6 @@
    (:name twittering-mode :lazy t)
    (:name yari :lazy t)
 
-   (:name smex
-    :post-init nil
-    :lazy t)
-
    (:name org-mode
     :autoloads t
     :lazy t)
