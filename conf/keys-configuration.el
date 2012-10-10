@@ -102,24 +102,7 @@
       (switch-to-buffer buf)
       (insert content))))
 
-(define-key global-map (kbd "C-x c")
-  (lambda ()
-    (interactive)
-    (when (get-buffer "*Group*")
-      (gnus-group-exit))
-    (desktop-save-in-desktop-dir)
-    (save-buffers-kill-emacs)))
-
-;; do not ask to save gnus dribble file
-;; TODO: convert to defadvice
-(define-key global-map (kbd "C-x s")
-  (lambda ()
-    (interactive)
-    (let ((buf (get-buffer "newsrc-dribble")))
-      (when buf
-        (with-current-buffer buf
-          (save-buffer))))
-    (call-interactively 'save-some-buffers)))
+(define-key global-map (kbd "C-x c") 'save-buffers-kill-emacs)
 
 (define-key global-map (kbd "<f8>")
   (lambda (&optional open-new)
@@ -146,5 +129,28 @@
     (let ((gnus-buffer (get-buffer "*Group*")))
       (when gnus-buffer
         (switch-to-buffer gnus-buffer))
-      (if (or arg (not gnus-buffer))
-          (gnus)))))
+      (when (or arg (not gnus-buffer))
+        (gnus)))))
+
+(define-key global-map (kbd "C-w") 'backward-kill-word)
+(define-key global-map (kbd "C-x C-k") 'kill-region)
+
+(define-key global-map (kbd "M-w")
+  (lambda ()
+    (interactive)
+    (if (region-active-p)
+        (call-interactively 'kill-ring-save)
+        (kill-ring-save
+         (line-beginning-position)
+         (line-beginning-position 2))
+        (message "Copied line"))))
+
+(define-key global-map (kbd "C-x C-k")
+  (lambda ()
+    (interactive)
+    (if (region-active-p)
+        (call-interactively 'kill-region)
+        (kill-region
+         (line-beginning-position)
+         (line-beginning-position 2))
+        (message "Killed line"))))

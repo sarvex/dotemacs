@@ -1,6 +1,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq browse-url-browser-function 'browse-url-firefox)
+(setq delete-active-region nil)
 
 (mapc
  (lambda (symbol)
