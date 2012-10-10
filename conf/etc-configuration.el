@@ -132,3 +132,8 @@
 
 (setq grep-scroll-output t
       grep-command "grep --recursive --with-filename --line-number -e ")
+
+
+(defadvice save-buffers-kill-emacs (before do-not-ask-when-has-live-clients activate)
+  "Do not ask before exiting Emacs if it has live clients."
+  (remove-hook 'kill-emacs-query-functions 'server-kill-emacs-query-function))
