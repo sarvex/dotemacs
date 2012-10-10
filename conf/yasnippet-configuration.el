@@ -1,16 +1,14 @@
-(setq yas-trigger-key "M-["
-      yas-skip-and-clear-key '("C-d")
-      yas-also-auto-indent-first-line nil
-      yas-good-grace nil
-      yas-choose-tables-first t)
-
-(setq yas-prompt-functions
-      '(yas-dropdown-prompt
-        yas-ido-prompt
-        yas-x-prompt
-        yas-completing-prompt
-        yas-no-prompt))
-
+(custom-set-variables
+ '(yas-trigger-key "M-[")
+ '(yas-skip-and-clear-key '("C-d"))
+ '(yas-also-auto-indent-first-line nil)
+ '(yas-good-grace nil)
+ '(yas-choose-tables-first t)
+ '(yas-prompt-functions '(yas-dropdown-prompt
+                          yas-ido-prompt
+                          yas-x-prompt
+                          yas-completing-prompt
+                          yas-no-prompt)))
 
 (eval-after-load 'yasnippet
   '(progn

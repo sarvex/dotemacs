@@ -1,12 +1,13 @@
 (define-key global-map (kbd "C-c g") 'magit-status)
 
-(setq magit-commit-all-when-nothing-staged 'ask-stage
-      magit-log-auto-more t
-      magit-process-connection-type nil
-      magit-process-popup-time 5
-      magit-repo-dirs-depth 6
-      magit-save-some-buffers t
-      magit-status-buffer-switch-function 'switch-to-buffer)
+(custom-set-variables
+ '(magit-commit-all-when-nothing-staged 'ask-stage)
+ '(magit-log-auto-more t)
+ '(magit-process-connection-type nil)
+ '(magit-process-popup-time 5)
+ '(magit-repo-dirs-depth 6)
+ '(magit-save-some-buffers t)
+ '(magit-status-buffer-switch-function 'switch-to-buffer))
 
 (defun vderyagin/magit-log-edit-hook ()
   (turn-on-auto-fill)

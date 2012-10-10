@@ -1,24 +1,21 @@
 ;; Savehist
-(setq savehist-file "~/.emacs.d/savehist") ; keep my ~/ clean
 
-(setq savehist-save-minibuffer-history t)
-
-(setq savehist-additional-variables
-      '(search-ring
-        global-mark-ring
-        ido-work-directory-list
-        regexp-search-ring
-        projectur-history))
-
-(setq savehist-ignored-variables
-      '(bmkp-tag-history
-        grep-history
-        bookmark-history
-        buffer-name-history
-        minibuffer-history
-        ido-buffer-history
-        ido-file-history
-        file-name-history))
+(custom-set-variables
+ '(savehist-file "~/.emacs.d/savehist")
+ '(savehist-save-minibuffer-history t)
+ '(savehist-additional-variables '(search-ring
+                                   global-mark-ring
+                                   ido-work-directory-list
+                                   regexp-search-ring
+                                   projectur-history))
+ '(savehist-ignored-variables '(bmkp-tag-history
+                                grep-history
+                                bookmark-history
+                                buffer-name-history
+                                minibuffer-history
+                                ido-buffer-history
+                                ido-file-history
+                                file-name-history)))
 
 (defun get-rid-of-duplicates-in-savehist-variables ()
   (mapc

@@ -3,8 +3,8 @@
 (add-to-list 'auto-mode-alist '("\\.\\(rb\\|ru\\|builder\\|rake\\|thor\\|gemspec\\)\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\(rake\\|thor\\|guard\\|gem\\|cap\\|vagrant\\)file\\'" . ruby-mode))
 
-(setq ruby-electric-matching-delimeter-alist nil
-      ruby-electric-expand-delimiters-list '(124))
+(custom-set-variables
+ '(ruby-electric-expand-delimiters-list '(124)))
 
 (defun flymake-ruby-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
@@ -27,41 +27,41 @@
     (flymake-mode t)))
 
 (eval-after-load 'ruby-mode
-  '(progn
-    (require 'ruby-electric)
-    (require 'inf-ruby)
-    (require 'rcodetools)
-    (require 'flymake)
-    (require 'ffap)
+  (quote
+   (progn
+     (require 'ruby-electric)
+     (require 'inf-ruby)
+     (require 'rcodetools)
+     (require 'flymake)
+     (require 'ffap)
 
-    (inf-ruby-keys)
-    (define-key inferior-ruby-mode-map (kbd "C-l") 'recenter-top)
+     (inf-ruby-keys)
+     (define-key inferior-ruby-mode-map (kbd "C-l") 'recenter-top)
 
-    (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
-    (push
-     '("\\.\\(rb\\|ru\\|builder\\|rake\\|thor\\|gemspec\\)\\'" flymake-ruby-init)
-     flymake-allowed-file-name-masks)
+     (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3)
+           flymake-err-line-patterns)
+     (push '("\\.\\(rb\\|ru\\|builder\\|rake\\|thor\\|gemspec\\)\\'" flymake-ruby-init)
+           flymake-allowed-file-name-masks)
 
-    (define-key ruby-mode-map (kbd "C-c C-c") 'projectur-rspec)
-    (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
-    (define-key ruby-mode-map (kbd "<f9>") 'xmp)
+     (define-key ruby-mode-map (kbd "C-c C-c") 'projectur-rspec)
+     (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
 
-    (add-hook 'ruby-mode-hook 'flymake-ruby-enable)
-    (add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
-    (add-hook 'ruby-mode-hook (lambda () (setq comment-column 42)))
+     (add-hook 'ruby-mode-hook 'flymake-ruby-enable)
+     (add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
+     (add-hook 'ruby-mode-hook (lambda () (setq comment-column 42)))
 
-    (add-to-list 'ffap-alist
-     (cons
-      'ruby-mode
-      (lambda (library)
-        "Figure out path to ruby LIBRARY file. Depends on 'devel-which' gem."
-        (shell-command-to-string
-         (format "ruby -r devel/which -r %s -e 'print which_library %%(%s)'" name name)))))
+     (add-to-list 'ffap-alist
+                  (cons
+                   'ruby-mode
+                   (lambda (library)
+                     "Figure out path to ruby LIBRARY file. Depends on 'devel-which' gem."
+                     (shell-command-to-string
+                      (format "ruby -r devel/which -r %s -e 'print which_library %%(%s)'" name name)))))
 
-    (defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
-     "Clean buffer of trailing whitespaces after indentation."
-     (delete-trailing-whitespace))
+     (defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
+       "Clean buffer of trailing whitespaces after indentation."
+       (delete-trailing-whitespace))
 
-    (defadvice xmp (after delete-trailing-whitespace-on-execution activate)
-     "Clean buffer of trailing whitespaces after execution via `xmp'."
-     (delete-trailing-whitespace))))
+     (defadvice xmp (after delete-trailing-whitespace-on-execution activate)
+       "Clean buffer of trailing whitespaces after execution via `xmp'."
+       (delete-trailing-whitespace)))))
