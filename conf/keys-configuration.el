@@ -10,6 +10,7 @@
 (define-key global-map (kbd "C-c s") 'ispell-word)
 
 (define-key global-map (kbd "<f11>") 'org-capture)
+(define-key global-map (kbd "C-x C-d") 'ido-dired)
 (define-key global-map (kbd "C-x d") 'vderyagin/switch-to-dired-buffer)
 (define-key global-map (kbd "C-x t") 'vderyagin/switch-to-twittering-buffer)
 
