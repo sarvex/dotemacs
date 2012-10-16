@@ -14,3 +14,4 @@
 (define-key global-map (kbd "C-x f") 'helm-recentf)
 (define-key global-map (kbd "M-:") 'helm-eval-expression-with-eldoc)
 (define-key global-map (kbd "M-y") 'helm-show-kill-ring)
+(define-key global-map (kbd "M-x") 'helm-M-x)
