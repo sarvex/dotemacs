@@ -196,11 +196,13 @@
      (define-key org-mode-map (kbd "M-n") 'org-next-link)
      (define-key org-mode-map (kbd "M-p") 'org-previous-link)
 
-     ;; disable keys for adding/removing files from agenda:
+     ;; Disable keys for adding/removing files from agenda:
      (define-key org-mode-map (kbd "C-c [") nil)
      (define-key org-mode-map (kbd "C-c ]") nil)
 
-     ;; resolving conflicts with global bindings
+     ;; Resolve conflicts with global bindings:
+     (define-key org-mode-map (kbd "S-C-<up>") nil)
+     (define-key org-mode-map (kbd "S-C-<down>") nil)
      (define-key org-mode-map (kbd "S-C-<left>") nil)
      (define-key org-mode-map (kbd "S-C-<right>") nil)
      (define-key org-mode-map (kbd "C-<tab>") nil)
