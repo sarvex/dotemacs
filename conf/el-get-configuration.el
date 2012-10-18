@@ -19,7 +19,6 @@
 (setq
  el-get-sources
  '((:name el-get)
-   (:name ahg)
    (:name autopair)
    (:name bookmark+)
    (:name clojure-mode)
