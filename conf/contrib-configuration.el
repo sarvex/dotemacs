@@ -14,24 +14,27 @@
       ac-comphist-file "~/.emacs.d/ac-comphist.dat"
       ac-menu-height 15
       ac-quick-help-delay 0.8)
-(setq-default ac-sources
+(eval-after-load 'auto-complete
+  (quote
+   (progn
+     (ac-config-default)
+
+     (add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete/dict" el-get-dir))
+
+     (setq-default ac-sources
               '(ac-source-abbrev
                 ac-source-dictionary
                 ac-source-words-in-same-mode-buffers
                 ac-source-yasnippet
                 ac-source-filename))
-(eval-after-load 'auto-complete-config
-  '(progn
-    (add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete/dict" el-get-dir))
 
-    (ac-config-default)
+     (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+     (define-key ac-complete-mode-map (kbd "M-?") 'ac-quick-help)
+     (define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
+     (define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
+     (define-key ac-complete-mode-map (kbd "C-g") 'ac-stop)
+     (define-key ac-complete-mode-map (kbd "<return>") 'ac-expand))))
 
-    (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-    (define-key ac-complete-mode-map (kbd "M-?") 'ac-quick-help)
-    (define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
-    (define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
-    (define-key ac-complete-mode-map (kbd "C-g") 'ac-stop)
-    (define-key ac-complete-mode-map (kbd "<return>") 'ac-expand)))
 
 
 (setq multi-term-program "/bin/zsh")
