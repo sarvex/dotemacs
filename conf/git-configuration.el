@@ -25,3 +25,8 @@
     (define-key magit-mode-map (kbd "M-p") 'magit-show-commit-backward)
 
     (add-hook 'magit-log-edit-mode-hook 'vderyagin/magit-log-edit-hook)))
+(eval-after-load 'yagist
+  (quote
+   (setq yagist-github-user vderyagin/generic-username
+         yagist-user-password vderyagin/github-password
+         yagist-working-directory "~/repos/gists")))

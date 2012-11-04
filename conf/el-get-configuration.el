@@ -177,6 +177,11 @@
     :pkgname "leoliu/ack-el"
     :features nil)
 
+   (:name yagist
+    :type github
+    :pkgname "mhayashi1120/yagist.el"
+    :features nil)
+
    (:name projectur
     :type github
     :pkgname "vderyagin/projectur")))
