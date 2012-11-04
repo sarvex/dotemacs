@@ -1,4 +1,4 @@
-(setq projectur-rspec-use-bundler t)
+(setq projectur-rspec-use-bundler nil)
 
 (define-key global-map (kbd "C-c f") 'projectur-find-file)
 (define-key global-map (kbd "C-c p +") 'projectur-set-project-root)

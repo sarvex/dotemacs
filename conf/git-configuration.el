@@ -1,5 +1,3 @@
-(define-key global-map (kbd "C-c g") 'magit-status)
-
 (custom-set-variables
  '(magit-commit-all-when-nothing-staged 'ask-stage)
  '(magit-log-auto-more t)
@@ -8,10 +6,6 @@
  '(magit-repo-dirs-depth 6)
  '(magit-save-some-buffers t)
  '(magit-status-buffer-switch-function 'switch-to-buffer))
-
-(defun vderyagin/magit-log-edit-hook ()
-  (turn-on-auto-fill)
-  (flyspell-mode t))
 
 (eval-after-load 'magit
   '(progn
@@ -24,7 +18,9 @@
     (define-key magit-mode-map (kbd "M-n") 'magit-show-commit-forward)
     (define-key magit-mode-map (kbd "M-p") 'magit-show-commit-backward)
 
-    (add-hook 'magit-log-edit-mode-hook 'vderyagin/magit-log-edit-hook)))
+    (add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)
+    (add-hook 'magit-log-edit-mode-hook (lambda () (flyspell-mode t)))))
+
 (eval-after-load 'yagist
   (quote
    (setq yagist-github-user vderyagin/generic-username

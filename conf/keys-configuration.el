@@ -2,6 +2,7 @@
 (define-key global-map (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-c c") 'my-duplicate-line)
 (define-key global-map (kbd "C-c e") 'vderyagin/switch-to-irc-buffer)
+(define-key global-map (kbd "C-c g") 'magit-status)
 (define-key global-map (kbd "C-c i") 'imenu)
 (define-key global-map (kbd "C-c j") 'dired-jump)
 (define-key global-map (kbd "C-c l") 'linum-mode)
