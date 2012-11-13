@@ -153,6 +153,7 @@
 (setq compilation-ask-about-save nil
       compilation-auto-jump-to-first-error nil
       compilation-disable-input t
+      compilation-read-command nil
       compilation-window-height 20
       compilation-scroll-output 'first-error)
 
