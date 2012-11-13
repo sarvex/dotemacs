@@ -83,6 +83,7 @@
         "*grep*"
         "*compilation*"
         "*ert*"
+        "*Gofmt Errors*"
         "*ERT list of should forms*"
         "*ERT timings*"
         "*ERT Backtrace*"

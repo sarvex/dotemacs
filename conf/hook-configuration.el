@@ -16,6 +16,7 @@
                                bookmark-bmenu-mode-hook
                                compilation-mode-hook
                                dired-mode-hook
+                               go-mode-hook
                                emacs-lisp-mode-hook
                                gist-list-mode-hook
                                gnus-article-mode-hook
@@ -53,6 +54,7 @@
                                  '(c-mode-common-hook
                                    coffee-mode-hook
                                    cperl-mode-hook
+                                   go-mode-hook
                                    css-mode-hook
                                    emacs-lisp-mode-hook
                                    feature-mode-hook
@@ -72,6 +74,7 @@
        (drag-stuff-modes-hooks (append
                                 conf-modes-hooks
                                 '(c-mode-common-hook
+                                  go-mode-hook
                                   coffee-mode-hook
                                   cperl-mode-hook
                                   css-mode-hook

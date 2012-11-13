@@ -32,6 +32,7 @@
 (load "dotemacs/conf/slime-configuration")
 (load "dotemacs/conf/python-configuration")
 (load "dotemacs/conf/ruby-configuration")
+(load "dotemacs/conf/go-configuration")
 (load "dotemacs/conf/javascript-configuration")
 (load "dotemacs/conf/html-css-configuration")
 

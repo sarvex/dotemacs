@@ -38,6 +38,7 @@
    (:name dired+ :lazy t)
    (:name dired-details :lazy t)
    (:name erc-highlight-nicknames :lazy t)
+   (:name go-mode :lazy t)
    (:name haml-mode :lazy t)
    (:name iedit :lazy t)
    (:name io-mode :lazy t)
