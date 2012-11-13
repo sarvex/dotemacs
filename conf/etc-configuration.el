@@ -111,6 +111,7 @@
       isearch-allow-scroll t
       standard-indent 4
       tab-always-indent 'complete
+      temporary-file-directory "/tmp/"
       tramp-default-method "sudo"
       global-mark-ring-max 50
       x-stretch-cursor t)

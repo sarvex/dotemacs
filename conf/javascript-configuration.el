@@ -21,7 +21,7 @@
 
 (defun flymake-jslint-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                     'flymake-create-temp-inplace))
+                     'flymake-create-temp-intemp))
          (local-file (file-relative-name
                       temp-file
                       (file-name-directory buffer-file-name))))
@@ -29,7 +29,7 @@
 
 (defun flymake-jshint-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                     'flymake-create-temp-inplace))
+                     'flymake-create-temp-intemp))
          (local-file (file-relative-name
                       temp-file
                       (file-name-directory buffer-file-name)))
