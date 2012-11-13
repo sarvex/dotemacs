@@ -6,6 +6,8 @@
   (when (fboundp 'whitespace-mode)
     (whitespace-mode -1))
 
+  (setq compile-command "go build")
+
   (setq tab-width 2))
 
 (defun flymake-go-init ()
@@ -21,7 +23,12 @@
     (add-hook 'go-mode-hook 'vderyagin/go-mode-hook)
     (add-hook 'before-save-hook 'gofmt-before-save)
 
+    (define-key go-mode-map (kbd "<f9>")
+     (lambda ()
+       (interactive)
+       (save-buffer)
+       (compile compile-command)))
+
     (define-key go-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
-    (define-key go-mode-map (kbd "<f9>") 'recompile)
     (define-key go-mode-map (kbd "C-c e") 'flymake-display-err-menu-for-current-line)
     (define-key go-mode-map (kbd "C-c C-c") 'gofmt)))
