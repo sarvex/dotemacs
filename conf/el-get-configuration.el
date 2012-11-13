@@ -24,7 +24,6 @@
    (:name clojure-mode)
    (:name diminish)
    (:name emacs-jabber)
-   (:name emacs-w3m)
    (:name haskell-mode)
    (:name helm)
    (:name magit)

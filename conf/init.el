@@ -39,7 +39,6 @@
 (load "dotemacs/conf/dired-configuration")
 (load "dotemacs/conf/openwith-configuration")
 (load "dotemacs/conf/diminish-configuration")
-(load "dotemacs/conf/w3m-configuration")
 (load "dotemacs/conf/org-configuration")
 (load "dotemacs/conf/twitter-configuration")
 (load "dotemacs/conf/bookmark-configuration")
