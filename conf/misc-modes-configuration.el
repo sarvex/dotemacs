@@ -164,7 +164,9 @@
             (let ((inhibit-read-only t))
               (ansi-color-apply-on-region (point-min) (point-max)))))
 (eval-after-load 'compile
-  '(define-key compilation-mode-map (kbd "f") 'ffap))
+  '(progn
+    (define-key compilation-mode-map (kbd "f") 'ffap)
+    (define-key compilation-mode-map (kbd "<f9>") 'recompile)))
 
 (setq shell-file-name "/bin/zsh"
       explicit-shell-file-name "/bin/zsh"
