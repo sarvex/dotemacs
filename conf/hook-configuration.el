@@ -140,6 +140,10 @@
 (add-hook 'after-save-hook 'desktop-save-in-desktop-dir)
 
 
+(eval-after-load 'shell
+  '(add-hook 'shell-mode-hook (lambda () (set (make-local-variable 'scroll-margin) 0))))
+
+(add-hook 'term-mode-hook (lambda () (set (make-local-variable 'scroll-margin) 0)))
 (add-hook 'term-mode-hook (lambda () (setq word-wrap nil)))
 
 (add-hook 'term-mode-hook (lambda () (autopair-mode -1)))

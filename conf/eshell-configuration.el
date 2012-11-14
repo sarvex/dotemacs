@@ -31,6 +31,7 @@
 
     (add-hook 'eshell-mode-hook
      (lambda ()
+       (set (make-local-variable 'scroll-margin) 0)
        (define-key eshell-mode-map (kbd "C-l")
          (lambda () (interactive) (goto-char (point-max)) (recenter-top-bottom 0)))))))
 
@@ -40,5 +41,3 @@
     (require 'em-term)
     (require 'em-cmpl)
     (setenv "PAGER" "cat")))
-
-
