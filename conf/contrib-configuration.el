@@ -30,6 +30,7 @@
 
      (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
      (define-key ac-complete-mode-map (kbd "M-?") 'ac-quick-help)
+     (define-key ac-complete-mode-map (kbd "C-s") 'ac-isearch)
      (define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
      (define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
      (define-key ac-complete-mode-map (kbd "C-g") 'ac-stop)
