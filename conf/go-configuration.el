@@ -2,9 +2,7 @@
   (require 'flymake)
   (flymake-mode)
   (push '(".+\\.go\\'" flymake-go-init) flymake-allowed-file-name-masks)
-
-  (when (fboundp 'whitespace-mode)
-    (whitespace-mode -1))
+  (set (make-local-variable 'flymake-no-changes-timeout) 2)
 
   (setq compile-command "go build")
 
