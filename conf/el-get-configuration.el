@@ -182,6 +182,10 @@
     :pkgname "mhayashi1120/yagist.el"
     :features nil)
 
+   (:name go-autocomplete
+    :type http
+    :url "https://raw.github.com/nsf/gocode/master/emacs/go-autocomplete.el")
+
    (:name projectur
     :type github
     :pkgname "vderyagin/projectur")))

@@ -4,6 +4,8 @@
   (push '(".+\\.go\\'" flymake-go-init) flymake-allowed-file-name-masks)
   (set (make-local-variable 'flymake-no-changes-timeout) 2)
 
+  (require 'go-autocomplete)
+
   (setq compile-command "go build")
 
   (setq tab-width 2))
