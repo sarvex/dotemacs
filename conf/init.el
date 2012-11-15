@@ -21,6 +21,7 @@
 (load "dotemacs/conf/erc-configuration")
 (load "dotemacs/conf/functions-configuration")
 (load "dotemacs/conf/yasnippet-configuration")
+(load "dotemacs/conf/auto-complete-configuration")
 (load "dotemacs/conf/ido-configuration")
 (load "dotemacs/conf/ibuffer-configuration")
 (load "dotemacs/conf/hist-configuration")

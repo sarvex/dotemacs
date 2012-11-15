@@ -9,34 +9,6 @@
     (let ((current-prefix-arg (not arg)))
       (scratch))))
 
-(setq ac-auto-show-menu nil
-      ac-auto-start nil
-      ac-comphist-file "~/.emacs.d/ac-comphist.dat"
-      ac-menu-height 15
-      ac-quick-help-delay 0.8)
-(eval-after-load 'auto-complete
-  (quote
-   (progn
-     (ac-config-default)
-
-     (add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete/dict" el-get-dir))
-
-     (setq-default ac-sources
-              '(ac-source-abbrev
-                ac-source-dictionary
-                ac-source-words-in-same-mode-buffers
-                ac-source-yasnippet
-                ac-source-filename))
-
-     (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-     (define-key ac-complete-mode-map (kbd "M-?") 'ac-quick-help)
-     (define-key ac-complete-mode-map (kbd "C-s") 'ac-isearch)
-     (define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
-     (define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
-     (define-key ac-complete-mode-map (kbd "C-g") 'ac-stop)
-     (define-key ac-complete-mode-map (kbd "<return>") 'ac-expand))))
-
-
 
 (setq multi-term-program "/bin/zsh")
 
