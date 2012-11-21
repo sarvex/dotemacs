@@ -30,6 +30,7 @@
    (:name paredit)
    (:name rdebug)
    (:name rhtml-mode)
+   (:name smex)
    (:name textile-mode)
    (:name yaml-mode)
 

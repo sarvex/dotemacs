@@ -87,3 +87,6 @@
 
 
 (setq ack-command "ack --color-match='bold underline' ")
+
+
+(setq smex-save-file "~/.emacs.d/smex-items")
