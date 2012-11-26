@@ -1,8 +1,7 @@
 (defun vderyagin/go-mode-hook ()
   (require 'flymake)
-  (flymake-mode)
   (push '(".+\\.go\\'" flymake-go-init) flymake-allowed-file-name-masks)
-  (set (make-local-variable 'flymake-no-changes-timeout) 2)
+  (flymake-mode -1)
 
   (require 'go-autocomplete)
 
@@ -24,6 +23,7 @@
     (add-hook 'before-save-hook 'gofmt-before-save)
 
     (define-key go-mode-map (kbd "<f9>") 'compile)
+    (define-key go-mode-map (kbd "<f10>") 'flymake-mode)
     (define-key go-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
     (define-key go-mode-map (kbd "C-c e") 'flymake-display-err-menu-for-current-line)
     (define-key go-mode-map (kbd "C-c C-c") 'gofmt)))
