@@ -10,6 +10,7 @@
  '(ido-use-filename-at-point nil)
  '(ido-use-url-at-point nil)
  '(ido-ubiquitous-command-exceptions '(gnus-topic-move-group
+                                       execute-extended-command
                                        bookmark-set))
  '(ido-decorations '("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]"
                      " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
