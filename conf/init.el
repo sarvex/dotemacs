@@ -28,6 +28,7 @@
 (load "dotemacs/conf/cursor-configuration")
 
 (load "dotemacs/conf/cc-mode-configuration")
+(load "dotemacs/conf/sh-configuration")
 (load "dotemacs/conf/haskell-configuration")
 (load "dotemacs/conf/lisps-configuration")
 (load "dotemacs/conf/slime-configuration")
