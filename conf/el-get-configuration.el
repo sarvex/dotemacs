@@ -26,6 +26,7 @@
    (:name emacs-jabber)
    (:name haskell-mode)
    (:name helm)
+   (:name lua-mode)
    (:name magit)
    (:name paredit)
    (:name rdebug)
