@@ -63,7 +63,8 @@
            (mode . irfc-mode)
            (mode . yari-mode)
            (mode . Man-mode)
-           (mode . woman-mode))))
+           (mode . woman-mode)
+           (name . "^\\*godoc "))))
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
