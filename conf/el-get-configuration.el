@@ -33,6 +33,7 @@
    (:name rhtml-mode)
    (:name smex)
    (:name textile-mode)
+   (:name tuareg-mode)
    (:name yaml-mode)
 
    (:name asciidoc :lazy t)
