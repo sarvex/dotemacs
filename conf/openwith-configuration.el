@@ -5,12 +5,13 @@
      ("\\.\\(bmp\\|ico\\)\\'" "feh" (file))
      ("\\.cb[abgrz]\\'" "qcomicbook" (file))
      ("\\.chm\\'" "kchmviewer" (file))
+     ("\\.pdf\\'" "mupdf" (file))
      (,(concat "\\."
                "\\("
                "djvu"
                "\\|"
-               "pdf"
-               "\\|"
+               ;; "pdf"
+               ;; "\\|"
                "ps"
                "\\|"
                "dvi"
