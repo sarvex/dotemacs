@@ -65,13 +65,22 @@
 (define-key global-map (kbd "C-z") popwin:keymap)
 
 
-
-(defun my-markdown-mode-hook ()
-  (setq fill-column 78)
-  (turn-on-auto-fill)
-  (turn-on-orgtbl))
+(setq markdown-imenu-generic-expression
+     '(("title"  "^\\(.*\\)[\n]=+$" 1)
+       ("h2-"    "^\\(.*\\)[\n]-+$" 1)
+       ("h1"   "^# \\(.*\\)$" 1)
+       ("h2"   "^## \\(.*\\)$" 1)
+       ("h3"   "^### \\(.*\\)$" 1)
+       ("h4"   "^#### \\(.*\\)$" 1)
+       ("h5"   "^##### \\(.*\\)$" 1)
+       ("h6"   "^###### \\(.*\\)$" 1)
+       ("fn"   "^\\[\\^\\(.*\\)\\]" 1)))
 (eval-after-load 'markdown-mode
-  '(add-hook 'markdown-mode-hook 'my-markdown-mode-hook))
+  '(progn
+    (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+    (add-hook 'markdown-mode-hook 'turn-on-orgtbl)
+    (add-hook 'markdown-mode-hook (lambda () (setq fill-column 78)))
+    (add-hook 'markdown-mode-hook (lambda () (setq imenu-generic-expression markdown-imenu-generic-expression)))))
 (mapc
  (lambda (extension)
    (add-to-list 'auto-mode-alist (cons extension 'markdown-mode)))
