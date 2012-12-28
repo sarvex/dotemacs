@@ -6,6 +6,8 @@
        (goto-char (point-max))
        (eval-print-last-sexp)))))
 
+(setq el-get-notify-type 'message)
+
 (defun el-get-regenerate-all-autoloads ()
   "Regenerates all autoloads for el-get"
   (interactive)
