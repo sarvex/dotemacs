@@ -167,10 +167,6 @@
     :type github
     :pkgname "technomancy/ido-ubiquitous")
 
-   (:name nginx-mode
-    :type github
-    :pkgname "ajc/nginx-mode")
-
    (:name rake.el
     :type github
     :pkgname "vderyagin/rake.el")
