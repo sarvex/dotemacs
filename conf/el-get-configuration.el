@@ -46,7 +46,6 @@
    (:name haml-mode :lazy t)
    (:name iedit :lazy t)
    (:name io-mode :lazy t)
-   (:name nognus :lazy t)
    (:name nrepl :lazy t)
    (:name php-mode :lazy t)
    (:name quack :lazy t)
