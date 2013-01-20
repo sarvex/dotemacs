@@ -22,7 +22,7 @@
 (mapc
  (lambda (extension)
    (add-to-list 'completion-ignored-extensions extension))
- '(".rbc" ".sassc" ".scssc" ".sqlite3"))
+ '(".rbc" ".sassc" ".scssc" ".sqlite3" ".hi"))
 
 
 (setq gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration.el"
