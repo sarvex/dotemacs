@@ -47,7 +47,6 @@
         "^Thumbs\\.db\\'"))
 
 (recentf-mode t)
-(recentf-save-list)
 
 
 ;; desktop
