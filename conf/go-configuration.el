@@ -5,7 +5,7 @@
 
   (require 'go-autocomplete)
 
-  (setq compile-command "go build")
+  (setq compile-command "go test")
 
   (setq tab-width 2))
 
