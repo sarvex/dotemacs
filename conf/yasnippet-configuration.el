@@ -1,6 +1,4 @@
 (custom-set-variables
- '(yas-trigger-key "M-[")
- '(yas-skip-and-clear-key '("C-d"))
  '(yas-also-auto-indent-first-line nil)
  '(yas-good-grace nil)
  '(yas-choose-tables-first t)
