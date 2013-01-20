@@ -46,6 +46,7 @@
                                   markdown-mode-hook
                                   nxml-mode-hook
                                   ruby-mode-hook
+                                  scala-mode-hook
                                   sgml-mode-hook
                                   sh-mode-hook
                                   yaml-mode-hook)))
@@ -54,10 +55,10 @@
                                  '(c-mode-common-hook
                                    coffee-mode-hook
                                    cperl-mode-hook
-                                   go-mode-hook
                                    css-mode-hook
                                    emacs-lisp-mode-hook
                                    feature-mode-hook
+                                   go-mode-hook
                                    graphviz-dot-mode-hook
                                    haml-mode-hook
                                    haskell-mode-hook
@@ -68,6 +69,7 @@
                                    nxml-mode-hook
                                    python-mode-hook
                                    ruby-mode-hook
+                                   scala-mode-hook
                                    sgml-mode-hook
                                    sh-mode-hook
                                    yaml-mode-hook)))
@@ -88,6 +90,7 @@
                                   nxml-mode-hook
                                   python-mode-hook
                                   ruby-mode-hook
+                                  scala-mode-hook
                                   sgml-mode-hook
                                   sh-mode-hook
                                   yaml-mode-hook)))
@@ -142,6 +145,9 @@
 
 (eval-after-load 'shell
   '(add-hook 'shell-mode-hook (lambda () (set (make-local-variable 'scroll-margin) 0))))
+
+(eval-after-load 'comint
+  '(add-hook 'comint-mode-hook (lambda () (set (make-local-variable 'scroll-margin) 0))))
 
 (add-hook 'term-mode-hook (lambda () (set (make-local-variable 'scroll-margin) 0)))
 (add-hook 'term-mode-hook (lambda () (setq word-wrap nil)))
