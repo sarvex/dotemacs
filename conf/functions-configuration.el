@@ -419,3 +419,20 @@ makes)."
           ((inhibit-field-text-motion t))
         (sort-subr nil 'forward-line 'end-of-line nil nil
                    (lambda (s1 s2) (eq (random 2) 0)))))))
+
+
+(defun gist (&optional private-p)
+  "gist current file, clone repository and show it in dired"
+  (interactive "P")
+  (gist-region-or-buffer private-p)
+  (lexical-let* ((gists-dir (expand-file-name "~/repos/gists"))
+                 (url (car kill-ring))
+                 (gist-id (progn
+                            (string-match "^https://gist\.github\.com/\\([0-9a-f]+\\)\\'" url)
+                            (match-string 1 url)))
+                 (gist-dir (expand-file-name gist-id gists-dir)))
+    (set-process-sentinel
+     (start-process "gist-clone" nil "gist-clone" gist-id)
+     (lambda (process event)
+       (when (string= event "finished\n")
+         (dired gist-dir))))))
