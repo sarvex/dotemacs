@@ -5,13 +5,13 @@
 
   (require 'go-autocomplete)
 
-  (setq compile-command "go test")
+  (set (make-local-variable 'compile-command) "go test")
 
   (setq tab-width 2))
 
 (defun flymake-go-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                     'flymake-create-temp-intemp))
+                     'flymake-create-temp-inplace))
          (local-file (file-relative-name
                       temp-file
                       (file-name-directory buffer-file-name))))
