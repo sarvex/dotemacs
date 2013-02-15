@@ -10,8 +10,6 @@
                "\\("
                "djvu"
                "\\|"
-               ;; "pdf"
-               ;; "\\|"
                "ps"
                "\\|"
                "dvi"
@@ -81,7 +79,7 @@
                "ape"
                "\\)"
                "\\'")
-      "deadbeef" (file))
+      "vlc" (file))
      (,(concat "\\."
                "\\("
                "\\(doc\\|xls\\)x?"
@@ -91,4 +89,16 @@
                "rtf"
                "\\)"
                "\\'")
-      "libreoffice" (file)))))
+      "libreoffice" (file))))
+ '(dired-guess-shell-alist-user
+   '(("\\.pdf\\'" '("mupdf" "qpdfview --unique"))
+     ("\\.\\(djvu\\|ps\\|dvi\\)\\'" "evince")
+     ("\\.cb[abgrz]\\'" "qcomicbook")
+
+     ("\\.tar\\(\\.Z\\)?\\'" "aunpack")
+     ("\\.t\\(ar\\.\\)?gz\\'" "aunpack")
+     ("\\.t\\(ar\\.bz2\\|bz\\)\\'" "aunpack")
+     ("\\.t\\(ar\\.\\)?xz\\'" "aunpack")
+     ("\\.\\(zip\\|rar\\|7z\\|xz\\|bz2\\|gz\\|arc\\)\\'" "aunpack" )
+     ("\\.\\(bmp\\|ico\\|jpe?g\\|gif\\|tiff?\\|png\\)\\'" "feh")
+     ("\\.\\(mp3\\|ogg\\|flac\\|wav\\|m[k4]a\\|wma\\|ac3\\|aac\\|ape\\)\\'" "vlc"))))

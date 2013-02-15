@@ -39,7 +39,7 @@
 (load "dotemacs/conf/html-css-configuration")
 
 (load "dotemacs/conf/dired-configuration")
-(load "dotemacs/conf/openwith-configuration")
+(load "dotemacs/conf/file-associations-configuration")
 (load "dotemacs/conf/diminish-configuration")
 (load "dotemacs/conf/org-configuration")
 (load "dotemacs/conf/twitter-configuration")
