@@ -83,7 +83,7 @@
 (setq scroll-step 0
       redisplay-dont-pause t
       scroll-conservatively most-positive-fixnum
-      scroll-margin 2
+      scroll-margin 0
       scroll-down-aggressively nil
       scroll-up-aggressively nil
       scroll-preserve-screen-position 'always)
