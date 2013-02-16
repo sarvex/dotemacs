@@ -66,6 +66,8 @@
        "\\|"
        "/\\.emacs\\.d/recentf"
        "\\|"
+       "/org-clock-save.el\\'"
+       "\\|"
        (expand-file-name "~/repos/")
        "\\|"
        (expand-file-name "~/org/")
