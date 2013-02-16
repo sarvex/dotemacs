@@ -197,3 +197,10 @@
          (rename-buffer (format "*Help for `%s'*" symbol)))))
     (define-key help-mode-map (kbd "M-p") 'help-go-back)
     (define-key help-mode-map (kbd "M-n") 'help-go-forward)))
+
+
+(custom-set-variables
+ '(global-auto-revert-non-file-buffers t)
+ '(auto-revert-verbose nil))
+
+(global-auto-revert-mode 1)
