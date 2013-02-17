@@ -33,7 +33,6 @@
    (:name paredit)
    (:name rdebug)
    (:name rhtml-mode)
-   (:name smex)
    (:name textile-mode)
    (:name tuareg-mode)
    (:name yaml-mode)
@@ -52,6 +51,7 @@
    (:name sass-mode :lazy t)
    (:name scss-mode :lazy t)
    (:name slim-mode :lazy t)
+   (:name smex :lazy t)
    (:name twittering-mode :lazy t)
    (:name yari :lazy t)
 
