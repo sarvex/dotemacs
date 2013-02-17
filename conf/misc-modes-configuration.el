@@ -9,7 +9,7 @@
 ;; enabled by default by now:
 ;; (auto-compression-mode t)
 ;; (transient-mark-mode t)
-;; (global-font-lock-mode t)
+;; (global-font-lock-mode)
 
 ;; off
 (menu-bar-mode -1)

@@ -3,7 +3,7 @@
 (custom-set-variables
  '(dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
  '(directory-free-space-args "-Pkh")
- '(dired-details-hidden-string "")
+ ;; '(dired-details-hidden-string "")
  '(dired-details-hide-extra-lines t)
  '(dired-details-hide-link-targets nil)
  '(dired-dwim-target nil)
