@@ -166,7 +166,7 @@
 
    (:name ido-ubiquitous
     :type github
-    :pkgname "technomancy/ido-ubiquitous")
+    :pkgname "DarwinAwardWinner/ido-ubiquitous")
 
    (:name rake.el
     :type github
