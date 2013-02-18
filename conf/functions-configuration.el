@@ -437,3 +437,10 @@ makes)."
      (lambda (process event)
        (when (string= event "finished\n")
          (dired gist-dir))))))
+
+(defun goto-random-line ()
+  "Go to random line in current buffer."
+  (interactive)
+  (goto-char (point-min))
+  (forward-line
+    (random (count-lines (point-min) (point-max)))))
