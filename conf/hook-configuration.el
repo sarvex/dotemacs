@@ -11,6 +11,7 @@
                                                    "-hook")))
                                  conf-modes))
        (hl-line-modes-hooks (append
+                             conf-modes-hooks
                              '(Info-mode-hook
                                archive-mode-hook
                                bookmark-bmenu-mode-hook
