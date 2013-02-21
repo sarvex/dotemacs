@@ -26,6 +26,7 @@
    (:name clojure-mode)
    (:name diminish)
    (:name emacs-jabber)
+   (:name gist)
    (:name haskell-mode)
    (:name helm)
    (:name lua-mode)
@@ -176,11 +177,6 @@
    (:name ack
     :type github
     :pkgname "leoliu/ack-el"
-    :features nil)
-
-   (:name yagist
-    :type github
-    :pkgname "mhayashi1120/yagist.el"
     :features nil)
 
    (:name go-autocomplete

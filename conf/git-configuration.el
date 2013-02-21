@@ -20,9 +20,3 @@
 
     (add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)
     (add-hook 'magit-log-edit-mode-hook (lambda () (flyspell-mode t)))))
-
-(eval-after-load 'yagist
-  (quote
-   (setq yagist-github-user vderyagin/generic-username
-         yagist-user-password vderyagin/github-password
-         yagist-working-directory "~/repos/gists")))
