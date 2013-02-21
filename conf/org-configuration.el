@@ -182,9 +182,10 @@
      (org-crypt-use-before-save-magic)
 
      ;; Get rid of strike-through emphasis:
-     (cl-delete-if
-      (lambda (item) (string= "+" (car item)))
-      org-emphasis-alist)
+     (setq org-emphasis-alist
+           (delq nil
+                 (mapcar (lambda (item) (if (string= "+" (car item)) nil item))
+                         org-emphasis-alist)))
 
      (add-hook 'org-mode-hook
                (defun vderyagin/org-mode-hook ()
