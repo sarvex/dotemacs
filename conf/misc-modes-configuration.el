@@ -126,7 +126,7 @@
 
 (mapc
  (lambda (extension)
-   (add-to-list 'auto-mode-alist `(,extension . conf-mode)))
+   (add-to-list 'auto-mode-alist (cons extension 'conf-mode)))
  '("\\.cue\\'" "\\.cnf\\'" "^hgrc\\'" "\\.gitignore\\'"))
 
 

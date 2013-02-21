@@ -133,7 +133,7 @@
       user-full-name my-full-name)
 
 (setq grep-scroll-output t
-      grep-command "grep --recursive --with-filename --line-number -e ")
+      grep-command "grep --recursive --with-filename --line-number --regexp=")
 
 
 (defadvice save-buffers-kill-emacs (before do-not-ask-when-has-live-clients activate)
