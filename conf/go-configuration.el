@@ -1,6 +1,6 @@
 (defun vderyagin/go-mode-hook ()
   (require 'flymake)
-  (push '(".+\\.go\\'" flymake-go-init) flymake-allowed-file-name-masks)
+  (add-to-list 'flymake-allowed-file-name-masks '(".+\\.go\\'" flymake-go-init))
   (flymake-mode -1)
 
   (require 'go-autocomplete)
