@@ -163,6 +163,7 @@
   (quote
    (progn
      (add-hook 'org-agenda-mode-hook 'vderyagin/org-agenda-activate-appt)
+     (add-hook 'org-agenda-mode-hook (lambda () (setq truncate-lines t)))
 
      (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
      (define-key org-agenda-mode-map (kbd "C-S-<right>") nil)
