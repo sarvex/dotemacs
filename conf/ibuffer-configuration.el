@@ -286,6 +286,7 @@
             (name . "^\\*About GNU Emacs\\*$")
             (name . "^\\*Apropos\\*$")
             (name . "^\\*Async Shell Command")
+            (name . "^\\*Choices\\*$")
             (name . "^\\*Clock Task Select\\*$")
             (name . "^\\*Colors\\*$")
             (name . "^\\*Dired log\\*$")
