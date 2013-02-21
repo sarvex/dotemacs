@@ -40,14 +40,9 @@
 
 (setq
  safe-local-variable-values
- '((eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook" (add-hook 'write-contents-functions (lambda nil (delete-trailing-whitespace) nil)) (require 'whitespace) "Sometimes the mode needs to be toggled off and on." (whitespace-mode 0) (whitespace-mode 1))
-   (dired-omit-mode . t)
+ '((dired-omit-mode . t)
    (dired-listing-switches . "-LhAFl --group-directories-first")
-   (eval progn (rainbow-mode 1) (hl-line-mode -1))
-   (whitespace-line-column . 80)
-   (whitespace-style face trailing lines-tail)
-   (require-final-newline . t)
-   (encoding . utf-8)))
+   (eval progn (rainbow-mode 1) (hl-line-mode -1))))
 
 
 ;; startup
@@ -97,8 +92,12 @@
       delete-old-versions t)
 
 
-(setq font-lock-maximum-decoration t
-      search-highlight t
+(custom-set-variables
+ '(font-lock-maximum-decoration t)
+ '(font-lock-mode t))
+
+
+(setq search-highlight t
       query-replace-highlight t
       nobreak-char-display nil)
 
@@ -118,6 +117,7 @@
 
 (setq-default comment-column 42
               fill-column 78
+              show-trailing-whitespace nil
               indent-tabs-mode nil
               indicate-buffer-boundaries 'left
               indicate-empty-lines t
