@@ -259,3 +259,19 @@
                            (mapcar 'get-relative-path files))
             absolute-path (get-absolute-path relative-path))
       (find-file absolute-path))))
+
+
+(defun vderyagin/org-agenda-skip-tag (tag)
+  "Skip all entries that correspond to TAG."
+  (let ((next-headline
+         (save-excursion
+           (or (outline-next-heading)
+               (point-max))))
+        (current-headline
+         (or (and (org-at-heading-p)
+                  (point))
+             (save-excursion
+               (org-back-to-heading)))))
+    (if (member tag (org-get-tags-at current-headline))
+        next-headline
+        nil)))
