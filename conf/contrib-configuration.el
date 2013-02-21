@@ -30,37 +30,26 @@
       (require 'asciidoc))))
 
 
-(setq
- ;; display-buffer-function 'popwin:display-buffer
- popwin:popup-window-height 20
- special-display-function 'popwin:special-display-popup-window)
-(setq popwin:special-display-config
-      '(("*Help*")
-        ("*Completions*" :noselect nil)
-        ("*Compile-Log*" :noselect t)
-        ("*Occur*" :noselect t)
-        ("*Async Shell Command*")
-        ("*Shell Command Output*")))
+(setq display-buffer-function 'popwin:display-buffer
+      popwin:popup-window-height 25)
 
-(setq special-display-buffer-names
-      '("*Help*"
-        "*Occur*"
+(setq popwin:special-display-config
+      '(((lambda (buf)
+           (let ((name (with-current-buffer buf
+                         mode-name)))
+             (string= name "Helm"))))
+        (completion-list-mode :noselect t)
+        ("*magit-edit-log*" :stick t :height 15)
+        ("*Gofmt Errors*" :noselect nil :height 10)
+        debugger-mode
+        rspec-mode
+        rake-mode
+        occur-mode
+        compilation-mode
+        help-mode
         "*Compile-Log*"
         "*Async Shell Command*"
-        "*twittering-edit*"
-        "*magit-edit-log*"
-        "*Shell Command Output*"
-        "*rspec*"
-        "*rake*"
-        "*ack*"
-        "*grep*"
-        "*compilation*"
-        "*ert*"
-        "*Gofmt Errors*"
-        "*ERT list of should forms*"
-        "*ERT timings*"
-        "*ERT Backtrace*"
-        "*ERT Messages*"))
+        "*Shell Command Output*"))
 (define-key global-map (kbd "C-h e") 'popwin:messages)
 (define-key global-map (kbd "C-z") popwin:keymap)
 
