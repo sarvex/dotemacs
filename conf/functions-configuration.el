@@ -422,10 +422,10 @@ makes)."
                    (lambda (s1 s2) (eq (random 2) 0)))))))
 
 
-(defun gist (&optional private-p)
+(defun gist ()
   "gist current file, clone repository and show it in dired"
-  (interactive "P")
-  (gist-region-or-buffer private-p)
+  (interactive)
+  (call-interactively 'gist-region-or-buffer)
   (lexical-let* ((gists-dir (expand-file-name "~/repos/gists"))
                  (url (car kill-ring))
                  (gist-id (progn

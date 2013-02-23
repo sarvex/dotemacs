@@ -47,6 +47,7 @@
    (:name iedit :lazy t)
    (:name io-mode :lazy t)
    (:name nrepl :lazy t)
+   (:name org-mode :lazy t)
    (:name php-mode :lazy t)
    (:name quack :lazy t)
    (:name rainbow-mode :lazy t)
@@ -57,10 +58,6 @@
    (:name smex :lazy t)
    (:name twittering-mode :lazy t)
    (:name yari :lazy t)
-
-   (:name org-mode
-    :autoloads t
-    :lazy t)
 
    (:name coffee-mode
     :post-init nil

@@ -160,5 +160,3 @@
          (line-beginning-position)
          (line-beginning-position 2))
         (message "Killed line"))))
-
-(define-key Info-mode-map (kbd ";") 'Info-up)

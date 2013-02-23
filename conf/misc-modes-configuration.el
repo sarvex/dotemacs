@@ -204,3 +204,6 @@
  '(auto-revert-verbose nil))
 
 (global-auto-revert-mode 1)
+
+(eval-after-load 'info
+  '(define-key Info-mode-map (kbd ";") 'Info-up))
