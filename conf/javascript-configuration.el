@@ -1,13 +1,11 @@
-(setq js-indent-level 2)
+(custom-set-variables
+ '(js-indent-level 2)
+ '(coffee-tab-width 2))
 
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 
 (add-to-list 'auto-mode-alist '("\\.handlebars\\'" . handlebars-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . handlebars-mode))
-
-(setq coffee-cleanup-whitespace t
-      coffee-js-mode 'js-mode
-      coffee-tab-width 2)
 
 (defun coffee-compile-dwim ()
   (interactive)

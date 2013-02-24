@@ -13,11 +13,11 @@
      (add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete/dict" el-get-dir))
 
      (setq-default ac-sources
-              '(ac-source-abbrev
-                ac-source-dictionary
-                ac-source-words-in-same-mode-buffers
-                ac-source-yasnippet
-                ac-source-filename))
+                   '(ac-source-abbrev
+                     ac-source-dictionary
+                     ac-source-words-in-same-mode-buffers
+                     ac-source-yasnippet
+                     ac-source-filename))
 
      (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
      (define-key ac-complete-mode-map (kbd "M-?") 'ac-quick-help)
