@@ -1,6 +1,7 @@
-(setq default-file-name-coding-system 'utf-8
-      file-name-coding-system 'utf-8
-      locale-coding-system 'utf-8)
+(custom-set-variables
+ '(default-file-name-coding-system 'utf-8)
+ '(file-name-coding-system 'utf-8)
+ '(locale-coding-system 'utf-8))
 
 (set-language-environment 'utf-8)
 (set-terminal-coding-system 'utf-8)

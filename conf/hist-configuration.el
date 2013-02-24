@@ -31,61 +31,58 @@
 
 
 ;; Recentf
-(setq recentf-save-file "~/.emacs.d/recentf")
-
-(setq recentf-max-saved-items 3000)
-
-(setq recentf-exclude
-      '("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" ; images
-        "\\.\\(zip\\|tar\\|rar\\|xpi\\|crx\\|oex\\)\\'" ; archives
-        "\\.nfo\\'"
-        "\\.cue\\'"
-        "\\.sfv\\'"
-        "\\.m3u\\'"
-        "\\.url\\'"
-        "\\.srt\\'"
-        "^Thumbs\\.db\\'"))
+(custom-set-variables
+ '(recentf-save-file "~/.emacs.d/recentf")
+ '(recentf-max-saved-items 3000)
+ '(recentf-exclude
+   '("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" ; images
+     "\\.\\(zip\\|tar\\|rar\\|xpi\\|crx\\|oex\\)\\'" ; archives
+     "\\.nfo\\'"
+     "\\.cue\\'"
+     "\\.sfv\\'"
+     "\\.m3u\\'"
+     "\\.url\\'"
+     "\\.srt\\'"
+     "^Thumbs\\.db\\'")))
 
 (recentf-mode t)
 
 
 ;; desktop
-(setq desktop-path '("~/.emacs.d/")
-      desktop-load-locked-desktop t
-      desktop-save t
-      desktop-save-mode t)
-
-(setq desktop-files-not-to-save
-      (concat
-       "\\("
-       "^/[^/:]*:"
-       "\\|"
-       "(ftp)$"
-       "\\|"
-       "\\.gpg\\'"
-       "\\|"
-       "/\\.emacs\\.d/recentf"
-       "\\|"
-       "/org-clock-save.el\\'"
-       "\\|"
-       (expand-file-name "~/repos/")
-       "\\|"
-       (expand-file-name "~/org/")
-       "\\)"))
-
-(setq desktop-globals-to-save nil)      ; not needed, `savehist' does the thing
-
-(setq desktop-locals-to-save
-      '(desktop-locals-to-save
-        truncate-lines
-        case-fold-search
-        case-replace
-        fill-column
-        overwrite-mode
-        change-log-default-name
-        size-indication-mode
-        buffer-file-coding-system
-        indent-tabs-mode
-        show-trailing-whitespace))
+(custom-set-variables
+ '(desktop-path '("~/.emacs.d/"))
+ '(desktop-load-locked-desktop t)
+ '(desktop-save t)
+ '(desktop-save-mode t)
+ '(desktop-globals-to-save nil)      ; not needed, `savehist' does the thing
+ '(desktop-files-not-to-save
+   (concat
+    "\\("
+    "^/[^/:]*:"
+    "\\|"
+    "(ftp)$"
+    "\\|"
+    "\\.gpg\\'"
+    "\\|"
+    "/\\.emacs\\.d/recentf"
+    "\\|"
+    "/org-clock-save.el\\'"
+    "\\|"
+    (expand-file-name "~/repos/")
+    "\\|"
+    (expand-file-name "~/org/")
+    "\\)"))
+ '(desktop-locals-to-save
+   '(desktop-locals-to-save
+     truncate-lines
+     case-fold-search
+     case-replace
+     fill-column
+     overwrite-mode
+     change-log-default-name
+     size-indication-mode
+     buffer-file-coding-system
+     indent-tabs-mode
+     show-trailing-whitespace)))
 
 (desktop-save-mode t)

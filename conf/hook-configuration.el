@@ -143,18 +143,9 @@
 
 (add-hook 'after-save-hook 'desktop-save-in-desktop-dir)
 
-
-(eval-after-load 'shell
-  '(add-hook 'shell-mode-hook (lambda () (set (make-local-variable 'scroll-margin) 0))))
-
-(eval-after-load 'comint
-  '(add-hook 'comint-mode-hook (lambda () (set (make-local-variable 'scroll-margin) 0))))
-
-(add-hook 'term-mode-hook (lambda () (set (make-local-variable 'scroll-margin) 0)))
 (add-hook 'term-mode-hook (lambda () (setq word-wrap nil)))
-
+(add-hook 'term-mode-hook (lambda () (setq truncate-lines t)))
 (add-hook 'term-mode-hook (lambda () (autopair-mode -1)))
-
 (add-hook 'term-mode-hook
           (defun load-quiet-light-theme (&rest args)
             (load-file "~/repos/misc/color-theme-quiet-light/quiet-light-theme.el")))
