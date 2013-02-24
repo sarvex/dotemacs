@@ -1,23 +1,18 @@
-(make-face 'vderyagin/twittering-username-face)
-(make-face 'vderyagin/twittering-metainfo-face)
+(make-face 'vderyagin-twittering-username-face)
+(make-face 'vderyagin-twittering-metainfo-face)
 
-
-(custom-set-variables
- '(twittering-auth-method 'xauth)
- '(twittering-connection-type-order '(curl wget native))
- '(twittering-icon-mode t)
- '(twittering-private-info-file (expand-file-name "~/.emacs.d/dotemacs/misc/twittering.gpg"))
- '(twittering-timer-interval 150)
- '(twittering-use-master-password t)
- '(twittering-status-format
-      (concat
-       "%i %FACE[vderyagin/twittering-username-face]{%s} (%S), %@:\n"
-       "%FILL[ ]{%T}\n"
-       "%FILL[  ]{%FACE[vderyagin/twittering-metainfo-face]{from %f%L%r%R}}")))
+(setq twittering-auth-method 'xauth
+      twittering-icon-mode t
+      twittering-private-info-file (expand-file-name "~/.emacs.d/dotemacs/misc/twittering.gpg")
+      twittering-timer-interval 150
+      twittering-use-master-password t
+      twittering-status-format (concat
+                                "%i %FACE[vderyagin-twittering-username-face]{%s} (%S), %@:\n"
+                                "%FILL[ ]{%T}\n"
+                                "%FILL[  ]{%FACE[vderyagin-twittering-metainfo-face]{from %f%L%r%R}}"))
 
 (eval-after-load 'twittering-mode
   '(progn
-
     (mapc
      (lambda (item)
        (twittering-add-timeline-history item))
