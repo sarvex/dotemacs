@@ -103,8 +103,8 @@
 
 (add-hook 'message-mode-hook 'turn-on-orgstruct++)
 (add-hook 'message-mode-hook 'turn-on-orgtbl)
-(add-hook 'message-mode-hook (lambda () (epa-mail-mode t)))
-(add-hook 'message-mode-hook (lambda () (flyspell-mode t)))
+(add-hook 'message-mode-hook 'epa-mail-mode)
+(add-hook 'message-mode-hook 'flyspell-mode)
 
 (defadvice save-some-buffers (before save-gnus-dribble-file activate)
   "Unconditionally save gnus dribble file."

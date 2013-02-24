@@ -19,4 +19,4 @@
     (define-key magit-mode-map (kbd "M-p") 'magit-show-commit-backward)
 
     (add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)
-    (add-hook 'magit-log-edit-mode-hook (lambda () (flyspell-mode t)))))
+    (add-hook 'magit-log-edit-mode-hook 'flyspell-mode)))
