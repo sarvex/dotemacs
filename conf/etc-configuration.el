@@ -72,7 +72,6 @@
 
 (custom-set-variables
  '(debug-on-error nil)
- '(diff-switches "-uc")
  '(echo-keystrokes 0.4)
  '(eval-expression-print-level nil)
  '(isearch-allow-scroll t)
