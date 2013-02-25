@@ -28,6 +28,8 @@
  '(indicate-empty-lines t)
  '(tab-width 4)
  '(word-wrap t)
+ '(ediff-window-setup-function 'ediff-setup-windows-plain)
+ '(ediff-make-buffers-readonly-at-startup t)
  '(grep-scroll-output t)
  '(grep-command "grep --recursive --with-filename --line-number --regexp="))
 
