@@ -28,6 +28,7 @@
  '(indicate-empty-lines t)
  '(tab-width 4)
  '(word-wrap t)
+ '(calc-window-height 18)
  '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(ediff-make-buffers-readonly-at-startup t)
  '(grep-scroll-output t)
