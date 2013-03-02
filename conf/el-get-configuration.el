@@ -16,6 +16,7 @@
      (:name diminish)
      (:name emacs-jabber)
      (:name gist)
+     (:name go-mode)
      (:name haskell-mode)
      (:name helm)
      (:name lua-mode)
@@ -171,13 +172,7 @@
 
      (:name projectur
       :type github
-      :pkgname "vderyagin/projectur")
-
-     (:name go-mode
-      :type github
-      :pkgname "dominikh/go-mode.el")
-
-     )))
+      :pkgname "vderyagin/projectur"))))
 
 (el-get 'wait)
 (load (file-name-sans-extension el-get-autoload-file))
