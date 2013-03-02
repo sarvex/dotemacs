@@ -49,6 +49,7 @@
      occur-mode
      compilation-mode
      help-mode
+     "*interpretation*"
      "*Compile-Log*"
      "*Async Shell Command*"
      "*Shell Command Output*")))
