@@ -2,6 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d")
 
 (add-to-list 'load-path "~/.emacs.d/slime")
+(add-to-list 'load-path "~/.emacs.d/ensime/elisp")
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -32,6 +33,7 @@
 (load "dotemacs/conf/slime-configuration")
 (load "dotemacs/conf/python-configuration")
 (load "dotemacs/conf/ruby-configuration")
+(load "dotemacs/conf/scala-configuration")
 (load "dotemacs/conf/go-configuration")
 (load "dotemacs/conf/javascript-configuration")
 (load "dotemacs/conf/html-css-configuration")
