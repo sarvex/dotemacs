@@ -1,9 +1,6 @@
 (eval-after-load 'paredit
   '(diminish 'paredit-mode " P"))
 
-(eval-after-load 'autopair
-  '(diminish 'autopair-mode " p"))
-
 (eval-after-load 'eldoc
   '(diminish 'eldoc-mode "Eld"))
 

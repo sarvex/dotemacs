@@ -21,8 +21,16 @@
 (paren-activate)
 
 
-(setq autopair-skip-whitespace 'chomp)
-(autopair-global-mode)
+(custom-set-variables
+ '(sp-highlight-pair-overlay nil))
+(smartparens-global-mode)
+(mapc
+ (lambda (mode)
+   (add-to-list 'sp-ignore-modes-list mode))
+ '(lisp-mode
+   emacs-lisp-mode
+   scheme-mode
+   term-mode))
 
 
 (eval-after-load 'doc-mode

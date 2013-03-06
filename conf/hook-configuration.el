@@ -145,7 +145,6 @@
 
 (add-hook 'term-mode-hook (lambda () (setq word-wrap nil)))
 (add-hook 'term-mode-hook (lambda () (setq truncate-lines t)))
-(add-hook 'term-mode-hook (lambda () (autopair-mode -1)))
 (add-hook 'term-mode-hook
           (defun load-quiet-light-theme (&rest args)
             (load-file "~/repos/misc/color-theme-quiet-light/quiet-light-theme.el")))

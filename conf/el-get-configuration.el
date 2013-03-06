@@ -10,7 +10,6 @@
  '(el-get-notify-type 'message)
  '(el-get-sources
    '((:name el-get)
-     (:name autopair)
      (:name bookmark+)
      (:name clojure-mode)
      (:name diminish)
@@ -169,6 +168,9 @@
      (:name go-autocomplete
       :type http
       :url "https://raw.github.com/nsf/gocode/master/emacs/go-autocomplete.el")
+
+     (:name smartparens
+      :features smartparens-config)
 
      (:name projectur
       :type github

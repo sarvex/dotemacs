@@ -90,9 +90,7 @@
 (eval-after-load 'wdired
   '(progn
     (define-key wdired-mode-map (kbd "<down>") nil)
-    (define-key wdired-mode-map (kbd "<up>") nil)
-
-    (add-hook 'wdired-mode-hook (lambda () (autopair-mode t)))))
+    (define-key wdired-mode-map (kbd "<up>") nil)))
 
 (defun dired-next-subdir-of-current-dir-parent (&optional jump)
   "Moves to the n-th next directory of the same level"
