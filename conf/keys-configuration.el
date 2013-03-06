@@ -67,7 +67,7 @@
    [mouse-5] [down-mouse-5] [drag-mouse-5] [double-mouse-5] [triple-mouse-5]
    [right] [left] [up] [down] [home] [end] [prior] [next] [S-insert] [delete]
    [C-right] [C-left] [C-up] [C-down] [M-right] [M-left] [M-up] [M-down]
-   [C-delete] [M-delete] [M-backspace] [C-backspace]))
+   [C-delete] [M-delete] [M-backspace] [C-backspace] [delete] [deletechar]))
 
 ;; disable arrow keys in minibuffer
 (mapc
