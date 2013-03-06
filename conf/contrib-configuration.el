@@ -24,12 +24,20 @@
 (custom-set-variables
  '(sp-highlight-pair-overlay nil))
 (smartparens-global-mode)
+(sp-with-modes '(
+                 cperl-mode
+                 go-mode
+                 haskell-mode
+                 perl-mode
+                 ruby-mode
+                 scala-mode
+                 sh-mode
+                 )
+  (sp-local-pair "`" "`"))
 (mapc
  (lambda (mode)
    (add-to-list 'sp-ignore-modes-list mode))
  '(lisp-mode
-   emacs-lisp-mode
-   scheme-mode
    term-mode))
 
 
