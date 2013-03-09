@@ -5,18 +5,17 @@
 
 (require 'ert)
 
-(defun my-duplicate-line (&optional commentfirst)
-  "Copy line at point; if COMMENTFIRST is non-nil, comment out the original"
-  (interactive "P")
-  (beginning-of-line)
-  (push-mark)
-  (end-of-line)
-  (let ((str (buffer-substring (region-beginning) (region-end))))
-    (when commentfirst
-      (comment-region (region-beginning) (region-end)))
-    (insert
-     (concat (if (= 0 (forward-line 1)) "" "\n") str "\n"))
-    (forward-line -1)))
+
+(defun duplicate-line (&optional times)
+  "Copy line at point TIMES times."
+  (interactive "p")
+  (let* ((beg (save-excursion (beginning-of-line) (point)))
+         (end (save-excursion (end-of-line) (point)))
+         (str (buffer-substring beg end)))
+    (loop repeat times
+       do (save-excursion
+            (end-of-line)
+            (insert "\n" str)))))
 
 
 (defun rename-file-and-buffer ()
@@ -87,7 +86,7 @@
 
 
 (defun goto-match-paren (arg)
-  "Go to the matching paren if on a paren; otherwise insert %."
+  "Go to the matching paren if on a paren."
   (interactive "p")
   (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
@@ -432,4 +431,4 @@ makes)."
   (interactive)
   (goto-char (point-min))
   (forward-line
-    (random (count-lines (point-min) (point-max)))))
+   (random (count-lines (point-min) (point-max)))))
