@@ -21,8 +21,6 @@
  '(image-dired-thumb-relief 0)
  '(image-dired-thumb-size 196)
  '(image-dired-thumb-width 196)
- '(list-directory-brief-switches "-CF1shA")
- '(list-directory-verbose-switches "-lhA")
  '(wdired-allow-to-change-permissions 'advanced)
  '(wdired-allow-to-redirect-links t))
 
