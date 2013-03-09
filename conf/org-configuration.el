@@ -132,12 +132,8 @@
  '(org-agenda-custom-commands
    '((" " "Block agenda"
       ((agenda)
-       (tags "ONGOING"
-             ((org-agenda-overriding-header "Ongoing tasks:")
-              (org-agenda-skip-function
-               '(or
-                 (org-agenda-skip-entry-if 'todo 'done)
-                 (org-agenda-skip-entry-if 'timestamp)))))
+       (todo "NEXT"
+             ((org-agenda-overriding-header "NEXT tasks:")))
        (tags "REFILE"
              ((org-agenda-overriding-header "List of tasks to refile:")
               (org-tags-match-list-sublevels nil)))))
