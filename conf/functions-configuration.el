@@ -85,14 +85,6 @@
       (delete-trailing-whitespace))))
 
 
-(defun goto-match-paren (arg)
-  "Go to the matching paren if on a paren."
-  (interactive "p")
-  (cond ((looking-at "\\s\(") (forward-list 1) (backward-char 1))
-        ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
-        (t (backward-char 1) (call-interactively 'goto-match-paren))))
-
-
 (defun ido-sudo-find-file ()
   (interactive)
   (find-file (concat "/sudo::" (ido-read-file-name "File (sudo): " "/"))))

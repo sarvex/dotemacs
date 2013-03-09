@@ -16,6 +16,7 @@
 (load "dotemacs/conf/el-get-configuration")
 (load "dotemacs/conf/misc-modes-configuration")
 (load "dotemacs/conf/contrib-configuration")
+(load "dotemacs/conf/parens-configuration")
 (load "dotemacs/conf/jabber-configuration")
 (load "dotemacs/conf/erc-configuration")
 (load "dotemacs/conf/functions-configuration")

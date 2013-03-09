@@ -20,7 +20,6 @@
 ;; (column-number-mode -1)
 ;; (blink-cursor-mode -1)
 ;; (delete-selection-mode -1)
-;; (show-paren-mode -1)
 ;; (size-indication-mode -1)
 
 

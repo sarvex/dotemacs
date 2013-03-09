@@ -15,31 +15,6 @@
     (let ((current-prefix-arg (not arg)))
       (scratch))))
 
-(custom-set-variables
- '(paren-delay 0.2)
- '(paren-highlight-offscreen t))
-(paren-activate)
-
-
-(custom-set-variables
- '(sp-highlight-pair-overlay nil))
-(smartparens-global-mode)
-(sp-with-modes '(
-                 cperl-mode
-                 go-mode
-                 haskell-mode
-                 perl-mode
-                 ruby-mode
-                 scala-mode
-                 sh-mode
-                 )
-  (sp-local-pair "`" "`"))
-(mapc
- (lambda (mode)
-   (add-to-list 'sp-ignore-modes-list mode))
- '(lisp-mode
-   term-mode))
-
 
 (eval-after-load 'doc-mode
   '(add-hook 'doc-mode-hook
