@@ -2,7 +2,8 @@
  '(openwith-associations
    `(("\\.torrent\\'" "gtorrentviewer" (file))
      ("\\.dvd.iso\\'" "vlc" (file))
-     ("\\.\\(bmp\\|ico\\)\\'" "feh" (file))
+     ("\\.gif\\'" "animate" (file))
+     ("\\.\\(bmp\\|ico\\|jpe?g\\|gif\\|tiff?\\|png\\)\\'" "feh" (file))
      ("\\.cb[abgrz]\\'" "qcomicbook" (file))
      ("\\.chm\\'" "kchmviewer" (file))
      ("\\.pdf\\'"  "mupdf -r 96" (file))
