@@ -11,7 +11,7 @@
  '(dired-keep-marker-hardlink nil)
  '(dired-keep-marker-rename nil)
  '(dired-keep-marker-symlink nil)
- '(dired-listing-switches "-hAFl --group-directories-first")
+ '(dired-listing-switches "-l --human-readable --classify --almost-all --group-directories-first")
  '(dired-ls-F-marks-symlinks t)
  '(image-dired-external-viewer "feh")
  '(image-dired-line-up-method 'dynamic)
