@@ -17,11 +17,11 @@
                                bookmark-bmenu-mode-hook
                                compilation-mode-hook
                                dired-mode-hook
-                               go-mode-hook
                                emacs-lisp-mode-hook
                                gist-list-mode-hook
                                gnus-article-mode-hook
                                gnus-group-mode-hook
+                               go-mode-hook
                                ibuffer-mode-hook
                                irfc-mode-hook
                                org-agenda-mode-hook
@@ -30,7 +30,8 @@
                                speedbar-mode-hook
                                tar-mode-hook
                                twittering-mode-hook
-                               vc-annotate-mode-hook)))
+                               vc-annotate-mode-hook
+                               woman-mode-hook)))
        (whitespace-modes-hooks (append
                                 conf-modes-hooks
                                 '(text-mode-hook
