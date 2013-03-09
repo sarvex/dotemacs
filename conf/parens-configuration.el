@@ -17,16 +17,39 @@
                  sh-mode)
   (sp-local-pair "`" "`"))
 
+(sp-with-modes '(clojure-mode
+                 common-lisp-mode
+                 emacs-lisp-mode
+                 inferior-emacs-lisp-mode
+                 lisp-interaction-mode
+                 lisp-mode
+                 scheme-mode
+                 slime-repl-mode)
+  ;; paredit handles those
+  (sp-local-pair "(" nil :actions nil)
+  (sp-local-pair "[" nil :actions nil)
+  (sp-local-pair "\"" nil :actions nil))
+
 (mapc
  (lambda (mode)
    (add-to-list 'sp-ignore-modes-list mode))
- '(lisp-mode
-   emacs-lisp-mode
-   twittering-mode
+ '(twittering-mode
    term-mode))
 
 (smartparens-global-mode)
 
+
+(mapc
+ (lambda (hooks)
+   (add-hook hooks 'enable-paredit-mode))
+ '(emacs-lisp-mode-hook
+   clojure-mode-hook
+   scheme-mode-hook
+   inferior-scheme-mode-hook
+   lisp-mode-hook
+   lisp-interaction-mode-hook
+   slime-repl-mode-hook
+   ielm-mode-hook))
 
 (defun goto-match-paren ()
   "Go to the matching paren if on a paren."

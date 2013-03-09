@@ -81,20 +81,6 @@
    lisp-interaction-mode-hook
    ielm-mode-hook))
 
-;; paredit for all lisp modes
-(mapc
- (lambda (hooks)
-   (add-hook hooks (lambda () (paredit-mode t))))
- '(emacs-lisp-mode-hook
-   clojure-mode-hook
-   scheme-mode-hook
-   inferior-scheme-mode-hook
-   lisp-mode-hook
-   lisp-interaction-mode-hook
-   slime-repl-mode-hook
-   ielm-mode-hook))
-
-
 ;; scheme
 
 (setq scheme-program-name "mzscheme"
