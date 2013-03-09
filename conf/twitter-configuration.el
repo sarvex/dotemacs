@@ -2,7 +2,6 @@
 (make-face 'vderyagin-twittering-metainfo-face)
 
 (setq twittering-auth-method 'xauth
-      twittering-icon-mode t
       twittering-private-info-file (expand-file-name "~/.emacs.d/dotemacs/misc/twittering.gpg")
       twittering-timer-interval 150
       twittering-use-master-password t
@@ -18,6 +17,7 @@
        (twittering-add-timeline-history item))
      vderyagin/twittering-additional-timelines)
 
+    (add-hook 'twittering-mode-hook (lambda () (twittering-icon-mode 1)))
     (add-hook 'twittering-mode-hook 'turn-on-visual-line-mode)
     (add-hook 'twittering-edit-mode-hook 'turn-on-visual-line-mode)
 
