@@ -42,6 +42,8 @@
  '(gnus-auto-select-next nil)
  '(gnus-summary-check-current t)
  '(gnus-auto-extend-newsgroup t)
+ '(gnus-article-truncate-lines nil)
+ '(gnus-body-boundary-delimiter nil)
  '(gnus-thread-indent-level 2)
 
  '(gnus-agent-directory "~/.mail/gnus/agent")
@@ -85,8 +87,6 @@
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'gnus-select-group-hook 'gnus-group-set-timestamp)
-
-(add-hook 'gnus-article-prepare-hook (lambda () (setq truncate-lines t)))
 
 (add-hook 'message-mode-hook 'turn-on-orgstruct++)
 (add-hook 'message-mode-hook 'turn-on-orgtbl)
