@@ -3,6 +3,7 @@
  '(speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|_darcs\\|\\.\\(git\\|hg\\|svn\\|bzr\\)\\)\\'")
  '(speedbar-hide-button-brackets-flag nil)
  '(speedbar-indentation-width 2)
+ '(speedbar-select-frame-method 1)
  '(speedbar-show-unknown-files t)
  '(speedbar-directory-button-trim-method 'trim)
  '(speedbar-tag-hierarchy-method nil)
@@ -16,11 +17,16 @@
                                (menu-bar-lines . 0)
                                (tool-bar-lines . 0)
                                (unsplittable . t)
-                               (left-fringe . 0))))
+                               (left-fringe . 0)
+                               (right-fringe . 0))))
 
 (eval-after-load 'speedbar
   '(progn
-    (add-to-list 'speedbar-supported-extension-expressions ".rb")
+    (mapc
+     (lambda (ext)
+       (speedbar-add-supported-extension ext))
+     '(".rb" ".z?sh" ".go"))
+
     (define-key speedbar-key-map (kbd ";") 'speedbar-up-directory)
     (define-key speedbar-key-map (kbd "f") 'speedbar-edit-line)))
 
