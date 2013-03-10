@@ -15,7 +15,8 @@
     (loop repeat times
        do (save-excursion
             (end-of-line)
-            (insert "\n" str)))))
+            (insert "\n" str)))
+    (call-interactively 'next-line)))
 
 
 (defun rename-file-and-buffer ()
