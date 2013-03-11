@@ -20,6 +20,7 @@
                                emacs-lisp-mode-hook
                                gist-list-mode-hook
                                gnus-article-mode-hook
+                               gnus-summary-mode-hook
                                gnus-group-mode-hook
                                go-mode-hook
                                ibuffer-mode-hook
