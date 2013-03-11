@@ -1,3 +1,5 @@
+(require 'cl-lib)
+
 (add-to-list 'load-path "~/.emacs.d/lib")
 (add-to-list 'load-path "~/.emacs.d")
 
