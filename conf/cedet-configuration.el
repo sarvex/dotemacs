@@ -3,7 +3,6 @@
  '(speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|_darcs\\|\\.\\(git\\|hg\\|svn\\|bzr\\)\\)\\'")
  '(speedbar-hide-button-brackets-flag nil)
  '(speedbar-indentation-width 2)
- '(speedbar-select-frame-method 1)
  '(speedbar-show-unknown-files t)
  '(speedbar-directory-button-trim-method 'trim)
  '(speedbar-tag-hierarchy-method nil)
