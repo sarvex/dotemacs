@@ -43,6 +43,7 @@
  '(gnus-summary-check-current t)
  '(gnus-auto-extend-newsgroup t)
  '(gnus-article-truncate-lines nil)
+ '(gnus-break-pages nil)
  '(gnus-body-boundary-delimiter nil)
  '(gnus-thread-indent-level 2)
 
