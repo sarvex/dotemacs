@@ -78,6 +78,8 @@
 
 (eval-after-load 'wdired
   '(progn
+    (add-hook 'wdired-mode-hook (lambda () (smartparens-mode t)))
+
     (define-key wdired-mode-map (kbd "<down>") nil)
     (define-key wdired-mode-map (kbd "<up>") nil)))
 
