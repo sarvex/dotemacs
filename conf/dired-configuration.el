@@ -34,15 +34,6 @@
 
      (diredp-toggle-find-file-reuse-dir 1)
 
-     (defadvice dired-do-async-shell-command (before rename-async-shell-buffer-before-running-new-command activate)
-       "Rename currently existing *Async Shell Command* buffer, so that new one with the same name could be created"
-       (let* ((buf-name "*Async Shell Command*")
-              (buf (get-buffer buf-name)))
-         (when (and buf
-                    (get-buffer-process buf))
-           (with-current-buffer buf
-             (rename-buffer (generate-new-buffer-name buf-name))))))
-
      (defadvice dired-advertised-find-file (around dired-subst-directory activate)
        "Replace current buffer if file is a directory."
        (interactive)
