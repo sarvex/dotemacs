@@ -284,7 +284,7 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
 Works with 'names with spaces', names-with-dashes, camelCase,
 UpperCamelCase and combinations of those."
   (let ((case-fold-search nil))
-    (flet ((downcase-first-character (text)
+    (cl-flet ((downcase-first-character (text)
              (when (string-match-p "^[[:upper:]]" text)
                (let ((first-char (substring text 0 1)))
                  (setq text (replace-regexp-in-string "^." "" text)
