@@ -170,6 +170,12 @@
 (eval-after-load 'org
   (quote
    (progn
+
+     (mapc
+      (lambda (f)
+        (load (expand-file-name f el-get-dir)))
+      '("org-mode/lisp/org-loaddefs" "org-mode/contrib/lisp/org-loaddefs"))
+
      (require 'org-checklist)
      (require 'org-crypt)
      (require 'org-contacts)
