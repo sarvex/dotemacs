@@ -3,11 +3,14 @@
   (add-to-list 'flymake-allowed-file-name-masks '(".+\\.go\\'" flymake-go-init))
   (flymake-mode -1)
 
+  (add-hook 'before-save-hook 'gofmt nil 'make-it-local)
+
   (require 'go-autocomplete)
 
   (set (make-local-variable 'compile-command) "go test")
 
-  (setq tab-width 2))
+  (setq tab-width 2
+        show-trailing-whitespace t))
 
 (defun flymake-go-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
@@ -20,7 +23,6 @@
 (eval-after-load 'go-mode
   '(progn
     (add-hook 'go-mode-hook 'vderyagin/go-mode-hook)
-    (add-hook 'before-save-hook 'gofmt-before-save)
 
     (define-key go-mode-map (kbd "<f9>") 'compile)
     (define-key go-mode-map (kbd "<f10>") 'flymake-mode)
