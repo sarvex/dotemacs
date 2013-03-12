@@ -67,7 +67,7 @@
       :clock-resume t)
      ("t" "todo" entry
       (file "")
-      "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+      "* TODO %?\n%t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
       :clock-resume t)
      ("r" "read" entry
       (file ,(expand-file-name "reading.org" vderyagin/org-agenda-directory))
