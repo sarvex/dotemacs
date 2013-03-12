@@ -15,7 +15,6 @@
      (:name diminish)
      (:name emacs-jabber)
      (:name gist)
-     (:name go-mode)
      (:name haskell-mode)
      (:name helm)
      (:name lua-mode)
@@ -171,6 +170,10 @@
 
      (:name smartparens
       :features smartparens-config)
+
+     (:name go-mode
+      :type github
+      :pkgname "dominikh/go-mode.el")
 
      (:name projectur
       :type github
