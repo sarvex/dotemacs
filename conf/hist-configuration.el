@@ -68,6 +68,12 @@
     "\\|"
     "/org-clock-save.el\\'"
     "\\|"
+    "/bmk-bmenu-state.el\\'"
+    "\\|"
+    "/ido-history\\'"
+    "\\|"
+    "/newsrc-dribble\\'"
+    "\\|"
     (expand-file-name "~/repos/")
     "\\|"
     (expand-file-name "~/org/")
