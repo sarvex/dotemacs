@@ -24,8 +24,15 @@
   '(progn
     (add-hook 'go-mode-hook 'vderyagin/go-mode-hook)
 
+    (define-key go-mode-map (kbd "M-i") 'go-import-add)
+    (define-key go-mode-map (kbd "C-c C-r") 'go-remove-unused-imports)
+
+    (define-key go-mode-map (kbd "M-.") 'godef-jump)
+    (define-key go-mode-map (kbd "C-?") 'godef-describe)
+
     (define-key go-mode-map (kbd "<f9>") 'compile)
     (define-key go-mode-map (kbd "<f10>") 'flymake-mode)
+
     (define-key go-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
     (define-key go-mode-map (kbd "C-c e") 'flymake-display-err-menu-for-current-line)
     (define-key go-mode-map (kbd "C-c C-c") 'gofmt)))
