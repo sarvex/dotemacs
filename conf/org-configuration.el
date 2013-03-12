@@ -238,30 +238,30 @@
          (org-agenda-redo t)))
      (get-buffers-with-major-mode 'org-agenda-mode))))
 
-(defun vderyagin/find-org-file ()
-  "Select and open org file from `org-directory' or one if its subdirectories."
-  (interactive)
-  (flet ((get-relative-path (abs)
-           (file-relative-name abs org-directory))
-         (get-absolute-path (rel)
-           (expand-file-name rel org-directory)))
-    (let ((files
-           (delete ""
-                   (split-string
-                    (shell-command-to-string
-                     (let ((default-directory org-directory))
-                       (find-cmd
-                        '(type "f")
-                        '(iname "*.org" "*.gpg")
-                        '(print0))))
-                    "\0")))
-          relative-path
-          absolute-path)
-      (setq relative-path (ido-completing-read
-                           "Open org file: "
-                           (mapcar 'get-relative-path files))
-            absolute-path (get-absolute-path relative-path))
-      (find-file absolute-path))))
+(defun vderyagin/find-org-file (include-archive)
+  "Select and open org file from `org-directory' or one if its subdirectories.
+Unless INCLUDE-ARCHIVE is non-nil, skips all files in directories
+named 'archive'"
+  (interactive "P")
+  (let ((files
+         (delete ""
+                 (split-string
+                  (shell-command-to-string
+                   (let ((default-directory org-directory))
+                     (find-cmd
+                      (unless include-archive
+                        '(prune (name "archive")))
+                      '(type "f")
+                      '(iname "*.org" "*.gpg")
+                      '(print0))))
+                  "\0")))
+        relative-path
+        absolute-path)
+    (setq relative-path (ido-completing-read
+                         "Open org file: "
+                         (mapcar (lambda (abs) (file-relative-name abs org-directory)) files))
+          absolute-path (expand-file-name relative-path org-directory))
+    (find-file absolute-path)))
 
 
 (defun vderyagin/org-agenda-skip-tag (tag)
