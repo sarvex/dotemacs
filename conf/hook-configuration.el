@@ -38,7 +38,6 @@
                                 '(text-mode-hook
                                   change-log-mode-hook
                                   coffee-mode-hook
-                                  prog-mode-hook
                                   css-mode-hook
                                   feature-mode-hook
                                   graphviz-dot-mode-hook
