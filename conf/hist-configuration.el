@@ -35,16 +35,9 @@
  '(recentf-save-file "~/.emacs.d/recentf")
  '(recentf-max-saved-items 3000)
  '(recentf-exclude
-   '("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" ; images
-     "\\.\\(zip\\|tar\\|rar\\|xpi\\|crx\\|oex\\)\\'" ; archives
-     "\\.elc\\'"
-     "\\.nfo\\'"
-     "\\.cue\\'"
-     "\\.sfv\\'"
-     "\\.m3u\\'"
-     "\\.url\\'"
-     "\\.srt\\'"
-     "^Thumbs\\.db\\'")))
+   '((rx "." (or (regexp "jpe?g") (regexp "tiff?") (regexp "x[pb]m") "gif" "png" "ico" "bmp") string-end)
+     (rx "." (or "zip" "tar" "rar" "xpi" "crx" "oex" "elc" "rbc" "pyc" "class") string-end)
+     (rx line-start "Thumbs.db" string-end))))
 
 (recentf-mode t)
 
@@ -57,28 +50,14 @@
  '(desktop-save-mode t)
  '(desktop-globals-to-save nil)      ; not needed, `savehist' does the thing
  '(desktop-files-not-to-save
-   (concat
-    "\\("
-    "^/[^/:]*:"
-    "\\|"
-    "(ftp)$"
-    "\\|"
-    "\\.gpg\\'"
-    "\\|"
-    "/\\.emacs\\.d/recentf"
-    "\\|"
-    "/org-clock-save.el\\'"
-    "\\|"
-    "/bmk-bmenu-state.el\\'"
-    "\\|"
-    "/ido-history\\'"
-    "\\|"
-    "/newsrc-dribble\\'"
-    "\\|"
-    (expand-file-name "~/repos/")
-    "\\|"
-    (expand-file-name "~/org/")
-    "\\)"))
+   (rx (or
+        (regexp "^/[^/:]*:")
+        (regexp "(ftp)$")
+        (and ".gpg" string-end)
+        "/.emacs.d/recentf"
+        (and "/" (or "org-clock-save.el" "bmk-bmenu-state.el" "ido-history" "newsrc-dribble" ) string-end)
+        (eval (expand-file-name "~/repos/"))
+        (eval (expand-file-name "~/org/")))))
  '(desktop-locals-to-save
    '(desktop-locals-to-save
      truncate-lines
