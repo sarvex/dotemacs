@@ -64,10 +64,7 @@
                    ("h5" "^##### \\(.*\\)$" 1)
                    ("h6" "^###### \\(.*\\)$" 1)
                    ("fn" "^\\[\\^\\(.*\\)\\]" 1)))))))
-(mapc
- (lambda (extension)
-   (add-to-list 'auto-mode-alist (cons extension 'markdown-mode)))
- '("\\.text\\'" "\\.markdown\\'" "\\.mdo?wn\\'" "\\.mk?dt?\\'"))
+(add-to-list 'auto-mode-alist (cons (rx "." (or "text" "markdown" "md") string-end) 'markdown-mode))
 
 
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))

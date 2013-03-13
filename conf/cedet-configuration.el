@@ -1,6 +1,6 @@
 (custom-set-variables
  '(which-func-modes t)
- '(speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|_darcs\\|\\.\\(git\\|hg\\|svn\\|bzr\\)\\)\\'")
+ '(speedbar-directory-unshown-regexp (rx (or (or "CVS" "RCS" "SCSS" "_darcs") (and "." (or "git" "hg" "svn" "bzr"))) string-end))
  '(speedbar-hide-button-brackets-flag nil)
  '(speedbar-indentation-width 2)
  '(speedbar-show-unknown-files t)
