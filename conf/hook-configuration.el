@@ -139,8 +139,6 @@
           (defun load-quiet-light-theme (&rest args)
             (load-file "~/repos/misc/color-theme-quiet-light/quiet-light-theme.el")))
 
-;; (add-hook 'text-mode-hook 'turn-on-orgstruct++)
-;; (add-hook 'text-mode-hook 'turn-on-orgtbl)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 (add-hook 'help-mode-hook 'turn-on-visual-line-mode)
