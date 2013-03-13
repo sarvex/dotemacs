@@ -142,8 +142,6 @@
 (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 (add-hook 'comint-output-filter-functions 'comint-truncate-buffer)
 
-(add-hook 'after-save-hook 'desktop-save-in-desktop-dir)
-
 (add-hook 'term-mode-hook (lambda () (setq word-wrap nil)))
 (add-hook 'term-mode-hook (lambda () (setq truncate-lines t)))
 (add-hook 'term-mode-hook

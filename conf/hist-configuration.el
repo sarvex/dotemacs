@@ -92,3 +92,4 @@
      show-trailing-whitespace)))
 
 (desktop-save-mode t)
+(add-hook 'kill-emacs-hook 'desktop-save-in-desktop-dir)
