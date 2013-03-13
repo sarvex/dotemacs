@@ -175,6 +175,10 @@
       :type github
       :pkgname "dominikh/go-mode.el")
 
+     (:name dart-mode
+      :type github
+      :pkgname "nex3/dart-mode")
+
      (:name projectur
       :type github
       :pkgname "vderyagin/projectur"))))
