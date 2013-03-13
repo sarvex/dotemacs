@@ -37,6 +37,7 @@
  '(recentf-exclude
    '("\\.\\(jp\\(e\\|g\\|eg\\)\\|gif\\|png\\|ico\\|x[pb]m\\|bmp\\|tiff?\\)\\'" ; images
      "\\.\\(zip\\|tar\\|rar\\|xpi\\|crx\\|oex\\)\\'" ; archives
+     "\\.elc\\'"
      "\\.nfo\\'"
      "\\.cue\\'"
      "\\.sfv\\'"
