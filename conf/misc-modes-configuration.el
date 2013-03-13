@@ -143,12 +143,6 @@
        (kill-buffer-ask (current-buffer))))))
 
 
-(add-to-list 'auto-mode-alist '("\\.zsh" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.zsh-theme" . sh-mode))
-(eval-after-load 'sh-script
-  '(define-key sh-mode-map (kbd "M-l") nil))
-
-
 (setq compilation-ask-about-save nil
       compilation-auto-jump-to-first-error nil
       compilation-disable-input t
