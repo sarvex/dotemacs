@@ -8,14 +8,9 @@
 (custom-set-variables
  '(sp-highlight-pair-overlay nil))
 
-(sp-with-modes '(cperl-mode
-                 go-mode
-                 haskell-mode
-                 perl-mode
-                 ruby-mode
-                 scala-mode
-                 sh-mode)
-  (sp-local-pair "`" "`"))
+
+(sp-with-modes '(magit-log-edit-mode)
+  (sp-local-pair "`" "'"))
 
 (sp-with-modes '(clojure-mode
                  common-lisp-mode
