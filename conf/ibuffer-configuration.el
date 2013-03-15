@@ -151,6 +151,13 @@
 (mapc
  (lambda (project)
    (add-to-list 'vderyagin/ibuffer-filter-groups
+                `(,(format "Repo: %s" project)
+                   (filename . ,(expand-file-name project "~/repos/go/src/github.com/vderyagin")))))
+ (remove "." (remove ".." (directory-files (expand-file-name "~/repos/go/src/github.com/vderyagin")))))
+
+(mapc
+ (lambda (project)
+   (add-to-list 'vderyagin/ibuffer-filter-groups
                 `(,(format "Archive repo: %s" project)
                    (filename . ,(expand-file-name project "~/repos/archive")))))
  (remove "." (remove ".." (directory-files (expand-file-name "~/repos/archive")))))
