@@ -5,7 +5,7 @@
  '(eshell-scroll-show-maximum-output nil)
  '(eshell-scroll-to-bottom-on-input 'this)
  '(eshell-scroll-to-bottom-on-output 'this)
- '(eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.hg\\|\\.git\\|_darcs\\)/\\'")
+ '(eshell-cmpl-dir-ignore (rx string-start (or (and "." (optional ".")) "CVS" "_darcs" (and "." (or ".svn" ".hg" ".git"))) "/" string-end))
  '(eshell-output-filter-functions '(eshell-handle-ansi-color
                                     eshell-handle-control-codes
                                     eshell-postoutput-scroll-to-bottom
