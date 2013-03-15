@@ -2,7 +2,7 @@
  '(erc-fill-column 67)
  '(erc-fill-mode t)
  '(erc-fill-function 'erc-fill-variable)
- '(erc-fill-prefix "     ")
+ '(erc-fill-prefix "   ")
  '(erc-fill-variable-maximum-indentation 8)
 
  '(erc-prompt-for-nickserv-password nil)
