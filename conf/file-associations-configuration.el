@@ -25,7 +25,7 @@
                            (and "m" (char "24ko") "v")
                            (and "rm" (optional "vb"))
                            (and "mp" (char "24"))
-                           "wmv" "divx" "ts" "avi" "asf" "vob" "ogv" "webm" "flv" "mp4")
+                           "wmv" "divx" "ts" "avi" "asf" "vob" "ogv" "webm" "flv")
                        (optional "." (or "part" "crdownload"))
                        string-end)))
 
