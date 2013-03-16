@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (require 'helm-config)
 
 (custom-set-variables

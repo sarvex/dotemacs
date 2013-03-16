@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp; eval: (progn (rainbow-mode 1) (hl-line-mode -1)) -*-
+;;; -*- lexical-binding: t -*-
 
 (custom-set-variables
  '(rainbow-html-colors t)

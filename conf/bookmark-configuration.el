@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(bookmark-default-file "~/.emacs.d/bookmarks")
  '(bookmark-old-default-file "~/.emacs.d/bookmarks")

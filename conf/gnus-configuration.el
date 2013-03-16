@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(gnus-select-method '(nntp "news.gmane.org"))
  '(gnus-always-read-dribble-file t)

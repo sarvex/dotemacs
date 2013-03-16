@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (define-key global-map (kbd "C-x C-b") 'ibuffer)
 
 (setq ibuffer-deletion-face 'diredp-deletion-file-name

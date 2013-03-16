@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (custom-set-variables

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (define-key global-map (kbd "C-c ;") 'comment-or-uncomment-current-line-or-region)
 (define-key global-map (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-c c") 'duplicate-line)

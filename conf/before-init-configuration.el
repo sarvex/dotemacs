@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(save-abbrevs 'silently))
 

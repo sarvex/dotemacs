@@ -1,4 +1,4 @@
-;; -*- eval: (progn (rainbow-mode 1) (hl-line-mode -1)) -*-
+;;; -*- lexical-binding: t -*-
 
 ;; http://www.emacswiki.org/emacs/ChangingCursorDynamically
 

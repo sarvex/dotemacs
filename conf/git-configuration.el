@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(magit-commit-all-when-nothing-staged 'ask-stage)
  '(magit-log-auto-more t)

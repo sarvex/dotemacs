@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ;; Savehist
 
 (custom-set-variables

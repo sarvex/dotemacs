@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (setq midnight-period 3600              ; one hour
       clean-buffer-list-delay-general 5)
 

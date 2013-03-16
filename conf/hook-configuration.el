@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (mapc
  (lambda (h)
    (add-hook h 'hl-line-mode))

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(yas-also-auto-indent-first-line nil)
  '(yas-good-grace nil)

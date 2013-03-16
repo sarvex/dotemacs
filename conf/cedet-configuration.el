@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(which-func-modes t)
  '(speedbar-directory-unshown-regexp (rx (or (or "CVS" "RCS" "SCSS" "_darcs") (and "." (or "git" "hg" "svn" "bzr"))) string-end))

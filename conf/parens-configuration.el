@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(paren-delay 0.2)
  '(paren-highlight-offscreen t))

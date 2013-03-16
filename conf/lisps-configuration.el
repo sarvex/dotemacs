@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (add-to-list 'interpreter-mode-alist '("sbcl" . lisp-mode))
 
 (setq ielm-header "")

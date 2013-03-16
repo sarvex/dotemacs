@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (defun vderyagin/go-mode-hook ()
   (require 'flymake)
   (add-to-list 'flymake-allowed-file-name-masks '(".+\\.go\\'" flymake-go-init))

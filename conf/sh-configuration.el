@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (add-to-list 'auto-mode-alist (cons (rx ".zsh" (optional "-theme") string-end) 'sh-mode))
 
 (custom-set-variables

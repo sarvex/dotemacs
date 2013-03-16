@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(erc-fill-column 67)
  '(erc-fill-mode t)

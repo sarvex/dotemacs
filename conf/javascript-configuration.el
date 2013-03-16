@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(js-indent-level 2)
  '(coffee-tab-width 2))

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (eval-after-load 'paredit
   '(diminish 'paredit-mode " P"))
 

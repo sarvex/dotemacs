@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(eshell-directory-name "~/.emacs.d/eshell/")
  '(eshell-cmpl-cycle-completions nil)

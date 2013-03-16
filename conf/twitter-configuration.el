@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (make-face 'vderyagin-twittering-username-face)
 (make-face 'vderyagin-twittering-metainfo-face)
 

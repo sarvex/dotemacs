@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(ac-auto-show-menu nil)
  '(ac-auto-start nil)

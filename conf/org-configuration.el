@@ -1,4 +1,4 @@
-;; -*- eval: (progn (rainbow-mode 1) (hl-line-mode -1)) -*-
+;;; -*- lexical-binding: t -*-
 
 (defvar vderyagin/org-agenda-directory)
 (defvar vderyagin/org-contacts-file)

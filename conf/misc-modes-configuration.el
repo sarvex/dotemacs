@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ;; on
 (global-subword-mode t)
 (auto-image-file-mode t)

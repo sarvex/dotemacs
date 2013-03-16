@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(jabber-mode-line-compact t)
  '(jabber-account-list

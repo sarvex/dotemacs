@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (setq common-lisp-hyperspec-root "file:/usr/share/doc/hyperspec/HyperSpec/"
       inferior-lisp-program "/usr/bin/sbcl --noinform"
       slime-autodoc-use-multiline-p t

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (autoload 'dired-jump "dired-x" nil t)
 
 (custom-set-variables

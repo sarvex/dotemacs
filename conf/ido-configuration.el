@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (custom-set-variables
  '(ido-case-fold t)
  '(ido-save-directory-list-file (expand-file-name "~/.emacs.d/ido-history"))

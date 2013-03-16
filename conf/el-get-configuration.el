@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (unless (require 'el-get nil 'noerror)
   (url-retrieve
    "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
