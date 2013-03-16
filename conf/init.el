@@ -1,4 +1,6 @@
 ;;; -*- lexical-binding: t -*-
+
+(require 'ert)
 (require 'cl-lib)
 
 (add-to-list 'load-path "~/.emacs.d/lib")
