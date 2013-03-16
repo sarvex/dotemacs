@@ -9,10 +9,12 @@
       (audio-files (rx "." (or (and "m" (char "k4") "a") "mp3" "ogg" "flac" "wma" "ac3" "aac" "ape") string-end))
       (office-files (rx "." (or (and (or "doc" "xls") (optional "x")) (and "od" (char "ts")) "rtf") string-end))
       (archive-files (rx "."
-                         (or (and "a" (or (optional (or "ce" "lz")) (and "r" (char "cj"))))
+                         (or (and "a" (or (optional (or "ce" "lz"))
+                                          (and "r" (char "cj"))))
                              (and "lz" (or (char "ho") "ma"))
                              (and (char "rwjt") "ar")
-                             (and (optional "t") (or "Z" "zo" "bz2" (and (char "7bxrgl") "z")))
+                             (and (optional "t") (or "Z" "zo" "bz2"
+                                                     (and (char "7bxrgl") "z")))
                              "cab" "cpio" "deb" "lha" "lrz" "rpm" "zip")
                          string-end))
       (video-files (rx "."
