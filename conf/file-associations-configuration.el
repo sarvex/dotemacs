@@ -16,10 +16,10 @@
                              "cab" "cpio" "deb" "lha" "lrz" "rpm" "zip")
                          string-end))
       (video-files (rx "."
-                       (or (and "mp" (optional "e") "g")
+                       (or (and "mp" (or (char "24")
+                                         (optional "e")) "g")
                            (and "m" (char "24ko") "v")
                            (and "rm" (optional "vb"))
-                           (and "mp" (char "24"))
                            "wmv" "divx" "ts" "avi" "asf" "vob" "ogv" "webm" "flv")
                        (optional "." (or "part" "crdownload"))
                        string-end)))
