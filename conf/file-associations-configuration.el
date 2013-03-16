@@ -17,7 +17,7 @@
                          string-end))
       (video-files (rx "."
                        (or (and "mp" (or (char "24")
-                                         (optional "e")) "g")
+                                         (and (optional "e") "g")))
                            (and "m" (char "24ko") "v")
                            (and "rm" (optional "vb"))
                            "wmv" "divx" "ts" "avi" "asf" "vob" "ogv" "webm" "flv")
