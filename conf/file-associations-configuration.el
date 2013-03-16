@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(require 'ert)
+
 (let ((document-files (rx "." (or "djvu" "dvi" "ps") string-end))
       (comic-book-files (rx ".cb" (char "abgrz") string-end))
       (ebook-files (rx "." (or (and "fb2" (optional ".zip")) "epub") string-end))
@@ -7,18 +9,16 @@
       (audio-files (rx "." (or (and "m" (char "k4") "a") "mp3" "ogg" "flac" "wma" "ac3" "aac" "ape") string-end))
       (office-files (rx "." (or (and (or "doc" "xls") (optional "x")) (and "od" (char "ts")) "rtf") string-end))
       (archive-files (rx "."
-                         (or (and "t"
-                                  (or (and (optional "ar.") (and (char "gbx") "z"))
-                                      (and "ar"
-                                           (optional "." (or "Z"
-                                                             (and "bz"
-                                                                  (optional "2")))))))
-                             (or "zip"
-                                 "rar"
-                                 "bz2"
-                                 "arc"
-                                 (and (char "7xg")
-                                      "z")))
+                         (or (and "tar" (optional "." (or (and (char "7bglx") "z") "Z" "bz2" "lzo")))
+                             (and (char "7bxrgl") "z")
+                             (and "t" (char "7bglx") "z")
+                             (and "lz" (or (char "ho") "ma"))
+                             (and (char "rwj") "ar")
+                             (and (optional "t") "bz2")
+                             (and "ar" (char "cj"))
+                             (and (optional "t") "Z")
+                             (and "a" (optional (or "ce" "lz")))
+                             "cab" "cpio" "deb" "lha" "lrz" "rpm" "tzo" "zip")
                          string-end))
       (video-files (rx "."
                        (or (and "mp" (optional "e") "g")
@@ -28,6 +28,15 @@
                            "wmv" "divx" "ts" "avi" "asf" "vob" "ogv" "webm" "flv")
                        (optional "." (or "part" "crdownload"))
                        string-end)))
+
+  (ert-deftest test-archive-files-regexp ()
+    (mapc
+     (lambda (file-name)
+       (should (string-match-p archive-files file-name)))
+     '("foo.7z" "foo.Z" "foo.a" "foo.ace" "foo.alz" "foo.arc" "foo.arj" "foo.bz" "foo.bz2" "foo.cab" "foo.cpio" "foo.deb" "foo.gz"
+       "foo.jar" "foo.lha" "foo.lrz" "foo.lz" "foo.lzh" "foo.lzma" "foo.lzo" "foo.rar" "foo.rpm" "foo.rz" "foo.t7z" "foo.tZ" "foo.tar"
+       "foo.tar.7z" "foo.tar.Z" "foo.tar.bz" "foo.tar.bz2" "foo.tar.gz" "foo.tar.lz" "foo.tar.lzo" "foo.tar.xz" "foo.tbz" "foo.tbz2"
+       "foo.tgz" "foo.tlz" "foo.txz" "foo.tzo" "foo.war" "foo.xz" "foo.zip")))
 
   (custom-set-variables
    `(openwith-associations
