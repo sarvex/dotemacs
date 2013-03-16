@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'ert)
-
 (let ((document-files (rx "." (or "djvu" "dvi" "ps") string-end))
       (comic-book-files (rx ".cb" (char "abgrz") string-end))
       (ebook-files (rx "." (or (and "fb2" (optional ".zip")) "epub") string-end))

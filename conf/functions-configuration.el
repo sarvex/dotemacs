@@ -1,8 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'ert)
-
-
 (defun duplicate-line (&optional times)
   "Copy line at point TIMES times."
   (interactive "p")
