@@ -62,6 +62,7 @@
         (regexp "(ftp)$")
         (and ".gpg" string-end)
         "/.emacs.d/recentf"
+        (and "loaddefs.el" string-end)
         (and "/" (or "org-clock-save.el" "bmk-bmenu-state.el" "ido-history" "newsrc-dribble") string-end)
         (eval (expand-file-name "~/repos/"))
         (eval (expand-file-name "~/org/")))))
