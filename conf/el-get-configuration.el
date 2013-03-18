@@ -11,59 +11,61 @@
 (custom-set-variables
  '(el-get-notify-type 'message)
  '(el-get-sources
-   '((:name el-get)
-     (:name bookmark+)
-     (:name clojure-mode)
-     (:name diminish)
-     (:name emacs-jabber)
-     (:name gist)
-     (:name haskell-mode)
-     (:name helm)
-     (:name lua-mode)
-     (:name magit)
-     (:name paredit)
-     (:name rdebug)
-     (:name rhtml-mode)
-     (:name scala-mode)
-     (:name textile-mode)
-     (:name tuareg-mode)
-     (:name yaml-mode)
+   '(el-get
+
+     bookmark+
+     clojure-mode
+     diminish
+     dired+
+     dired-details
+     dired-details+
+     drag-stuff
+     emacs-jabber
+     gist
+     haml-mode
+     haskell-mode
+     helm
+     lua-mode
+     magit
+     markdown-mode
+     nrepl
+     org-mode
+     paredit
+     php-mode
+     rainbow-mode
+     rdebug
+     rhtml-mode
+     sass-mode
+     scala-mode
+     scratch
+     slim-mode
+     textile-mode
+     tuareg-mode
+     yaml-mode
 
      (:name asciidoc :lazy t)
-     (:name dired+ :lazy t)
-     (:name dired-details :lazy t)
      (:name erc-highlight-nicknames :lazy t)
-     (:name haml-mode :lazy t)
      (:name iedit :lazy t)
      (:name io-mode :lazy t)
-     (:name nrepl :lazy t)
-     (:name org-mode :lazy t)
-     (:name php-mode :lazy t)
      (:name quack :lazy t)
-     (:name rainbow-mode :lazy t)
      (:name rust-mode :lazy t)
-     (:name sass-mode :lazy t)
      (:name scss-mode :lazy t)
-     (:name slim-mode :lazy t)
-     (:name smex :lazy t)
      (:name twittering-mode :lazy t)
      (:name yari :lazy t)
 
      (:name coffee-mode
-      :post-init nil
-      :lazy t)
+      :lazy t
+      :post-init nil)
+
+     (:name smex
+      :before (setq smex-save-file "~/.emacs.d/smex-items"))
 
      (:name openwith
       :description "Open files with external programs"
       :type hg
       :url "https://bitbucket.org/jpkotta/openwith"
       :features openwith
-      :post-init (openwith-mode t))
-
-     (:name drag-stuff
-      :type http
-      :url "https://raw.github.com/rejeep/drag-stuff/master/drag-stuff.el"
-      :lazy t)
+      :after (openwith-mode 1))
 
      (:name ruby-mode
       :type http
@@ -81,46 +83,25 @@
 
      (:name handlebars-mode
       :type github
-      :pkgname "danielevans/handlebars-mode"
-      :lazy t
-      :features nil)
+      :pkgname "danielevans/handlebars-mode")
 
      (:name yasnippet
       :features yasnippet
       :compile ("dropdown-list.el" "yasnippet.el")
-      :post-init nil
-      :lazy t)
-
-     (:name crontab-mode
-      :url "http://web.archive.org/web/20080716014153/http://www.mahalito.net/~harley/elisp/crontab-mode.el"
-      :post-init (progn (add-to-list 'auto-mode-alist '("crontab\\'" . crontab-mode))))
-
-     (:name scratch
-      :post-init (progn (autoload 'scratch "scratch" nil t)))
+      :post-init nil)
 
      (:name multi-term
       :type emacswiki
-      :features nil
-      :post-init (progn (autoload 'multi-term-next "multi-term" nil t)))
+      :features nil)
 
      (:name irfc
       :type emacswiki
-      :post-init (progn
-                   (autoload 'irfc-mode "irfc" "Mode for viewing IETF RFC documents" t)
-                   (autoload 'irfc-visit "irfc" nil t)
-                   (add-to-list 'auto-mode-alist '("rfc[0-9]+\\.txt\\'" . irfc-mode))))
-
-     (:name dired-details+
-      :type emacswiki)
+      :after (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode)))
 
      (:name doc-mode
-      :post-init (progn
-                   (autoload 'doc-mode "doc-mode" nil t)
-                   (add-to-list 'auto-mode-alist '("\\.a\\(scii\\)?doc\\'" . doc-mode))))
-
-     (:name markdown-mode
-      :features nil
-      :post-init nil)
+      :after (progn
+               (autoload 'doc-mode "doc-mode" nil t)
+               (add-to-list 'auto-mode-alist '("\\.a\\(scii\\)?doc\\'" . doc-mode))))
 
      (:name mic-paren
       :type emacswiki
@@ -132,26 +113,23 @@
      (:name feature-mode
       :type github
       :pkgname "michaelklishin/cucumber.el"
-      :post-init (progn
-                   (setq feature-default-language "en"
-                         feature-default-i18n-file (expand-file-name "feature-mode/i18n.yml" el-get-dir))
-                   (add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))))
+      :after (setq
+              feature-default-language "en"
+              feature-default-i18n-file (expand-file-name "feature-mode/i18n.yml" el-get-dir)))
 
      (:name popwin
-      :type github
-      :pkgname "m2ym/popwin-el"
       :compile "popwin.el"
       :features popwin)
 
      (:name pomodoro
       :type github
       :pkgname "vderyagin/pomodoro.el"
-      :post-init (progn (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir))))
+      :after (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir)))
 
      (:name graphviz-dot-mode
       :type http
       :url "http://www.graphviz.org/Misc/graphviz-dot-mode.el"
-      :post-init (progn (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode))))
+      :after (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode)))
 
      (:name ido-ubiquitous
       :type github
