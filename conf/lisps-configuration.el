@@ -25,10 +25,6 @@
       (call-interactively 'ert-run-tests-interactively)
       (ert-run-tests-interactively t)))
 
-(font-lock-add-keywords
- 'emacs-lisp-mode
- '(("\\<\\(ert-deftest\\)" . 'font-lock-keyword-face)))
-
 
 (define-key lisp-interaction-mode-map (kbd "M-j") 'eval-print-last-sexp)
 (define-key lisp-interaction-mode-map (kbd "C-c C-c") 'eval-defun)
