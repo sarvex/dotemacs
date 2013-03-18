@@ -32,7 +32,6 @@
      org-mode
      paredit
      php-mode
-     rainbow-mode
      rdebug
      rhtml-mode
      sass-mode

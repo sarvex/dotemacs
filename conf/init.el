@@ -51,7 +51,6 @@
 (load "dotemacs/conf/twitter-configuration")
 (load "dotemacs/conf/bookmark-configuration")
 (load "dotemacs/conf/eshell-configuration")
-(load "dotemacs/conf/rainbow-configuration")
 (load "dotemacs/conf/git-configuration")
 (load "dotemacs/conf/helm-configuration")
 (load "dotemacs/conf/projects-configuration")

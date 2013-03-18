@@ -38,8 +38,7 @@
 
 (custom-set-variables
  '(safe-local-variable-values
-   '((dired-omit-mode . t)
-     (eval progn (rainbow-mode 1) (hl-line-mode -1))))
+   '((dired-omit-mode . t)))
  '(frame-title-format
    '("" (:eval (mapconcat
                 (lambda (w) (buffer-name (window-buffer w)))
