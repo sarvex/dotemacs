@@ -37,13 +37,14 @@
  '(recentf-save-file "~/.emacs.d/recentf")
  '(recentf-max-saved-items 3000)
  '(recentf-exclude
-   `(,(rx "." (or (and "jp" (optional "e") "g")
-                  (and "tif" (optional "f"))
-                  (and "x" (char "bp") "m")
-                  "gif" "bmp" "ico" "png"
-                  "zip" "tar" "rar" "xpi" "crx" "oex" "elc" "rbc" "pyc" "class")
-          string-end)
-     ,(rx (or "Thumbs.db" "~") string-end))))
+   (list
+    (rx "." (or (and "jp" (optional "e") "g")
+                (and "tif" (optional "f"))
+                (and "x" (char "bp") "m")
+                "gif" "bmp" "ico" "png"
+                "zip" "tar" "rar" "xpi" "crx" "oex" "elc" "rbc" "pyc" "class")
+     string-end)
+    (rx (or "Thumbs.db" "~") string-end))))
 
 
 (recentf-mode t)
