@@ -67,8 +67,5 @@
 (add-to-list 'auto-mode-alist (cons (rx "." (or "text" "markdown" "md") string-end) 'markdown-mode))
 
 
-(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
-
-
 (eval-after-load 'feature-mode
   '(define-key feature-mode-map (kbd "<return>") 'newline-and-indent))
