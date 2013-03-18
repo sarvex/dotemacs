@@ -273,6 +273,7 @@
             (mode . org-agenda-mode)
             (mode . package-menu-mode)
             (mode . process-menu-mode)
+            (mode . profiler-report-mode)
             (mode . pylookup-mode)
             (mode . rake-mode)
             (mode . rdebug-breakpoint-mode)
