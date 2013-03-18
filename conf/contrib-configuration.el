@@ -45,7 +45,7 @@
     (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
     (add-hook 'markdown-mode-hook 'turn-on-orgtbl)
     (add-hook 'markdown-mode-hook (lambda () (set-fill-column 78)))))
-(add-to-list 'auto-mode-alist (cons (rx "." (or "text" "markdown" "md") string-end) 'markdown-mode))
+(add-to-list 'auto-mode-alist (cons (rx not-newline "." (or "text" "markdown" "md") string-end) 'markdown-mode))
 
 
 (eval-after-load 'feature-mode

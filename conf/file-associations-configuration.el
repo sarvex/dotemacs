@@ -1,12 +1,12 @@
 ;;; -*- lexical-binding: t -*-
 
-(let ((document-files (rx "." (or "djvu" "dvi" "ps") string-end))
+(let ((document-files (rx not-newline "." (or "djvu" "dvi" "ps") string-end))
       (comic-book-files (rx ".cb" (char "abgrz") string-end))
-      (ebook-files (rx "." (or (and "fb2" (optional ".zip")) "epub") string-end))
-      (image-files (rx "." (or (and "jp" (optional "e") "g") (and "tif" (optional "f")) "bmp" "ico" "png") string-end))
-      (audio-files (rx "." (or (and "m" (char "k4") "a") "mp3" "ogg" "flac" "wma" "ac3" "aac" "ape") string-end))
-      (office-files (rx "." (or (and (or "doc" "xls") (optional "x")) (and "od" (char "ts")) "rtf") string-end))
-      (archive-files (rx "."
+      (ebook-files (rx not-newline "." (or (and "fb2" (optional ".zip")) "epub") string-end))
+      (image-files (rx not-newline "." (or (and "jp" (optional "e") "g") (and "tif" (optional "f")) "bmp" "ico" "png") string-end))
+      (audio-files (rx not-newline "." (or (and "m" (char "k4") "a") "mp3" "ogg" "flac" "wma" "ac3" "aac" "ape") string-end))
+      (office-files (rx not-newline "." (or (and (or "doc" "xls") (optional "x")) (and "od" (char "ts")) "rtf") string-end))
+      (archive-files (rx not-newline "."
                          (or (and "a" (or (optional (or "ce" "lz"))
                                           (and "r" (char "cj"))))
                              (and "lz" (or (char "ho") "ma"))
@@ -15,7 +15,7 @@
                                                      (and (char "7bxrgl") "z")))
                              "cab" "cpio" "deb" "lha" "lrz" "rpm" "zip")
                          string-end))
-      (video-files (rx "."
+      (video-files (rx not-newline "."
                        (or (and "mp" (or (char "24")
                                          (and (optional "e") "g")))
                            (and "m" (char "24ko") "v")

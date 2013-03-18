@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
-(add-to-list 'auto-mode-alist (cons (rx "." (or "rb" "ru" "builder" "rake" "thor" "gemspec") string-end) 'ruby-mode))
-(add-to-list 'auto-mode-alist (cons (rx (or "rake" "thor" "guard" "gem" "cap" "vagrant") "file" string-end) 'ruby-mode))
+(add-to-list 'auto-mode-alist (cons (rx not-newline "." (or "rb" "ru" "builder" "rake" "thor" "gemspec") string-end) 'ruby-mode))
+(add-to-list 'auto-mode-alist (cons (rx line-start (or "rake" "thor" "guard" "gem" "cap" "vagrant") "file" string-end) 'ruby-mode))
 
 
 (custom-set-variables
@@ -41,7 +41,7 @@
 
      (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3)
            flymake-err-line-patterns)
-     (push (list (rx "." (or "rb" "ru" "builder" "rake" "thor" "gemspec") string-end) 'flymake-ruby-init)
+     (push (list (rx not-newline "." (or "rb" "ru" "builder" "rake" "thor" "gemspec") string-end) 'flymake-ruby-init)
            flymake-allowed-file-name-masks)
 
      (define-key ruby-mode-map (kbd "C-c C-c") 'projectur-rspec)

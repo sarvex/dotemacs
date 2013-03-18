@@ -38,11 +38,11 @@
  '(recentf-max-saved-items 3000)
  '(recentf-exclude
    (list
-    (rx "." (or (and "jp" (optional "e") "g")
-                (and "tif" (optional "f"))
-                (and "x" (char "bp") "m")
-                "gif" "bmp" "ico" "png"
-                "zip" "tar" "rar" "xpi" "crx" "oex" "elc" "rbc" "pyc" "class")
+    (rx not-newline "." (or (and "jp" (optional "e") "g")
+                            (and "tif" (optional "f"))
+                            (and "x" (char "bp") "m")
+                            "gif" "bmp" "ico" "png"
+                            "zip" "tar" "rar" "xpi" "crx" "oex" "elc" "rbc" "pyc" "class")
      string-end)
     (rx (or "Thumbs.db" "~") string-end))))
 

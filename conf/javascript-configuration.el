@@ -7,7 +7,7 @@
 (add-to-list 'interpreter-mode-alist '("node" . js-mode))
 
 
-(add-to-list 'auto-mode-alist (cons (rx "." (or "hbs" "handlebars")) 'handlebars-mode))
+(add-to-list 'auto-mode-alist (cons (rx not-newline "." (or "hbs" "handlebars")) 'handlebars-mode))
 
 (defun coffee-compile-dwim ()
   (interactive)
