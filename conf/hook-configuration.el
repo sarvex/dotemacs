@@ -8,6 +8,7 @@
    Man-mode-hook
    archive-mode-hook
    bookmark-bmenu-mode-hook
+   c-mode-common-hook
    compilation-mode-hook
    conf-mode-hook
    dired-mode-hook
@@ -34,6 +35,7 @@
  (lambda (h)
    (add-hook h 'whitespace-mode))
  '(
+   c-mode-common-hook
    change-log-mode-hook
    coffee-mode-hook
    conf-mode-hook
