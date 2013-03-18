@@ -37,9 +37,14 @@
  '(recentf-save-file "~/.emacs.d/recentf")
  '(recentf-max-saved-items 3000)
  '(recentf-exclude
-   '((rx "." (or (and "jp" (optional "e") "g") (and "tif" (optional "f")) (and "x" (char "bp") "m") "gif" "bmp" "ico" "png") string-end)
-     (rx "." (or "zip" "tar" "rar" "xpi" "crx" "oex" "elc" "rbc" "pyc" "class") string-end)
-     (rx line-start "Thumbs.db" string-end))))
+   `(,(rx "." (or (and "jp" (optional "e") "g")
+                  (and "tif" (optional "f"))
+                  (and "x" (char "bp") "m")
+                  "gif" "bmp" "ico" "png"
+                  "zip" "tar" "rar" "xpi" "crx" "oex" "elc" "rbc" "pyc" "class")
+          string-end)
+     ,(rx (or "Thumbs.db" "~") string-end))))
+
 
 (recentf-mode t)
 
@@ -57,7 +62,7 @@
         (regexp "(ftp)$")
         (and ".gpg" string-end)
         "/.emacs.d/recentf"
-        (and "/" (or "org-clock-save.el" "bmk-bmenu-state.el" "ido-history" "newsrc-dribble" ) string-end)
+        (and "/" (or "org-clock-save.el" "bmk-bmenu-state.el" "ido-history" "newsrc-dribble") string-end)
         (eval (expand-file-name "~/repos/"))
         (eval (expand-file-name "~/org/")))))
  '(desktop-locals-to-save
