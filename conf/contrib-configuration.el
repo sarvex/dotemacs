@@ -27,11 +27,7 @@
  '(display-buffer-function 'popwin:display-buffer)
  '(popwin:popup-window-height 25)
  '(popwin:special-display-config
-   '(((lambda (buf)
-        (let ((name (with-current-buffer buf
-                      mode-name)))
-          (string= name "Helm"))))
-     (completion-list-mode :noselect t)
+   '((completion-list-mode :noselect t)
      ("*magit-edit-log*" :stick t :height 15)
      ("*Gofmt Errors*" :noselect nil :height 10)
      debugger-mode
