@@ -3,7 +3,7 @@
 (autoload 'dired-jump "dired-x" nil t)
 
 (custom-set-variables
- '(dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
+ '(dired-omit-files (rx line-start (or "." "#")))
  '(directory-free-space-args "-Pkh")
  '(dired-details-hide-extra-lines t)
  '(dired-details-hide-link-targets nil)
