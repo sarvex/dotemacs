@@ -4,6 +4,7 @@
 
 (custom-set-variables
  '(dired-omit-files (rx line-start (or "." "#")))
+ '(dired-details-hidden-string "")
  '(directory-free-space-args "-Pkh")
  '(dired-details-hide-extra-lines t)
  '(dired-details-hide-link-targets nil)
