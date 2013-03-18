@@ -30,7 +30,6 @@
  '(indicate-empty-lines t)
  '(tab-width 4)
  '(word-wrap t)
- '(calc-window-height 18)
  '(async-shell-command-buffer 'new-buffer)
  '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(ediff-make-buffers-readonly-at-startup t)

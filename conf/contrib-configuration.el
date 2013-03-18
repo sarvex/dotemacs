@@ -3,7 +3,6 @@
 (custom-set-variables
  '(irfc-directory "~/doc/RFC")
  '(multi-term-program "/bin/zsh")
- '(smex-save-file "~/.emacs.d/smex-items")
  '(ack-command "ack --color-match='bold underline' "))
 
 
@@ -17,10 +16,7 @@
 
 
 (eval-after-load 'doc-mode
-  '(add-hook 'doc-mode-hook
-    '(lambda ()
-      (turn-on-auto-fill)
-      (require 'asciidoc))))
+  '(add-hook 'doc-mode-hook (lambda () (turn-on-auto-fill) (require 'asciidoc))))
 
 
 (custom-set-variables

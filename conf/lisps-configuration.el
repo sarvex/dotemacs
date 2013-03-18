@@ -37,7 +37,7 @@
 (eval-after-load 'ielm
   '(progn
     (define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
-    (define-key inferior-emacs-lisp-mode-map (kbd "C-c t")) 'ert-run-all-tests-or-interactively
+    (define-key inferior-emacs-lisp-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)
     (define-key inferior-emacs-lisp-mode-map (kbd "C-l") 'recenter-top)))
 
 

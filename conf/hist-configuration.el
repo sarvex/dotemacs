@@ -37,7 +37,7 @@
  '(recentf-save-file "~/.emacs.d/recentf")
  '(recentf-max-saved-items 3000)
  '(recentf-exclude
-   '((rx "." (or (regexp "jpe?g") (regexp "tiff?") (regexp "x[pb]m") "gif" "png" "ico" "bmp") string-end)
+   '((rx "." (or (and "jp" (optional "e") "g") (and "tif" (optional "f")) (and "x" (char "bp") "m") "gif" "bmp" "ico" "png") string-end)
      (rx "." (or "zip" "tar" "rar" "xpi" "crx" "oex" "elc" "rbc" "pyc" "class") string-end)
      (rx line-start "Thumbs.db" string-end))))
 

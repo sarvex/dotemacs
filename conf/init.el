@@ -61,8 +61,6 @@
 (load "dotemacs/conf/keys-configuration")
 (load "dotemacs/conf/midnight-configuration")
 
-(desktop-read "~/.emacs.d/")
-
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:

@@ -278,7 +278,3 @@ named 'archive'"
     (if (member tag (org-get-tags-at current-headline))
         next-headline
         nil)))
-
-;; Local Variables:
-;; lexical-binding: t
-;; End:
