@@ -65,4 +65,4 @@
       (list ,comic-book-files '("mcomix" "qcomicbook" "aunpack"))
       (list ,document-files "evince")
       (list ,image-files "feh *")
-      (list ,video-files '(list "mplayer" "mplayer -ass-bottom-margin 100 2>/dev/null >&2"))))))
+      (list ,video-files '(list "mplayer -really-quiet -ass-bottom-margin 100" "mplayer -quiet"))))))
