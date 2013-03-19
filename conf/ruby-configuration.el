@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (add-to-list 'auto-mode-alist (cons (rx not-newline "." (or "rb" "ru" "builder" "rake" "thor" "gemspec") string-end) 'ruby-mode))
-(add-to-list 'auto-mode-alist (cons (rx line-start (or "rake" "thor" "guard" "gem" "cap" "vagrant") "file" string-end) 'ruby-mode))
+(add-to-list 'auto-mode-alist (cons (rx (or "rake" "thor" "guard" "gem" "cap" "vagrant") "file" string-end) 'ruby-mode))
 
 
 (custom-set-variables
