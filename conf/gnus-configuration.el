@@ -90,6 +90,7 @@
 (add-hook 'message-mode-hook 'epa-mail-mode)
 (add-hook 'message-mode-hook 'flyspell-mode)
 
+(add-hook 'gnus-message-setup-hook 'mml-secure-message-sign)
 (add-hook 'message-send-mail-hook
           (lambda ()
             (when (message-mail-p)
