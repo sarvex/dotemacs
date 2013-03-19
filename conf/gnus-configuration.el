@@ -1,5 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 
+(require 'gnus-html)
+(require 'epg)
+
 (custom-set-variables
  '(gnus-select-method '(nntp "news.gmane.org"))
  '(gnus-always-read-dribble-file t)
@@ -28,7 +31,6 @@
 
  '(message-send-mail-function 'message-send-mail-with-sendmail)
  '(message-sendmail-envelope-from 'header)
- '(send-mail-function 'message-send-mail-with-sendmail)
  '(sendmail-program "msmtp")
 
  '(gnus-summary-line-format "%U%R%z%I%(%[%4L: %-23,23f%]%) %s\n")
@@ -73,19 +75,11 @@
  '(gnus-treat-x-pgp-sig 'head))
 
 
-(require 'gnus-html)
-(require 'epg)
-
-;; handling signed and encrypted messages
 (eval-after-load 'mm-decode
   '(progn
-    ;; Tells Gnus to inline the part
     (add-to-list 'mm-inlined-types "application/pgp$")
-    ;; Tells Gnus how to display the part when it is requested
     (add-to-list 'mm-inline-media-tests '("application/pgp$" mm-inline-text identity))
-    ;; Tell Gnus not to wait for a request, just display the thing straight away.
     (add-to-list 'mm-automatic-display "application/pgp$")
-    ;; But don't display the signatures, please.
     (setq mm-automatic-display (remove "application/pgp-signature" mm-automatic-display))))
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
@@ -96,8 +90,21 @@
 (add-hook 'message-mode-hook 'epa-mail-mode)
 (add-hook 'message-mode-hook 'flyspell-mode)
 
-(define-key gnus-summary-mode-map (kbd "[") 'gnus-summary-refer-thread)
+(add-hook 'message-send-mail-hook
+          (lambda ()
+            (when (message-mail-p)
+              (save-excursion
+                (let* ((from (save-restriction
+                               (message-narrow-to-headers)
+                               (message-fetch-field "from")))
+                       (account (cond
+                                  ((string-match "gmail.com" from)
+                                   "gmail")
+                                  ((string-match "poshta.te.ua" from)
+                                   "poshta.te.ua"))))
+                  (setq message-sendmail-extra-arguments (list "-a" account)))))))
 
+(define-key gnus-summary-mode-map (kbd "[") 'gnus-summary-refer-thread)
 
 (defun gnus-user-format-function-d (headers)
   (let ((time (gnus-group-timestamp gnus-tmp-group)))
