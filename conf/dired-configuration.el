@@ -136,4 +136,4 @@
          (if (equal 1 (length dired-buffers))
              (car dired-buffers)
              (ido-completing-read "Dired buffer: " dired-buffers)))
-        (dired "~"))))
+        (dired (expand-file-name "~")))))
