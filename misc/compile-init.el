@@ -5,7 +5,6 @@
 
 (setq debug-on-error t)
 
-(load "cedet-configuration")
 (load "el-get-configuration")
 (load "elpa-configuration")
 
