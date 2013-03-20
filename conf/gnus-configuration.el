@@ -37,7 +37,7 @@
  '(gnus-summary-mode-line-format "Gnus: %G [%A] %Z")
  '(gnus-article-mode-line-format "Gnus: %G [%w] %Z %S")
  '(gnus-topic-line-format "%i[ %(%{%n%}%) — %A ]%v\n")
- '(gnus-group-line-format "%M%S%p%P%5y: %(%-60,60g%) %ud\n")
+ '(gnus-group-line-format "%M%S%p%P%5y: %(%-50,50g%) %ud\n")
 
  '(gnus-topic-display-empty-topics t)
  '(gnus-group-default-list-level 1)
