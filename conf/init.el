@@ -14,9 +14,6 @@
 ;; loads passwords and othre stuff, required on startup
 (load "dotemacs/conf/before-init-configuration")
 
-;; needs to be loaded in the beginning to shadow bundled version:
-(load "dotemacs/conf/cedet-configuration")
-
 (load "dotemacs/conf/elpa-configuration")
 (load "dotemacs/conf/el-get-configuration")
 (load "dotemacs/conf/misc-modes-configuration")
@@ -31,6 +28,7 @@
 (load "dotemacs/conf/ibuffer-configuration")
 (load "dotemacs/conf/hist-configuration")
 (load "dotemacs/conf/cursor-configuration")
+(load "dotemacs/conf/cedet-configuration")
 
 (load "dotemacs/conf/cc-mode-configuration")
 (load "dotemacs/conf/sh-configuration")
