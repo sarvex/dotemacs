@@ -1,21 +1,21 @@
-;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t; coding: utf-8 -*-
 
 (require 'gnus-html)
 (require 'epg)
 
 (custom-set-variables
  '(gnus-select-method '(nntp "news.gmane.org"))
- '(gnus-always-read-dribble-file t)
- '(gnus-extract-address-components 'mail-extract-address-components)
- '(gnus-buttonized-mime-types '("multipart/alternative"
-                                "multipart/encrypted"
-                                "multipart/signed"))
-
  '(gnus-secondary-select-methods
    '((nnimap "gmail"
       (nnimap-address "imap.gmail.com")
       (nnimap-server-port 993)
       (nnimap-stream ssl))))
+
+ '(gnus-always-read-dribble-file t)
+ '(gnus-extract-address-components 'mail-extract-address-components)
+ '(gnus-buttonized-mime-types '("multipart/alternative"
+                                "multipart/encrypted"
+                                "multipart/signed"))
 
  '(user-full-name my-full-name)
  '(user-mail-address my-email-address)
@@ -37,18 +37,22 @@
  '(gnus-summary-mode-line-format "Gnus: %G [%A] %Z")
  '(gnus-article-mode-line-format "Gnus: %G [%w] %Z %S")
  '(gnus-topic-line-format "%i[ %(%{%n%}%) — %A ]%v\n")
- '(gnus-group-line-format "%M\%S\%p\%P\%5y: %(%-60,60g%) %ud\n")
+ '(gnus-group-line-format "%M%S%p%P%5y: %(%-60,60g%) %ud\n")
 
+ '(gnus-topic-display-empty-topics t)
+ '(gnus-group-default-list-level 1)
+ '(gnus-article-truncate-lines nil)
+ '(gnus-treat-hide-signature t)
+ '(gnus-asynchronous t)
+ '(gnus-auto-extend-newsgroup t)
+ '(gnus-auto-select-first 'unread)
+ '(gnus-auto-select-next nil)
+ '(gnus-body-boundary-delimiter nil)
+ '(gnus-break-pages nil)
  '(gnus-check-new-newsgroups nil)
  '(gnus-save-killed-list nil)
- '(gnus-asynchronous t)
  '(gnus-save-newsrc-file nil)
- '(gnus-auto-select-next nil)
  '(gnus-summary-check-current t)
- '(gnus-auto-extend-newsgroup t)
- '(gnus-article-truncate-lines nil)
- '(gnus-break-pages nil)
- '(gnus-body-boundary-delimiter nil)
  '(gnus-thread-indent-level 2)
 
  '(gnus-agent-directory "~/.mail/gnus/agent")
@@ -69,6 +73,9 @@
  '(nnfolder-directory "~/.mail/archive")
  '(nnmail-message-id-cache-file "~/.mail/nnmail-cache")
 
+
+ '(gravatar-size 64)
+ '(gnus-gravatar-properties '(:ascent center :relief 0))
  '(gnus-treat-from-gravatar 'head)
  '(gnus-treat-mail-gravatar 'head)
  '(gnus-treat-mail-picon 'head)
@@ -76,11 +83,9 @@
 
 
 (eval-after-load 'mm-decode
-  '(progn
-    (add-to-list 'mm-inlined-types "application/pgp$")
-    (add-to-list 'mm-inline-media-tests '("application/pgp$" mm-inline-text identity))
-    (add-to-list 'mm-automatic-display "application/pgp$")
-    (setq mm-automatic-display (remove "application/pgp-signature" mm-automatic-display))))
+  '(add-to-list 'mm-inline-media-tests '("application/pgp$" mm-inline-text identity)))
+
+(add-hook 'gnus-message-setup-hook 'mml-secure-message-sign)
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'gnus-select-group-hook 'gnus-group-set-timestamp)
@@ -90,7 +95,6 @@
 (add-hook 'message-mode-hook 'epa-mail-mode)
 (add-hook 'message-mode-hook 'flyspell-mode)
 
-(add-hook 'gnus-message-setup-hook 'mml-secure-message-sign)
 (add-hook 'message-send-mail-hook
           (lambda ()
             (when (message-mail-p)
@@ -103,9 +107,15 @@
                                    "gmail")
                                   ((string-match "poshta.te.ua" from)
                                    "poshta.te.ua"))))
-                  (setq message-sendmail-extra-arguments (list "-a" account)))))))
+                  (setq message-sendmail-extra-arguments
+                        (list "-a" account)))))))
 
 (define-key gnus-summary-mode-map (kbd "[") 'gnus-summary-refer-thread)
+
+(define-key gnus-group-mode-map "1" (lambda () (interactive) (gnus-group-list-groups 1)))
+(define-key gnus-group-mode-map "2" (lambda () (interactive) (gnus-group-list-groups 2)))
+(define-key gnus-group-mode-map "3" (lambda () (interactive) (gnus-group-list-groups 3)))
+
 
 (defun gnus-user-format-function-d (headers)
   (let ((time (gnus-group-timestamp gnus-tmp-group)))
@@ -113,9 +123,7 @@
         (format-time-string "%b %d %Y, %H:%M" time)
         "")))
 
-(defadvice save-some-buffers (before save-gnus-dribble-file activate)
-  "Unconditionally save gnus dribble file."
-  (let ((buf (get-buffer "newsrc-dribble")))
-    (when buf
-      (with-current-buffer buf
-        (save-buffer)))))
+(defadvice save-some-buffers (before save-gnus-newsrc-file activate)
+  "Unconditionally save gnus newsrc file."
+  (when (fboundp 'gnus-group-save-newsrc)
+    (gnus-group-save-newsrc)))
