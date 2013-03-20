@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t; no-byte-compile: t -*-
 
 (require 'ert)
 (require 'cl-lib)
@@ -57,7 +57,3 @@
 (load "dotemacs/conf/hook-configuration")
 (load "dotemacs/conf/keys-configuration")
 (load "dotemacs/conf/midnight-configuration")
-
-;; Local Variables:
-;; no-byte-compile: t
-;; End:
