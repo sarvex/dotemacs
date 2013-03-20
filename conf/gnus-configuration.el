@@ -112,9 +112,13 @@
 
 (define-key gnus-summary-mode-map (kbd "[") 'gnus-summary-refer-thread)
 
-(define-key gnus-group-mode-map "1" (lambda () (interactive) (gnus-group-list-groups 1)))
-(define-key gnus-group-mode-map "2" (lambda () (interactive) (gnus-group-list-groups 2)))
-(define-key gnus-group-mode-map "3" (lambda () (interactive) (gnus-group-list-groups 3)))
+(loop
+   for key from 1 to 6
+   do
+     (define-key gnus-group-mode-map (number-to-string key)
+       (lambda ()
+         (interactive)
+         (gnus-group-list-groups (-  last-command-event ?0)))))
 
 
 (defun gnus-user-format-function-d (_)
