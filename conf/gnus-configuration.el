@@ -117,7 +117,7 @@
 (define-key gnus-group-mode-map "3" (lambda () (interactive) (gnus-group-list-groups 3)))
 
 
-(defun gnus-user-format-function-d (headers)
+(defun gnus-user-format-function-d (_)
   (let ((time (gnus-group-timestamp gnus-tmp-group)))
     (if time
         (format-time-string "%b %d %Y, %H:%M" time)
