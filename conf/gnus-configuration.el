@@ -24,10 +24,6 @@
                                 "multipart/encrypted"
                                 "multipart/signed"))
 
- '(user-full-name my-full-name)
- '(user-mail-address my-email-address)
-
-
  '(gnus-max-image-proportion 100.0)
  '(mm-text-html-renderer 'shr)
  '(mm-discouraged-alternatives nil)
