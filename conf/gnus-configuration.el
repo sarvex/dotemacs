@@ -9,7 +9,14 @@
    '((nnimap "gmail"
       (nnimap-address "imap.gmail.com")
       (nnimap-server-port 993)
-      (nnimap-stream ssl))))
+      (nnimap-stream ssl))
+     (nnml "")))
+ '(mail-sources
+   `((pop
+      :server "mail.poshta.te.ua"
+      :port 110
+      :user ,vderyagin/poshta.te.ua-username
+      :password ,vderyagin/poshta.te.ua-password)))
 
  '(gnus-always-read-dribble-file t)
  '(gnus-extract-address-components 'mail-extract-address-components)
