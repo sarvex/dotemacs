@@ -109,7 +109,3 @@
  (lambda (extension)
    (add-to-list 'completion-ignored-extensions extension))
  '(".rbc" ".sassc" ".scssc" ".sqlite3" ".hi"))
-
-(defadvice save-buffers-kill-emacs (before do-not-ask-when-has-live-clients activate)
-  "Do not ask before exiting Emacs if it has live clients."
-  (remove-hook 'kill-emacs-query-functions 'server-kill-emacs-query-function))
