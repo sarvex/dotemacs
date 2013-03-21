@@ -34,9 +34,8 @@
  '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(ediff-make-buffers-readonly-at-startup t)
  '(grep-scroll-output t)
- '(grep-command "grep --recursive --with-filename --line-number --regexp="))
+ '(grep-command "grep --recursive --with-filename --line-number --regexp=")
 
-(custom-set-variables
  '(safe-local-variable-values
    '((dired-omit-mode . t)))
  '(frame-title-format
@@ -46,34 +45,30 @@
  '(tooltip-frame-parameters
    '((name . "tooltip")
      (internal-border-width . 1)
-     (border-width . 1))))
+     (border-width . 1)))
 
-(custom-set-variables
  '(gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration.el")
  '(custom-file "~/.emacs.d/custom.el")
  '(snake-score-file "~/.emacs.d/games/snake-scores")
  '(tetris-score-file "~/.emacs.d/games/tetris-scores")
  '(type-break-file-name "~/.emacs.d/type-break")
- '(mpc-mpd-music-directory "/mnt/storage/music/"))
+ '(mpc-mpd-music-directory "/mnt/storage/music/")
 
-(custom-set-variables
  '(scroll-step 0)
  '(redisplay-dont-pause t)
  '(scroll-conservatively most-positive-fixnum)
  '(scroll-margin 0)
  '(scroll-down-aggressively nil)
  '(scroll-up-aggressively nil)
- '(scroll-preserve-screen-position 'always))
+ '(scroll-preserve-screen-position 'always)
 
-(custom-set-variables
  '(backup-directory-alist '(("." . "~/.emacs.d/backup/")))
  '(backup-inhibited nil)
  '(backup-by-copying t)
  '(auto-save-default nil)
  '(version-control t)
- '(delete-old-versions t))
+ '(delete-old-versions t)
 
-(custom-set-variables
  '(debug-on-error nil)
  '(echo-keystrokes 0.4)
  '(eval-expression-print-level nil)
@@ -83,14 +78,19 @@
  '(temporary-file-directory "/tmp/")
  '(tramp-default-method "sudo")
  '(global-mark-ring-max 50)
- '(x-stretch-cursor t))
+ '(x-stretch-cursor t)
 
-(custom-set-variables
  '(default-frame-alist '((font . "Consolas-12")))
  '(initial-frame-alist default-frame-alist)
- '(special-display-frame-alist default-frame-alist))
+ '(special-display-frame-alist default-frame-alist)
 
-(custom-set-variables
+ '(face-font-selection-order '(:height :width :weight :slant))
+ '(face-font-family-alternatives
+   '(("Consolas" "Inconsolata" "Monaco" "Terminus" "Monospace" "courier" "fixed")
+     ("courier" "CMU Typewriter Text" "fixed")
+     ("Sans Serif" "helv" "helvetica" "arial" "fixed")
+     ("helv" "helvetica" "arial" "fixed")))
+
  '(user-mail-address my-email-address)
  '(user-full-name my-full-name))
 
