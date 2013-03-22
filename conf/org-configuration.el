@@ -240,18 +240,22 @@
          (org-agenda-redo t)))
      (get-buffers-with-major-mode 'org-agenda-mode))))
 
-(defun vderyagin/find-org-file (include-archive)
+(defun vderyagin/find-org-file (arg)
   "Select and open org file from `org-directory' or one if its subdirectories.
-Unless INCLUDE-ARCHIVE is non-nil, skips all files in directories
-named 'archive'"
-  (interactive "P")
+When called without prefix argument filters out files in archive
+directory, with single prefix argument looks only in archive
+directory, with double prefix argument all files are available."
+  (interactive "p")
   (let ((files
          (delete ""
                  (split-string
                   (shell-command-to-string
-                   (let ((default-directory org-directory))
+                   (let ((default-directory
+                          (if (= 4 arg)
+                              (expand-file-name "archive" org-directory)
+                              org-directory)))
                      (find-cmd
-                      (unless include-archive
+                      (when (= 1 arg)
                         '(prune (name "archive")))
                       '(type "f")
                       '(iname "*.org" "*.gpg")
