@@ -1,5 +1,23 @@
 ;;; -*- lexical-binding: t -*-
 
+(ido-mode t)
+(ido-ubiquitous-mode t)
+
+(add-hook 'ido-minibuffer-setup-hook
+          (lambda ()
+            "allow line wrapping in the minibuffer"
+            (set (make-local-variable 'truncate-lines) nil)))
+
+(add-hook 'ido-setup-hook
+          (lambda ()
+            "Set up key bindings for use for `ido-mode' completion"
+            (mapc
+             (lambda (key) (define-key ido-completion-map key nil))
+             '([right] [left] [up] [down]))
+            (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
+            (define-key ido-completion-map (kbd "C-n") 'ido-next-match)))
+
+
 (custom-set-variables
  '(ido-case-fold t)
  '(ido-save-directory-list-file (expand-file-name "~/.emacs.d/ido-history"))
@@ -16,23 +34,3 @@
                                        bookmark-set))
  '(ido-decorations '("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]"
                      " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
-
-(eval-after-load 'ido
-  (quote
-   (progn
-     (add-hook 'ido-minibuffer-setup-hook
-               (lambda ()
-                 "allow line wrapping in the minibuffer"
-                 (set (make-local-variable 'truncate-lines) nil)))
-
-     (add-hook 'ido-setup-hook
-               (lambda ()
-                 "Set up key bindings for use for `ido-mode' completion"
-                 (mapc
-                  (lambda (key) (define-key ido-completion-map key nil))
-                  '([right] [left] [up] [down]))
-                 (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
-                 (define-key ido-completion-map (kbd "C-n") 'ido-next-match))))))
-
-(ido-mode t)
-(ido-ubiquitous-mode t)
