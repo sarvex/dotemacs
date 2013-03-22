@@ -22,7 +22,7 @@
   (let ((overriding-terminal-local-map nil)))
 
   (if (eq new-input-method 'default-method)
-      (inactivate-input-method)
+      (deactivate-input-method)
       (set-input-method new-input-method))
 
   (setq isearch-input-method-function input-method-function
@@ -50,7 +50,7 @@
 (define-key global-map (kbd "<f31>")
   (lambda ()
     (interactive)
-    (inactivate-input-method)
+    (deactivate-input-method)
     (when flyspell-mode
       (ispell-change-dictionary "american"))))
 
