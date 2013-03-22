@@ -1,15 +1,12 @@
 ;;; -*- lexical-binding: t -*-
 
-(custom-set-variables
- '(default-file-name-coding-system 'utf-8)
- '(file-name-coding-system 'utf-8)
- '(locale-coding-system 'utf-8))
-
-(set-language-environment 'utf-8)
-(set-terminal-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8)
+(set-default-coding-system 'utf-8)
+(set-file-name-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
-
-(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+(set-language-environment 'utf-8)
+(set-selection-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
 
 (prefer-coding-system 'cp866)
 (prefer-coding-system 'koi8-r-unix)
