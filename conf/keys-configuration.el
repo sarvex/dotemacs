@@ -10,6 +10,7 @@
 (define-key global-map (kbd "C-c o") 'vderyagin/find-org-file)
 (define-key global-map (kbd "C-c r") 'rake)
 (define-key global-map (kbd "C-c s") 'ispell-word)
+(define-key global-map (kbd "C-c w") 'whitespace-mode)
 
 (define-key global-map (kbd "<f11>") 'org-capture)
 (define-key global-map (kbd "C-x C-d") 'ido-dired)
