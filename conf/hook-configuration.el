@@ -133,8 +133,6 @@
    '(("\\<\\(XXX\\|TODO\\|NOTE\\|BUG\\|FIXME\\|WARNING\\|HACK\\|REFACTOR\\|IMPORTANT\\|HERE BE DRAGONS\\):"
       1 font-lock-warning-face t))))
 
-(remove-hook 'kill-emacs-query-functions 'server-kill-emacs-query-function)
-
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
