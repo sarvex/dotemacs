@@ -57,32 +57,9 @@
        (progn (goto-char max) (line-end-position))))))
 
 
-(defun untabify-buffer ()
-  (interactive)
-  (untabify (point-min) (point-max)))
-
-
-(defun indent-buffer ()
-  (interactive)
-  (indent-region (point-min) (point-max)))
-
-
-(defun clean-up-region-or-buffer ()
-  "Untabifies, indents and deletes trailing whitespace from buffer or region."
-  (interactive)
-  (save-excursion
-    (unless (region-active-p)
-      (mark-whole-buffer))
-    (untabify-buffer)
-    (indent-buffer)
-    (save-restriction
-      (narrow-to-region (region-beginning) (region-end))
-      (delete-trailing-whitespace))))
-
-
 (defun ido-sudo-find-file ()
   (interactive)
-  (find-file (concat "/sudo::" (ido-read-file-name "File (sudo): " "/"))))
+  (find-file (concat "/sudo::" (ido-read-file-name "Find file (sudo): " "/"))))
 
 
 (defun minor-modes ()
@@ -107,20 +84,6 @@
               (push fmode minor-modes))))
      minor-mode-list)
     minor-modes))
-
-
-(defun recursively-add-to-load-path (dir)
-  "Adds DIR and all its subdirs (except hidden) to `load-path'
-recursively, if they contain elisp code"
-  (mapc
-   (lambda (file)
-     (if (file-directory-p file)
-         ;; process subdirectories
-         (recursively-add-to-load-path file)
-         ;; check if directory contains elisp files
-         (when (equal (file-name-extension file) "el")
-           (add-to-list 'load-path dir))))
-   (directory-files dir t "^[^\\.]")))
 
 
 (defun get-buffers-with-major-mode (mode)
@@ -202,21 +165,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
         (org-ctrl-c-ctrl-c)))))
 
 
-(defun revert-all-buffers ()
-  "Refreshes all open buffers from their respective files"
-  (interactive)
-  (let* ((list (buffer-list))
-         (buffer (car list)))
-    (while buffer
-      (when (and (buffer-file-name buffer)
-                 (not (buffer-modified-p buffer)))
-        (set-buffer buffer)
-        (revert-buffer t t t))
-      (setq list (cdr list)
-            buffer (car list))))
-  (message "Refreshed open files"))
-
-
 (defun toggle-current-window-dedication ()
   (interactive)
   (let* ((window (selected-window))
@@ -225,21 +173,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
     (message "Window is %s dedicated to %s"
              (if dedicated "no longer" "currently")
              (buffer-name))))
-
-
-(defun lorem (&optional arg)
-  "Insert a lorem ipsum text. With ARG olny puts it to kill ring."
-  (interactive "P")
-  (let ((text (concat "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do "
-                      "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
-                      "ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut "
-                      "aliquip ex ea commodo consequat. Duis aute irure dolor in "
-                      "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla "
-                      "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
-                      "culpa qui officia deserunt mollit anim id est laborum.")))
-    (if arg
-        (kill-new text)
-        (insert text))))
 
 
 (defun recenter-top ()
@@ -263,14 +196,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
   "Byte-compile all emacs configs."
   (interactive "P")
   (byte-recompile-directory "~/.emacs.d/dotemacs/conf" 0 force))
-
-
-(defun indent-region-or-buffer ()
-  (interactive)
-  (save-excursion
-    (if (region-active-p)
-        (call-interactively 'indent-region)
-        (indent-region (region-beginning) (region-end)))))
 
 
 (defun snake-case (text)
@@ -318,45 +243,6 @@ UpperCamelCase and combinations of those."
                  "foo_bar_baz_quux_corge_grault_a_b_c")))
 
 
-(defun haml-to-html ()
-  (interactive)
-  (let ((error-buffer "*haml error*")
-        (original-position (point))
-        original-content
-        beg end)
-
-    (if (region-active-p)
-        (setq beg (region-beginning)
-              end (region-end))
-        (setq beg (point-min)
-              end (point-max)))
-
-    (when (get-buffer error-buffer)
-      (kill-buffer error-buffer))
-
-    (setq original-content (buffer-substring beg end))
-    (shell-command-on-region beg end "haml" nil 'replace error-buffer 'display-error-buffer)
-
-    (when (get-buffer error-buffer)
-      (insert original-content)
-      (goto-char original-position))))
-
-(defun foo (count)
-  "Inserts at point position COUNT metasyntactic variable names separated by spaces.
-Compatible with RFC-3092."
-  (interactive "p")
-  (insert
-   (mapconcat
-    'identity
-    (loop
-       repeat count
-       with foos = '("foo" "bar" "baz" "qux" "quux" "corge" "grault"
-                     "garply" "waldo" "fred" "plugh" "xyzzy" "thud")
-       for foo = (nth (random (length foos)) foos)
-       collect foo)
-    " ")))
-
-
 (defun flymake-create-temp-intemp (file-name prefix)
   "Return file name in temporary directory for checking FILE-NAME.
 This is a replacement for `flymake-create-temp-inplace'. The
@@ -391,8 +277,7 @@ makes)."
     (save-restriction
       (narrow-to-region beg end)
       (goto-char (point-min))
-      (let ;; To make `end-of-line' and etc. to ignore fields.
-          ((inhibit-field-text-motion t))
+      (let ((inhibit-field-text-motion t))
         (sort-subr nil 'forward-line 'end-of-line nil nil
                    (lambda (s1 s2) (eq (random 2) 0)))))))
 
@@ -412,10 +297,3 @@ makes)."
      (lambda (process event)
        (when (string= event "finished\n")
          (dired gist-dir))))))
-
-(defun goto-random-line ()
-  "Go to random line in current buffer."
-  (interactive)
-  (goto-char (point-min))
-  (forward-line
-   (random (count-lines (point-min) (point-max)))))
