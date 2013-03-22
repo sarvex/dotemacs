@@ -93,9 +93,3 @@
                            nil
                            'require-match))
         (call-interactively 'vderyagin/erc-join))))
-
-(defun reset-erc-track-mode ()
-  "Clears out erc-track-mode notifications."
-  (interactive)
-  (setq erc-modified-channels-alist nil)
-  (erc-modified-channels-update))

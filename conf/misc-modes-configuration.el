@@ -7,12 +7,10 @@
 
 (random t)
 
-(unless (memq epa-file-handler file-name-handler-alist)
-  (epa-file-enable))
-
 ;; on
 (auto-image-file-mode)
 (column-number-mode)
+(epa-file-enable)
 (global-auto-revert-mode)
 (global-subword-mode)
 (icomplete-mode)
@@ -204,18 +202,13 @@
  '(grep-scroll-output t)
  '(grep-command "grep --recursive --with-filename --line-number --regexp=")
 
-
-
  '(safe-local-variable-values
    '((dired-omit-mode . t)))
+
  '(frame-title-format
    '("" (:eval (mapconcat
                 (lambda (w) (buffer-name (window-buffer w)))
                 (window-list) " | "))))
- '(tooltip-frame-parameters
-   '((name . "tooltip")
-     (internal-border-width . 1)
-     (border-width . 1)))
 
  '(gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration.el")
  '(custom-file "~/.emacs.d/custom.el")
