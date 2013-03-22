@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(let ((document-files (rx not-newline "." (or "djvu" "dvi" "ps") string-end))
+(let ((document-files (rx not-newline "." (or "djvu" "pdf" "ps") string-end))
       (comic-book-files (rx ".cb" (char "abgrz") string-end))
       (ebook-files (rx not-newline "." (or (and "fb2" (optional ".zip")) "epub") string-end))
       (image-files (rx not-newline "." (or (and "jp" (optional "e") "g") (and "tif" (optional "f")) "bmp" "ico" "png") string-end))
@@ -45,11 +45,10 @@
       (list (rx ".chm" string-end) "kchmviewer" '(file))
       (list (rx ".dvd.iso" string-end) "vlc" '(file))
       (list (rx ".gif" string-end) "animate" '(file))
-      (list (rx ".pdf" string-end) "mupdf -r 96" '(file))
       (list (rx ".torrent" string-end) "gtorrentviewer" '(file))
       (list ,audio-files "vlc" '(file))
       (list ,comic-book-files "qcomicbook" '(file))
-      (list ,document-files "evince" '(file))
+      (list ,document-files "qpdfview --unique" '(file))
       (list ,ebook-files "fbreader" '(file))
       (list ,image-files "feh" '(file))
       (list ,office-files "libreoffice" '(file))
@@ -58,8 +57,8 @@
    `(dired-guess-shell-alist-user
      (list
       (list (rx ".gif" string-end) '(list "animate" "feh" "firefox"))
-      (list (rx ".pdf" string-end) '(list "mupdf -r 96" "qpdfview --unique"))
       (list (rx ".torrent" string-end) '(list "torrentinfo" "gtorrentviewer"))
+      (list ,document-files '(list "mupdf -r 96" "qpdfview --unique"))
       (list ,archive-files "aunpack")
       (list ,audio-files "vlc")
       (list ,comic-book-files '("mcomix" "qcomicbook" "aunpack"))
