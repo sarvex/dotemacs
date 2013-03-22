@@ -283,6 +283,7 @@
             (mode . rdebug-secondary-window-help-mode)
             (mode . rdebug-variables-mode)
             (mode . rdebug-watch-mode)
+            (mode . reb-lisp-mode)
             (mode . rspec-mode)
             (mode . select-tags-table-mode)
             (mode . special-mode)
