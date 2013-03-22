@@ -1,5 +1,9 @@
 ;;; -*- lexical-binding: t; no-byte-compile: t -*-
 
+(custom-set-variables
+ '(user-full-name "Victor Deryagin")
+ '(user-mail-address "vderyagin@gmail.com"))
+
 (require 'ert)
 (require 'cl-lib)
 
