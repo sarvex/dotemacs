@@ -56,7 +56,6 @@
 (load "dotemacs/conf/git-configuration")
 (load "dotemacs/conf/helm-configuration")
 (load "dotemacs/conf/projects-configuration")
-(load "dotemacs/conf/etc-configuration")
 (load "dotemacs/conf/i18n-configuration")
 (load "dotemacs/conf/hook-configuration")
 (load "dotemacs/conf/keys-configuration")
