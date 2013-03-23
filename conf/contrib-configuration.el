@@ -3,7 +3,7 @@
 (custom-set-variables
  '(irfc-directory "~/doc/RFC")
  '(multi-term-program "/bin/zsh")
- '(ack-command "ack --color-match='bold underline' "))
+ '(ack-command "ag "))
 
 
 (define-key global-map (kbd "C-c d") 'drag-stuff-mode)
