@@ -133,6 +133,10 @@
       ((agenda)
        (todo "NEXT"
              ((org-agenda-overriding-header "NEXT tasks:")))
+       (todo "TODO"
+             ((org-agenda-overriding-header "TODO tasks:")
+              (org-agenda-files (list (expand-file-name "todo.org" vderyagin/org-agenda-directory)))
+              (org-tags-match-list-sublevels nil)))
        (tags "REFILE"
              ((org-agenda-overriding-header "List of tasks to refile:")
               (org-tags-match-list-sublevels nil)))))
