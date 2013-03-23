@@ -1,11 +1,10 @@
 ;;; -*- lexical-binding: t -*-
 
-;; Savehist
-
 (custom-set-variables
  '(savehist-file "~/.emacs.d/savehist")
  '(savehist-save-minibuffer-history t)
  '(savehist-additional-variables '(search-ring
+                                   kill-ring
                                    global-mark-ring
                                    ido-work-directory-list
                                    regexp-search-ring
@@ -19,20 +18,19 @@
                                 ido-file-history
                                 file-name-history)))
 
-(defun get-rid-of-duplicates-in-savehist-variables ()
-  (mapc
-   (lambda (var)
-     (when (boundp var)
-       (setq var (delete-dups (symbol-value var)))))
-   (append savehist-additional-variables
-           savehist-minibuffer-history-variables)))
+(savehist-mode)
 
-(savehist-mode t)
-(add-hook 'savehist-save-hook 'get-rid-of-duplicates-in-savehist-variables)
-(savehist-save)
+(add-hook 'savehist-save-hook
+          (lambda ()
+            "Remove duplicates in saved variables."
+            (mapc
+             (lambda (var)
+               (when (boundp var)
+                 (setq var (delete-dups (symbol-value var)))))
+             (append savehist-additional-variables
+                     savehist-minibuffer-history-variables))))
 
 
-;; Recentf
 (custom-set-variables
  '(recentf-save-file "~/.emacs.d/recentf")
  '(recentf-max-saved-items 3000)
@@ -46,11 +44,9 @@
      string-end)
     (rx (or "Thumbs.db" "~") string-end))))
 
-
 (recentf-mode t)
 
 
-;; desktop
 (custom-set-variables
  '(desktop-path '("~/.emacs.d/"))
  '(desktop-load-locked-desktop t)
