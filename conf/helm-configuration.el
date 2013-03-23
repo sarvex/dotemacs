@@ -9,7 +9,7 @@
  '(helm-candidate-number-limit 1000)
  '(helm-command-prefix-key "C-c h")
  '(helm-google-suggest-use-curl-p t)
- '(helm-split-window-preferred-function (lambda (_) (cadr (popwin:create-popup-window 25)))))
+ '(helm-split-window-in-side-p t))
 
 (define-key global-map (kbd "C-c h") helm-command-map)
 

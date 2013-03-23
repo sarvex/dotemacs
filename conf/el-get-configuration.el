@@ -27,7 +27,6 @@
      helm
      lua-mode
      magit
-     markdown-mode
      nrepl
      org-mode
      paredit
@@ -43,7 +42,6 @@
      tuareg-mode
      yaml-mode
 
-     (:name asciidoc :lazy t)
      (:name erc-highlight-nicknames :lazy t)
      (:name iedit :lazy t)
      (:name io-mode :lazy t)
@@ -92,16 +90,14 @@
 
      (:name multi-term
       :type emacswiki
-      :features nil)
+      :features nil
+      :after (setq multi-term-program "/bin/zsh"))
 
      (:name irfc
       :type emacswiki
-      :after (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode)))
-
-     (:name doc-mode
       :after (progn
-               (autoload 'doc-mode "doc-mode" nil t)
-               (add-to-list 'auto-mode-alist '("\\.a\\(scii\\)?doc\\'" . doc-mode))))
+               (setq irfc-directory "~/doc/RFC")
+               (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode))))
 
      (:name mic-paren
       :type emacswiki
@@ -116,10 +112,6 @@
       :after (setq
               feature-default-language "en"
               feature-default-i18n-file (expand-file-name "feature-mode/i18n.yml" el-get-dir)))
-
-     (:name popwin
-      :compile "popwin.el"
-      :features popwin)
 
      (:name pomodoro
       :type github
@@ -142,7 +134,8 @@
      (:name ack
       :type github
       :pkgname "leoliu/ack-el"
-      :features nil)
+      :features nil
+      :after (setq ack-command "ag "))
 
      (:name go-autocomplete
       :type http
@@ -158,6 +151,13 @@
      (:name dart-mode
       :type github
       :pkgname "nex3/dart-mode")
+
+     (:name markdown-mode
+      :after (progn
+               (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+               (add-hook 'markdown-mode-hook 'turn-on-orgtbl)
+               (add-hook 'markdown-mode-hook (lambda () (set-fill-column 78)))
+               (add-to-list 'auto-mode-alist (cons (rx not-newline "." (or "text" "markdown" "md") string-end) 'markdown-mode))))
 
      (:name projectur
       :type github

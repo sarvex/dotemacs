@@ -40,6 +40,8 @@
 
 (define-key global-map (kbd "C-%") 'goto-match-paren)
 
+(define-key global-map (kbd "<return>") 'newline-and-indent)
+
 ;; window switching
 (define-key global-map (kbd "C-<tab>")
   (lambda () (interactive) (select-window (next-window))))
@@ -162,3 +164,11 @@
          (line-beginning-position)
          (line-beginning-position 2))
         (message "Killed line"))))
+
+(define-key global-map (kbd "C-c d") 'drag-stuff-mode)
+(define-key global-map (kbd "C-;") 'iedit-mode)
+(define-key global-map (kbd "<f7>")
+  (lambda (&optional arg)
+    (interactive "P")
+    (let ((current-prefix-arg (not arg)))
+      (scratch))))

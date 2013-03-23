@@ -7,8 +7,6 @@
 (eval-after-load 'sgml-mode
   '(define-key sgml-mode-map (kbd "<return>") 'reindent-then-newline-and-indent))
 
-(eval-after-load 'haml-mode
-  '(define-key haml-mode-map (kbd "<return>") 'newline-and-indent))
 
 (mapc
  (lambda (hooks)
