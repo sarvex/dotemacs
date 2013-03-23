@@ -40,7 +40,7 @@
 
 (define-key global-map (kbd "C-%") 'goto-match-paren)
 
-(define-key global-map (kbd "<return>") 'newline-and-indent)
+(define-key prog-mode-map (kbd "<return>") 'newline-and-indent)
 
 ;; window switching
 (define-key global-map (kbd "C-<tab>")

@@ -47,7 +47,10 @@
      (lambda () (interactive) (kill-buffer-ask (current-buffer))))
     (add-hook 'tar-mode-hook (lambda () (setq truncate-lines t)))))
 
-
+(mapc
+ (lambda (interpreter)
+   (add-to-list 'interpreter-mode-alist (cons interpreter 'python-mode)))
+ '("python" "python2" "python3" "jython"))
 
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG\\'" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-mode))
