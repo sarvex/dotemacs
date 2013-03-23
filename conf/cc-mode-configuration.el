@@ -3,10 +3,7 @@
 (custom-set-variables
  '(c-basic-offset 4)
  '(c-strict-syntax-p t)
- '(c-syntactic-indentation t)
- '(c-default-style '((java-mode . "java")
-                     (awk-mode . "awk")
-                     (c-mode . "bsd"))))
+ '(c-syntactic-indentation t))
 
 (eval-after-load 'cc-mode
   '(progn
