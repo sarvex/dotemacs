@@ -71,6 +71,7 @@
 (add-to-list
  'vderyagin/ibuffer-filter-groups
  `("org" (or
+          (mode . org-agenda-mode)
           (filename . ,(expand-file-name "~/org/")))))
 
 (add-to-list
@@ -269,7 +270,6 @@
             (mode . magit-status-mode)
             (mode . magit-wazzup-mode)
             (mode . occur-mode)
-            (mode . org-agenda-mode)
             (mode . package-menu-mode)
             (mode . process-menu-mode)
             (mode . profiler-report-mode)
@@ -306,7 +306,6 @@
             (name . "^\\*Image-Dired Edit Meta Data\\*$")
             (name . "^\\*Messages\\*$")
             (name . "^\\*Minibuf")
-            (name . "^\\*Org .*\\*$")
             (name . "^\\*Phases of Moon\\*$")
             (name . "^\\*Quail Completions\\*$")
             (name . "^\\*Shell Command Output\\*$")
