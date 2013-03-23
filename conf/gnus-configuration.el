@@ -5,12 +5,14 @@
 
 (custom-set-variables
  '(gnus-select-method '(nntp "news.gmane.org"))
+
  '(gnus-secondary-select-methods
    '((nnimap "gmail"
       (nnimap-address "imap.gmail.com")
       (nnimap-server-port 993)
       (nnimap-stream ssl))
      (nnml "")))
+
  '(mail-sources
    `((pop
       :server "mail.poshta.te.ua"
@@ -24,7 +26,6 @@
                                 "multipart/encrypted"
                                 "multipart/signed"))
 
- '(gnus-max-image-proportion 100.0)
  '(mm-text-html-renderer 'shr)
  '(mm-discouraged-alternatives nil)
  '(mm-inline-large-images t)
@@ -48,7 +49,8 @@
  '(gnus-treat-hide-signature t)
  '(gnus-asynchronous t)
  '(gnus-auto-extend-newsgroup t)
- '(gnus-auto-select-first 'unread)
+ '(gnus-auto-select-first t)
+ '(gnus-auto-select-subject 'first)
  '(gnus-auto-select-next nil)
  '(gnus-body-boundary-delimiter nil)
  '(gnus-break-pages nil)
@@ -75,7 +77,6 @@
  '(nnfolder-active-file "~/.mail/archive/active")
  '(nnfolder-directory "~/.mail/archive")
  '(nnmail-message-id-cache-file "~/.mail/nnmail-cache")
-
 
  '(gravatar-size 64)
  '(gnus-gravatar-properties '(:ascent center :relief 0))
@@ -119,7 +120,7 @@
      (define-key gnus-group-mode-map (number-to-string key)
        (lambda ()
          (interactive)
-         (gnus-group-list-groups (-  last-command-event ?0)))))
+         (gnus-group-list-groups (- last-command-event ?0)))))
 
 
 (defun gnus-user-format-function-d (_)
