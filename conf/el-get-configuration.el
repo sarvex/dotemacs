@@ -1,12 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(unless (require 'el-get nil 'noerror)
-  (url-retrieve
-   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
-   (lambda (s)
-     (let (el-get-master-branch)
-       (goto-char (point-max))
-       (eval-print-last-sexp)))))
+(require 'el-get)
 
 (custom-set-variables
  '(el-get-notify-type 'message)
