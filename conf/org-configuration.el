@@ -61,13 +61,9 @@
       (file "")
       "* %? :NOTE:\n:PROPERTIES:\n:Captured_at: %U\n:END:"
       :clock-resume t)
-     ("l" "link" entry
-      (file "")
-      "* %^L\n:PROPERTIES:\n:Captured_at: %U\n:END:"
-      :clock-resume t)
      ("t" "todo" entry
-      (file "")
-      "* TODO %?\n%t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+      (file ,(expand-file-name "todo.org" vderyagin/org-agenda-directory))
+      "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
       :clock-resume t)
      ("r" "read" entry
       (file ,(expand-file-name "reading.org" vderyagin/org-agenda-directory))
