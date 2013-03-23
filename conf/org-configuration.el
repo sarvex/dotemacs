@@ -117,7 +117,6 @@
       :body message
       :app-icon (expand-file-name "~/.icons/org-mode.png"))))
 
- '(org-agenda-block-separator (make-string 90 61))
  '(org-agenda-compact-blocks nil)
  '(org-agenda-restore-windows-after-quit t)
  '(org-agenda-show-inherited-tags nil)
