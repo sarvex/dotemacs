@@ -131,6 +131,9 @@
  '(Man-fontify-manpage-flag t)
  '(Man-notify-method 'pushy)
 
+ '(kill-ring-max 200)
+ '(kill-do-not-save-duplicates t)
+
  '(comint-input-ignoredups t)
  '(comint-move-point-for-output 'this)
  '(comint-scroll-show-maximum-output nil)
