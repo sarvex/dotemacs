@@ -55,4 +55,3 @@
 (load "dotemacs/conf/i18n-configuration")
 (load "dotemacs/conf/hook-configuration")
 (load "dotemacs/conf/keys-configuration")
-(load "dotemacs/conf/midnight-configuration")
