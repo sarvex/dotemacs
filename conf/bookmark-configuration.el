@@ -11,15 +11,6 @@
  '(bmkp-bmenu-state-file "~/.emacs.d/bmk-bmenu-state.el")
  '(bmkp-bookmark-name-length-max 50))
 
-(defun bookmarks/diredp-help ()
-  (let ((bn "*dired+ help*"))
-    (if (get-buffer bn)
-        (switch-to-buffer bn)
-        (diredp-dired-plus-help)
-        (switch-to-buffer "*Help*")
-        (rename-buffer bn))
-    (delete-other-windows)))
-
 (defun bookmarks/jump-to-info (buffer-name)
   (if (not (get-buffer buffer-name))
       (rename-buffer buffer-name)

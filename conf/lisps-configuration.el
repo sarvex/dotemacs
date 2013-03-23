@@ -1,16 +1,18 @@
 ;;; -*- lexical-binding: t -*-
 
+(custom-set-variables
+ '(lisp-indent-function 'common-lisp-indent-function))
+
 (add-to-list 'interpreter-mode-alist '("sbcl" . lisp-mode))
-
-(setq ielm-header "")
-
-(setq lisp-indent-function 'common-lisp-indent-function)
 
 (define-key lisp-mode-shared-map (kbd "<return>") 'reindent-then-newline-and-indent)
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
 
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 (define-key emacs-lisp-mode-map (kbd "M-;") 'comment-dwim)
+
+(define-key emacs-lisp-mode-map (kbd "M-F") 'forward-sexp)
+(define-key emacs-lisp-mode-map (kbd "M-B") 'backward-sexp)
 
 (define-key emacs-lisp-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)
 (define-key lisp-interaction-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)
@@ -32,13 +34,12 @@
 
 (eval-after-load 'ielm
   '(progn
+    (setq ielm-header "")
     (add-hook 'inferior-emacs-lisp-mode-hook 'turn-on-eldoc-mode)
     (define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
     (define-key inferior-emacs-lisp-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)
     (define-key inferior-emacs-lisp-mode-map (kbd "C-l") 'recenter-top)))
 
-
-;; hooks
 
 (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "eLisp")))
 
@@ -82,11 +83,11 @@
    lisp-interaction-mode-hook
    ielm-mode-hook))
 
-;; scheme
 
-(setq scheme-program-name "mzscheme"
-      quack-remap-find-file-bindings-p nil
-      quack-fontify-style 'emacs)
+(custom-set-variables
+ '(scheme-program-name "mzscheme")
+ '(quack-remap-find-file-bindings-p nil)
+ '(quack-fontify-style 'emacs))
 
 (eval-after-load 'scheme
   '(require 'quack))
