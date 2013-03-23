@@ -42,11 +42,13 @@
    coffee-mode-hook
    conf-mode-hook
    css-mode-hook
+   emacs-lisp-mode-hook
    feature-mode-hook
    graphviz-dot-mode-hook
    haml-mode-hook
    haskell-mode-hook
    lisp-interaction-mode-hook
+   lisp-mode-hook
    makefile-mode-hook
    markdown-mode-hook
    nxml-mode-hook
