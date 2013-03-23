@@ -34,6 +34,7 @@
      php-mode
      rdebug
      rhtml-mode
+     s
      sass-mode
      scala-mode
      scratch
