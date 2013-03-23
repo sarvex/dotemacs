@@ -128,34 +128,13 @@
       (set-window-buffer (next-window) nextBuf))))
 
 
-(defun strip (string-or-symbol)
-  "Strip leading and trailing whitespaces from STRING-OR-SYMBOL."
-  (let ((string (if (symbolp string-or-symbol)
-                    (symbol-name string-or-symbol)
-                    string-or-symbol)))
-    (replace-regexp-in-string "\\(^[[:space:]\n]*\\|[[:space:]\n]*$\\)" "" string)))
-
-(ert-deftest strip ()
-  (should (equal (strip "foo")            "foo"))
-  (should (equal (strip "  foo  ")        "foo"))
-  (should (equal (strip "\tfoo\t")        "foo"))
-  (should (equal (strip "\nfoo\n")        "foo"))
-  (should (equal (strip "\n \tfoo\n  \t") "foo")))
-
-(defun chomp (string)
-  "Return copy of STRING without trailing newlines."
-  (replace-regexp-in-string "\n$" "" string))
-
-(ert-deftest chomp ()
-  (should (equal (chomp "foo") "foo"))
-  (should (equal (chomp "foo\n") "foo"))
-  (should (equal (chomp "foo\n\n") "foo")))
-
 (defun generate-password (&optional arg)
   "Generates random password and adds it to kill-ring.
 If ARG is non-nil also inserts result at point. Requires pwgen(1)"
   (interactive "P")
-  (let ((pw (strip (shell-command-to-string "pwgen --secure --numerals --capitalize -1 16"))))
+  (let ((pw (replace-regexp-in-string
+             "\n\\'" ""
+             (shell-command-to-string "pwgen --secure --numerals --capitalize -1 16"))))
     (kill-new pw)
     (when arg
       (save-excursion (insert pw))
@@ -198,51 +177,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
   (byte-recompile-directory "~/.emacs.d/dotemacs/conf" 0 force))
 
 
-(defun snake-case (text)
-  "Return snake_case version of TEXT.
-Works with 'names with spaces', names-with-dashes, camelCase,
-UpperCamelCase and combinations of those."
-  (let ((case-fold-search nil))
-    (cl-flet ((downcase-first-character (text)
-             (when (string-match-p "^[[:upper:]]" text)
-               (let ((first-char (substring text 0 1)))
-                 (setq text (replace-regexp-in-string "^." "" text)
-                       text (format "%s%s" (downcase first-char) text))))
-             text)
-           (insert-underscores-before-upcase-letters (text)
-             (replace-regexp-in-string "[[:upper:]]" "_\\&" text))
-           (replace-dashes-and-spaces-with-underscores (text)
-             (replace-regexp-in-string  "-\\| " "_" text))
-           (get-rid-of-multiple-underscores-in-row (text)
-             (replace-regexp-in-string "_+" "_" text)))
-
-      (setq text (downcase-first-character text)
-            text (replace-dashes-and-spaces-with-underscores text)
-            text (insert-underscores-before-upcase-letters text)
-            text (get-rid-of-multiple-underscores-in-row text))
-      (downcase text))))
-
-(ert-deftest snake-case-test-spaces ()
-  (should (equal (snake-case " foo bar baz ")
-                 "_foo_bar_baz_")))
-
-(ert-deftest snake-case-test-dashes ()
-  (should (equal (snake-case "-foo-bar-baz-")
-                 "_foo_bar_baz_")))
-
-(ert-deftest snake-case-test-lowerCamelCase ()
-  (should (equal (snake-case "fooBarBaz")
-                 "foo_bar_baz")))
-
-(ert-deftest snake-case-test-UpperCamelCase ()
-  (should (equal (snake-case "FooBarBaz")
-                 "foo_bar_baz")))
-
-(ert-deftest snake-case-test-combination-of-stuff ()
-  (should (equal (snake-case "Foo-barBaz quux_Corge--GraultABC")
-                 "foo_bar_baz_quux_corge_grault_a_b_c")))
-
-
 (defun flymake-create-temp-intemp (file-name prefix)
   "Return file name in temporary directory for checking FILE-NAME.
 This is a replacement for `flymake-create-temp-inplace'. The
@@ -279,7 +213,7 @@ makes)."
       (goto-char (point-min))
       (let ((inhibit-field-text-motion t))
         (sort-subr nil 'forward-line 'end-of-line nil nil
-                   (lambda (s1 s2) (eq (random 2) 0)))))))
+                   (lambda (&rest _) (eq (random 2) 0)))))))
 
 
 (defun gist ()
@@ -294,6 +228,6 @@ makes)."
                  (gist-dir (expand-file-name gist-id gists-dir)))
     (set-process-sentinel
      (start-process "gist-clone" nil "gist-clone" gist-id)
-     (lambda (process event)
+     (lambda (_ event)
        (when (string= event "finished\n")
          (dired gist-dir))))))
