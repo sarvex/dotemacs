@@ -25,6 +25,7 @@
      org-mode
      paredit
      php-mode
+     rcodetools
      rdebug
      rhtml-mode
      s
