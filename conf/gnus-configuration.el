@@ -16,7 +16,6 @@
  '(mail-sources
    `((pop
       :server "mail.poshta.te.ua"
-      :port 110
       :user ,vderyagin/poshta.te.ua-username
       :password ,vderyagin/poshta.te.ua-password)))
 
