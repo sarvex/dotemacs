@@ -154,12 +154,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
              (buffer-name))))
 
 
-(defun recenter-top ()
-  (interactive)
-  (goto-char (point-max))
-  (recenter-top-bottom 0))
-
-
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."
   (interactive)

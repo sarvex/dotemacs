@@ -30,12 +30,7 @@
       (lambda (c) (add-to-list 'eshell-visual-commands c))
       '("mutt" "vim" "screen" "tmux" "lftp" "mc" "ipython" "bpython"
         "telnet" "ssh" "tail" "most" "top" "htop" "iotop" "ncmpcpp"
-        "newsbeuter" "alsamixer" "atop"))
-
-     (add-hook 'eshell-mode-hook
-               (lambda ()
-                 (define-key eshell-mode-map (kbd "C-l")
-                   (lambda () (interactive) (goto-char (point-max)) (recenter-top-bottom 0))))))))
+        "newsbeuter" "alsamixer" "atop")))))
 
 (eval-after-load 'esh-opt
   '(progn

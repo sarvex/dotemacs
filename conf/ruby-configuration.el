@@ -37,7 +37,6 @@
      (require 'ffap)
 
      (inf-ruby-keys)
-     (define-key inferior-ruby-mode-map (kbd "C-l") 'recenter-top)
 
      (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3)
            flymake-err-line-patterns)

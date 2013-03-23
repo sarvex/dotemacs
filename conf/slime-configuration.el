@@ -12,9 +12,7 @@
     (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 
     ;; Stop SLIME's REPL from grabbing DEL, which is annoying when backspacing over a '('
-    (define-key slime-repl-mode-map (read-kbd-macro paredit-backward-delete-key) nil)
-
-    (define-key slime-repl-mode-map (kbd "C-l") 'recenter-top)))
+    (define-key slime-repl-mode-map (read-kbd-macro paredit-backward-delete-key) nil)))
 
 (custom-set-variables
  '(slime-autodoc-use-multiline-p t)

@@ -23,9 +23,6 @@
 (mouse-wheel-mode -1)
 
 
-(eval-after-load 'comint
-  '(define-key comint-mode-map (kbd "C-l") 'recenter-top))
-
 (eval-after-load 'cua-base
   '(mapc
     (lambda (key)
