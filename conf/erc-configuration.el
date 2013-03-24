@@ -1,5 +1,10 @@
 ;;; -*- lexical-binding: t -*-
 
+(eval-when-compile
+  (defvar my-freenode-username)
+  (defvar my-freenode-password)
+  (defvar my-full-name))
+
 (custom-set-variables
  '(erc-fill-column 67)
  '(erc-fill-mode t)
