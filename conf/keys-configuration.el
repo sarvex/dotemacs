@@ -40,6 +40,8 @@
 
 (define-key global-map (kbd "C-%") 'goto-match-paren)
 
+(define-key global-map (kbd "C-x C-b") 'ibuffer)
+
 (define-key prog-mode-map (kbd "<return>") 'newline-and-indent)
 
 ;; window switching

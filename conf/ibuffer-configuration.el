@@ -1,54 +1,51 @@
 ;;; -*- lexical-binding: t -*-
 
-(define-key global-map (kbd "C-x C-b") 'ibuffer)
+(custom-set-variables
+ '(ibuffer-deletion-face 'diredp-deletion-file-name)
+  '(ibuffer-marked-face 'diredp-flag-mark)
+  '(ibuffer-show-empty-filter-groups nil)
 
-(setq ibuffer-deletion-face 'diredp-deletion-file-name
-      ibuffer-marked-face 'diredp-flag-mark
-      ibuffer-show-empty-filter-groups nil)
-
-(setq ibuffer-formats
-      '((mark modified read-only
-         " " (name 40 40 :left :elide)
-         " " (size-h 9 -1 :right)
-         " " (mode 14 14 :left :elide)
-         " " filename-and-process)
-        (mark " " (name 23 -1) " " filename)))
-
-(defun ibuffer-switch-to-default-filter-groups ()
-  (ibuffer-switch-to-saved-filter-groups "default"))
+  '(ibuffer-formats
+    '((mark modified read-only
+       " " (name 40 40 :left :elide)
+       " " (size-h 9 -1 :right)
+       " " (mode 14 14 :left :elide)
+       " " filename-and-process)
+      (mark " " (name 23 -1) " " filename))))
 
 (eval-after-load 'ibuffer
-  '(progn
+  (quote
+   (progn
 
-    ;; Use human readable Size column instead of original one
-    (define-ibuffer-column size-h
-        (:name "Size" :inline t)
-      (cond
-        ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
-        ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
-        (t (format "%8d" (buffer-size)))))
+     ;; Use human readable Size column instead of original one
+     (define-ibuffer-column size-h
+         (:name "Size" :inline t)
+       (cond
+         ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
+         ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
+         (t (format "%8d" (buffer-size)))))
 
-    (add-hook 'ibuffer-mode-hook 'ibuffer-switch-to-default-filter-groups)
+     (add-hook 'ibuffer-mode-hook
+               (lambda ()
+                 (ibuffer-switch-to-saved-filter-groups "default")))
 
-    (define-key ibuffer-mode-map (kbd "C-w") 'ibuffer-unmark-backward)
-    (define-key ibuffer-mode-map (kbd "C-x C-f") 'ido-find-file)
-    (define-key ibuffer-mode-map (kbd "[") 'ibuffer-toggle-filter-group)
+     (define-key ibuffer-mode-map (kbd "C-w") 'ibuffer-unmark-backward)
+     (define-key ibuffer-mode-map (kbd "[") 'ibuffer-toggle-filter-group)
 
-    ;; Do not shadow global binding:
-    (define-key ibuffer-mode-map (kbd "C-x C-f") nil)
+     ;; Do not shadow global binding:
+     (define-key ibuffer-mode-map (kbd "C-x C-f") nil)
 
-    (mapc
-     (lambda (key)
-       (define-key ibuffer-mode-map key nil))
-     '([right] [left] [up] [down]))))
+     (mapc
+      (lambda (key)
+        (define-key ibuffer-mode-map key nil))
+      '([right] [left] [up] [down])))))
 
 
-(defadvice ibuffer-generate-filter-groups
-    (after reverse-ibuffer-groups ()
-           activate)
+(defadvice ibuffer-generate-filter-groups (after reverse-ibuffer-groups () activate)
   (setq ad-return-value (nreverse ad-return-value)))
 
-(setq vderyagin/ibuffer-filter-groups ())
+(defvar vderyagin/ibuffer-filter-groups nil)
+(setq vderyagin/ibuffer-filter-groups nil)
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
