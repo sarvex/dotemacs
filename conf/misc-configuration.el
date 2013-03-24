@@ -73,14 +73,6 @@
 
 (eval-after-load 'help-mode
   '(progn
-    (define-key help-mode-map (kbd "r")
-     (lambda ()
-       "Rename buffer so that another *Help* buffer does not replace it."
-       (interactive)
-       (let ((symbol (save-excursion
-                       (goto-char (point-min))
-                       (thing-at-point 'symbol))))
-         (rename-buffer (format "*Help for `%s'*" symbol)))))
     (define-key help-mode-map (kbd "M-p") 'help-go-back)
     (define-key help-mode-map (kbd "M-n") 'help-go-forward)))
 
