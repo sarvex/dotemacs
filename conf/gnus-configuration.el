@@ -117,13 +117,12 @@
 (define-key gnus-summary-mode-map (kbd "[") 'gnus-summary-refer-thread)
 (define-key gnus-summary-mode-map (kbd "w") 'gnus-summary-wide-reply)
 
-(loop
-   for key from 1 to 6
-   do
-     (define-key gnus-group-mode-map (number-to-string key)
-       (lambda ()
-         (interactive)
-         (gnus-group-list-groups (- last-command-event ?0)))))
+
+(dolist (key (mapcar 'number-to-string (number-sequence 1 5)))
+  (define-key gnus-group-mode-map key
+    (lambda ()
+      (interactive)
+      (gnus-group-list-groups (- last-command-event ?0)))))
 
 
 (defun gnus-user-format-function-d (_)
