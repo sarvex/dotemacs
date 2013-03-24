@@ -25,8 +25,9 @@
                                 "multipart/encrypted"
                                 "multipart/signed"))
 
+ '(mm-discouraged-alternatives '("text/html"))
+
  '(mm-text-html-renderer 'shr)
- '(mm-discouraged-alternatives nil)
  '(mm-inline-large-images t)
  '(mm-inline-text-html-with-images t)
  '(mm-verify-option 'known)
