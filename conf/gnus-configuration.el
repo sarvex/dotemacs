@@ -45,7 +45,6 @@
  '(gnus-topic-display-empty-topics t)
  '(gnus-group-default-list-level 1)
  '(gnus-article-truncate-lines nil)
- '(gnus-treat-hide-signature t)
  '(gnus-asynchronous t)
  '(gnus-auto-extend-newsgroup t)
  '(gnus-auto-select-first t)
@@ -56,7 +55,6 @@
  '(gnus-check-new-newsgroups nil)
  '(gnus-save-killed-list nil)
  '(gnus-save-newsrc-file nil)
- '(gnus-summary-check-current t)
  '(gnus-thread-indent-level 2)
 
  '(gnus-agent-directory "~/.mail/gnus/agent")
