@@ -16,6 +16,7 @@
      drag-stuff
      emacs-jabber
      gist
+     gnus
      haml-mode
      haskell-mode
      helm
