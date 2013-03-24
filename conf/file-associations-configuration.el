@@ -42,6 +42,7 @@
   (custom-set-variables
    `(openwith-associations
      (list
+      (list (rx ".pdf" string-end) "mupdf -r 96" '(file))
       (list (rx ".chm" string-end) "kchmviewer" '(file))
       (list (rx ".dvd.iso" string-end) "vlc" '(file))
       (list (rx ".gif" string-end) "animate" '(file))
