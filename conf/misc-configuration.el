@@ -205,7 +205,7 @@
                 (lambda (w) (buffer-name (window-buffer w)))
                 (window-list) " | "))))
 
- '(gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration.el")
+ '(gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration")
  '(custom-file "~/.emacs.d/custom.el")
  '(snake-score-file "~/.emacs.d/games/snake-scores")
  '(tetris-score-file "~/.emacs.d/games/tetris-scores")
