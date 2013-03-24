@@ -112,6 +112,7 @@
                         (list "-a" account)))))))
 
 (define-key gnus-summary-mode-map (kbd "[") 'gnus-summary-refer-thread)
+(define-key gnus-summary-mode-map (kbd "w") 'gnus-summary-wide-reply)
 
 (loop
    for key from 1 to 6
