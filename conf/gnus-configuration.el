@@ -37,9 +37,9 @@
  '(message-sendmail-envelope-from 'header)
  '(sendmail-program "msmtp")
 
- '(gnus-summary-line-format "%U%R%z%I%(%[%4L: %-23,23f%]%) %s\n")
- '(gnus-summary-mode-line-format "Gnus: %G [%A] %Z")
- '(gnus-article-mode-line-format "Gnus: %G [%w] %Z %S")
+ '(gnus-summary-line-format "%U%R%z%I%(%[%2,5L: %-23,23f%]%) %s\n")
+ '(gnus-summary-mode-line-format "Gnus: %p [%A] %Z")
+ '(gnus-article-mode-line-format "Gnus: %p [%w] %Z %S")
  '(gnus-topic-line-format "%i[ %(%{%n%}%) — %A ]%v\n")
  '(gnus-group-line-format "%M%S%p%P%5y: %(%-50,50g%) %ud\n")
 
