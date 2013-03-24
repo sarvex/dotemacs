@@ -113,19 +113,25 @@
                     (1+ arg))))))
 
 
-(defun my-change-split-type ()
+(defun split-change-direction ()
   "Changes splitting from vertical to horizontal and vice-versa for 2-windowed frames."
   (interactive)
-  (when (= 2 (length (window-list)))
-    (let ((thisBuf (window-buffer))
-          (nextBuf (progn (other-window 1) (buffer-name)))
-          (split-type (if (>= (window-total-width) (frame-width))
-                          'split-window-horizontally
-                          'split-window-vertically)))
-      (delete-other-windows)
-      (funcall split-type)
-      (set-window-buffer nil thisBuf)
-      (set-window-buffer (next-window) nextBuf))))
+  (let ((nwin (length (window-list))))
+    (cond
+      ((= 1 nwin)
+       (message "Can not change split direction for single-window frame."))
+      ((= 2 nwin)
+       (let ((this-buf (window-buffer))
+             (next-buf (progn (other-window 1) (buffer-name)))
+             (split-direction (if (>= (window-total-width) (frame-width))
+                                  'split-window-horizontally
+                                  'split-window-vertically)))
+         (delete-other-windows)
+         (funcall split-direction)
+         (set-window-buffer nil this-buf)
+         (set-window-buffer (next-window) next-buf)))
+      (t
+       (message "This command works for 2 windows only, %d is too much." nwin)))))
 
 
 (defun generate-password (&optional arg)

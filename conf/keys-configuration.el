@@ -22,7 +22,7 @@
 (define-key global-map (kbd "M-2") 'split-window-vertically)
 (define-key global-map (kbd "M-3") 'split-window-horizontally)
 (define-key global-map (kbd "M-4") 'kill-buffer-and-window)
-(define-key global-map (kbd "M-5") 'my-change-split-type)
+(define-key global-map (kbd "M-5") 'split-change-direction)
 (define-key global-map (kbd "M-6") 'transpose-windows)
 (define-key global-map (kbd "M-7") 'toggle-current-window-dedication)
 (define-key global-map (kbd "M-=") 'balance-windows)
