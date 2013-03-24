@@ -19,6 +19,10 @@
       :user ,vderyagin/poshta.te.ua-username
       :password ,vderyagin/poshta.te.ua-password)))
 
+ '(gnus-parameters
+   '((""
+      (gnus-treat-hide-signature t))))
+
  '(gnus-always-read-dribble-file t)
  '(gnus-extract-address-components 'mail-extract-address-components)
  '(gnus-buttonized-mime-types '("multipart/alternative"
