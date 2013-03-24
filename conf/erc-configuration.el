@@ -72,9 +72,9 @@
 (defun vderyagin/erc-join ()
   (interactive)
   (when (y-or-n-p "Connect to IRC? ")
-    (erc-services-mode t)
-    (erc-nickserv-mode t)
-    (erc-autojoin-enable)
+    (erc-services-mode)
+    (erc-autojoin-mode)
+
     (erc-select :server "irc.freenode.net"
                 :port 6667
                 :nick my-freenode-username
