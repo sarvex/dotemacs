@@ -104,8 +104,9 @@
         (call-interactively 'ido-kill-buffer)
         (kill-buffer (current-buffer)))))
 
-(define-key global-map (kbd "C-<f5>")   ; switch to *scratch*
+(define-key global-map (kbd "C-<f5>")
   (lambda ()
+    "Switch to *scratch* buffer"
     (interactive)
     (let ((content initial-scratch-message)
           (buf "*scratch*"))
@@ -115,14 +116,6 @@
       (insert content))))
 
 (define-key global-map (kbd "C-x c") 'save-buffers-kill-emacs)
-
-(define-key global-map (kbd "<f8>")
-  (lambda (&optional open-new)
-    (interactive "P")
-    (call-interactively
-     (if open-new
-         'multi-term
-         'multi-term-next))))
 
 (define-key help-map "a" 'apropos)
 

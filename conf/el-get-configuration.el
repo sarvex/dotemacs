@@ -84,11 +84,6 @@
       :compile ("dropdown-list.el" "yasnippet.el")
       :post-init nil)
 
-     (:name multi-term
-      :type emacswiki
-      :features nil
-      :after (setq multi-term-program "/bin/zsh"))
-
      (:name irfc
       :type emacswiki
       :after (progn
