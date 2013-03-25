@@ -11,9 +11,6 @@
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 (define-key emacs-lisp-mode-map (kbd "M-;") 'comment-dwim)
 
-(define-key emacs-lisp-mode-map (kbd "M-F") 'forward-sexp)
-(define-key emacs-lisp-mode-map (kbd "M-B") 'backward-sexp)
-
 (define-key emacs-lisp-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)
 (define-key lisp-interaction-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)
 
