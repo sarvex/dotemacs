@@ -117,6 +117,14 @@
 
 (define-key global-map (kbd "C-x c") 'save-buffers-kill-emacs)
 
+(define-key global-map (kbd "<f8>")
+  (lambda (&optional open-new)
+    (interactive "P")
+    (call-interactively
+     (if open-new
+         'multi-term
+         'multi-term-next))))
+
 (define-key help-map "a" 'apropos)
 
 (defun find-file-maybe-sudo (&optional sudo)

@@ -84,6 +84,10 @@
       :compile ("dropdown-list.el" "yasnippet.el")
       :post-init nil)
 
+     (:name multi-term
+      :type github
+      :pkgname "emacsmirror/multi-term")
+
      (:name irfc
       :type emacswiki
       :after (progn
