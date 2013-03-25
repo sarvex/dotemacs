@@ -20,14 +20,14 @@
 (defvar gnus-tmp-group nil)
 (defvar local-file nil)
 
-(add-to-list 'load-path "~/.emacs.d/dotemacs/conf")
+(add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (add-to-list 'load-path "~/.emacs.d/slime")
 
 
-(load "el-get-configuration")
-(load "elpa-configuration")
-(load "functions-configuration")
+(load "dotemacs/conf/defuns")
+(load "dotemacs/conf/el-get-configuration")
+(load "dotemacs/conf/elpa-configuration")
 
 (require 'coffee-mode)
 (require 'flymake)

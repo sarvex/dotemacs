@@ -16,13 +16,13 @@
 
 (load "dotemacs/conf/before-init-configuration")
 
+(load "dotemacs/conf/defuns")
 (load "dotemacs/conf/elpa-configuration")
 (load "dotemacs/conf/el-get-configuration")
 (load "dotemacs/conf/misc-configuration")
 (load "dotemacs/conf/parens-configuration")
 (load "dotemacs/conf/jabber-configuration")
 (load "dotemacs/conf/erc-configuration")
-(load "dotemacs/conf/functions-configuration")
 (load "dotemacs/conf/yasnippet-configuration")
 (load "dotemacs/conf/auto-complete-configuration")
 (load "dotemacs/conf/ido-configuration")
