@@ -159,7 +159,6 @@
       :pkgname "vderyagin/projectur"))))
 
 (el-get 'wait)
-(load (file-name-sans-extension el-get-autoload-file))
 
 (defun el-get-regenerate-all-autoloads ()
   "Regenerates all autoloads for el-get"
