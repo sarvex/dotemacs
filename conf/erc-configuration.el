@@ -15,7 +15,6 @@
 
 (eval-after-load 'erc
   '(progn
-    ;; (erc-update-modules)
     (define-key erc-mode-map (kbd "<return>") 'browse-url-at-point)
     (define-key erc-mode-map (kbd "C-c C-<return>") 'erc-send-current-line)))
 
