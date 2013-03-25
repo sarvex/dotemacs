@@ -1,7 +1,6 @@
 ;;; -*- lexical-binding: t; coding: utf-8 -*-
 
 (require 'gnus-html)
-(require 'epg)
 
 (custom-set-variables
  '(gnus-select-method '(nntp "news.gmane.org"))
