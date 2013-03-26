@@ -47,6 +47,7 @@
  '(gnus-group-line-format "%M%S%p%P%5y: %(%-50,50g%) %ud\n")
 
  '(gnus-topic-display-empty-topics t)
+ '(gnus-article-skip-boring t)
  '(gnus-group-default-list-level 1)
  '(gnus-article-truncate-lines nil)
  '(gnus-asynchronous t)
