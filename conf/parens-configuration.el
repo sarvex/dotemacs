@@ -33,6 +33,10 @@
  '(twittering-mode
    term-mode))
 
+(defadvice wdired-finish-edit (before dired-turn-smartparens-mode-off activate)
+  "Turn off `smartparens-mode' when switching from `wdired-mode' to `dired-mode'."
+  (smartparens-mode -1))
+
 (smartparens-global-mode)
 
 (eval-after-load 'paredit
