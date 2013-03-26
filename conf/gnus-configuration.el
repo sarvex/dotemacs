@@ -30,11 +30,11 @@
 
  '(mm-discouraged-alternatives '("text/html"))
 
- '(mm-text-html-renderer 'shr)
+ '(mm-decrypt-option 'known)
  '(mm-inline-large-images t)
  '(mm-inline-text-html-with-images t)
+ '(mm-text-html-renderer 'shr)
  '(mm-verify-option 'known)
- '(mm-decrypt-option 'known)
 
  '(message-send-mail-function 'message-send-mail-with-sendmail)
  '(message-sendmail-envelope-from 'header)
@@ -46,21 +46,22 @@
  '(gnus-topic-line-format "%i[ %(%{%n%}%) — %A ]%v\n")
  '(gnus-group-line-format "%M%S%p%P%5y: %(%-50,50g%) %ud\n")
 
- '(gnus-topic-display-empty-topics t)
  '(gnus-article-skip-boring t)
- '(gnus-group-default-list-level 1)
  '(gnus-article-truncate-lines nil)
  '(gnus-asynchronous t)
  '(gnus-auto-extend-newsgroup t)
  '(gnus-auto-select-first t)
- '(gnus-auto-select-subject 'first)
  '(gnus-auto-select-next nil)
+ '(gnus-auto-select-subject 'first)
  '(gnus-body-boundary-delimiter nil)
  '(gnus-break-pages nil)
  '(gnus-check-new-newsgroups nil)
+ '(gnus-group-default-list-level 1)
  '(gnus-save-killed-list nil)
  '(gnus-save-newsrc-file nil)
+ '(gnus-summary-gather-subject-limit 'fuzzy)
  '(gnus-thread-indent-level 2)
+ '(gnus-topic-display-empty-topics t)
 
  '(gnus-agent-directory "~/.mail/gnus/agent")
  '(gnus-article-save-directory "~/.mail/gnus")
@@ -74,18 +75,18 @@
  '(mail-source-directory "~/.mail")
  '(message-auto-save-directory "~/.mail/drafts/")
  '(message-directory "~/.mail")
- '(nndraft-directory "~/.mail/gnus/nndraft")
  '(nndraft-current-directory "~/.mail/gnus/nndraft")
+ '(nndraft-directory "~/.mail/gnus/nndraft")
  '(nnfolder-active-file "~/.mail/archive/active")
  '(nnfolder-directory "~/.mail/archive")
  '(nnmail-message-id-cache-file "~/.mail/nnmail-cache")
 
- '(gravatar-size 64)
  '(gnus-gravatar-properties '(:ascent center :relief 0))
  '(gnus-treat-from-gravatar 'head)
  '(gnus-treat-mail-gravatar 'head)
  '(gnus-treat-mail-picon 'head)
- '(gnus-treat-x-pgp-sig 'head))
+ '(gnus-treat-x-pgp-sig 'head)
+ '(gravatar-size 64))
 
 
 (eval-after-load 'mm-decode
