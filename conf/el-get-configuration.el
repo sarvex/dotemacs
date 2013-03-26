@@ -114,9 +114,8 @@
       :after (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir)))
 
      (:name graphviz-dot-mode
-      :type http
-      :url "http://www.graphviz.org/Misc/graphviz-dot-mode.el"
-      :after (add-to-list 'auto-mode-alist '("\\.gv\\'" . graphviz-dot-mode)))
+      :type github
+      :pkgname "ppareit/graphviz-dot-mode")
 
      (:name ido-ubiquitous
       :type github
