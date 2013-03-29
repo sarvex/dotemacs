@@ -65,7 +65,15 @@
 
 (mapc
  (lambda (h)
-   (add-hook h 'turn-on-hl-keywords))
+   (add-hook h
+             (lambda ()
+               (font-lock-add-keywords
+                nil
+                (list (list (rx word-start
+                                (group (or "XXX" "TODO" "NOTE" "BUG" "WARNING" "HACK"
+                                           "REFACTOR" "IMPORTANT" "HERE BE DRAGONS" ))
+                                ":")
+                            '(1 font-lock-warning-face t)))))))
  '(
    c-mode-common-hook
    coffee-mode-hook
@@ -127,13 +135,6 @@
    cperl-mode-hook
    emacs-lisp-mode-hook
    ))
-
-
-(defun turn-on-hl-keywords ()
-  (font-lock-add-keywords
-   nil
-   '(("\\<\\(XXX\\|TODO\\|NOTE\\|BUG\\|FIXME\\|WARNING\\|HACK\\|REFACTOR\\|IMPORTANT\\|HERE BE DRAGONS\\):"
-      1 font-lock-warning-face t))))
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
