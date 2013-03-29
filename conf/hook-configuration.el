@@ -140,11 +140,14 @@
 (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 (add-hook 'comint-output-filter-functions 'comint-truncate-buffer)
 
-(add-hook 'term-mode-hook (lambda () (setq word-wrap nil)))
-(add-hook 'term-mode-hook (lambda () (setq truncate-lines t)))
-(add-hook 'term-mode-hook
-          (defun load-quiet-light-theme (&rest _)
-            (load-file "~/repos/misc/color-theme-quiet-light/quiet-light-theme.el")))
+(eval-after-load 'term
+  (quote
+   (add-hook 'term-mode-hook
+             (lambda ()
+               (yas-minor-mode -1)
+               (setq truncate-lines t
+                     word-wrap nil)
+               (load-file "~/repos/misc/color-theme-quiet-light/quiet-light-theme.el")))))
 
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
@@ -166,4 +169,6 @@
   (add-to-list 'custom-theme-load-path "~/repos/misc/color-theme-quiet-light")
   (setq custom-safe-themes t)
   (load-theme 'quiet-light)
-  (add-hook 'after-make-frame-functions 'load-quiet-light-theme))
+  (add-hook 'after-make-frame-functions
+            (lambda (_)
+              (load-file "~/repos/misc/color-theme-quiet-light/quiet-light-theme.el"))))
