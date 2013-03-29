@@ -1,5 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 
+(eval-after-load 'subword
+  '(diminish 'subword-mode ""))
+
 (eval-after-load 'paredit
   '(diminish 'paredit-mode " P"))
 
