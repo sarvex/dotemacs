@@ -145,7 +145,6 @@
   (quote
    (add-hook 'term-mode-hook
              (lambda ()
-               (yas-minor-mode -1)
                (setq truncate-lines t
                      word-wrap nil)
                (load-file "~/repos/misc/color-theme-quiet-light/quiet-light-theme.el")))))
