@@ -37,8 +37,6 @@
     (define-key inferior-emacs-lisp-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)))
 
 
-(add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "eLisp")))
-
 (add-hook 'lisp-interaction-mode-hook (lambda () (setq mode-name "Lisp-int")))
 
 (add-hook 'emacs-lisp-mode-hook
