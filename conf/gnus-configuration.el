@@ -62,6 +62,7 @@
  '(gnus-summary-gather-subject-limit 'fuzzy)
  '(gnus-thread-indent-level 2)
  '(gnus-topic-display-empty-topics t)
+ '(gnus-use-cache t)
 
  '(gnus-agent-directory "~/.mail/gnus/agent")
  '(gnus-article-save-directory "~/.mail/gnus")
@@ -71,6 +72,8 @@
  '(gnus-kill-files-directory "~/.mail/gnus")
  '(gnus-startup-file "~/.mail/gnus/newsrc")
 
+ '(gnus-cache-active-file "~/.mail/gnus/cache/active")
+ '(gnus-cache-directory "~/.mail/gnus/cache/")
  '(mail-default-directory "~/.mail")
  '(mail-source-directory "~/.mail")
  '(message-auto-save-directory "~/.mail/drafts/")
