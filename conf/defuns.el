@@ -221,9 +221,10 @@ makes)."
   (interactive)
   (call-interactively 'gist-region-or-buffer)
   (lexical-let* ((gists-dir (expand-file-name "~/repos/gists"))
+                 (gist-url-regexp (rx string-start "https://gist.github.com/" (group (+ (char hex-digit))) string-end))
                  (url (car kill-ring))
                  (gist-id (progn
-                            (string-match "^https://gist\.github\.com/\\([0-9a-f]+\\)\\'" url)
+                            (string-match gist-url-regexp url)
                             (match-string 1 url)))
                  (gist-dir (expand-file-name gist-id gists-dir)))
     (set-process-sentinel
