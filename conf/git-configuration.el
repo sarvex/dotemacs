@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(require 'magit)
+
 (magit-wip-mode 1)
 (global-magit-wip-save-mode)
 
