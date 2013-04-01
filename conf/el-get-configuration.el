@@ -17,6 +17,7 @@
      emacs-jabber
      gist
      gnus
+     graphviz-dot-mode
      haml-mode
      haskell-mode
      helm
@@ -111,10 +112,6 @@
       :type github
       :pkgname "vderyagin/pomodoro.el"
       :after (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir)))
-
-     (:name graphviz-dot-mode
-      :type github
-      :pkgname "ppareit/graphviz-dot-mode")
 
      (:name ido-ubiquitous
       :type github
