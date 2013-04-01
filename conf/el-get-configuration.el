@@ -157,6 +157,8 @@
       :type github
       :pkgname "vderyagin/projectur"))))
 
+(load (file-name-sans-extension el-get-autoload-file))
+
 (el-get 'wait)
 
 (defun el-get-regenerate-all-autoloads ()
