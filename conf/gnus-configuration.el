@@ -53,6 +53,7 @@
  '(gnus-break-pages nil)
  '(gnus-check-new-newsgroups nil)
  '(gnus-group-default-list-level 1)
+ '(gnus-keep-backlog 150)
  '(gnus-save-killed-list nil)
  '(gnus-save-newsrc-file nil)
  '(gnus-summary-gather-subject-limit 'fuzzy)
