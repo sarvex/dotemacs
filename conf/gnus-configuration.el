@@ -91,7 +91,7 @@
  '(nnmail-message-id-cache-file "~/.mail/nnmail-cache")
 
  '(gnus-gravatar-properties '(:ascent center :relief 0))
- '(gravatar-size 64))
+ '(gnus-gravatar-size 64))
 
 
 (eval-after-load 'mm-decode
