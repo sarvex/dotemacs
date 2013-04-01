@@ -232,3 +232,13 @@ makes)."
      (lambda (_ event)
        (when (string= event "finished\n")
          (dired gist-dir))))))
+
+
+(defun unfill-paragraph-or-region ()
+  "Make a paragraph (or region) into a single line of text."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (call-interactively
+     (if (region-active-p)
+         'fill-region
+         'fill-paragraph))))
