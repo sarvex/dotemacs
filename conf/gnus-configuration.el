@@ -18,10 +18,6 @@
       :user ,vderyagin/poshta.te.ua-username
       :password ,vderyagin/poshta.te.ua-password)))
 
- '(gnus-parameters
-   '((""
-      (gnus-treat-hide-signature t))))
-
  '(gnus-always-read-dribble-file t)
  '(gnus-extract-address-components 'mail-extract-address-components)
  '(gnus-buttonized-mime-types '("multipart/alternative"
@@ -64,6 +60,17 @@
  '(gnus-topic-display-empty-topics t)
  '(gnus-use-cache t)
 
+ '(gnus-treat-body-boundary nil)
+ '(gnus-treat-fill-article t)
+ '(gnus-treat-from-gravatar 'head)
+ '(gnus-treat-hide-signature t)
+ '(gnus-treat-mail-gravatar 'head)
+ '(gnus-treat-mail-picon 'head)
+ '(gnus-treat-strip-leading-blank-lines t)
+ '(gnus-treat-strip-multiple-blank-lines t)
+ '(gnus-treat-strip-trailing-blank-lines t)
+ '(gnus-treat-x-pgp-sig 'head)
+
  '(gnus-agent-directory "~/.mail/gnus/agent")
  '(gnus-article-save-directory "~/.mail/gnus")
  '(gnus-default-directory "~/.mail/gnus")
@@ -85,10 +92,6 @@
  '(nnmail-message-id-cache-file "~/.mail/nnmail-cache")
 
  '(gnus-gravatar-properties '(:ascent center :relief 0))
- '(gnus-treat-from-gravatar 'head)
- '(gnus-treat-mail-gravatar 'head)
- '(gnus-treat-mail-picon 'head)
- '(gnus-treat-x-pgp-sig 'head)
  '(gravatar-size 64))
 
 
