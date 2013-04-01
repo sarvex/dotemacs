@@ -85,8 +85,7 @@
       :post-init nil)
 
      (:name multi-term
-      :type github
-      :pkgname "emacsmirror/multi-term")
+      :type emacsmirror)
 
      (:name irfc
       :type emacswiki
@@ -152,6 +151,10 @@
                (add-hook 'markdown-mode-hook 'turn-on-orgtbl)
                (add-hook 'markdown-mode-hook (lambda () (set-fill-column 78)))
                (add-to-list 'auto-mode-alist (cons (rx not-newline "." (or "text" "markdown" "md") string-end) 'markdown-mode))))
+
+     (:name miniedit
+      :type emacsmirror
+      :after (miniedit-install))
 
      (:name projectur
       :type github
