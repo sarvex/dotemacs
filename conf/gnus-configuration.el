@@ -60,7 +60,7 @@
  '(gnus-use-cache t)
 
  '(gnus-treat-body-boundary nil)
- '(gnus-treat-fill-article t)
+ '(gnus-treat-fill-article nil)
  '(gnus-treat-from-gravatar 'head)
  '(gnus-treat-hide-signature t)
  '(gnus-treat-mail-gravatar 'head)
