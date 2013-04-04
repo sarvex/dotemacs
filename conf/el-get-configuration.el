@@ -157,7 +157,9 @@
       :type github
       :pkgname "lunaryorn/flycheck"
       :info "doc"
-      :depends (s dash))
+      :depends (s dash)
+      :lazy t
+      :after (define-key flycheck-mode-map (kbd "C-c ! e") 'flycheck-show-error-at-point))
 
      (:name projectur
       :type github
