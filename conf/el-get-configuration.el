@@ -153,6 +153,12 @@
       :type emacsmirror
       :after (miniedit-install))
 
+     (:name flycheck
+      :type github
+      :pkgname "lunaryorn/flycheck"
+      :info "doc"
+      :depends (s dash))
+
      (:name projectur
       :type github
       :pkgname "vderyagin/projectur"))))
