@@ -17,8 +17,5 @@
 (eval-after-load 'abbrev
   '(diminish 'abbrev-mode "Ab"))
 
-(eval-after-load 'flymake
-  '(diminish 'flymake-mode "Fly"))
-
 (eval-after-load 'yasnippet
   '(diminish 'yas-minor-mode " Y"))
