@@ -23,6 +23,7 @@
    ibuffer-mode-hook
    irfc-mode-hook
    org-agenda-mode-hook
+   rust-mode-hook
    scheme-mode-hook
    special-mode-hook
    speedbar-mode-hook
@@ -120,6 +121,7 @@
    nxml-mode-hook
    python-mode-hook
    ruby-mode-hook
+   rust-mode-hook
    scala-mode-hook
    sgml-mode-hook
    sh-mode-hook

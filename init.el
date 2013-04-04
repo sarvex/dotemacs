@@ -39,6 +39,7 @@
 (load "dotemacs/conf/ruby-configuration")
 (load "dotemacs/conf/scala-configuration")
 (load "dotemacs/conf/go-configuration")
+(load "dotemacs/conf/rust-configuration")
 (load "dotemacs/conf/javascript-configuration")
 (load "dotemacs/conf/html-css-configuration")
 
