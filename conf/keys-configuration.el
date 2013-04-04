@@ -45,8 +45,10 @@
 (define-key prog-mode-map (kbd "<return>") 'newline-and-indent)
 
 ;; window switching
-(define-key global-map (kbd "C-<tab>") 'other-window)
-(define-key global-map (kbd "C-S-<iso-lefttab>") (lambda () (interactive) (other-window -1)))
+(define-key global-map (kbd "C-<tab>")
+  (lambda () (interactive) (select-window (next-window))))
+(define-key global-map (kbd "C-S-<iso-lefttab>")
+  (lambda () (interactive) (select-window (previous-window))))
 
 ;; window resizing
 (define-key global-map (kbd "S-C-<left>") 'shrink-window-horizontally)
@@ -57,7 +59,8 @@
 ;; text scale
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
-(define-key global-map (kbd "C-=") (lambda () (interactive) (text-scale-set 0)))
+(define-key global-map (kbd "C-=")
+  (lambda () (interactive) (text-scale-set 0)))
 
 ;; Good bye, mouse buttons and arrow keys
 (mapc
@@ -124,13 +127,14 @@
 
 (define-key help-map "a" 'apropos)
 
-(define-key global-map (kbd "C-x C-f")
-  (lambda (&optional sudo)
-    (interactive "P")
-    (call-interactively
-     (if sudo
-         'ido-sudo-find-file
-         'ido-find-file))))
+(defun find-file-maybe-sudo (&optional sudo)
+  (interactive "P")
+  (call-interactively
+   (if sudo
+       'ido-sudo-find-file
+       'ido-find-file)))
+
+(define-key global-map (kbd "C-x C-f") 'find-file-maybe-sudo)
 
 (define-key global-map (kbd "C-x g")
   (lambda (arg)
