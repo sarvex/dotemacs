@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(defun vderyagin/switch-to-irc-buffer ()
+(defun switch-to-erc-buffer ()
   "Connect to IRC server or switch to an IRC buffer if connected already."
   (interactive)
   (let ((buffers (and (fboundp 'erc-buffer-list)
