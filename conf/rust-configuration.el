@@ -16,7 +16,7 @@
                               (file-name-nondirectory buffer-file-name)))))
 
      (define-key rust-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
-     (define-key rust-mode-map (kbd "<f9>") 'compile))))
+     (define-key rust-mode-map (kbd "<f9>") 'compile-no-comint))))
 
 (eval-after-load 'compile
   (quote
