@@ -16,3 +16,18 @@
 
      (define-key rust-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
      (define-key rust-mode-map (kbd "<f9>") 'compile))))
+
+(eval-after-load 'compile
+  (quote
+   (progn
+     (add-to-list 'compilation-error-regexp-alist 'rust-test)
+     (add-to-list 'compilation-error-regexp-alist-alist
+                  (list 'rust-test
+                        (rx ", " (group (+ not-newline) ".rs") ":" (group (+ (char digit))) line-end)
+                        1 2))
+
+     (add-to-list 'compilation-error-regexp-alist 'rust-build)
+     (add-to-list 'compilation-error-regexp-alist-alist
+                  (list 'rust-build
+                        (rx line-start (group (+ not-newline) ".rs") ":" (group (+ (char digit))) ":" (group (+ (char digit))) ": ")
+                        1 2 3)))))
