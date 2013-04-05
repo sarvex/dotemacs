@@ -28,9 +28,9 @@
                             "rust: task failed at '"
                             (* not-newline)
                             "', "
-                            (group (+ not-newline) ".rs")
+                            (group (+ not-newline) ".rs") ; file name
                             ":"
-                            (group (+ (char digit)))
+                            (group (+ (char digit)))      ; line number
                             line-end)
                         1 2))
 
@@ -38,10 +38,10 @@
      (add-to-list 'compilation-error-regexp-alist-alist
                   (list 'rust-build
                         (rx line-start
-                            (group (+ not-newline) ".r" (char "sc"))
+                            (group (+ not-newline) ".r" (char "sc")) ; file name
                             ":"
-                            (group (+ (char digit)))
+                            (group (+ (char digit)))                 ; line number
                             ":"
-                            (group (+ (char digit)))
+                            (group (+ (char digit)))                 ; column number
                             ": ")
                         1 2 3)))))
