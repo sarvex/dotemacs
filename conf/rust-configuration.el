@@ -24,11 +24,24 @@
      (add-to-list 'compilation-error-regexp-alist 'rust-test)
      (add-to-list 'compilation-error-regexp-alist-alist
                   (list 'rust-test
-                        (rx ", " (group (+ not-newline) ".rs") ":" (group (+ (char digit))) line-end)
+                        (rx line-start
+                            "rust: task failed at '"
+                            (* not-newline)
+                            "', "
+                            (group (+ not-newline) ".rs")
+                            ":"
+                            (group (+ (char digit)))
+                            line-end)
                         1 2))
 
      (add-to-list 'compilation-error-regexp-alist 'rust-build)
      (add-to-list 'compilation-error-regexp-alist-alist
                   (list 'rust-build
-                        (rx line-start (group (+ not-newline) ".rs") ":" (group (+ (char digit))) ":" (group (+ (char digit))) ": ")
+                        (rx line-start
+                            (group (+ not-newline) ".r" (char "sc"))
+                            ":"
+                            (group (+ (char digit)))
+                            ":"
+                            (group (+ (char digit)))
+                            ": ")
                         1 2 3)))))
