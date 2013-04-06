@@ -26,7 +26,7 @@
                   (list 'rust-test
                         (rx line-start
                             "rust: task failed at '"
-                            (* not-newline)
+                            (*? anything)
                             "', "
                             (group (+ not-newline) ".rs") ; file name
                             ":"
