@@ -20,6 +20,7 @@
 (load "dotemacs/conf/elpa-configuration")
 
 (require 'coffee-mode)
+(require 'compile)
 (require 'ibuf-ext)
 (require 'org-agenda)
 (require 'savehist)
