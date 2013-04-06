@@ -22,6 +22,7 @@
    go-mode-hook
    ibuffer-mode-hook
    irfc-mode-hook
+   magit-log-mode-hook
    org-agenda-mode-hook
    rust-mode-hook
    scheme-mode-hook
