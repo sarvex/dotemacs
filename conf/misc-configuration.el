@@ -202,7 +202,11 @@
 
  '(frame-title-format
    '("" (:eval (mapconcat
-                (lambda (w) (buffer-name (window-buffer w)))
+                (lambda (w)
+                  (with-current-buffer (window-buffer w)
+                    (if (buffer-file-name)
+                        (abbreviate-file-name (buffer-file-name))
+                        (buffer-name))))
                 (window-list) " | "))))
 
  '(gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration")
