@@ -11,6 +11,7 @@
    c-mode-common-hook
    compilation-mode-hook
    conf-mode-hook
+   debugger-mode-hook
    dired-mode-hook
    emacs-lisp-mode-hook
    gist-list-mode-hook
