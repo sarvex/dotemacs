@@ -58,6 +58,7 @@
  '(gnus-thread-indent-level 2)
  '(gnus-topic-display-empty-topics t)
  '(gnus-use-cache t)
+ '(gnus-use-trees t)
 
  '(gnus-treat-body-boundary nil)
  '(gnus-treat-fill-article nil)
@@ -141,3 +142,13 @@
   "Unconditionally save gnus newsrc file."
   (when (fboundp 'gnus-group-save-newsrc)
     (gnus-group-save-newsrc)))
+
+
+(gnus-add-configuration
+ '(article
+   (horizontal 1.0
+    (vertical 0.75
+     (summary 0.25 point)
+     (article 1.0))
+    (vertical 1.0
+     (tree 1.0)))))
