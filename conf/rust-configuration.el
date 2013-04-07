@@ -9,7 +9,7 @@
                  (setq show-trailing-whitespace t)
                  (set (make-local-variable 'compile-command)
                       (format "rust %s %s"
-                              (if (string-match-p (rx not-newline "-test.rs" string-end)
+                              (if (string-match-p (rx not-newline word-boundary "test.rs" string-end)
                                                   buffer-file-name)
                                   "test"
                                   "build")
