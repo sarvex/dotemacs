@@ -15,6 +15,7 @@
      dired-details+
      drag-stuff
      emacs-jabber
+     expand-region
      gist
      gnus
      graphviz-dot-mode
