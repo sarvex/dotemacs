@@ -144,11 +144,10 @@
   (when (fboundp 'gnus-group-save-newsrc)
     (gnus-group-save-newsrc)))
 
-
 (gnus-add-configuration
  '(article
    (vertical 1.0
     (summary 0.25 point)
     (horizontal 1.0
-     (tree 0.25)
-     (article 1.0)))))
+     (article 0.75)
+     (tree 1.0)))))
