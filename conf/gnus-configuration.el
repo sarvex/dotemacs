@@ -59,6 +59,7 @@
  '(gnus-topic-display-empty-topics t)
  '(gnus-use-cache t)
  '(gnus-use-trees t)
+ '(gnus-tree-minimize-window nil)
 
  '(gnus-treat-body-boundary nil)
  '(gnus-treat-fill-article nil)
