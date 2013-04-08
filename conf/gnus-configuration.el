@@ -147,9 +147,8 @@
 
 (gnus-add-configuration
  '(article
-   (horizontal 1.0
-    (vertical 0.75
-     (summary 0.25 point)
-     (article 1.0))
-    (vertical 1.0
-     (tree 1.0)))))
+   (vertical 1.0
+    (summary 0.25 point)
+    (horizontal 1.0
+     (tree 0.25)
+     (article 1.0)))))
