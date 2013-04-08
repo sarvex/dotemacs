@@ -43,5 +43,7 @@
                             (group (+ (char digit)))                 ; line number
                             ":"
                             (group (+ (char digit)))                 ; column number
-                            ": ")
+                            ": "
+                            (* not-newline)
+                            line-end)
                         1 2 3)))))
