@@ -11,18 +11,11 @@
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 (define-key emacs-lisp-mode-map (kbd "M-;") 'comment-dwim)
 
-(define-key emacs-lisp-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)
-(define-key lisp-interaction-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)
+(define-key emacs-lisp-mode-map (kbd "C-c t") 'ert-run-tests-interactively)
+(define-key lisp-interaction-mode-map (kbd "C-c t") 'ert-run-tests-interactively)
 
 (eval-after-load 'ert
-  '(define-key ert-results-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively))
-
-(defun ert-run-all-tests-or-interactively (&optional arg)
-  "Run all ERT tests, when ARG is true - specify selector for tests to run."
-  (interactive "P")
-  (if arg
-      (call-interactively 'ert-run-tests-interactively)
-      (ert-run-tests-interactively t)))
+  '(define-key ert-results-mode-map (kbd "C-c t") 'ert-run-tests-interactively))
 
 
 (define-key lisp-interaction-mode-map (kbd "M-j") 'eval-print-last-sexp)
@@ -34,7 +27,7 @@
     (setq ielm-header "")
     (add-hook 'inferior-emacs-lisp-mode-hook 'turn-on-eldoc-mode)
     (define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
-    (define-key inferior-emacs-lisp-mode-map (kbd "C-c t") 'ert-run-all-tests-or-interactively)))
+    (define-key inferior-emacs-lisp-mode-map (kbd "C-c t") 'ert-run-tests-interactively)))
 
 
 (add-hook 'lisp-interaction-mode-hook (lambda () (setq mode-name "Lisp-int")))
