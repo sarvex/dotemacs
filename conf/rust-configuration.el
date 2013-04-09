@@ -4,6 +4,7 @@
   (quote
    (progn
      (add-hook 'rust-mode-hook 'yas-minor-mode-on)
+     (add-hook 'rust-mode-hook 'flycheck-mode)
      (add-hook 'rust-mode-hook
                (lambda ()
                  (setq show-trailing-whitespace t)
