@@ -198,7 +198,10 @@
  '(grep-command "grep --recursive --with-filename --line-number --regexp=")
 
  '(safe-local-variable-values
-   '((dired-omit-mode . t)))
+   '((dired-omit-mode . t)
+     (whitespace-line-column . 80)
+     (whitespace-style face trailing lines-tail)
+     (require-final-newline . t)))
 
  '(frame-title-format
    '("" (:eval (mapconcat
