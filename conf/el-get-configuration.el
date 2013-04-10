@@ -39,6 +39,7 @@
      slim-mode
      textile-mode
      tuareg-mode
+     wtf
      yaml-mode
 
      (:name erc-highlight-nicknames :lazy t)
