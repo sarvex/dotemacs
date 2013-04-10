@@ -3,7 +3,6 @@
 (define-key global-map (kbd "C-c ;") 'comment-or-uncomment-current-line-or-region)
 (define-key global-map (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-c c") 'duplicate-line)
-(define-key global-map (kbd "C-c e") 'switch-to-erc-buffer)
 (define-key global-map (kbd "C-c g") 'magit-status)
 (define-key global-map (kbd "C-c j") 'dired-jump)
 (define-key global-map (kbd "C-c l") 'linum-mode)
@@ -14,8 +13,9 @@
 
 (define-key global-map (kbd "<f11>") 'org-capture)
 (define-key global-map (kbd "C-x C-d") 'ido-dired)
-(define-key global-map (kbd "C-x d") 'vderyagin/switch-to-dired-buffer)
-(define-key global-map (kbd "C-x t") 'vderyagin/switch-to-twittering-buffer)
+(define-key global-map (kbd "C-x d") 'switch-to-dired-buffer)
+(define-key global-map (kbd "C-x i") 'switch-to-irc-buffer)
+(define-key global-map (kbd "C-x t") 'switch-to-twittering-buffer)
 
 (define-key global-map (kbd "M-0") 'delete-window)
 (define-key global-map (kbd "M-1") 'delete-other-windows)

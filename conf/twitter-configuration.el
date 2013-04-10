@@ -26,7 +26,7 @@
     (define-key twittering-mode-map (kbd "RET") 'twittering-click)))
 
 
-(defun vderyagin/switch-to-twittering-buffer()
+(defun switch-to-twittering-buffer()
   "Switch to one of the `twittering-mode' buffers or launch `twittering-mode' if none."
   (interactive)
   (let ((twittering-buffers (mapcar 'buffer-name (get-buffers-with-major-mode 'twittering-mode))))

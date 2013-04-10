@@ -119,7 +119,7 @@
   (if (not (or (dired-move-to-filename) (bobp)))
       (dired-previous-file-line)))
 
-(defun vderyagin/switch-to-dired-buffer ()
+(defun switch-to-dired-buffer ()
   "Switch to one of the Dired buffers or open home directory if none."
   (interactive)
   (let ((dired-buffers (mapcar 'buffer-name (get-buffers-with-major-mode 'dired-mode))))
