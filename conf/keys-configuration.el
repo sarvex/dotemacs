@@ -10,9 +10,6 @@
 (define-key global-map (kbd "C-c w") 'whitespace-mode)
 
 (define-key global-map (kbd "C-x C-d") 'ido-dired)
-(define-key global-map (kbd "C-x d") 'switch-to-dired-buffer)
-(define-key global-map (kbd "C-x i") 'switch-to-irc-buffer)
-(define-key global-map (kbd "C-x t") 'switch-to-twittering-buffer)
 
 (define-key global-map (kbd "M-0") 'delete-window)
 (define-key global-map (kbd "M-1") 'delete-other-windows)
@@ -135,6 +132,13 @@
     (define-key map "e" 'toggle-debug-on-error)
     (define-key map "q" 'toggle-debug-on-quit)
     (define-key map "s" (lambda () (interactive) (switch-to-buffer "*scratch*")))
+    map))
+
+(define-key global-map (kbd "C-c <tab>")
+  (let ((map (make-sparse-keymap)))
+    (define-key map "d" 'switch-to-dired-buffer)
+    (define-key map "i" 'switch-to-irc-buffer)
+    (define-key map "t" 'switch-to-twitter-buffer)
     map))
 
 (defun find-file-maybe-sudo (&optional sudo)
