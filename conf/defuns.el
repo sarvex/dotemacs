@@ -224,3 +224,17 @@ Avoids `compilation-shell-minor-mode' in *compilation* buffer."
   (let ((compilation-read-command arg)
         (current-prefix-arg nil))
     (call-interactively 'compile)))
+
+
+(defun find-symbol-at-point ()
+  "Find definition of symbol at point in the other window."
+  (interactive)
+  (let ((sym (symbol-at-point)))
+    (call-interactively
+     (cond
+       ((fboundp sym)
+        'find-function-at-point)
+       ((boundp sym)
+        'find-variable-at-point)
+       (t
+        (error "Symbol `%s' not found" (symbol-name sym)))))))
