@@ -125,7 +125,15 @@
          'multi-term
          'multi-term-next))))
 
-(define-key help-map "a" 'apropos)
+(define-key help-map "a"
+  (let ((map (make-sparse-keymap)))
+    (define-key map "V" 'apropos-value)
+    (define-key map "a" 'apropos)
+    (define-key map "c" 'apropos-command)
+    (define-key map "d" 'apropos-documentation)
+    (define-key map "l" 'apropos-library)
+    (define-key map "v" 'apropos-variable)
+    map))
 
 (defun find-file-maybe-sudo (&optional sudo)
   (interactive "P")
