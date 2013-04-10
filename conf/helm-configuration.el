@@ -2,6 +2,8 @@
 
 (require 'helm-config)
 
+(helm-match-plugin-mode t)
+
 (fset 'describe-bindings 'helm-descbinds)
 
 (custom-set-variables
