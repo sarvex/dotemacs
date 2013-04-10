@@ -34,14 +34,16 @@
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
+            "Delete corresponding bytecode and check if parens are balanced."
             (add-hook 'after-save-hook
                       (lambda ()
                         "If you're saving an elisp file, likely the .elc is no longer valid."
-                        (let ((bytecode  (concat buffer-file-name "c")))
+                        (let ((bytecode (concat buffer-file-name "c")))
                           (when (file-exists-p bytecode)
                             (delete-file bytecode))))
                       nil
-                      'make-it-local)))
+                      'make-it-local)
+            (add-hook 'after-save-hook 'check-parens nil 'make-it-local)))
 
 (add-hook 'lisp-mode-hook
           (lambda ()
