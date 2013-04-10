@@ -239,7 +239,7 @@
          (org-agenda-redo t)))
      (get-buffers-with-major-mode 'org-agenda-mode))))
 
-(defun vderyagin/find-org-file (arg)
+(defun find-org-file (arg)
   "Select and open org file from `org-directory' or one if its subdirectories.
 When called without prefix argument filters out files in archive
 directory, with single prefix argument looks only in archive
@@ -283,3 +283,11 @@ directory, with double prefix argument all files are available."
     (if (member tag (org-get-tags-at current-headline))
         next-headline
         nil)))
+
+
+(define-key global-map (kbd "C-c o")
+  (let ((map (make-sparse-keymap)))
+    (define-key map "f" 'find-org-file)
+    (define-key map "a" 'org-agenda)
+    (define-key map "c" 'org-capture)
+    map))
