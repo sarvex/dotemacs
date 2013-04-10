@@ -2,6 +2,8 @@
 
 (require 'helm-config)
 
+(fset 'describe-bindings 'helm-descbinds)
+
 (custom-set-variables
  '(helm-buffer-max-length 40)
  '(helm-c-default-external-file-browser "pcmanfm")

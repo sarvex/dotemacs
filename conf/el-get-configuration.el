@@ -22,6 +22,7 @@
      haml-mode
      haskell-mode
      helm
+     helm-descbinds
      lua-mode
      magit
      nrepl
