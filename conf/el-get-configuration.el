@@ -89,6 +89,9 @@
      (:name multi-term
       :type emacsmirror)
 
+     (:name eval-expr
+      :type emacsmirror)
+
      (:name irfc
       :type emacswiki
       :after (progn

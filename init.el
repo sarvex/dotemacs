@@ -43,6 +43,7 @@
 (load "dotemacs/conf/javascript-configuration")
 (load "dotemacs/conf/html-css-configuration")
 
+(load "dotemacs/conf/eval-expr-configuration")
 (load "dotemacs/conf/dired-configuration")
 (load "dotemacs/conf/file-associations-configuration")
 (load "dotemacs/conf/diminish-configuration")
