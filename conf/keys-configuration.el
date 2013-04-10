@@ -87,7 +87,6 @@
    minibuffer-local-ns-map))
 
 
-(global-unset-key (kbd "<f9>"))         ; do not f***ing pop Gnuplot
 (global-unset-key (kbd "<f10>"))        ; do not f***ing open menu
 
 
