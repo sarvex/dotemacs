@@ -132,9 +132,8 @@
     (define-key map "v" 'find-variable)
     (define-key map "C" 'emacs-lisp-byte-compile)
     (define-key map "c" 'emacs-lisp-byte-compile-and-load)
-    (define-key map "t" 'toggle-debug-on-error)
+    (define-key map "e" 'toggle-debug-on-error)
     (define-key map "q" 'toggle-debug-on-quit)
-    (define-key map "e" 'macrostep-expand)
     (define-key map "s" (lambda () (interactive) (switch-to-buffer "*scratch*")))
     map))
 
