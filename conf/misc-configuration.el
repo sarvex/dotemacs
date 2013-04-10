@@ -164,7 +164,7 @@
 
 
  '(inhibit-startup-screen t)
- '(initial-scratch-message ";; *scratch*\n\n")
+ '(initial-scratch-message "")
  '(browse-url-browser-function 'browse-url-firefox)
  '(delete-active-region t)
  '(large-file-warning-threshold nil)
