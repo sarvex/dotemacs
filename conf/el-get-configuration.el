@@ -163,6 +163,10 @@
       :lazy t
       :after (define-key flycheck-mode-map (kbd "C-c ! e") 'flycheck-show-error-at-point))
 
+     (:name macrostep
+      :type github
+      :pkgname "joddie/macrostep")
+
      (:name projectur
       :type github
       :pkgname "vderyagin/projectur"))))
