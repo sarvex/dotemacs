@@ -101,17 +101,6 @@
         (call-interactively 'ido-kill-buffer)
         (kill-buffer (current-buffer)))))
 
-(define-key global-map (kbd "C-<f5>")
-  (lambda ()
-    "Switch to *scratch* buffer"
-    (interactive)
-    (let ((content initial-scratch-message)
-          (buf "*scratch*"))
-      (when (get-buffer buf)
-        (setq content ""))
-      (switch-to-buffer buf)
-      (insert content))))
-
 (define-key global-map (kbd "C-x c") 'save-buffers-kill-emacs)
 
 (define-key global-map (kbd "<f8>")
@@ -124,12 +113,29 @@
 
 (define-key help-map "a"
   (let ((map (make-sparse-keymap)))
-    (define-key map "V" 'apropos-value)
     (define-key map "a" 'apropos)
     (define-key map "c" 'apropos-command)
     (define-key map "d" 'apropos-documentation)
     (define-key map "l" 'apropos-library)
     (define-key map "v" 'apropos-variable)
+    (define-key map "V" 'apropos-value)
+    map))
+
+(define-key global-map (kbd "C-c e")
+  (let ((map (make-sparse-keymap)))
+    (define-key map "b" 'eval-buffer)
+    (define-key map "d" 'eval-defun)
+    (define-key map "r" 'eval-region)
+    (define-key map "f" 'find-function)
+    (define-key map "k" 'find-function-on-key)
+    (define-key map "l" 'find-library)
+    (define-key map "v" 'find-variable)
+    (define-key map "C" 'emacs-lisp-byte-compile)
+    (define-key map "c" 'emacs-lisp-byte-compile-and-load)
+    (define-key map "t" 'toggle-debug-on-error)
+    (define-key map "q" 'toggle-debug-on-quit)
+    (define-key map "e" 'macrostep-expand)
+    (define-key map "s" (lambda () (interactive) (switch-to-buffer "*scratch*")))
     map))
 
 (defun find-file-maybe-sudo (&optional sudo)
