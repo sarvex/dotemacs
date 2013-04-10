@@ -293,6 +293,7 @@
             (name . "^\\*About GNU Emacs\\*$")
             (name . "^\\*Apropos\\*$")
             (name . "^\\*Async Shell Command")
+            (name . "^\\*Backtrace\\*$")
             (name . "^\\*Choices\\*$")
             (name . "^\\*Clock Task Select\\*$")
             (name . "^\\*Colors\\*$")
