@@ -3,12 +3,13 @@
 (custom-set-variables
  '(savehist-file "~/.emacs.d/savehist")
  '(savehist-save-minibuffer-history t)
- '(savehist-additional-variables '(search-ring
-                                   kill-ring
-                                   global-mark-ring
+ '(savehist-additional-variables '(global-mark-ring
                                    ido-work-directory-list
+                                   kill-ring
+                                   kmacro-ring
+                                   projectur-history
                                    regexp-search-ring
-                                   projectur-history))
+                                   search-ring))
  '(savehist-ignored-variables '(bmkp-tag-history
                                 grep-history
                                 bookmark-history
