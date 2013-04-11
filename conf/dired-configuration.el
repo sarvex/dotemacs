@@ -1,75 +1,54 @@
 ;;; -*- lexical-binding: t -*-
 
-(autoload 'dired-jump "dired-x" nil t)
+(require 'dired)
+(require 'dired-x)
+(require 'dired+)
+(require 'dired-details+)
 
-(custom-set-variables
- '(dired-omit-files (rx line-start (or "." "#")))
- '(dired-details-hidden-string "")
- '(directory-free-space-args "-Pkh")
- '(dired-details-hide-extra-lines t)
- '(dired-details-hide-link-targets nil)
- '(dired-dwim-target nil)
- '(dired-isearch-filenames nil)
- '(dired-keep-marker-copy nil)
- '(dired-keep-marker-hardlink nil)
- '(dired-keep-marker-rename nil)
- '(dired-keep-marker-symlink nil)
- '(dired-listing-switches "-lhAF --group-directories-first")
- '(dired-ls-F-marks-symlinks t)
- '(wdired-allow-to-change-permissions 'advanced)
- '(wdired-allow-to-redirect-links t))
+(diredp-toggle-find-file-reuse-dir 1)
 
-(eval-after-load 'dired
-  (quote
-   (progn
+(defadvice dired-advertised-find-file (around dired-subst-directory activate)
+  "Replace current buffer if file is a directory."
+  (interactive)
+  (let ((orig (current-buffer))
+        (filename (dired-get-filename)))
+    ad-do-it
+    (when (and (file-directory-p filename)
+               (not (eq (current-buffer) orig)))
+      (kill-buffer orig))))
 
-     (require 'dired-x)
-     (require 'dired+)
-     (require 'dired-details+)
+(defun dired-up-directory (&optional other-window)
+  "Run Dired on parent directory of current directory."
+  (interactive "P")
+  (let* ((dir (dired-current-directory))
+         (orig (current-buffer))
+         (up (file-name-directory (directory-file-name dir))))
+    (or (dired-goto-file (directory-file-name dir))
+        ;; Only try dired-goto-subdir if buffer has more than one dir.
+        (and (cdr dired-subdir-alist)
+             (dired-goto-subdir up))
+        (progn
+          (kill-buffer orig)
+          (dired up)
+          (dired-goto-file dir)))))
 
-     (diredp-toggle-find-file-reuse-dir 1)
+(define-key dired-mode-map (kbd "M-n") 'dired-next-subdir-of-current-dir-parent)
+(define-key dired-mode-map (kbd "M-p") 'dired-previous-subdir-of-current-dir-parent)
+(define-key dired-mode-map (kbd "C-?") 'dired-get-size)
+(define-key dired-mode-map (kbd ";") 'dired-up-directory)
+(define-key dired-mode-map (kbd "p") 'dired-previous-file-line)
+(define-key dired-mode-map (kbd "n") 'dired-next-file-line)
+(define-key dired-mode-map (kbd "C-w") 'dired-unmark-backward)
+(define-key dired-mode-map (kbd "<down>") nil)
+(define-key dired-mode-map (kbd "<up>") nil)
+(define-key dired-mode-map (kbd "M-=") nil)
+(define-key dired-mode-map (kbd "M-b") 'backward-word)
+(define-key dired-mode-map (kbd "<SPC>") 'dired-next-file-line)
+(define-key dired-mode-map (kbd "TAB") 'dired-hide-subdir)
+(define-key dired-mode-map (kbd "q") (lambda () (interactive) (kill-buffer-ask (current-buffer))))
 
-     (defadvice dired-advertised-find-file (around dired-subst-directory activate)
-       "Replace current buffer if file is a directory."
-       (interactive)
-       (let ((orig (current-buffer))
-             (filename (dired-get-filename)))
-         ad-do-it
-         (when (and (file-directory-p filename)
-                    (not (eq (current-buffer) orig)))
-           (kill-buffer orig))))
+(add-hook 'dired-mode-hook (lambda () (setq truncate-lines t)))
 
-     (defun dired-up-directory (&optional other-window)
-       "Run Dired on parent directory of current directory."
-       (interactive "P")
-       (let* ((dir (dired-current-directory))
-              (orig (current-buffer))
-              (up (file-name-directory (directory-file-name dir))))
-         (or (dired-goto-file (directory-file-name dir))
-             ;; Only try dired-goto-subdir if buffer has more than one dir.
-             (and (cdr dired-subdir-alist)
-                  (dired-goto-subdir up))
-             (progn
-               (kill-buffer orig)
-               (dired up)
-               (dired-goto-file dir)))))
-
-     (define-key dired-mode-map (kbd "M-n") 'dired-next-subdir-of-current-dir-parent)
-     (define-key dired-mode-map (kbd "M-p") 'dired-previous-subdir-of-current-dir-parent)
-     (define-key dired-mode-map (kbd "C-?") 'dired-get-size)
-     (define-key dired-mode-map (kbd ";") 'dired-up-directory)
-     (define-key dired-mode-map (kbd "p") 'dired-previous-file-line)
-     (define-key dired-mode-map (kbd "n") 'dired-next-file-line)
-     (define-key dired-mode-map (kbd "C-w") 'dired-unmark-backward)
-     (define-key dired-mode-map (kbd "<down>") nil)
-     (define-key dired-mode-map (kbd "<up>") nil)
-     (define-key dired-mode-map (kbd "M-=") nil)
-     (define-key dired-mode-map (kbd "M-b") 'backward-word)
-     (define-key dired-mode-map (kbd "<SPC>") 'dired-next-file-line)
-     (define-key dired-mode-map (kbd "TAB") 'dired-hide-subdir)
-     (define-key dired-mode-map (kbd "q") (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-
-     (add-hook 'dired-mode-hook (lambda () (setq truncate-lines t))))))
 
 (eval-after-load 'wdired
   '(progn
@@ -129,3 +108,21 @@
              (car dired-buffers)
              (ido-completing-read "Dired buffer: " dired-buffers)))
         (dired (expand-file-name "~")))))
+
+
+(custom-set-variables
+ '(dired-omit-files (rx line-start (or "." "#")))
+ '(dired-details-hidden-string "")
+ '(directory-free-space-args "-Pkh")
+ '(dired-details-hide-extra-lines t)
+ '(dired-details-hide-link-targets nil)
+ '(dired-dwim-target nil)
+ '(dired-isearch-filenames nil)
+ '(dired-keep-marker-copy nil)
+ '(dired-keep-marker-hardlink nil)
+ '(dired-keep-marker-rename nil)
+ '(dired-keep-marker-symlink nil)
+ '(dired-listing-switches "-lhAF --group-directories-first")
+ '(dired-ls-F-marks-symlinks t)
+ '(wdired-allow-to-change-permissions 'advanced)
+ '(wdired-allow-to-redirect-links t))
