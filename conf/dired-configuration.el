@@ -17,7 +17,7 @@
                (not (eq (current-buffer) orig)))
       (kill-buffer orig))))
 
-(defun dired-up-directory (&optional other-window)
+(defun dired-up-directory (&optional _)
   "Run Dired on parent directory of current directory."
   (interactive "P")
   (let* ((dir (dired-current-directory))
