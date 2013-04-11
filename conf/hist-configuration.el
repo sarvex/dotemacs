@@ -45,6 +45,7 @@
     (rx (or "Thumbs.db" "~") string-end))))
 
 (recentf-mode t)
+(add-hook 'kill-emacs-hook 'recentf-cleanup)
 
 
 (custom-set-variables
