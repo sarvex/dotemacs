@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(require 'desktop)
+
 (custom-set-variables
  '(recentf-save-file "~/.emacs.d/recentf")
  '(recentf-max-saved-items 3000)
