@@ -9,15 +9,8 @@
                                    kmacro-ring
                                    projectur-history
                                    regexp-search-ring
-                                   search-ring))
- '(savehist-ignored-variables '(bmkp-tag-history
-                                grep-history
-                                bookmark-history
-                                buffer-name-history
-                                minibuffer-history
-                                ido-buffer-history
-                                ido-file-history
-                                file-name-history)))
+                                   register-alist
+                                   search-ring)))
 
 (savehist-mode)
 
