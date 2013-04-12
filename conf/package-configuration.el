@@ -1,9 +1,11 @@
 ;;; -*- lexical-binding: t -*-
 
-(package-initialize)
+(require 'package)
 
-(mapc
- (lambda (item)
-   (add-to-list 'package-archives item 'append))
- '(("marmalade" . "http://marmalade-repo.org/packages/")
-   ("melpa" . "http://melpa.milkbox.net/packages/")))
+(setq package-enable-at-startup nil)
+
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/")
+             'append)
+
+(package-initialize)
