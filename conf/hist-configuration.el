@@ -39,8 +39,7 @@
 (mapc
  (lambda (sym)
    (add-to-list 'desktop-globals-to-save sym))
- '(global-mark-ring
-   ido-work-directory-list
+ '(ido-work-directory-list
    kill-ring
    kmacro-ring
    projectur-history))
