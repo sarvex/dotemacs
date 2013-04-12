@@ -17,7 +17,7 @@
 (load "dotemacs/conf/before-init-configuration")
 
 (load "dotemacs/conf/defuns")
-(load "dotemacs/conf/elpa-configuration")
+(load "dotemacs/conf/package-configuration")
 (load "dotemacs/conf/el-get-configuration")
 (load "dotemacs/conf/misc-configuration")
 (load "dotemacs/conf/parens-configuration")

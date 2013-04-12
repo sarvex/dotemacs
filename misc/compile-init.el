@@ -17,7 +17,7 @@
 
 (load "dotemacs/conf/defuns")
 (load "dotemacs/conf/el-get-configuration")
-(load "dotemacs/conf/elpa-configuration")
+(load "dotemacs/conf/package-configuration")
 
 (require 'coffee-mode)
 (require 'compile)
