@@ -57,20 +57,18 @@
     (define-key wdired-mode-map (kbd "<down>") nil)
     (define-key wdired-mode-map (kbd "<up>") nil)))
 
-(defun dired-next-subdir-of-current-dir-parent (&optional jump)
+(defun dired-next-subdir-of-current-dir-parent (jump)
   "Moves to the n-th next directory of the same level"
-  (interactive "P")
+  (interactive "p")
   (if (and (dired-up-directory)
-           (dired-next-dirline
-            (if jump (prefix-numeric-value jump) 1)))
+           (dired-next-dirline jump))
       (diredp-find-file-reuse-dir-buffer)))
 
-(defun dired-previous-subdir-of-current-dir-parent (&optional jump)
+(defun dired-previous-subdir-of-current-dir-parent (jump)
   "Moves to the n-th previous directory of the same level"
-  (interactive "P")
+  (interactive "p")
   (if (and (dired-up-directory)
-           (dired-prev-dirline
-            (if jump (prefix-numeric-value jump) 1)))
+           (dired-prev-dirline jump))
       (diredp-find-file-reuse-dir-buffer)))
 
 (defun dired-get-size ()
