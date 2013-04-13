@@ -7,6 +7,7 @@
  '(el-get-sources
    '(el-get
 
+     redshank
      bookmark+
      clojure-mode
      diminish
@@ -174,6 +175,9 @@
      (:name macrostep
       :type github
       :pkgname "joddie/macrostep")
+
+     (:name multiple-cursors
+      :features nil)
 
      (:name projectur
       :type github
