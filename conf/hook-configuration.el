@@ -166,10 +166,6 @@
                          (y-or-n-p (format "Directory %s does not exist. Create it?" (abbreviate-file-name dir))))
                 (make-directory dir t)))))
 
-(defadvice save-buffers-kill-emacs (before do-not-ask-when-has-live-clients activate)
-  "Do not ask before exiting Emacs if it has live clients."
-  (remove-hook 'kill-emacs-query-functions 'server-kill-emacs-query-function))
-
 (when (fboundp 'customize-themes)
   (add-to-list 'custom-theme-load-path "~/repos/misc/color-theme-quiet-light")
   (setq custom-safe-themes t)
