@@ -12,12 +12,6 @@
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-symbol-at-point)
 (define-key emacs-lisp-mode-map (kbd "M-;") 'comment-dwim)
 
-(define-key emacs-lisp-mode-map (kbd "C-c t") 'ert)
-(define-key lisp-interaction-mode-map (kbd "C-c t") 'ert)
-
-(eval-after-load 'ert
-  '(define-key ert-results-mode-map (kbd "C-c t") 'ert))
-
 (define-key lisp-interaction-mode-map (kbd "M-j") 'eval-print-last-sexp)
 (define-key lisp-interaction-mode-map (kbd "C-c C-c") 'eval-defun)
 (define-key lisp-interaction-mode-map (kbd "M-.") 'find-symbol-at-point)
@@ -26,8 +20,7 @@
   '(progn
     (setq ielm-header "")
     (add-hook 'inferior-emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-    (define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-symbol-at-point)
-    (define-key inferior-emacs-lisp-mode-map (kbd "C-c t") 'ert)))
+    (define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-symbol-at-point)))
 
 
 (add-hook 'lisp-interaction-mode-hook (lambda () (setq mode-name "Lisp-int")))

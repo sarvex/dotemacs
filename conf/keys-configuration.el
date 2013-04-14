@@ -129,6 +129,7 @@
     (define-key map "e" 'toggle-debug-on-error)
     (define-key map "q" 'toggle-debug-on-quit)
     (define-key map "E" 'macrostep-expand)
+    (define-key map "t" 'ert)
     (define-key map "s" (lambda () (interactive) (switch-to-buffer "*scratch*")))
     map))
 
