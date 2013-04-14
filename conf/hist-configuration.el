@@ -39,10 +39,13 @@
 (mapc
  (lambda (sym)
    (add-to-list 'desktop-globals-to-save sym))
- '(ido-work-directory-list
+ '(
+   ido-work-directory-list
    kill-ring
    kmacro-ring
-   projectur-history))
+   projectur-history
+   shell-command-history
+   ))
 
 (add-hook 'desktop-save-hook
           (lambda ()
