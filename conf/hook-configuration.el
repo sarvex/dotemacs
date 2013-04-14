@@ -151,8 +151,7 @@
    (add-hook 'term-mode-hook
              (lambda ()
                (setq truncate-lines t
-                     word-wrap nil)
-               (load-file "~/repos/misc/color-theme-quiet-light/quiet-light-theme.el")))))
+                     word-wrap nil)))))
 
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
