@@ -189,10 +189,18 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
                    (lambda (&rest _) (eq (random 2) 0)))))))
 
 
-(defun gist ()
+(defun gist (private)
   "gist current file, clone repository and show it in dired"
-  (interactive)
-  (call-interactively 'gist-region-or-buffer)
+  (interactive "P")
+
+  (let (beg end)
+    (if (region-active-p)
+        (setq beg (region-beginning)
+              end (region-end))
+        (setq beg (point-min)
+              end (point-max)))
+    (gist-region beg end private))
+
   (lexical-let* ((gists-dir (expand-file-name "~/repos/gists"))
                  (gist-url-regexp (rx string-start "https://gist.github.com/" (group (+ (char hex-digit))) string-end))
                  (url (car kill-ring))
