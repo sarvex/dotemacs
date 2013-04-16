@@ -229,12 +229,14 @@
  '(scroll-up-aggressively nil)
  '(scroll-preserve-screen-position 'always)
 
+ '(auto-save-default nil)
+ '(backup-by-copying t)
  '(backup-directory-alist '(("." . "~/.emacs.d/backup/")))
  '(backup-inhibited nil)
- '(backup-by-copying t)
- '(auto-save-default nil)
- '(version-control t)
  '(delete-old-versions t)
+ '(kept-new-versions 100)
+ '(kept-old-versions 5)
+ '(version-control t)
 
  '(debug-on-error nil)
  '(echo-keystrokes 0.4)
