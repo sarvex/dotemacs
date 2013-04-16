@@ -40,10 +40,12 @@
  (lambda (sym)
    (add-to-list 'desktop-globals-to-save sym))
  '(
+   extended-command-history
    ido-work-directory-list
    kill-ring
    kmacro-ring
    projectur-history
+   read-expression-history
    shell-command-history
    ))
 
