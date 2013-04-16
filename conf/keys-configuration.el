@@ -26,10 +26,6 @@
 
 (define-key global-map (kbd "M-g") 'goto-line)
 
-(define-key global-map (kbd "M-x") 'smex)
-(define-key global-map (kbd "M-X") 'smex-major-mode-commands)
-(define-key global-map (kbd "C-c M-x") 'execute-extended-command)
-
 (define-key global-map (kbd "C-%") 'goto-match-paren)
 
 (define-key global-map (kbd "C-@") 'er/expand-region)

@@ -56,9 +56,6 @@
       :lazy t
       :post-init nil)
 
-     (:name smex
-      :before (setq smex-save-file "~/.emacs.d/smex-items"))
-
      (:name openwith
       :description "Open files with external programs"
       :type hg
