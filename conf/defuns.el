@@ -253,10 +253,13 @@ Avoids `compilation-shell-minor-mode' in *compilation* buffer."
   (interactive)
   (let* ((name (read-from-minibuffer "Library name: "))
          (location (expand-file-name name "~/repos/dev/"))
-         (lib (expand-file-name (format "%s.el" name) location))
+         (lib (expand-file-name (if (string-match-p (rx ".el" string-end) name)
+                                    name
+                                    (format "%s.el" name))
+                                location))
          (readme (expand-file-name "Readme.md" location)))
 
-    (when (string-match-p (rx (not (any alphanumeric "-+"))) name)
+    (when (string-match-p (rx (not (any alphanumeric "-+."))) name)
       (error "Name '%s' is not suitable for elisp library" name))
 
     (when (file-exists-p location)
