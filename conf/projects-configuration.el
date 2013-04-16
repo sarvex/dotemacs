@@ -14,5 +14,6 @@
 (define-key global-map (kbd "C-c p f") 'projectur-find-file)
 (define-key global-map (kbd "C-c p g") 'projectur-rgrep)
 (define-key global-map (kbd "C-c p r") 'projectur-goto-root)
+(define-key global-map (kbd "C-c p R") 'projectur-goto-readme)
 (define-key global-map (kbd "C-c p !") 'projectur-execute-shell-command)
 (define-key global-map (kbd "C-c p v") 'projectur-version-control)
