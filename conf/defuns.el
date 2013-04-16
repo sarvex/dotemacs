@@ -246,3 +246,28 @@ Avoids `compilation-shell-minor-mode' in *compilation* buffer."
         'find-variable-at-point)
        (t
         (error "Symbol `%s' not found" (symbol-name sym)))))))
+
+
+(defun make-elisp-library ()
+  "Create new elisp library."
+  (interactive)
+  (let* ((name (read-from-minibuffer "Library name: "))
+         (location (expand-file-name name "~/repos/dev/"))
+         (lib (expand-file-name (format "%s.el" name) location))
+         (readme (expand-file-name "Readme.md" location)))
+
+    (when (string-match-p (rx (not (any alphanumeric "-+"))) name)
+      (error "Name '%s' is not suitable for elisp library" name))
+
+    (when (file-exists-p location)
+      (error "Path '%s' is already taken" (abbreviate-file-name location)))
+
+    (make-directory location)
+    (call-process "touch" nil 0 nil lib readme)
+
+    (let ((default-directory (file-name-as-directory location)))
+      (call-process "git" nil 0 nil "init"))
+
+    (find-file lib)
+    (insert "header")
+    (yas-expand)))
