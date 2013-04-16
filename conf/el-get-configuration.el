@@ -153,6 +153,7 @@
       :after (progn
                (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
                (add-hook 'markdown-mode-hook 'turn-on-orgtbl)
+               (add-hook 'markdown-mode-hook 'yas-minor-mode-on)
                (add-hook 'markdown-mode-hook (lambda () (set-fill-column 78)))
                (add-to-list 'auto-mode-alist (cons (rx not-newline "."
                                                        (or "text" "markdown" (and "md" (optional "pp")))
