@@ -225,15 +225,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
          'fill-paragraph))))
 
 
-(defun compile-no-comint (&optional arg)
-  "Run `compile', when prefix ARG is non-nil first ask for shell command to run.
-Avoids `compilation-shell-minor-mode' in *compilation* buffer."
-  (interactive "P")
-  (let ((compilation-read-command arg)
-        (current-prefix-arg nil))
-    (call-interactively 'compile)))
-
-
 (defun find-symbol-at-point ()
   "Find definition of symbol at point in the other window."
   (interactive)

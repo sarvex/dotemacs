@@ -7,5 +7,5 @@
 
 (eval-after-load 'cc-mode
   '(progn
-    (define-key c-mode-base-map (kbd "<f9>") 'compile-no-comint)
+    (define-key c-mode-base-map (kbd "<f9>") 'recompile)
     (define-key c-mode-base-map (kbd "<return>") 'reindent-then-newline-and-indent)))
