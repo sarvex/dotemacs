@@ -4,6 +4,7 @@
  (lambda (h)
    (add-hook h 'hl-line-mode))
  '(
+   Custom-mode-hook
    Info-mode-hook
    Man-mode-hook
    archive-mode-hook
