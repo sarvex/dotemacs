@@ -20,6 +20,16 @@
             (define-key ido-completion-map (kbd "C-n") 'ido-next-match)))
 
 
+(defun ido-find-file-in-work-directory-list ()
+  "Find file starting at directory selected from `ido-find-file-in-work-directory-list'."
+  (interactive)
+  (let* ((candidates (mapcar 'abbreviate-file-name ido-work-directory-list))
+         (default-directory (ido-completing-read "Directory: " candidates)))
+    (call-interactively 'ido-find-file)))
+
+(define-key global-map (kbd "C-x C-d") 'ido-find-file-in-work-directory-list)
+
+
 (custom-set-variables
  '(ido-case-fold t)
  '(ido-save-directory-list-file (expand-file-name "~/.emacs.d/ido-history"))
