@@ -40,6 +40,7 @@
  (lambda (sym)
    (add-to-list 'desktop-globals-to-save sym))
  '(
+   dired-shell-command-history
    extended-command-history
    ido-work-directory-list
    kill-ring
