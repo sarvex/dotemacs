@@ -67,9 +67,7 @@
               (ansi-color-apply-on-region (point-min) (point-max)))))
 
 (eval-after-load 'compile
-  '(progn
-    (define-key compilation-mode-map (kbd "f") 'ffap)
-    (define-key compilation-mode-map (kbd "<f9>") 'recompile)))
+  '(define-key compilation-mode-map (kbd "f") 'ffap))
 
 (eval-after-load 'help-mode
   '(progn

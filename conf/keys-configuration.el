@@ -33,6 +33,8 @@
 
 (define-key global-map (kbd "C-x C-b") 'ibuffer)
 
+(define-key global-map (kbd "<f9>") 'recompile)
+
 (define-key prog-mode-map (kbd "<return>") 'newline-and-indent)
 
 ;; window switching

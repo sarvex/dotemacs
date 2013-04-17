@@ -17,8 +17,7 @@
 
      (inf-ruby-keys)
 
-     (define-key ruby-mode-map (kbd "C-c C-c") 'projectur-rspec)
-     (define-key ruby-mode-map (kbd "<f9>") 'xmp)
+     (define-key ruby-mode-map (kbd "C-c C-c") 'xmp)
      (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
 
      (add-hook 'ruby-mode-hook 'yas-minor-mode-on)
