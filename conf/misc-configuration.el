@@ -74,6 +74,9 @@
     (define-key help-mode-map (kbd "M-p") 'help-go-back)
     (define-key help-mode-map (kbd "M-n") 'help-go-forward)))
 
+(eval-after-load 'cus-edit
+  '(define-key custom-mode-map (kbd ";") 'Custom-goto-parent))
+
 (eval-after-load 'info
   '(define-key Info-mode-map (kbd ";") 'Info-up))
 (mapc
