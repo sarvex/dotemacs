@@ -173,7 +173,8 @@
       :pkgname "joddie/macrostep")
 
      (:name multiple-cursors
-      :features nil)
+      :features nil
+      :before (setq mc/list-file "~/.emacs.d/multiple-cursors-lists"))
 
      (:name projectur
       :type github
