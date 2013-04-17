@@ -200,10 +200,13 @@
  '(fortune-program-options '("-a"))
 
  '(safe-local-variable-values
-   '((dired-omit-mode . t)
+   '(
+     (dired-omit-mode . t)
+     (flycheck-mode . nil)
+     (require-final-newline . t)
      (whitespace-line-column . 80)
      (whitespace-style face trailing lines-tail)
-     (require-final-newline . t)))
+     ))
 
  '(frame-title-format
    '("" (:eval (mapconcat
