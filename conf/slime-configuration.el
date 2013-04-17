@@ -18,7 +18,7 @@
  '(slime-autodoc-use-multiline-p t)
  '(slime-header-line-p nil)
  '(slime-net-coding-system 'utf-8-unix)
- '(slime-repl-history-file "~/.emacs.d/slime-history.eld")
+ '(slime-repl-history-file "~/.emacs.d/slime-repl-history")
  '(slime-repl-history-remove-duplicates t)
  '(slime-repl-history-size 2000)
  '(slime-repl-history-trim-whitespaces t)
