@@ -1,8 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(custom-set-variables
- '(lisp-indent-function 'common-lisp-indent-function))
-
 (add-to-list 'interpreter-mode-alist '("sbcl" . lisp-mode))
 
 (define-key lisp-mode-shared-map (kbd "<return>") 'reindent-then-newline-and-indent)
