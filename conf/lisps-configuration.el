@@ -37,10 +37,9 @@
 
 (add-hook 'lisp-mode-hook
           (lambda ()
-            (add-hook 'before-save-hook
-                      (lambda () (indent-region (point-min) (point-max)))
-                      nil
-                      'make-it-local)))
+            (set (make-local-variable lisp-indent-function)
+                 'common-lisp-indent-function)
+            (add-hook 'after-save-hook 'check-parens nil 'make-it-local)))
 
 (mapc
  (lambda (hooks)
