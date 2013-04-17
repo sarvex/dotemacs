@@ -28,6 +28,7 @@
    org-agenda-mode-hook
    rust-mode-hook
    scheme-mode-hook
+   sh-mode-hook
    special-mode-hook
    speedbar-mode-hook
    tar-mode-hook
