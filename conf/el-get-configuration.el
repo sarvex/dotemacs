@@ -166,9 +166,7 @@
       :pkgname "lunaryorn/flycheck"
       :info "doc"
       :depends (s dash)
-      :library flycheck
-      :lazy t
-      :after (define-key flycheck-mode-map (kbd "C-c ! e") 'flycheck-show-error-at-point))
+      :after (add-hook 'after-init-hook #'global-flycheck-mode))
 
      (:name macrostep
       :type github

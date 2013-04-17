@@ -22,7 +22,6 @@
      (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
 
      (add-hook 'ruby-mode-hook 'yas-minor-mode-on)
-     (add-hook 'ruby-mode-hook 'flycheck-mode)
      (add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
      (add-hook 'ruby-mode-hook (lambda () (setq comment-column 42)))
 

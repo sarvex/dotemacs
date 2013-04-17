@@ -4,8 +4,6 @@
   '(progn
     (require 'go-autocomplete)
 
-    (add-hook 'go-mode-hook 'flycheck-mode)
-
     (add-hook 'go-mode-hook
      (lambda ()
        (add-hook 'before-save-hook 'gofmt nil 'make-it-local)
