@@ -12,6 +12,8 @@
    (progn
      (ac-config-default)
 
+     (add-to-list 'ac-modes 'inferior-emacs-lisp-mode)
+
      (add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete/dict" el-get-dir))
 
      (setq-default ac-sources
