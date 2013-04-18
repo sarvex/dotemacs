@@ -52,10 +52,10 @@
 
 (eval-after-load 'wdired
   '(progn
-    (add-hook 'wdired-mode-hook (lambda () (smartparens-mode t)))
+     (add-hook 'wdired-mode-hook (lambda () (smartparens-mode t)))
 
-    (define-key wdired-mode-map (kbd "<down>") nil)
-    (define-key wdired-mode-map (kbd "<up>") nil)))
+     (define-key wdired-mode-map (kbd "<down>") nil)
+     (define-key wdired-mode-map (kbd "<up>") nil)))
 
 (defun dired-next-subdir-of-current-dir-parent (jump)
   "Moves to the n-th next directory of the same level"
@@ -104,8 +104,8 @@
         (switch-to-buffer
          (if (equal 1 (length dired-buffers))
              (car dired-buffers)
-             (ido-completing-read "Dired buffer: " dired-buffers)))
-        (dired (expand-file-name "~")))))
+           (ido-completing-read "Dired buffer: " dired-buffers)))
+      (dired (expand-file-name "~")))))
 
 
 (custom-set-variables
