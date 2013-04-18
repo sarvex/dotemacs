@@ -176,6 +176,11 @@
       :features nil
       :before (setq mc/list-file "~/.emacs.d/multiple-cursors-lists"))
 
+     (:name scriptify
+      :type github
+      :pkgname "vderyagin/scriptify"
+      :after (setq scriptify-scripts-directory (expand-file-name "~/bin/")))
+
      (:name projectur
       :type github
       :pkgname "vderyagin/projectur"))))
