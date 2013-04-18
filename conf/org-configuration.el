@@ -44,7 +44,7 @@
  '(org-archive-location (expand-file-name  "archive/archive_%s::" org-directory))
  '(org-contacts-files (list vderyagin/org-contacts-file))
  '(org-agenda-files (list vderyagin/org-agenda-directory
-                     (expand-file-name "projects" vderyagin/org-agenda-directory)))
+                          (expand-file-name "projects" vderyagin/org-agenda-directory)))
 
  '(org-todo-keywords
    '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
@@ -58,8 +58,8 @@
 
  '(org-capture-templates
    `(("n" "note" entry
-      (file "")
-      "* %? :NOTE:\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+      (file ,(expand-file-name "notes.org" vderyagin/org-agenda-directory))
+      "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
       :clock-resume t)
      ("t" "todo" entry
       (file ,(expand-file-name "todo.org" vderyagin/org-agenda-directory))
@@ -138,7 +138,9 @@
               (org-tags-match-list-sublevels nil)))))
      ("A" "List of tasks to archive" todo "DONE|CANCELLED"
       ((org-agenda-overriding-header "List of tasks to archive:")
-       (org-tags-match-list-sublevels nil))))))
+       (org-tags-match-list-sublevels nil)))
+     ("n" "Notes" tags "NOTE"
+      ((org-agenda-overriding-header "List of notes:"))))))
 
 (eval-after-load 'org-clock
   '(add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
@@ -150,9 +152,9 @@
 
 (eval-after-load 'org-capture
   '(progn
-    (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
-    (add-hook 'org-capture-after-finalize-hook 'vderyagin/org-update-agenda-views)
-    (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags)))
+     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
+     (add-hook 'org-capture-after-finalize-hook 'vderyagin/org-update-agenda-views)
+     (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags)))
 
 (eval-after-load 'org-agenda
   (quote
@@ -250,9 +252,9 @@ directory, with double prefix argument all files are available."
                  (split-string
                   (shell-command-to-string
                    (let ((default-directory
-                          (if (= 4 arg)
-                              (expand-file-name "archive" org-directory)
-                              org-directory)))
+                           (if (= 4 arg)
+                               (expand-file-name "archive" org-directory)
+                             org-directory)))
                      (find-cmd
                       (when (= 1 arg)
                         '(prune (name "archive")))
@@ -282,7 +284,7 @@ directory, with double prefix argument all files are available."
                (org-back-to-heading)))))
     (if (member tag (org-get-tags-at current-headline))
         next-headline
-        nil)))
+      nil)))
 
 (defun switch-to-org-agenda-buffer ()
   "Switch to `org-agenda' buffer.
