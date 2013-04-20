@@ -7,7 +7,6 @@
  '(el-get-sources
    '(el-get
 
-     redshank
      bookmark+
      clojure-mode
      diminish
@@ -32,6 +31,7 @@
      php-mode
      rcodetools
      rdebug
+     redshank
      rhtml-mode
      s
      sass-mode
