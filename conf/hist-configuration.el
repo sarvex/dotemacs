@@ -57,12 +57,3 @@
                (when (boundp var)
                  (setq var (delete-dups (symbol-value var)))))
              desktop-globals-to-save)))
-
-(add-hook 'desktop-save-hook
-          (lambda ()
-            "Remove invalid entries from `ido-work-directory-list'."
-            (setq ido-work-directory-list
-                  (delq nil
-                        (mapcar
-                         (lambda (dir) (if (file-directory-p dir) dir nil))
-                         ido-work-directory-list)))))
