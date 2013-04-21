@@ -175,6 +175,7 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
 (defun shuffle-lines (beg end)
   "Shuffle lines in region."
   (interactive "r")
+  (barf-if-buffer-read-only)
   (save-excursion
     (save-restriction
       (narrow-to-region beg end)
