@@ -85,9 +85,15 @@
  '("\\.cue\\'" "\\.cnf\\'" "^hgrc\\'" "\\.gitignore\\'"))
 
 (mapc
- (lambda (symbol)
-   (put symbol 'disabled nil))
- '(upcase-region downcase-region narrow-to-region narrow-to-page set-goal-column))
+ (lambda (symbol) (put symbol 'disabled nil))
+ '(
+   dired-find-alternate-file
+   downcase-region
+   narrow-to-page
+   narrow-to-region
+   set-goal-column
+   upcase-region
+   ))
 
 (mapc
  (lambda (buf-name)
