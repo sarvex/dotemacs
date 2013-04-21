@@ -159,15 +159,6 @@
     (define-key map "t" 'switch-to-twitter-buffer)
     map))
 
-(defun find-file-maybe-sudo (&optional sudo)
-  (interactive "P")
-  (call-interactively
-   (if sudo
-       'ido-sudo-find-file
-       'ido-find-file)))
-
-(define-key global-map (kbd "C-x C-f") 'find-file-maybe-sudo)
-
 (define-key global-map (kbd "C-x g")
   (lambda (arg)
     (interactive "P")

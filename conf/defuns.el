@@ -57,11 +57,6 @@
        (progn (goto-char max) (line-end-position))))))
 
 
-(defun ido-sudo-find-file ()
-  (interactive)
-  (find-file (concat "/sudo::" (ido-read-file-name "Find file (sudo): " "/"))))
-
-
 (defun minor-modes ()
   "Get the list of minor modes for the current buffer."
   (let (minor-modes)
