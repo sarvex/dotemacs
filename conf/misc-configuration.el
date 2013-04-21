@@ -89,6 +89,7 @@
  '(
    dired-find-alternate-file
    downcase-region
+   erase-buffer
    narrow-to-page
    narrow-to-region
    set-goal-column
