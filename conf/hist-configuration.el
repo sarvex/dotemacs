@@ -42,7 +42,6 @@
  '(
    dired-shell-command-history
    extended-command-history
-   ido-work-directory-list
    kill-ring
    kmacro-ring
    projectur-history
