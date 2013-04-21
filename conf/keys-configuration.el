@@ -91,7 +91,7 @@
     (interactive "P")
     (if choose
         (call-interactively 'ido-kill-buffer)
-        (kill-buffer (current-buffer)))))
+      (kill-buffer (current-buffer)))))
 
 (define-key global-map (kbd "C-x c") 'save-buffers-kill-emacs)
 
@@ -101,7 +101,7 @@
     (call-interactively
      (if open-new
          'multi-term
-         'multi-term-next))))
+       'multi-term-next))))
 
 (define-key help-map "a"
   (let ((map (make-sparse-keymap)))
@@ -176,20 +176,20 @@
     (interactive)
     (if (region-active-p)
         (call-interactively 'kill-ring-save)
-        (kill-ring-save
-         (line-beginning-position)
-         (line-beginning-position 2))
-        (message "Copied line"))))
+      (kill-ring-save
+       (line-beginning-position)
+       (line-beginning-position 2))
+      (message "Copied line"))))
 
 (define-key global-map (kbd "C-x C-k")
   (lambda ()
     (interactive)
     (if (region-active-p)
         (call-interactively 'kill-region)
-        (kill-region
-         (line-beginning-position)
-         (line-beginning-position 2))
-        (message "Killed line"))))
+      (kill-region
+       (line-beginning-position)
+       (line-beginning-position 2))
+      (message "Killed line"))))
 
 (define-key global-map (kbd "C-c d") 'drag-stuff-mode)
 (define-key global-map (kbd "C-;") 'iedit-mode)
