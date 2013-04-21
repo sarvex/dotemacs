@@ -70,7 +70,7 @@
                            f))
                        (dired-get-marked-files))))
     (with-temp-buffer
-      (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
+      (apply 'call-process "du" nil t nil "--summarize" "--total" "--human-readable" files)
       (message "Size of all marked files: %s"
                (progn
                  (re-search-backward (rx line-start (group (+? not-newline)) (+ whitespace) "total" line-end))
