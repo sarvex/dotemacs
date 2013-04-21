@@ -166,12 +166,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
            (insert (current-kill 0)))))
 
 
-(defun recompile-init (&optional force)
-  "Byte-compile all emacs configs."
-  (interactive "P")
-  (byte-recompile-directory "~/.emacs.d/dotemacs/conf" 0 force))
-
-
 (defun shuffle-lines (beg end)
   "Shuffle lines in region."
   (interactive "r")
