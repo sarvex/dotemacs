@@ -64,12 +64,16 @@
 (defun dired-get-size ()
   "Get size of marked files"
   (interactive)
-  (let ((files (dired-get-marked-files)))
+  (let ((files (mapcar (lambda (f)
+                         (if (file-directory-p f)
+                             (file-name-as-directory f)
+                           f))
+                       (dired-get-marked-files))))
     (with-temp-buffer
       (apply 'call-process "/usr/bin/du" nil t nil "-sch" files)
       (message "Size of all marked files: %s"
                (progn
-                 (re-search-backward "\\(^[0-9.,]+[A-Za-z]+\\).*total$")
+                 (re-search-backward (rx line-start (group (+? not-newline)) (+ whitespace) "total" line-end))
                  (match-string 1))))))
 
 (defun dired-next-file-line ()
