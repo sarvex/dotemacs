@@ -7,16 +7,6 @@
 
 (diredp-toggle-find-file-reuse-dir 1)
 
-(defadvice dired-advertised-find-file (around dired-subst-directory activate)
-  "Replace current buffer if file is a directory."
-  (interactive)
-  (let ((orig (current-buffer))
-        (filename (dired-get-filename)))
-    ad-do-it
-    (when (and (file-directory-p filename)
-               (not (eq (current-buffer) orig)))
-      (kill-buffer orig))))
-
 (defun dired-up-directory (&optional _)
   "Run Dired on parent directory of current directory."
   (interactive "P")
