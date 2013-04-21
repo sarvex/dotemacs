@@ -7,9 +7,9 @@
          (end (save-excursion (end-of-line) (point)))
          (str (buffer-substring beg end)))
     (loop repeat times
-       do (save-excursion
-            (end-of-line)
-            (insert "\n" str)))
+          do (save-excursion
+               (end-of-line)
+               (insert "\n" str)))
     (call-interactively 'next-line)))
 
 
@@ -20,14 +20,14 @@
         (filename (buffer-file-name)))
     (if (not (and filename (file-exists-p filename)))
         (message "Buffer '%s' is not visiting a file!" name)
-        (let ((new-name (read-file-name "New name: " filename)))
-          (cond ((get-buffer new-name)
-                 (message "A buffer named '%s' already exists!" new-name))
-                (t
-                 (rename-file name new-name 1)
-                 (rename-buffer new-name)
-                 (set-visited-file-name new-name)
-                 (set-buffer-modified-p nil)))))))
+      (let ((new-name (read-file-name "New name: " filename)))
+        (cond ((get-buffer new-name)
+               (message "A buffer named '%s' already exists!" new-name))
+              (t
+               (rename-file name new-name 1)
+               (rename-buffer new-name)
+               (set-visited-file-name new-name)
+               (set-buffer-modified-p nil)))))))
 
 
 (defun delete-file-and-buffer ()
@@ -38,10 +38,10 @@
         (name (buffer-name)))
     (if (not (and filename (file-exists-p filename)))
         (error "Buffer '%s' is not visiting a file!" name)
-        (when (yes-or-no-p "Are you sure you want to remove this file? ")
-          (delete-file filename)
-          (kill-buffer buffer)
-          (message "File '%s' successfully removed" filename)))))
+      (when (yes-or-no-p "Are you sure you want to remove this file? ")
+        (delete-file filename)
+        (kill-buffer buffer)
+        (message "File '%s' successfully removed" filename)))))
 
 
 (defun comment-or-uncomment-current-line-or-region ()
@@ -51,7 +51,7 @@
     (let (min max)
       (if (region-active-p)
           (setq min (region-beginning) max (region-end))
-          (setq min (point) max (point)))
+        (setq min (point) max (point)))
       (comment-or-uncomment-region
        (progn (goto-char min) (line-beginning-position))
        (progn (goto-char max) (line-end-position))))))
@@ -84,11 +84,11 @@
 (defun get-buffers-with-major-mode (mode)
   "Returns list of buffers with major-mode MODE or derived from MODE."
   (loop
-     for buf in (buffer-list)
-     if (and (buffer-live-p buf)
-             (with-current-buffer buf
-               (derived-mode-p mode)))
-     collect buf))
+   for buf in (buffer-list)
+   if (and (buffer-live-p buf)
+           (with-current-buffer buf
+             (derived-mode-p mode)))
+   collect buf))
 
 
 (defun transpose-windows (arg)
@@ -96,7 +96,7 @@
   (interactive "p")
   (let ((selector (if (>= arg 0)
                       'next-window
-                      'previous-window)))
+                    'previous-window)))
     (while (/= arg 0)
       (let ((this-win (window-buffer))
             (next-win (window-buffer (funcall selector))))
@@ -105,7 +105,7 @@
         (select-window (funcall selector)))
       (setq arg (if (plusp arg)
                     (1- arg)
-                    (1+ arg))))))
+                  (1+ arg))))))
 
 
 (defun split-change-direction ()
@@ -113,20 +113,20 @@
   (interactive)
   (let ((nwin (length (window-list))))
     (cond
-      ((= 1 nwin)
-       (message "Can not change split direction for single-window frame."))
-      ((= 2 nwin)
-       (let ((this-buf (window-buffer))
-             (next-buf (progn (other-window 1) (buffer-name)))
-             (split-direction (if (>= (window-total-width) (frame-width))
-                                  'split-window-horizontally
-                                  'split-window-vertically)))
-         (delete-other-windows)
-         (funcall split-direction)
-         (set-window-buffer nil this-buf)
-         (set-window-buffer (next-window) next-buf)))
-      (t
-       (message "This command works for 2 windows only, %d is too much." nwin)))))
+     ((= 1 nwin)
+      (message "Can not change split direction for single-window frame."))
+     ((= 2 nwin)
+      (let ((this-buf (window-buffer))
+            (next-buf (progn (other-window 1) (buffer-name)))
+            (split-direction (if (>= (window-total-width) (frame-width))
+                                 'split-window-horizontally
+                               'split-window-vertically)))
+        (delete-other-windows)
+        (funcall split-direction)
+        (set-window-buffer nil this-buf)
+        (set-window-buffer (next-window) next-buf)))
+     (t
+      (message "This command works for 2 windows only, %d is too much." nwin)))))
 
 
 (defun generate-password (&optional arg)
@@ -192,8 +192,8 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
     (if (region-active-p)
         (setq beg (region-beginning)
               end (region-end))
-        (setq beg (point-min)
-              end (point-max)))
+      (setq beg (point-min)
+            end (point-max)))
     (gist-region beg end private))
 
   (lexical-let* ((gists-dir (expand-file-name "~/repos/gists"))
@@ -217,7 +217,7 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
     (call-interactively
      (if (region-active-p)
          'fill-region
-         'fill-paragraph))))
+       'fill-paragraph))))
 
 
 (defun find-symbol-at-point ()
@@ -226,12 +226,12 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
   (let ((sym (symbol-at-point)))
     (call-interactively
      (cond
-       ((fboundp sym)
-        'find-function-at-point)
-       ((boundp sym)
-        'find-variable-at-point)
-       (t
-        (error "Symbol `%s' not found" (symbol-name sym)))))))
+      ((fboundp sym)
+       'find-function-at-point)
+      ((boundp sym)
+       'find-variable-at-point)
+      (t
+       (error "Symbol `%s' not found" (symbol-name sym)))))))
 
 
 (defun make-elisp-library ()
@@ -241,7 +241,7 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
          (location (expand-file-name name "~/repos/dev/"))
          (lib (expand-file-name (if (string-match-p (rx ".el" string-end) name)
                                     name
-                                    (format "%s.el" name))
+                                  (format "%s.el" name))
                                 location))
          (readme (expand-file-name "Readme.md" location)))
 
