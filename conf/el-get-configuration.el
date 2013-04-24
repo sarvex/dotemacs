@@ -53,140 +53,140 @@
      (:name yari :lazy t)
 
      (:name coffee-mode
-      :lazy t
-      :post-init nil)
+            :lazy t
+            :post-init nil)
 
      (:name openwith
-      :description "Open files with external programs"
-      :type hg
-      :url "https://bitbucket.org/jpkotta/openwith"
-      :features openwith
-      :after (openwith-mode 1))
+            :description "Open files with external programs"
+            :type hg
+            :url "https://bitbucket.org/jpkotta/openwith"
+            :features openwith
+            :after (openwith-mode 1))
 
      (:name ruby-mode
-      :type http
-      :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-mode.el")
+            :type http
+            :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-mode.el")
 
      (:name inf-ruby
-      :type http
-      :url "https://raw.github.com/ruby/ruby/trunk/misc/inf-ruby.el"
-      :features nil)
+            :type http
+            :url "https://raw.github.com/ruby/ruby/trunk/misc/inf-ruby.el"
+            :features nil)
 
      (:name ruby-electric
-      :type http
-      :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-electric.el"
-      :post-init nil)
+            :type http
+            :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-electric.el"
+            :post-init nil)
 
      (:name handlebars-mode
-      :type github
-      :pkgname "danielevans/handlebars-mode")
+            :type github
+            :pkgname "danielevans/handlebars-mode")
 
      (:name yasnippet
-      :features yasnippet
-      :compile ("dropdown-list.el" "yasnippet.el")
-      :post-init nil)
+            :features yasnippet
+            :compile ("dropdown-list.el" "yasnippet.el")
+            :post-init nil)
 
      (:name multi-term
-      :type emacsmirror)
+            :type emacsmirror)
 
      (:name eval-expr
-      :type emacsmirror)
+            :type emacsmirror)
 
      (:name irfc
-      :type emacswiki
-      :after (progn
-               (setq irfc-directory "~/doc/RFC")
-               (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode))))
+            :type emacswiki
+            :after (progn
+                     (setq irfc-directory "~/doc/RFC")
+                     (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode))))
 
      (:name mic-paren
-      :type emacswiki
-      :features mic-paren)
+            :type emacswiki
+            :features mic-paren)
 
      (:name auto-complete
-      :features auto-complete-config)
+            :features auto-complete-config)
 
      (:name feature-mode
-      :type github
-      :pkgname "michaelklishin/cucumber.el"
-      :after (setq
-              feature-default-language "en"
-              feature-default-i18n-file (expand-file-name "feature-mode/i18n.yml" el-get-dir)))
+            :type github
+            :pkgname "michaelklishin/cucumber.el"
+            :after (setq
+                    feature-default-language "en"
+                    feature-default-i18n-file (expand-file-name "feature-mode/i18n.yml" el-get-dir)))
 
      (:name pomodoro
-      :type github
-      :pkgname "vderyagin/pomodoro.el"
-      :after (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir)))
+            :type github
+            :pkgname "vderyagin/pomodoro.el"
+            :after (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir)))
 
      (:name ido-ubiquitous
-      :type github
-      :pkgname "DarwinAwardWinner/ido-ubiquitous")
+            :type github
+            :pkgname "DarwinAwardWinner/ido-ubiquitous")
 
      (:name rake.el
-      :type github
-      :pkgname "vderyagin/rake.el")
+            :type github
+            :pkgname "vderyagin/rake.el")
 
      (:name ack
-      :type github
-      :pkgname "leoliu/ack-el"
-      :features nil
-      :after (setq ack-command "ag "))
+            :type github
+            :pkgname "leoliu/ack-el"
+            :features nil
+            :after (setq ack-command "ag "))
 
      (:name go-autocomplete
-      :type http
-      :url "https://raw.github.com/nsf/gocode/master/emacs/go-autocomplete.el")
+            :type http
+            :url "https://raw.github.com/nsf/gocode/master/emacs/go-autocomplete.el")
 
      (:name smartparens
-      :features smartparens-config)
+            :features smartparens-config)
 
      (:name go-mode
-      :type github
-      :pkgname "dominikh/go-mode.el")
+            :type github
+            :pkgname "dominikh/go-mode.el")
 
      (:name dart-mode
-      :type github
-      :pkgname "nex3/dart-mode")
+            :type github
+            :pkgname "nex3/dart-mode")
 
      (:name markdown-mode
-      :after (progn
-               (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
-               (add-hook 'markdown-mode-hook 'turn-on-orgtbl)
-               (add-hook 'markdown-mode-hook 'yas-minor-mode-on)
-               (add-hook 'markdown-mode-hook (lambda () (set-fill-column 78)))
-               (add-to-list 'auto-mode-alist (cons (rx not-newline "."
-                                                       (or "text" "markdown" (and "md" (optional "pp")))
-                                                       string-end)
-                                                   'markdown-mode))))
+            :after (progn
+                     (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+                     (add-hook 'markdown-mode-hook 'turn-on-orgtbl)
+                     (add-hook 'markdown-mode-hook 'yas-minor-mode-on)
+                     (add-hook 'markdown-mode-hook (lambda () (set-fill-column 78)))
+                     (add-to-list 'auto-mode-alist (cons (rx not-newline "."
+                                                             (or "text" "markdown" (and "md" (optional "pp")))
+                                                             string-end)
+                                                         'markdown-mode))))
 
      (:name miniedit
-      :type emacsmirror
-      :after (miniedit-install))
+            :type emacsmirror
+            :after (miniedit-install))
 
      (:name flycheck
-      :type github
-      :pkgname "lunaryorn/flycheck"
-      :info "doc"
-      :depends (s dash)
-      :after (add-hook 'after-init-hook #'global-flycheck-mode))
+            :type github
+            :pkgname "lunaryorn/flycheck"
+            :info "doc"
+            :depends (s dash)
+            :after (add-hook 'after-init-hook #'global-flycheck-mode))
 
      (:name macrostep
-      :type github
-      :pkgname "joddie/macrostep")
+            :type github
+            :pkgname "joddie/macrostep")
 
      (:name multiple-cursors
-      :features nil
-      :before (setq mc/list-file "~/.emacs.d/multiple-cursors-lists"))
+            :features nil
+            :before (setq mc/list-file "~/.emacs.d/multiple-cursors-lists"))
 
      (:name scriptify
-      :type github
-      :pkgname "vderyagin/scriptify"
-      :after (setq scriptify-scripts-directory (expand-file-name "~/bin/")))
+            :type github
+            :pkgname "vderyagin/scriptify"
+            :after (setq scriptify-scripts-directory (expand-file-name "~/bin/")))
 
      (:name palimpsest-mode
             :post-init nil)
 
      (:name projectur
-      :type github
-      :pkgname "vderyagin/projectur"))))
+            :type github
+            :pkgname "vderyagin/projectur"))))
 
 (load (file-name-sans-extension el-get-autoload-file))
 
