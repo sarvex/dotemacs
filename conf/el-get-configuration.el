@@ -181,6 +181,9 @@
       :pkgname "vderyagin/scriptify"
       :after (setq scriptify-scripts-directory (expand-file-name "~/bin/")))
 
+     (:name palimpsest-mode
+            :post-init nil)
+
      (:name projectur
       :type github
       :pkgname "vderyagin/projectur"))))
