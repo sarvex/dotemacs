@@ -58,6 +58,7 @@
    makefile-mode-hook
    markdown-mode-hook
    nxml-mode-hook
+   python-mode-hook
    ruby-mode-hook
    scala-mode-hook
    sgml-mode-hook
