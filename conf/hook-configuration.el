@@ -26,7 +26,9 @@
    ibuffer-mode-hook
    irfc-mode-hook
    magit-log-mode-hook
+   magit-status-mode-hook
    org-agenda-mode-hook
+   ruby-mode-hook
    rust-mode-hook
    scheme-mode-hook
    sh-mode-hook
