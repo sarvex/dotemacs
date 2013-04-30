@@ -29,6 +29,7 @@
      org-mode
      paredit
      php-mode
+     po-mode
      rcodetools
      rdebug
      redshank
