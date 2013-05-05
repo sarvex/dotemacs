@@ -130,7 +130,7 @@
             :type github
             :pkgname "leoliu/ack-el"
             :features nil
-            :after (setq ack-command "ag "))
+            :after (setq ack-command "ag --smart-case "))
 
      (:name go-autocomplete
             :type http
