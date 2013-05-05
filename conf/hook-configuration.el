@@ -55,6 +55,7 @@
    graphviz-dot-mode-hook
    haml-mode-hook
    haskell-mode-hook
+   js-mode-hook
    lisp-interaction-mode-hook
    lisp-mode-hook
    makefile-mode-hook
