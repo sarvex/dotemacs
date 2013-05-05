@@ -32,7 +32,7 @@
 
 (eval-after-load 'esh-opt
   '(progn
-    (require 'em-prompt)
-    (require 'em-term)
-    (require 'em-cmpl)
-    (setenv "PAGER" "cat")))
+     (require 'em-prompt)
+     (require 'em-term)
+     (require 'em-cmpl)
+     (setenv "PAGER" "cat")))
