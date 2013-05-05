@@ -19,10 +19,10 @@
 
      (defun eshell/cds ()
        "Change directory to the project's root."
-       (eshell/cd (locate-dominating-file default-directory "src")))
+       (eshell/cd (locate-dominating-file default-directory ".git")))
 
      (defun eshell/find (dir &rest opts)
-       (find-dired dir (mapconcat 'identity opts " ")))
+       (find-dired dir (mapconcat 'shell-quote-argument opts " ")))
 
      (mapc
       (lambda (c) (add-to-list 'eshell-visual-commands c))
