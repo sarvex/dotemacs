@@ -7,7 +7,6 @@
 (eval-after-load 'yasnippet
   (quote
    (progn
-     (require 'dropdown-list)
      (add-hook 'snippet-mode-hook
                (lambda ()
                  (setq require-final-newline nil)
@@ -19,8 +18,7 @@
  '(yas-good-grace nil)
  '(yas-choose-tables-first t)
  '(yas-snippet-dirs '("~/.emacs.d/yasnippets"))
- '(yas-prompt-functions '(yas-dropdown-prompt
-                          yas-ido-prompt
+ '(yas-prompt-functions '(yas-ido-prompt
                           yas-x-prompt
                           yas-completing-prompt
                           yas-no-prompt)))
