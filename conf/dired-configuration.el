@@ -98,7 +98,13 @@
         (switch-to-buffer
          (if (equal 1 (length dired-buffers))
              (car dired-buffers)
-           (ido-completing-read "Dired buffer: " dired-buffers)))
+           (let ((map (loop for buffer in dired-buffers
+                            for dir = (with-current-buffer (get-buffer buffer)
+                                        (if (string= dired-directory "~/")
+                                            (expand-file-name dired-directory)
+                                          dired-directory))
+                            collect (cons dir buffer))))
+             (cdr (assoc (ido-completing-read "Dired buffer: " (mapcar 'car map)) map)))))
       (dired (expand-file-name "~")))))
 
 
