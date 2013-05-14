@@ -33,6 +33,7 @@
 
 (add-hook 'lisp-interaction-mode-hook (lambda () (setq mode-name "Lisp-int")))
 
+(add-hook 'emacs-lisp-mode-hook 'lexbind-mode)
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             "Delete corresponding bytecode and check if parens are balanced."
