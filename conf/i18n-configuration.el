@@ -15,6 +15,9 @@
 (prefer-coding-system 'windows-1251-dos)
 (prefer-coding-system 'utf-8)
 
+(add-to-list 'file-coding-system-alist '("\\.rb\\'" utf-8 . utf-8))
+(add-to-list 'file-coding-system-alist '("\\.go\\'" utf-8 . utf-8))
+
 
 (defun toggle-specified-isearch-input-method (new-input-method)
   "Toggle specified input method in interactive search."
