@@ -39,6 +39,7 @@
    twittering-mode-hook
    vc-annotate-mode-hook
    woman-mode-hook
+   yaml-mode-hook
    ))
 
 
