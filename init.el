@@ -42,6 +42,7 @@
 (load "dotemacs/conf/rust-configuration")
 (load "dotemacs/conf/javascript-configuration")
 (load "dotemacs/conf/html-css-configuration")
+(load "dotemacs/conf/markdown-configuration")
 
 (load "dotemacs/conf/eval-expr-configuration")
 (load "dotemacs/conf/dired-configuration")

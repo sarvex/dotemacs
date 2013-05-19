@@ -25,6 +25,7 @@
      helm-descbinds
      lua-mode
      magit
+     markdown-mode
      nrepl
      org-mode
      paredit
@@ -147,16 +148,6 @@
             :type github
             :pkgname "nex3/dart-mode")
 
-     (:name markdown-mode
-            :after (progn
-                     (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
-                     (add-hook 'markdown-mode-hook 'turn-on-orgtbl)
-                     (add-hook 'markdown-mode-hook 'yas-minor-mode-on)
-                     (add-hook 'markdown-mode-hook (lambda () (set-fill-column 78)))
-                     (add-to-list 'auto-mode-alist (cons (rx not-newline "."
-                                                             (or "text" "markdown" (and "md" (optional "pp")))
-                                                             string-end)
-                                                         'markdown-mode))))
 
      (:name miniedit
             :type emacsmirror
