@@ -81,3 +81,6 @@
 
 (eval-after-load 'scheme
   '(require 'quack))
+
+(eval-after-load 'nrepl
+  '(define-key nrepl-mode-map (kbd "<return>") 'nrepl-return))
