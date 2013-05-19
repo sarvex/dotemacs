@@ -287,22 +287,9 @@ directory, with double prefix argument all files are available."
         next-headline
       nil)))
 
-(defun switch-to-org-agenda-buffer ()
-  "Switch to `org-agenda' buffer.
-Provide choice if more then one, offer to make one if none."
-  (interactive)
-  (let ((agenda-buffers (mapcar 'buffer-name (get-buffers-with-major-mode 'org-agenda-mode))))
-    (if agenda-buffers
-        (switch-to-buffer
-         (if (equal 1 (length agenda-buffers))
-             (car agenda-buffers)
-           (ido-completing-read "Agenda buffer: " agenda-buffers)))
-      (call-interactively 'org-agenda))))
-
 (define-key global-map (kbd "C-c o")
   (let ((map (make-sparse-keymap)))
     (define-key map "f" 'find-org-file)
-    (define-key map "a" 'switch-to-org-agenda-buffer)
-    (define-key map "A" 'org-agenda)
+    (define-key map "a" 'org-agenda)
     (define-key map "c" 'org-capture)
     map))
