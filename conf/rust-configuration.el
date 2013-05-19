@@ -7,13 +7,14 @@
      (add-hook 'rust-mode-hook
                (lambda ()
                  (setq show-trailing-whitespace t)
-                 (set (make-local-variable 'compile-command)
-                      (format "rust %s %s"
-                              (if (string-match-p (rx not-newline word-boundary "test.rs" string-end)
-                                                  buffer-file-name)
-                                  "test"
+                 (when buffer-file-name
+                   (set (make-local-variable 'compile-command)
+                        (format "rust %s %s"
+                                (if (string-match-p (rx not-newline word-boundary "test.rs" string-end)
+                                                    buffer-file-name)
+                                    "test"
                                   "build")
-                              (file-name-nondirectory buffer-file-name)))))
+                                (file-name-nondirectory buffer-file-name))))))
 
      (define-key rust-mode-map (kbd "<return>") 'reindent-then-newline-and-indent))))
 
