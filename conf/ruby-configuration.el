@@ -23,6 +23,10 @@
      (add-hook 'ruby-mode-hook 'yas-minor-mode-on)
      (add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
      (add-hook 'ruby-mode-hook (lambda () (setq comment-column 42)))
+     (add-hook 'ruby-mode-hook
+               (lambda ()
+                 (when buffer-file-name
+                   (set (make-local-variable 'compile-command) "rake"))))
 
      (add-to-list 'ffap-alist
                   (cons
