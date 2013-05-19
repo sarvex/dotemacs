@@ -19,7 +19,8 @@
                        (or (and "mp" (or (char "24")
                                          (and (optional "e") "g")))
                            (and "m" (char "24ko") "v")
-                           "wmv" "divx" "ts" "avi" "asf" "vob" "ogv" "webm" "flv" "rm")
+                           (and "f" (char "l4") "v")
+                           "wmv" "divx" "ts" "avi" "asf" "vob" "ogv" "webm" "rm")
                        (optional "." (or "part" "crdownload"))
                        string-end)))
 
