@@ -176,6 +176,10 @@
      (:name palimpsest-mode
             :post-init nil)
 
+     (:name zencoding-mode
+            :pkgname "smihica/zencoding"
+            :features nil)
+
      (:name projectur
             :type github
             :pkgname "vderyagin/projectur"))))
