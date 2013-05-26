@@ -15,4 +15,4 @@
      (add-to-list 'auto-mode-alist (cons (rx not-newline "."
                                              (or "text" "markdown" (and "md" (optional "pp")))
                                              string-end)
-                                         'gfm-mode)))))
+                                         'markdown-mode)))))
