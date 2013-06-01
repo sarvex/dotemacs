@@ -148,7 +148,6 @@
             :type github
             :pkgname "nex3/dart-mode")
 
-
      (:name miniedit
             :type emacsmirror
             :after (miniedit-install))
@@ -156,6 +155,7 @@
      (:name flycheck
             :type github
             :pkgname "lunaryorn/flycheck"
+            :build (("make" "info"))
             :info "doc"
             :depends (s dash)
             :after (add-hook 'after-init-hook #'global-flycheck-mode))
