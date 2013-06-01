@@ -219,8 +219,9 @@
        (lambda ()
          "Save current buffer and update all agenda views."
          (interactive)
-         (call-interactively 'save-buffer)
-         (vderyagin/org-update-agenda-views))))))
+         (save-excursion
+           (call-interactively 'save-buffer)
+           (vderyagin/org-update-agenda-views)))))))
 
 
 (defun vderyagin/org-agenda-activate-appt ()
