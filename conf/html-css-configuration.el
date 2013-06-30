@@ -9,10 +9,10 @@
    (progn
      (add-hook 'html-mode-hook 'yas-minor-mode-on)
      (add-hook 'html-mode-hook 'zencoding-mode)
-     (define-key html-mode-map (kbd "<tab>") 'zencoding-expand-yas)
+     (define-key html-mode-map (kbd "M-<tab>") 'emmet-expand-yas)
      (define-key sgml-mode-map (kbd "<return>") 'reindent-then-newline-and-indent))))
 
-(add-hook 'css-mode-hook 'zencoding-mode)
+(add-hook 'css-mode-hook 'emmet-mode)
 
 (mapc
  (lambda (hooks)
