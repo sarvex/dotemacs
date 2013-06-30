@@ -175,9 +175,9 @@
      (:name palimpsest-mode
             :post-init nil)
 
-     (:name zencoding-mode
-            :pkgname "smihica/zencoding"
-            :features nil)
+     (:name emmet-mode
+            :type github
+            :pkgname "smihica/emmet")
 
      (:name haskell-mode
             :load "haskell-mode-autoloads.el"
