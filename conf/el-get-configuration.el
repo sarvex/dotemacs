@@ -179,6 +179,10 @@
             :type github
             :pkgname "smihica/emmet")
 
+     (:name elixir-mode
+            :type github
+            :pkgname "elixir-lang/emacs-elixir")
+
      (:name haskell-mode
             :load "haskell-mode-autoloads.el"
             :build (("make" "all")))
