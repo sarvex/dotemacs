@@ -20,7 +20,6 @@
      gnus
      graphviz-dot-mode
      haml-mode
-     haskell-mode
      helm
      helm-descbinds
      lua-mode
@@ -179,6 +178,10 @@
      (:name zencoding-mode
             :pkgname "smihica/zencoding"
             :features nil)
+
+     (:name haskell-mode
+            :load "haskell-mode-autoloads.el"
+            :build (("make" "all")))
 
      (:name projectur
             :type github
