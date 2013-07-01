@@ -58,6 +58,7 @@
 
    `(dired-guess-shell-alist-user
      (list
+      (list (rx ".htm" (optional "l") string-end) "firefox")
       (list (rx ".gif" string-end) '(list "animate" "feh" "firefox"))
       (list (rx ".torrent" string-end) '(list "torrentinfo" "gtorrentviewer"))
       (list ,document-files '(list "mupdf -r 96" "qpdfview --unique"))
