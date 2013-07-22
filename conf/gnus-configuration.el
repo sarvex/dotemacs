@@ -56,8 +56,6 @@
  '(gnus-thread-indent-level 2)
  '(gnus-topic-display-empty-topics t)
  '(gnus-use-cache t)
- '(gnus-use-trees t)
- '(gnus-tree-minimize-window nil)
 
  '(gnus-treat-body-boundary nil)
  '(gnus-treat-fill-article nil)
@@ -145,7 +143,5 @@
 (gnus-add-configuration
  '(article
    (vertical 1.0
-    (summary 0.25 point)
-    (horizontal 1.0
-     (article 0.75)
-     (tree 1.0)))))
+             (summary 0.25 point)
+             (article 1.0))))
