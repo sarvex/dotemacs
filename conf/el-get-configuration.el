@@ -95,9 +95,10 @@
 
      (:name irfc
             :type emacswiki
-            :after (progn
-                     (setq irfc-directory "~/doc/RFC")
-                     (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode))))
+            :before (progn
+                      (setq irfc-directory "~/doc/RFC"
+                            irfc-assoc-mode t)
+                      (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode))))
 
      (:name mic-paren
             :type emacswiki
