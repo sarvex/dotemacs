@@ -138,6 +138,10 @@
             :type http
             :url "https://raw.github.com/nsf/gocode/master/emacs/go-autocomplete.el")
 
+     (:name go-eldoc
+            :type github
+            :pkgname "syohex/emacs-go-eldoc")
+
      (:name smartparens
             :features smartparens-config)
 
