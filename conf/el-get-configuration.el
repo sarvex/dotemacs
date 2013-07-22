@@ -39,6 +39,7 @@
      scala-mode
      scratch
      slim-mode
+     smex
      textile-mode
      tuareg-mode
      wtf
