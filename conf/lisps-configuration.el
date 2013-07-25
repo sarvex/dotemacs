@@ -31,9 +31,10 @@
     (define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-symbol-at-point)))
 
 
-(add-hook 'lisp-interaction-mode-hook (lambda () (setq mode-name "Lisp-int")))
+(add-hook 'lisp-interaction-mode-hook (lambda () (setq mode-name "ξlisp-int")))
 
 (add-hook 'emacs-lisp-mode-hook 'lexbind-mode)
+(add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "ξlisp")))
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             "Delete corresponding bytecode and check if parens are balanced."
