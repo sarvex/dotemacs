@@ -20,7 +20,7 @@
                                          (and (optional "e") "g")))
                            (and "m" (char "24ko") "v")
                            (and "f" (char "l4") "v")
-                           "wmv" "divx" "ts" "avi" "asf" "vob" "ogv" "webm" "rm")
+                           "wmv" "divx" "ts" "avi" "asf" "vob" "ogv" "webm" "rm" "3gp")
                        (optional "." (or "part" "crdownload"))
                        string-end)))
 
@@ -38,7 +38,7 @@
      (lambda (file-name)
        (should (string-match-p video-files file-name)))
      '("foo.asf" "foo.avi" "foo.divx" "foo.flv" "foo.m2v" "foo.m4v" "foo.mkv" "foo.mov" "foo.mp2" "foo.mp4" "foo.mpeg" "foo.mpg"
-       "foo.ogv" "foo.rm" "foo.ts" "foo.vob" "foo.webm" "foo.wmv")))
+       "foo.ogv" "foo.rm" "foo.ts" "foo.vob" "foo.webm" "foo.wmv" "foo.3gp")))
 
   (custom-set-variables
    `(openwith-associations
