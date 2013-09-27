@@ -42,7 +42,6 @@
  '(
    dired-shell-command-history
    extended-command-history
-   kill-ring
    kmacro-ring
    projectur-history
    read-expression-history
