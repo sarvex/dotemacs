@@ -21,7 +21,7 @@
  '(magit-commit-all-when-nothing-staged 'ask-stage)
  '(magit-log-auto-more t)
  '(magit-process-connection-type nil)
- '(magit-process-popup-time 5)
+ '(magit-process-popup-time -1)
  '(magit-repo-dirs-depth 6)
  '(magit-save-some-buffers t)
  '(magit-status-buffer-switch-function 'switch-to-buffer))
