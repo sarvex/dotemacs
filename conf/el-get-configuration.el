@@ -153,11 +153,8 @@
             :after (miniedit-install))
 
      (:name flycheck
-            :type github
-            :pkgname "lunaryorn/flycheck"
             :build (("make" "info"))
             :info "doc"
-            :depends (s dash)
             :after (add-hook 'after-init-hook #'global-flycheck-mode))
 
      (:name macrostep
@@ -194,7 +191,7 @@
 
 (load (file-name-sans-extension el-get-autoload-file))
 
-(el-get 'wait)
+(el-get t)
 
 (defun el-get-regenerate-all-autoloads ()
   "Regenerates all autoloads for el-get"
