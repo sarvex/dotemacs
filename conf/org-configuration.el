@@ -215,6 +215,9 @@
      (define-key org-mode-map (kbd "S-C-<right>") nil)
      (define-key org-mode-map (kbd "C-<tab>") nil)
 
+     (define-key org-mode-map (kbd "C-c C-x C-s") nil)
+
+
      (define-key org-mode-map (kbd "C-x C-s")
        (lambda ()
          "Save current buffer and update all agenda views."
