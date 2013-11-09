@@ -255,3 +255,16 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
     (find-file lib)
     (insert "header")
     (yas-expand)))
+
+
+(defun sudo-edit (&optional arg)
+  "Edit currently visited file as root.
+
+With a prefix ARG prompt for a file to visit.
+Will also prompt for a file to visit if current
+buffer is not visiting a file."
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:"
+                         (ido-read-file-name "Find file (using sudo): ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
