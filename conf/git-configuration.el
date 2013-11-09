@@ -2,7 +2,6 @@
 
 (require 'magit)
 
-(magit-wip-mode 1)
 (global-magit-wip-save-mode)
 
 (add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)
