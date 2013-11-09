@@ -54,7 +54,7 @@
       (list ,ebook-files "fbreader" '(file))
       (list ,image-files "feh" '(file))
       (list ,office-files "libreoffice" '(file))
-      (list ,video-files "mplayer" '(file))))
+      (list ,video-files "mpv" '(file))))
 
    `(dired-guess-shell-alist-user
      (list
