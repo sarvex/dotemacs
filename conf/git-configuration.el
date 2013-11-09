@@ -19,6 +19,7 @@
 
 (custom-set-variables
  '(magit-commit-all-when-nothing-staged 'ask-stage)
+ '(magit-expand-staged-on-commit t)
  '(magit-log-auto-more t)
  '(magit-process-connection-type nil)
  '(magit-process-popup-time -1)
