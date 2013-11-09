@@ -242,7 +242,8 @@
 
  '(auto-save-default nil)
  '(backup-by-copying t)
- '(backup-directory-alist '(("." . "~/.emacs.d/backup/")))
+ '(backup-directory-alist (list (cons ".*" temporary-file-directory)))
+ '(auto-save-file-name-transforms (list (list ".*" temporary-file-directory t)))
  '(backup-inhibited nil)
  '(delete-old-versions t)
  '(kept-new-versions 100)
