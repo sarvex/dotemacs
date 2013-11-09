@@ -25,3 +25,14 @@
  '(magit-repo-dirs-depth 6)
  '(magit-save-some-buffers t)
  '(magit-status-buffer-switch-function 'switch-to-buffer))
+
+(defun switch-to-magit-buffer ()
+  "Switch to one of `magit-status' buffers."
+  (interactive)
+  (let ((magit-buffers (mapcar 'buffer-name (get-buffers-with-major-mode 'magit-status-mode))))
+    (if magit-buffers
+        (switch-to-buffer
+         (if (equal 1 (length magit-buffers))
+             (car magit-buffers)
+           (ido-completing-read "Magit buffer: " magit-buffers)))
+      (message "No `magit-status' buffers currently opened."))))

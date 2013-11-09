@@ -157,6 +157,7 @@
     (define-key map "d" 'switch-to-dired-buffer)
     (define-key map "i" 'switch-to-irc-buffer)
     (define-key map "t" 'switch-to-twitter-buffer)
+    (define-key map "g" 'switch-to-magit-buffer)
     map))
 
 (define-key global-map (kbd "C-x g")
