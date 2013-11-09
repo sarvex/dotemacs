@@ -42,13 +42,6 @@
 
 (define-key global-map (kbd "C-x C-d") 'ido-find-file-in-work-directory-list)
 
-(defadvice ido-find-file (after find-file-sudo activate)
-  "Find file as root if necessary."
-  (unless (or (not buffer-file-name)
-              (file-writable-p buffer-file-name))
-    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
-
 (ido-mode t)
 (ido-ubiquitous-mode t)
 
