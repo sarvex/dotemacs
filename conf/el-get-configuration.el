@@ -25,7 +25,7 @@
      lua-mode
      magit
      markdown-mode
-     nrepl
+     cider
      org-mode
      paredit
      php-mode
