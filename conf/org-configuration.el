@@ -235,7 +235,7 @@
   "Delete clocking drawer if it is empty."
   (save-excursion
     (beginning-of-line 0)
-    (org-remove-empty-drawer-at "LOGBOOK" (point))))
+    (org-remove-empty-drawer-at (point))))
 
 (defun vderyagin/org-update-agenda-views ()
   "Update all org agenda buffers (if any)."
