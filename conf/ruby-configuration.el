@@ -3,14 +3,9 @@
 (add-to-list 'auto-mode-alist (cons (rx not-newline "." (or "rb" "ru" "builder" "rake" "thor" "gemspec") string-end) 'ruby-mode))
 (add-to-list 'auto-mode-alist (cons (rx (or "rake" "thor" "guard" "gem" "cap" "vagrant") "file" string-end) 'ruby-mode))
 
-
-(custom-set-variables
- '(ruby-electric-expand-delimiters-list '(124)))
-
 (eval-after-load 'ruby-mode
   (quote
    (progn
-     (require 'ruby-electric)
      (require 'inf-ruby)
      (require 'rcodetools)
      (require 'ffap)
@@ -21,7 +16,6 @@
      (define-key ruby-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
 
      (add-hook 'ruby-mode-hook 'yas-minor-mode-on)
-     (add-hook 'ruby-mode-hook (lambda () (ruby-electric-mode t)))
      (add-hook 'ruby-mode-hook (lambda () (setq comment-column 42)))
      (add-hook 'ruby-mode-hook
                (lambda ()

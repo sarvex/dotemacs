@@ -74,11 +74,6 @@
             :url "https://raw.github.com/ruby/ruby/trunk/misc/inf-ruby.el"
             :features nil)
 
-     (:name ruby-electric
-            :type http
-            :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-electric.el"
-            :post-init nil)
-
      (:name handlebars-mode
             :type github
             :pkgname "danielevans/handlebars-mode")
