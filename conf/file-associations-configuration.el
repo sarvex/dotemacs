@@ -20,7 +20,8 @@
                                          (and (optional "e") "g")))
                            (and "m" (char "24ko") "v")
                            (and "f" (char "l4") "v")
-                           "wmv" "divx" "ts" "avi" "asf" "vob" "ogv" "webm" "rm" "3gp")
+                           (and (optional "m2") "ts")
+                           "wmv" "divx" "avi" "asf" "vob" "ogv" "webm" "rm" "3gp")
                        (optional "." (or "part" "crdownload"))
                        string-end)))
 
