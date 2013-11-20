@@ -199,3 +199,10 @@
     (interactive "P")
     (let ((current-prefix-arg (not arg)))
       (scratch))))
+
+(define-key global-map (kbd "C-x C-f")
+  (defun my-find-file (&optional arg)
+    (interactive "P")
+    (if arg
+        (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "Find file (using sudo): ")))
+      (ido-find-file))))
