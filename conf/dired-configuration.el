@@ -33,8 +33,8 @@
 (define-key dired-mode-map (kbd "<up>") nil)
 (define-key dired-mode-map (kbd "M-=") nil)
 (define-key dired-mode-map (kbd "M-b") 'backward-word)
-(define-key dired-mode-map (kbd "<SPC>") 'dired-next-file-line)
-(define-key dired-mode-map (kbd "TAB") 'dired-hide-subdir)
+(define-key dired-mode-map (kbd "<space>") 'dired-next-file-line)
+(define-key dired-mode-map (kbd "<tab>") 'dired-hide-subdir)
 (define-key dired-mode-map (kbd "q") (lambda () (interactive) (kill-buffer-ask (current-buffer))))
 
 (add-hook 'dired-mode-hook (lambda () (setq truncate-lines t)))

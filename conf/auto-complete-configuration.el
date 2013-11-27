@@ -23,7 +23,7 @@
                      ac-source-yasnippet
                      ac-source-filename))
 
-     (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+     (define-key ac-mode-map (kbd "M-<tab>") 'auto-complete)
      (define-key ac-complete-mode-map (kbd "M-?") 'ac-quick-help)
      (define-key ac-complete-mode-map (kbd "C-s") 'ac-isearch)
      (define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
