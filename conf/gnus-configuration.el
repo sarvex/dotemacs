@@ -121,6 +121,10 @@
 (define-key gnus-summary-mode-map (kbd "[") 'gnus-summary-refer-thread)
 (define-key gnus-summary-mode-map (kbd "w") 'gnus-summary-wide-reply)
 
+(eval-after-load 'gnus-topic
+  '(progn
+     (define-key gnus-topic-mode-map (kbd "<tab>") nil)
+     (define-key gnus-topic-mode-map (kbd "C-i") nil)))
 
 (dolist (key (mapcar 'number-to-string (number-sequence 1 5)))
   (define-key gnus-group-mode-map key
