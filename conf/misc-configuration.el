@@ -255,8 +255,6 @@
  '(eval-expression-print-level nil)
  '(global-mark-ring-max 50)
  '(isearch-allow-scroll t)
- '(split-height-threshold nil)
- '(split-width-threshold 0)
  '(standard-indent 4)
  '(tab-always-indent 'complete)
  '(temporary-file-directory "/tmp/")
