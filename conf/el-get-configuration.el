@@ -11,8 +11,6 @@
      clojure-mode
      diminish
      dired+
-     dired-details
-     dired-details+
      drag-stuff
      emacs-jabber
      expand-region

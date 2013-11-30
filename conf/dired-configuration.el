@@ -3,7 +3,6 @@
 (require 'dired)
 (require 'dired-x)
 (require 'dired+)
-(require 'dired-details+)
 
 (diredp-toggle-find-file-reuse-dir 1)
 
@@ -110,10 +109,7 @@
 
 (custom-set-variables
  '(dired-omit-files (rx line-start (or "." "#")))
- '(dired-details-hidden-string "")
  '(directory-free-space-args "-Pkh")
- '(dired-details-hide-extra-lines t)
- '(dired-details-hide-link-targets nil)
  '(dired-dwim-target nil)
  '(dired-isearch-filenames nil)
  '(dired-keep-marker-copy nil)
