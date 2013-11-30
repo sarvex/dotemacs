@@ -28,7 +28,7 @@
                    (lambda (library)
                      "Figure out path to ruby LIBRARY file. Depends on 'devel-which' gem."
                      (shell-command-to-string
-                      (format "ruby -r devel/which -r %s -e 'print which_library %%(%s)'" name name)))))
+                      (format "ruby -r devel/which -r %s -e 'print which_library %%(%s)'" library library)))))
 
      (defadvice ruby-indent-exp (after delete-trailing-whitespace-on-indention activate)
        "Clean buffer of trailing whitespaces after indentation."
