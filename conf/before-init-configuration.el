@@ -4,5 +4,5 @@
  '(save-abbrevs 'silently)
  '(smex-save-file "~/.emacs.d/smex-items"))
 
-(load "dotemacs/misc/temporary-stuff")
-(load "dotemacs/misc/passwords.el.gpg")
+(load "misc/temporary-stuff")
+(load "misc/passwords.el.gpg")

@@ -12,13 +12,13 @@
 (defvar gnus-tmp-group nil)
 (defvar local-file nil)
 
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/dotemacs")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (add-to-list 'load-path "~/.emacs.d/slime")
 
-(load "dotemacs/conf/defuns")
-(load "dotemacs/conf/el-get-configuration")
-(load "dotemacs/conf/package-configuration")
+(load "conf/defuns")
+(load "conf/el-get-configuration")
+(load "conf/package-configuration")
 
 (require 'arc-mode)
 (require 'cc-mode)
