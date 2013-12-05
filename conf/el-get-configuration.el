@@ -183,6 +183,13 @@
             :load "haskell-mode-autoloads.el"
             :build (("make" "all")))
 
+     (:name project-explorer
+            :depends (es-lib helm)
+            :after (setq pe/omit-regex
+                         (rx (or (and string-start "#")
+                                 (and "~" string-end)
+                                 (and string-start ".git" (optional "keep") string-end)))))
+
      (:name projectur
             :type github
             :pkgname "vderyagin/projectur"))))
