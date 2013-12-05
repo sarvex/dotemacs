@@ -44,6 +44,9 @@
      (lambda () (interactive) (kill-buffer-ask (current-buffer))))
     (add-hook 'tar-mode-hook (lambda () (setq truncate-lines t)))))
 
+(eval-after-load 'sql
+  '(add-hook 'sql-interactive-mode-hook (lambda () (setq truncate-lines t))))
+
 (mapc
  (lambda (interpreter)
    (add-to-list 'interpreter-mode-alist (cons interpreter 'python-mode)))
