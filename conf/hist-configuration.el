@@ -23,6 +23,7 @@
  '(desktop-path '("~/.emacs.d/"))
  '(desktop-load-locked-desktop t)
  '(desktop-save t)
+ '(desktop-restore-frames nil)
  '(desktop-files-not-to-save
    (rx (or
         (and line-start "/" (* (not (any "/:"))) ":")
