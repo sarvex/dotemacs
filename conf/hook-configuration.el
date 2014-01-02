@@ -175,9 +175,9 @@
                 (make-directory dir t)))))
 
 (when (fboundp 'customize-themes)
-  (add-to-list 'custom-theme-load-path "~/repos/misc/color-theme-quiet-light")
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
   (setq custom-safe-themes t)
   (load-theme 'quiet-light)
   (add-hook 'after-make-frame-functions
             (lambda (_)
-              (load-file "~/repos/misc/color-theme-quiet-light/quiet-light-theme.el"))))
+              (load-file "~/.emacs.d/themes/quiet-light-theme.el"))))
