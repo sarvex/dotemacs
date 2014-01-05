@@ -14,16 +14,17 @@
 
 (eval-after-load 'twittering-mode
   '(progn
-    (mapc
-     (lambda (item)
-       (twittering-add-timeline-history item))
-     vderyagin/twittering-additional-timelines)
+     (when (boundp 'vderyagin/twittering-additional-timelines)
+       (mapc
+        (lambda (item)
+          (twittering-add-timeline-history item))
+        vderyagin/twittering-additional-timelines))
 
-    (add-hook 'twittering-mode-hook (lambda () (twittering-icon-mode 1)))
-    (add-hook 'twittering-mode-hook 'turn-on-visual-line-mode)
-    (add-hook 'twittering-edit-mode-hook 'turn-on-visual-line-mode)
+     (add-hook 'twittering-mode-hook (lambda () (twittering-icon-mode 1)))
+     (add-hook 'twittering-mode-hook 'turn-on-visual-line-mode)
+     (add-hook 'twittering-edit-mode-hook 'turn-on-visual-line-mode)
 
-    (define-key twittering-mode-map (kbd "RET") 'twittering-click)))
+     (define-key twittering-mode-map (kbd "RET") 'twittering-click)))
 
 
 (defun switch-to-twitter-buffer()
