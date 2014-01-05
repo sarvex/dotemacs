@@ -35,5 +35,5 @@
         (switch-to-buffer
          (if (equal 1 (length twittering-buffers))
              (car twittering-buffers)
-             (ido-completing-read "Twitter timeline: " twittering-buffers)))
-        (twit))))
+           (ido-completing-read "Twitter timeline: " twittering-buffers)))
+      (twit))))
