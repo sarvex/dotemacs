@@ -106,61 +106,61 @@
             (name . "^\\*inferior-lisp\\*$")
             (mode . nrepl-mode))))
 
-(mapc
- (lambda (project)
-   (add-to-list 'vderyagin/ibuffer-filter-groups
-                `(,(format "Project: %s" project)
-                   (filename . ,(expand-file-name project "~/repos/dev")))))
- (remove "." (remove ".." (directory-files (expand-file-name "~/repos/dev")))))
+;; (mapc
+;;  (lambda (project)
+;;    (add-to-list 'vderyagin/ibuffer-filter-groups
+;;                 `(,(format "Project: %s" project)
+;;                    (filename . ,(expand-file-name project "~/repos/dev")))))
+;;  (remove "." (remove ".." (directory-files (expand-file-name "~/repos/dev")))))
 
-(mapc
- (lambda (project)
-   (add-to-list 'vderyagin/ibuffer-filter-groups
-                `(,(format "Fork: %s" project)
-                   (filename . ,(expand-file-name project "~/repos/forks")))))
- (remove "." (remove ".." (directory-files (expand-file-name "~/repos/forks")))))
+;; (mapc
+;;  (lambda (project)
+;;    (add-to-list 'vderyagin/ibuffer-filter-groups
+;;                 `(,(format "Fork: %s" project)
+;;                    (filename . ,(expand-file-name project "~/repos/forks")))))
+;;  (remove "." (remove ".." (directory-files (expand-file-name "~/repos/forks")))))
 
-(mapc
- (lambda (project)
-   (add-to-list 'vderyagin/ibuffer-filter-groups
-                `(,(format "Gist: %s" project)
-                   (filename . ,(expand-file-name project "~/repos/gists")))))
- (remove "." (remove ".." (directory-files (expand-file-name "~/repos/gists")))))
+;; (mapc
+;;  (lambda (project)
+;;    (add-to-list 'vderyagin/ibuffer-filter-groups
+;;                 `(,(format "Gist: %s" project)
+;;                    (filename . ,(expand-file-name project "~/repos/gists")))))
+;;  (remove "." (remove ".." (directory-files (expand-file-name "~/repos/gists")))))
 
-(mapc
- (lambda (project)
-   (add-to-list 'vderyagin/ibuffer-filter-groups
-                `(,(format "Source: %s" project)
-                   (filename . ,(expand-file-name project "~/repos/src")))))
- (remove "." (remove ".." (directory-files (expand-file-name "~/repos/src")))))
+;; (mapc
+;;  (lambda (project)
+;;    (add-to-list 'vderyagin/ibuffer-filter-groups
+;;                 `(,(format "Source: %s" project)
+;;                    (filename . ,(expand-file-name project "~/repos/src")))))
+;;  (remove "." (remove ".." (directory-files (expand-file-name "~/repos/src")))))
 
-(mapc
- (lambda (project)
-   (add-to-list 'vderyagin/ibuffer-filter-groups
-                `(,(format "Repo: %s" project)
-                   (filename . ,(expand-file-name project "~/repos/misc")))))
- (remove "." (remove ".." (directory-files (expand-file-name "~/repos/misc")))))
+;; (mapc
+;;  (lambda (project)
+;;    (add-to-list 'vderyagin/ibuffer-filter-groups
+;;                 `(,(format "Repo: %s" project)
+;;                    (filename . ,(expand-file-name project "~/repos/misc")))))
+;;  (remove "." (remove ".." (directory-files (expand-file-name "~/repos/misc")))))
 
-(mapc
- (lambda (project)
-   (add-to-list 'vderyagin/ibuffer-filter-groups
-                `(,(format "Repo: %s" project)
-                   (filename . ,(expand-file-name project "~/repos/exercises")))))
- (remove "." (remove ".." (directory-files (expand-file-name "~/repos/exercises")))))
+;; (mapc
+;;  (lambda (project)
+;;    (add-to-list 'vderyagin/ibuffer-filter-groups
+;;                 `(,(format "Repo: %s" project)
+;;                    (filename . ,(expand-file-name project "~/repos/exercises")))))
+;;  (remove "." (remove ".." (directory-files (expand-file-name "~/repos/exercises")))))
 
-(mapc
- (lambda (project)
-   (add-to-list 'vderyagin/ibuffer-filter-groups
-                `(,(format "Repo: %s" project)
-                   (filename . ,(expand-file-name project "~/repos/go/src/github.com/vderyagin")))))
- (remove "." (remove ".." (directory-files (expand-file-name "~/repos/go/src/github.com/vderyagin")))))
+;; (mapc
+;;  (lambda (project)
+;;    (add-to-list 'vderyagin/ibuffer-filter-groups
+;;                 `(,(format "Repo: %s" project)
+;;                    (filename . ,(expand-file-name project "~/repos/go/src/github.com/vderyagin")))))
+;;  (remove "." (remove ".." (directory-files (expand-file-name "~/repos/go/src/github.com/vderyagin")))))
 
-(mapc
- (lambda (project)
-   (add-to-list 'vderyagin/ibuffer-filter-groups
-                `(,(format "Archive repo: %s" project)
-                   (filename . ,(expand-file-name project "~/repos/archive")))))
- (remove "." (remove ".." (directory-files (expand-file-name "~/repos/archive")))))
+;; (mapc
+;;  (lambda (project)
+;;    (add-to-list 'vderyagin/ibuffer-filter-groups
+;;                 `(,(format "Archive repo: %s" project)
+;;                    (filename . ,(expand-file-name project "~/repos/archive")))))
+;;  (remove "." (remove ".." (directory-files (expand-file-name "~/repos/archive")))))
 
 
 (add-to-list
