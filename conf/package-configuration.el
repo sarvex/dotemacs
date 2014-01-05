@@ -9,3 +9,12 @@
              'append)
 
 (package-initialize)
+
+(mapc
+ (lambda (package)
+   (unless (package-installed-p package)
+     (package-install package)))
+ '(
+   rainbow-mode
+   lexbind-mode
+   ))
