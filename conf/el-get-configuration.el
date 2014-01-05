@@ -197,7 +197,7 @@
             :type github
             :pkgname "vderyagin/projectur"))))
 
-(load (file-name-sans-extension el-get-autoload-file))
+(load (file-name-sans-extension el-get-autoload-file) 'noerror)
 
 (el-get t)
 
