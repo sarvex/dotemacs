@@ -12,7 +12,6 @@
      diminish
      dired+
      drag-stuff
-     emacs-jabber
      expand-region
      gist
      gnus
