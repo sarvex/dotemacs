@@ -190,6 +190,9 @@
                                  (and "~" string-end)
                                  (and string-start ".git" (optional "keep") string-end)))))
 
+     (:name slime
+            :pkgname "slime/slime")
+
      (:name projectur
             :type github
             :pkgname "vderyagin/projectur"))))
