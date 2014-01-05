@@ -21,7 +21,6 @@
 (load "conf/el-get-configuration")
 (load "conf/misc-configuration")
 (load "conf/parens-configuration")
-(load "conf/jabber-configuration")
 (load "conf/erc-configuration")
 (load "conf/yasnippet-configuration")
 (load "conf/auto-complete-configuration")
