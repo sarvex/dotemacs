@@ -198,7 +198,7 @@
 
 (load (file-name-sans-extension el-get-autoload-file) 'noerror)
 
-(el-get t)
+(el-get 'sync (delete "el-get" (mapcar 'el-get-source-name el-get-sources)))
 
 (defun el-get-regenerate-all-autoloads ()
   "Regenerates all autoloads for el-get"
