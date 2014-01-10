@@ -1,7 +1,10 @@
 ;;; -*- lexical-binding: t -*-
 
-(add-to-list 'auto-mode-alist (cons (rx ".zsh" (optional "-theme") string-end) 'sh-mode))
-(add-to-list 'auto-mode-alist (cons (rx ".env" (optional ".example") string-end) 'sh-mode))
+(add-to-list 'auto-mode-alist (cons
+                               (rx (or (and ".zsh" (optional "-theme"))
+                                       (and ".env" (optional ".example")))
+                                   string-end)
+                               'sh-mode))
 
 (custom-set-variables
  '(sh-basic-offset 2))
