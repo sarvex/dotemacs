@@ -171,11 +171,7 @@
 (eval-after-load 'org
   (quote
    (progn
-
-     (mapc
-      (lambda (f)
-        (load (expand-file-name f el-get-dir)))
-      '("org-mode/lisp/org-loaddefs" "org-mode/contrib/lisp/org-loaddefs"))
+     (load (expand-file-name "org-mode/lisp/org-loaddefs" el-get-dir))
 
      (require 'notifications)
 
