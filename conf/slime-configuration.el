@@ -7,6 +7,7 @@
 
 (eval-after-load 'slime
   '(progn
+    (require 'paredit)
     (slime-setup '(slime-fancy))
 
     (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
