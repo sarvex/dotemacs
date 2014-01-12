@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(setq inferior-lisp-program "/usr/bin/sbcl --noinform"
+(setq inferior-lisp-program "/usr/bin/sbcl --noinform --core /usr/lib/sbcl/sbcl.core"
       common-lisp-hyperspec-root "file:/usr/share/doc/hyperspec/HyperSpec/")
 
 (require 'slime-autoloads)
