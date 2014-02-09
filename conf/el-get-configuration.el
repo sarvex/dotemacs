@@ -182,8 +182,13 @@
             :load "haskell-mode-autoloads.el"
             :build (("make" "all")))
 
+     (:name es-windows
+            :type github
+            :pkgname "sabof/es-windows")
+
      (:name project-explorer
-            :depends (es-lib helm)
+            :lazy t
+            :depends (es-lib helm es-windows)
             :after (setq pe/omit-regex
                          (rx (or (and string-start "#")
                                  (and "~" string-end)
@@ -198,7 +203,13 @@
 
 (load (file-name-sans-extension el-get-autoload-file) 'noerror)
 
-(el-get 'sync (delete "el-get" (mapcar 'el-get-source-name el-get-sources)))
+(el-get 'sync
+        (delq nil
+              (mapcar (lambda (source)
+                        (let ((name (el-get-source-name source)))
+                          (unless (member name '("el-get" "es-windows"))
+                            name)))
+                      el-get-sources)))
 
 (defun el-get-regenerate-all-autoloads ()
   "Regenerates all autoloads for el-get"
