@@ -8,6 +8,7 @@
    '(el-get
 
      bookmark+
+     cider
      clojure-mode
      diminish
      dired+
@@ -22,7 +23,6 @@
      lua-mode
      magit
      markdown-mode
-     cider
      org-mode
      paredit
      php-mode
@@ -36,6 +36,7 @@
      scala-mode
      scratch
      slim-mode
+     slime
      smex
      textile-mode
      tuareg-mode
@@ -194,9 +195,6 @@
                                  (and "~" string-end)
                                  (and ".elc" string-end)
                                  (and string-start ".git" (optional "keep") string-end)))))
-
-     (:name slime
-            :pkgname "slime/slime")
 
      (:name projectur
             :type github
