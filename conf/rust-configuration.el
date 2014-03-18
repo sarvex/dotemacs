@@ -1,21 +1,22 @@
 ;;; -*- lexical-binding: t -*-
 
+(custom-set-variables
+ '(rust-indent-offset 2))
+
 (eval-after-load 'rust-mode
   (quote
    (progn
      (add-hook 'rust-mode-hook 'yas-minor-mode-on)
      (add-hook 'rust-mode-hook
                (lambda ()
-                 (setq show-trailing-whitespace t)
                  (when buffer-file-name
                    (set (make-local-variable 'compile-command)
-                        (format "rust %s %s"
-                                (if (string-match-p (rx not-newline word-boundary "test.rs" string-end)
-                                                    buffer-file-name)
-                                    "test"
-                                  "build")
-                                (file-name-nondirectory buffer-file-name))))))
-
+                        (format
+                         (if (string-match-p (rx not-newline word-boundary "test.rs" string-end)
+                                             buffer-file-name)
+                             "rustc --test %s"
+                           "rustc %s")
+                         (file-name-nondirectory buffer-file-name))))))
      (define-key rust-mode-map (kbd "<return>") 'reindent-then-newline-and-indent))))
 
 (eval-after-load 'compile

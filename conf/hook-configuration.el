@@ -66,6 +66,7 @@
    nxml-mode-hook
    python-mode-hook
    ruby-mode-hook
+   rust-mode-hook
    scala-mode-hook
    sgml-mode-hook
    sh-mode-hook
