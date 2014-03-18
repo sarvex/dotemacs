@@ -41,12 +41,18 @@
  (lambda (sym)
    (add-to-list 'desktop-globals-to-save sym))
  '(
-   dired-shell-command-history
    extended-command-history
    kmacro-ring
    projectur-history
    read-expression-history
-   shell-command-history
+   ))
+
+(mapc
+ (lambda (sym)
+   (setq desktop-globals-to-save (delq sym desktop-globals-to-save)))
+ '(
+   search-ring
+   regexp-search-ring
    ))
 
 (add-hook 'desktop-save-hook
