@@ -1,11 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(custom-set-variables
- '(paren-delay 0.2)
- '(paren-highlight-offscreen t))
-
-(paren-activate)
-
+(show-paren-mode)
 
 (custom-set-variables
  '(sp-highlight-pair-overlay nil))

@@ -63,10 +63,6 @@
             :features openwith
             :after (openwith-mode 1))
 
-     (:name ruby-mode
-            :type http
-            :url "https://raw.github.com/ruby/ruby/trunk/misc/ruby-mode.el")
-
      (:name inf-ruby
             :type http
             :url "https://raw.github.com/ruby/ruby/trunk/misc/inf-ruby.el"
@@ -93,10 +89,6 @@
                       (setq irfc-directory "~/doc/RFC"
                             irfc-assoc-mode t)
                       (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode))))
-
-     (:name mic-paren
-            :type emacswiki
-            :features mic-paren)
 
      (:name auto-complete
             :features auto-complete-config)
