@@ -3,6 +3,7 @@
 (setq
  debug-on-error t
  ;; byte-compile-error-on-warn t
+ smex-save-file "~/.emacs.d/smex-items"
  )
 
 (defvar inferior-lisp-program nil)
