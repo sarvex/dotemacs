@@ -55,7 +55,7 @@
 (defun rust-compile-and-run-command ()
   (let* ((compile-cmd (rust-compile-command))
          (executable (file-name-sans-extension (file-name-nondirectory buffer-file-name))))
-    (concat compile-cmd "&& ./" executable)))
+    (concat compile-cmd " && ./" executable)))
 
 (defun rust-compile-and-maybe-run (&optional force-run)
   "Compile current file, when it is a test file or when command

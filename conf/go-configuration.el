@@ -20,4 +20,4 @@
      (define-key go-mode-map (kbd "M-.") 'godef-jump)
      (define-key go-mode-map (kbd "C-?") 'godef-describe)
 
-     (define-key go-mode-map (kbd "C-c C-c") 'gofmt))))
+     (define-key go-mode-map (kbd "C-c C-c") 'recompile))))

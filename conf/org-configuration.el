@@ -18,7 +18,7 @@
  '(org-completion-use-ido t)
  '(org-cycle-level-faces nil)
  '(org-cycle-separator-lines -2)
- '(org-habit-graph-column 62)
+ '(org-habit-graph-column 57)
  '(org-drawers '("PROPERTIES" "CLOCK" "LOGBOOK" "HIDDEN"))
  '(org-enforce-todo-dependencies t)
  '(org-log-done 'time)
