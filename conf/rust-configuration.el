@@ -7,6 +7,10 @@
   (quote
    (progn
      (add-hook 'rust-mode-hook 'yas-minor-mode-on)
+     (add-hook 'rust-mode-hook
+               (lambda ()
+                 (set (make-variable-buffer-local 'compile-command)
+                      (rust-compile-command (rust-test-file-p buffer-file-name)))))
      (define-key rust-mode-map (kbd "C-c C-c") 'rust-compile-and-maybe-run))))
 
 (eval-after-load 'compile
