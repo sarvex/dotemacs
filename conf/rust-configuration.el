@@ -32,7 +32,9 @@
      (add-to-list 'compilation-error-regexp-alist-alist
                   (list 'rust-test
                         (rx line-start
-                            "rust: task failed at '"
+                            "\ttask '"
+                            (*? anything)
+                            "' failed at '"
                             (*? anything)
                             "', "
                             (group (+ not-newline) ".rs") ; file name
@@ -45,11 +47,11 @@
      (add-to-list 'compilation-error-regexp-alist-alist
                   (list 'rust-build
                         (rx line-start
-                            (group (+ not-newline) ".r" (char "sc")) ; file name
+                            (group (+ not-newline) ".rs") ; file name
                             ":"
-                            (group (+ (char digit)))                 ; line number
+                            (group (+ (char digit)))      ; line number
                             ":"
-                            (group (+ (char digit)))                 ; column number
+                            (group (+ (char digit)))      ; column number
                             ": "
                             (* not-newline)
                             line-end)
