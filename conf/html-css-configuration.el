@@ -9,8 +9,7 @@
    (progn
      (add-hook 'html-mode-hook 'yas-minor-mode-on)
      (add-hook 'html-mode-hook 'emmet-mode)
-     (define-key html-mode-map (kbd "M-<tab>") 'emmet-expand-yas)
-     (define-key sgml-mode-map (kbd "<return>") 'reindent-then-newline-and-indent))))
+     (define-key html-mode-map (kbd "M-<tab>") 'emmet-expand-yas))))
 
 (add-hook 'css-mode-hook 'emmet-mode)
 

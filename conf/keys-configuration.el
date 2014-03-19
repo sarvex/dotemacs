@@ -37,8 +37,6 @@
 
 (define-key global-map (kbd "<f9>") 'recompile)
 
-(define-key prog-mode-map (kbd "<return>") 'newline-and-indent)
-
 ;; window switching
 (define-key global-map (kbd "C-<tab>") 'other-window)
 (define-key global-map (kbd "C-S-<iso-lefttab>") (lambda () (interactive) (other-window -1)))

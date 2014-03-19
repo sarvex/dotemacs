@@ -2,7 +2,6 @@
 
 (add-to-list 'interpreter-mode-alist '("sbcl" . lisp-mode))
 
-(define-key lisp-mode-shared-map (kbd "<return>") 'reindent-then-newline-and-indent)
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
 
 (define-key emacs-lisp-mode-map (kbd "M-j") 'eval-print-last-sexp)

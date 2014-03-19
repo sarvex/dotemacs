@@ -20,5 +20,4 @@
      (define-key go-mode-map (kbd "M-.") 'godef-jump)
      (define-key go-mode-map (kbd "C-?") 'godef-describe)
 
-     (define-key go-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)
      (define-key go-mode-map (kbd "C-c C-c") 'gofmt))))

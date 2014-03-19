@@ -8,5 +8,4 @@
     (require 'ensime)
     (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-    (define-key scala-mode-map (kbd "C-<tab>") nil)
-    (define-key scala-mode-map (kbd "<return>") 'reindent-then-newline-and-indent)))
+    (define-key scala-mode-map (kbd "C-<tab>") nil)))
