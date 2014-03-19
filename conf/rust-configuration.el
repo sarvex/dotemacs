@@ -3,20 +3,26 @@
 (custom-set-variables
  '(rust-indent-offset 2))
 
+(defun rust-set-compile-command ()
+  (when buffer-file-name
+    (set (make-local-variable 'compile-command)
+         (let* ((source-file (file-name-nondirectory buffer-file-name))
+                (executable (file-name-sans-extension source-file)))
+           (if (string-match-p (rx not-newline word-boundary "test.rs" string-end)
+                               buffer-file-name)
+               (format "rustc --test %s; ./%s" source-file executable)
+             (format "rustc %s" source-file))))))
+
 (eval-after-load 'rust-mode
   (quote
    (progn
      (add-hook 'rust-mode-hook 'yas-minor-mode-on)
-     (add-hook 'rust-mode-hook
-               (lambda ()
-                 (when buffer-file-name
-                   (set (make-local-variable 'compile-command)
-                        (format
-                         (if (string-match-p (rx not-newline word-boundary "test.rs" string-end)
-                                             buffer-file-name)
-                             "rustc --test %s"
-                           "rustc %s")
-                         (file-name-nondirectory buffer-file-name))))))
+     (add-hook 'rust-mode-hook 'rust-set-compile-command)
+     (define-key rust-mode-map (kbd "<f9>")
+       (lambda ()
+         (interactive)
+         (rust-set-compile-command)
+         (recompile)))
      (define-key rust-mode-map (kbd "<return>") 'reindent-then-newline-and-indent))))
 
 (eval-after-load 'compile
