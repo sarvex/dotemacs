@@ -14,6 +14,7 @@
                              (and (optional "t") (or "Z" "zo" "bz2"
                                                      (and (char "7bxrgl") "z")))
                              "cab" "cpio" "deb" "lha" "lrz" "rpm" "zip")
+                         (optional "." (or "part" "crdownload"))
                          string-end))
       (video-files (rx not-newline "."
                        (or (and "mp" (or (char "24")
@@ -63,9 +64,9 @@
       (list (rx ".gif" string-end) '(list "animate" "feh" "firefox"))
       (list (rx ".torrent" string-end) '(list "torrentinfo" "gtorrentviewer"))
       (list ,document-files '(list "mupdf -r 96" "qpdfview --unique"))
-      (list ,archive-files '(list "aunpack" "mcomix" "qcomicbook"))
+      (list ,archive-files '(list "aunpack" "aunpack -e *" "mcomix" "qcomicbook"))
       (list ,audio-files "vlc")
       (list ,comic-book-files '(list "mcomix" "qcomicbook" "aunpack"))
       (list ,document-files "evince")
       (list ,image-files "feh *")
-      (list ,video-files '(list "mplayer -quiet -ass-bottom-margin 100" "mplayer -quiet"))))))
+      (list ,video-files "mpv -vf sub=100")))))
