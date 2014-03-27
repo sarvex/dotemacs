@@ -21,6 +21,7 @@
         vderyagin/twittering-additional-timelines))
 
      (add-hook 'twittering-mode-hook (lambda () (twittering-icon-mode 1)))
+     (add-hook 'twittering-mode-hook (lambda () (variable-pitch-mode 1)))
      (add-hook 'twittering-mode-hook 'turn-on-visual-line-mode)
      (add-hook 'twittering-edit-mode-hook 'turn-on-visual-line-mode)
 
