@@ -84,6 +84,7 @@
 
 
 (global-unset-key (kbd "<f10>"))        ; do not f***ing open menu
+(global-unset-key (kbd "M-`"))          ; not even in text mode
 
 
 (define-key global-map (kbd "C-x k")
