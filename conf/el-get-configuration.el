@@ -14,6 +14,7 @@
      dired+
      drag-stuff
      expand-region
+     ghc-mod
      gist
      gnus
      graphviz-dot-mode
