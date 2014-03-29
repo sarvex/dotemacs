@@ -189,6 +189,11 @@
                                  (and ".elc" string-end)
                                  (and string-start ".git" (optional "keep") string-end)))))
 
+     (:name fancy-narrow
+            :type github
+            :pkgname "bruce-connor/fancy-narrow"
+            :after (fancy-narrow-mode))
+
      (:name projectur
             :type github
             :pkgname "vderyagin/projectur"))))
