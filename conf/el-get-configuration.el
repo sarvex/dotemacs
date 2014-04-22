@@ -39,6 +39,7 @@
      slim-mode
      slime
      smex
+     structured-haskell-mode
      textile-mode
      tuareg-mode
      wtf
@@ -174,7 +175,7 @@
 
      (:name haskell-mode
             :load "haskell-mode-autoloads.el"
-            :build (("make" "all")))
+            :post-init nil)
 
      (:name es-windows
             :type github
