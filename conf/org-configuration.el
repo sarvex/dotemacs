@@ -161,7 +161,7 @@
    (progn
      (add-hook 'org-agenda-mode-hook 'vderyagin/org-agenda-activate-appt)
      (add-hook 'org-agenda-mode-hook (lambda () (setq truncate-lines t)))
-     (add-hook 'org-agenda-mode-hook (lambda () (load-file "~/.emacs.d/themes/quiet-light-theme.el")))
+     (add-hook 'org-agenda-mode-hook (lambda () (load-file "~/.emacs.d/color-theme-quiet-light/quiet-light-theme.el")))
 
      (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
      (define-key org-agenda-mode-map (kbd "C-S-<right>") nil)
