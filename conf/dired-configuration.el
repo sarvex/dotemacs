@@ -25,14 +25,11 @@
 (define-key dired-mode-map (kbd "M-p") 'dired-previous-subdir-of-current-dir-parent)
 (define-key dired-mode-map (kbd "C-?") 'dired-get-size)
 (define-key dired-mode-map (kbd ";") 'dired-up-directory)
-(define-key dired-mode-map (kbd "p") 'dired-previous-file-line)
-(define-key dired-mode-map (kbd "n") 'dired-next-file-line)
 (define-key dired-mode-map (kbd "C-w") 'dired-unmark-backward)
 (define-key dired-mode-map (kbd "<down>") nil)
 (define-key dired-mode-map (kbd "<up>") nil)
 (define-key dired-mode-map (kbd "M-=") nil)
 (define-key dired-mode-map (kbd "M-b") 'backward-word)
-(define-key dired-mode-map (kbd "<space>") 'dired-next-file-line)
 (define-key dired-mode-map (kbd "<tab>") 'dired-hide-subdir)
 (define-key dired-mode-map (kbd "q") (lambda () (interactive) (kill-buffer-ask (current-buffer))))
 
@@ -74,20 +71,6 @@
                (progn
                  (re-search-backward (rx line-start (group (+? not-newline)) (+ whitespace) "total" line-end))
                  (match-string 1))))))
-
-(defun dired-next-file-line ()
-  "Moves to the next line in dired buffer that have a file or directory name on it"
-  (interactive)
-  (call-interactively 'dired-next-line)
-  (if (not (or (dired-move-to-filename) (eobp)))
-      (dired-next-file-line)))
-
-(defun dired-previous-file-line ()
-  "Moves to the previous line in dired buffer that have a file or directory name on it"
-  (interactive)
-  (call-interactively 'dired-previous-line)
-  (if (not (or (dired-move-to-filename) (bobp)))
-      (dired-previous-file-line)))
 
 (defun switch-to-dired-buffer ()
   "Switch to one of the Dired buffers or open home directory if none."
