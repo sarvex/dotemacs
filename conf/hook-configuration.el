@@ -70,11 +70,8 @@
    scala-mode-hook
    sgml-mode-hook
    sh-mode-hook
-   text-mode-hook
    yaml-mode-hook
    ))
-
-
 
 
 (mapc
