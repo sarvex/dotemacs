@@ -1,5 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 
+(custom-set-variables
+ '(gofmt-command "goimports"))
+
 (eval-after-load 'go-mode
   (quote
    (progn
