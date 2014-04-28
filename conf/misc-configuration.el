@@ -52,7 +52,6 @@
    (add-to-list 'interpreter-mode-alist (cons interpreter 'python-mode)))
  '("python" "python2" "python3" "jython"))
 
-(add-to-list 'auto-mode-alist '("COMMIT_EDITMSG\\'" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-mode))
 
 (eval-after-load 'image-mode

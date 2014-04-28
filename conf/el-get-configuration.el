@@ -16,6 +16,7 @@
      expand-region
      ghc-mod
      gist
+     git-commit-mode
      gnus
      graphviz-dot-mode
      haml-mode
