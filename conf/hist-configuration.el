@@ -12,7 +12,8 @@
                             (and "x" (char "bp") "m")
                             "gif" "bmp" "ico" "png"
                             "zip" "tar" "rar" "xpi" "crx" "oex" "elc" "rbc" "pyc" "class")
-     string-end)
+        string-end)
+    (rx (eval (expand-file-name "~/code/")))
     (rx (or "Thumbs.db" "~") string-end))))
 
 (recentf-mode t)
@@ -32,7 +33,6 @@
         "/.emacs.d/recentf"
         (and "loaddefs.el" string-end)
         (and "/" (or "org-clock-save.el" "bmk-bmenu-state.el" "ido-history" "newsrc-dribble") string-end)
-        (eval (expand-file-name "~/code/"))
         (eval (expand-file-name "~/org/"))))))
 
 (desktop-save-mode t)
