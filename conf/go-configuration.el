@@ -8,7 +8,7 @@
    (progn
      (require 'go-autocomplete)
      (require 'go-eldoc)
-     (require 'oracle)
+     (require 'go-oracle "oracle")
 
      (add-hook 'go-mode-hook
                (lambda ()
