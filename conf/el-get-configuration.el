@@ -199,7 +199,7 @@
      (:name go-oracle
             :type http
             :url "http://tools.go.googlecode.com/hg/cmd/oracle/oracle.el"
-            :load-path nil
+            :load-path "."
             :post-init nil)
 
      (:name projectur
