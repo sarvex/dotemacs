@@ -8,10 +8,12 @@
    (progn
      (require 'go-autocomplete)
      (require 'go-eldoc)
+     (require 'oracle)
 
      (add-hook 'go-mode-hook
                (lambda ()
                  (go-eldoc-setup)
+                 (go-oracle-mode)
                  (add-hook 'before-save-hook 'gofmt nil 'make-it-local)
                  (set (make-local-variable 'compile-command) "go test")
                  (setq tab-width 2

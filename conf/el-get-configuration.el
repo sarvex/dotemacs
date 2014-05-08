@@ -196,6 +196,12 @@
             :pkgname "bruce-connor/fancy-narrow"
             :after (fancy-narrow-mode))
 
+     (:name go-oracle
+            :type http
+            :url "http://tools.go.googlecode.com/hg/cmd/oracle/oracle.el"
+            :load-path nil
+            :post-init nil)
+
      (:name projectur
             :type github
             :pkgname "vderyagin/projectur"))))
