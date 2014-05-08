@@ -1,7 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 
 (custom-set-variables
- '(gofmt-command "goimports"))
+ '(gofmt-command "goimports")
+ '(go-oracle-command "oracle"))
 
 (eval-after-load 'go-mode
   (quote
