@@ -35,14 +35,14 @@
 (add-to-list 'auto-mode-alist '("\\.gem\\'" . tar-mode))
 (eval-after-load 'arc-mode
   '(progn
-    (define-key archive-mode-map (kbd "q")
-     (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-    (add-hook 'archive-mode-hook (lambda () (setq truncate-lines t)))))
+     (define-key archive-mode-map (kbd "q")
+       (lambda () (interactive) (kill-buffer-ask (current-buffer))))
+     (add-hook 'archive-mode-hook (lambda () (setq truncate-lines t)))))
 (eval-after-load 'tar-mode
   '(progn
-    (define-key tar-mode-map (kbd "q")
-     (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-    (add-hook 'tar-mode-hook (lambda () (setq truncate-lines t)))))
+     (define-key tar-mode-map (kbd "q")
+       (lambda () (interactive) (kill-buffer-ask (current-buffer))))
+     (add-hook 'tar-mode-hook (lambda () (setq truncate-lines t)))))
 
 (eval-after-load 'sql
   '(add-hook 'sql-interactive-mode-hook (lambda () (setq truncate-lines t))))
@@ -56,11 +56,11 @@
 
 (eval-after-load 'image-mode
   '(progn
-    (define-key image-mode-map (kbd "a") 'image-toggle-animation)
-    (define-key image-mode-map (kbd "q")
-     (lambda ()
-       (interactive)
-       (kill-buffer-ask (current-buffer))))))
+     (define-key image-mode-map (kbd "a") 'image-toggle-animation)
+     (define-key image-mode-map (kbd "q")
+       (lambda ()
+         (interactive)
+         (kill-buffer-ask (current-buffer))))))
 
 (add-hook 'compilation-mode-hook (lambda () (setq truncate-lines t)))
 (add-hook 'compilation-filter-hook
@@ -73,8 +73,8 @@
 
 (eval-after-load 'help-mode
   '(progn
-    (define-key help-mode-map (kbd "M-p") 'help-go-back)
-    (define-key help-mode-map (kbd "M-n") 'help-go-forward)))
+     (define-key help-mode-map (kbd "M-p") 'help-go-back)
+     (define-key help-mode-map (kbd "M-n") 'help-go-forward)))
 
 (eval-after-load 'cus-edit
   '(define-key custom-mode-map (kbd ";") 'Custom-goto-parent))
@@ -224,7 +224,7 @@
                   (with-current-buffer (window-buffer w)
                     (if (buffer-file-name)
                         (abbreviate-file-name (buffer-file-name))
-                        (buffer-name))))
+                      (buffer-name))))
                 (window-list) " | "))))
 
  '(gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration")
