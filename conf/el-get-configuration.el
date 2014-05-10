@@ -146,8 +146,6 @@
             :after (miniedit-install))
 
      (:name flycheck
-            :build (("make" "info"))
-            :info "doc"
             :after (add-hook 'after-init-hook #'global-flycheck-mode))
 
      (:name macrostep
