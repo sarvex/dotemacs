@@ -301,6 +301,7 @@
             (name . "^\\*ESS\\*$")
             (name . "^\\*Ediff Registry\\*$")
             (name . "^\\*Eval Expression Output\\*$")
+            (name . "^\\*Flycheck error messages\\*$")
             (name . "^\\*Gnuplot ")
             (name . "^\\*Helm Log\\*$")
             (name . "^\\*Holidays\\*$")
