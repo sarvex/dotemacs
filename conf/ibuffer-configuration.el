@@ -113,14 +113,13 @@
                                             'full-paths
                                             (rx string-start (not (any ".")))))))
     (mapc
-     (lambda (dir-path)
+     (lambda (dir)
        (mapc
-        (lambda (project-dir-path)
+        (lambda (project)
           (add-to-list 'vderyagin/ibuffer-filter-groups
-                       (list (abbreviate-file-name project-dir-path)
-                             (cons 'filename
-                                   project-dir-path))))
-        (dirs-in dir-path)))
+                       (list (abbreviate-file-name project)
+                             (cons 'filename project))))
+        (dirs-in dir)))
      (dirs-in code-dir))))
 
 (add-to-list
