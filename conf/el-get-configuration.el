@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'el-get)
-
 (custom-set-variables
  '(el-get-notify-type 'message)
  '(el-get-sources
@@ -35,7 +33,7 @@
      rhtml-mode
      s
      sass-mode
-     scala-mode
+     scala-mode2
      scratch
      slim-mode
      slime
@@ -204,7 +202,12 @@
             :type github
             :pkgname "vderyagin/projectur"))))
 
-(load (file-name-sans-extension el-get-autoload-file) 'noerror)
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
 
 (el-get 'sync
         (delq nil
@@ -213,6 +216,8 @@
                           (unless (member name '("el-get" "es-windows"))
                             name)))
                       el-get-sources)))
+
+(load (file-name-sans-extension el-get-autoload-file) 'noerror)
 
 (defun el-get-regenerate-all-autoloads ()
   "Regenerates all autoloads for el-get"
