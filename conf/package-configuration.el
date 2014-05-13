@@ -10,6 +10,9 @@
 
 (package-initialize)
 
+(unless (file-directory-p package-user-dir)
+  (package-refresh-contents))
+
 (mapc
  (lambda (package)
    (unless (package-installed-p package)
