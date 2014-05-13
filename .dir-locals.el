@@ -1,1 +1,1 @@
-((emacs-lisp-mode . ((flycheck-mode . nil))))
+((emacs-lisp-mode . ((flycheck-disabled-checkers . (emacs-lisp-checkdoc)))))

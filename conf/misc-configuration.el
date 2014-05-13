@@ -212,7 +212,7 @@
  '(safe-local-variable-values
    '(
      (dired-omit-mode . t)
-     (flycheck-mode . nil)
+     (flycheck-disabled-checkers . (emacs-lisp-checkdoc))
      (require-final-newline . t)
      (whitespace-line-column . 80)
      (whitespace-style face trailing lines-tail)
