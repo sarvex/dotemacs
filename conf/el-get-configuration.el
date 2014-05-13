@@ -23,7 +23,6 @@
      lua-mode
      magit
      markdown-mode
-     org-mode
      paredit
      php-mode
      po-mode
@@ -197,6 +196,9 @@
             :url "http://tools.go.googlecode.com/hg/cmd/oracle/oracle.el"
             :load-path "."
             :post-init nil)
+
+     (:name org-mode
+            :url "http://orgmode.org/org-mode.git")
 
      (:name projectur
             :type github
