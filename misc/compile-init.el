@@ -43,7 +43,7 @@
 (require 'ruby-mode)
 (require 'rust-mode)
 (require 'savehist)
-(require 'scala-mode)
+(require 'scala-mode2)
 (require 'sgml-mode)
 (require 'sh-script)
 (require 'speedbar)
