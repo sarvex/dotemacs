@@ -266,6 +266,7 @@ directory, with double prefix argument all files are available."
                   "\0")))
         relative-path
         absolute-path)
+    (unless files (error "No files to choose from"))
     (setq relative-path (ido-completing-read
                          "Open org file: "
                          (mapcar (lambda (abs) (file-relative-name abs org-directory)) files))
