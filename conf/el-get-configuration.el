@@ -11,6 +11,7 @@
      diminish
      dired+
      drag-stuff
+     ensime
      expand-region
      ghc-mod
      gist
