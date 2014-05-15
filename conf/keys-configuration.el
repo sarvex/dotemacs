@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (define-key global-map (kbd "C-c ;") 'comment-or-uncomment-current-line-or-region)
-(define-key global-map (kbd "C-c a") 'align-regexp)
+(define-key global-map (kbd "C-c a") 'align)
 (define-key global-map (kbd "C-c c") 'duplicate-line)
 (define-key global-map (kbd "C-c g") 'magit-status)
 (define-key global-map (kbd "C-c j") 'dired-jump)
