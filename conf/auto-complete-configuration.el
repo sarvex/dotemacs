@@ -7,7 +7,7 @@
  '(ac-menu-height 25)
  '(ac-quick-help-delay 0.8))
 
-(eval-after-load 'auto-complete
+(eval-after-load 'auto-complete-config
   (quote
    (progn
      (ac-config-default)
