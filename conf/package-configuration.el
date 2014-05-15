@@ -4,9 +4,13 @@
 
 (setq package-enable-at-startup nil)
 
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/")
-             'append)
+(mapc
+ (lambda (archive)
+   (add-to-list 'package-archives archive 'append))
+ '(
+   ("marmalade" . "http://marmalade-repo.org/packages/")
+   ("melpa" . "http://melpa.milkbox.net/packages/")
+   ))
 
 (package-initialize)
 
@@ -20,4 +24,7 @@
  '(
    rainbow-mode
    lexbind-mode
+   scala-mode2
+   ensime
+   auto-complete
    ))

@@ -11,7 +11,6 @@
      diminish
      dired+
      drag-stuff
-     ensime
      expand-region
      ghc-mod
      gist
@@ -33,7 +32,6 @@
      rhtml-mode
      s
      sass-mode
-     scala-mode2
      scratch
      slim-mode
      slime
@@ -90,9 +88,6 @@
                       (setq irfc-directory "~/doc/RFC"
                             irfc-assoc-mode t)
                       (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode))))
-
-     (:name auto-complete
-            :features auto-complete-config)
 
      (:name feature-mode
             :type github
