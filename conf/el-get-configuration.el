@@ -5,6 +5,7 @@
  '(el-get-sources
    '(el-get
 
+     auto-complete
      bookmark+
      cider
      clojure-mode
@@ -32,6 +33,7 @@
      rhtml-mode
      s
      sass-mode
+     scala-mode2
      scratch
      slim-mode
      slime
@@ -195,6 +197,15 @@
 
      (:name org-mode
             :url "http://orgmode.org/org-mode.git")
+
+     (:name ensime
+            :type http-tar
+            :options ("xzf")
+            :url "https://github.com/downloads/ensime/ensime-src/ensime_2.10.0-RC3-0.9.8.2.tar.gz"
+            :load-path "elisp"
+            :build nil
+            :compile nil
+            :post-init nil)
 
      (:name projectur
             :type github

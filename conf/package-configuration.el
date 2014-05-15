@@ -24,7 +24,4 @@
  '(
    rainbow-mode
    lexbind-mode
-   scala-mode2
-   ensime
-   auto-complete
    ))
