@@ -266,6 +266,8 @@
             (name . "^\\*Holidays\\*$")
             (name . "^\\*Image-Dired Edit Meta Data\\*$")
             (name . "^\\*Messages\\*$")
+            (name . "^\\*inferior-ensime-server\\*$")
+            (name . "^\\*ensime-events\\*$")
             (name . "^\\*Minibuf")
             (name . "^\\*Phases of Moon\\*$")
             (name . "^\\*Quail Completions\\*$")
