@@ -65,6 +65,10 @@
       (file ,(expand-file-name "todo.org" vderyagin/org-agenda-directory))
       "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
       :clock-resume t)
+     ("T" "todo with timestamp" entry
+      (file ,(expand-file-name "todo.org" vderyagin/org-agenda-directory))
+      "* TODO %?\n:PROPERTIES:\nSCHEDULED: %t\n:Captured_at: %U\n:END:"
+      :clock-resume t)
      ("r" "read" entry
       (file ,(expand-file-name "reading.org" vderyagin/org-agenda-directory))
       "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
