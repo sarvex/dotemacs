@@ -203,8 +203,11 @@
             :options ("xzf")
             :url "https://github.com/downloads/ensime/ensime-src/ensime_2.10.0-RC3-0.9.8.2.tar.gz"
             :load-path "elisp"
-            :build nil
-            :compile nil
+            :build `((,el-get-emacs "--quick" "--batch"
+                                    "--directory" "elisp"
+                                    "--load" "elisp/ensime.el"
+                                    "--eval" "(defun batch-force-byte-recompile-directory () (batch-byte-recompile-directory 0))"
+                                    "--funcall" "batch-force-byte-recompile-directory" "elisp"))
             :post-init nil)
 
      (:name projectur
