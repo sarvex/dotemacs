@@ -13,38 +13,6 @@
                       (rust-compile-command (rust-test-file-p buffer-file-name)))))
      (define-key rust-mode-map (kbd "C-c C-c") 'rust-compile-and-maybe-run))))
 
-(eval-after-load 'compile
-  (quote
-   (progn
-     (add-to-list 'compilation-error-regexp-alist 'rust-test)
-     (add-to-list 'compilation-error-regexp-alist-alist
-                  (list 'rust-test
-                        (rx line-start
-                            "\ttask '"
-                            (*? anything)
-                            "' failed at '"
-                            (*? anything)
-                            "', "
-                            (group (+ not-newline) ".rs") ; file name
-                            ":"
-                            (group (+ (char digit)))      ; line number
-                            line-end)
-                        1 2))
-
-     (add-to-list 'compilation-error-regexp-alist 'rust-build)
-     (add-to-list 'compilation-error-regexp-alist-alist
-                  (list 'rust-build
-                        (rx line-start
-                            (group (+ not-newline) ".rs") ; file name
-                            ":"
-                            (group (+ (char digit)))      ; line number
-                            ":"
-                            (group (+ (char digit)))      ; column number
-                            ": "
-                            (* not-newline)
-                            line-end)
-                        1 2 3)))))
-
 (defun rust-test-file-p (filename)
   (string-match-p
    (rx not-newline word-boundary "test.rs" string-end)

@@ -14,17 +14,3 @@
      (define-key haskell-mode-map (kbd "<f8>") 'haskell-navigate-imports)
 
      )))
-
-(eval-after-load 'compile
-  (quote
-   (progn
-     (add-to-list 'compilation-error-regexp-alist 'haskell-doctest)
-     (add-to-list 'compilation-error-regexp-alist-alist
-                  (list 'haskell-doctest
-                        (rx line-start
-                            "### Failure in "
-                            (group (+ not-newline) "." (optional "l") "hs") ; file name
-                            ":"
-                            (group (+ (char digit)))      ; line number
-                            ":")
-                        1 2)))))
