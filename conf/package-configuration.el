@@ -14,7 +14,7 @@
 
 (package-initialize)
 
-(unless (file-directory-p package-user-dir)
+(unless package-archive-contents
   (package-refresh-contents))
 
 (mapc
