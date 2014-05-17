@@ -209,14 +209,7 @@
  '(x-select-enable-clipboard t)
  '(x-select-enable-primary t)
 
- '(safe-local-variable-values
-   '(
-     (dired-omit-mode . t)
-     (flycheck-disabled-checkers . (emacs-lisp-checkdoc))
-     (require-final-newline . t)
-     (whitespace-line-column . 80)
-     (whitespace-style face trailing lines-tail)
-     ))
+ '(enable-local-variables :all)
 
  '(frame-title-format
    '("" (:eval (mapconcat
