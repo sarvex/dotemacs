@@ -2,7 +2,7 @@
 
 (setq
  debug-on-error t
- ;; byte-compile-error-on-warn t
+ byte-compile-error-on-warn t
  smex-save-file "~/.emacs.d/smex-items"
  )
 
@@ -20,10 +20,12 @@
 (load "conf/el-get-configuration")
 (load "conf/package-configuration")
 
+(require 'align)
 (require 'arc-mode)
 (require 'cc-mode)
 (require 'coffee-mode)
 (require 'compile)
+(require 'cua-base)
 (require 'cus-edit)
 (require 'em-dirs)
 (require 'em-term)
@@ -31,9 +33,11 @@
 (require 'ffap)
 (require 'gnus-topic)
 (require 'go-mode)
+(require 'go-oracle "oracle")
 (require 'ibuf-ext)
 (require 'ielm)
 (require 'image-mode)
+(require 'inferior-slime)
 (require 'info)
 (require 'markdown-mode)
 (require 'org-agenda)
@@ -46,6 +50,8 @@
 (require 'scala-mode2)
 (require 'sgml-mode)
 (require 'sh-script)
+(require 'slime-autoloads)
+(require 'slime-repl)
 (require 'speedbar)
 (require 'tar-mode)
 (require 'twittering-mode)
