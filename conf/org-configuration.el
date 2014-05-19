@@ -218,14 +218,7 @@
 
      (define-key org-mode-map (kbd "C-c C-x C-s") nil)
 
-
-     (define-key org-mode-map (kbd "C-x C-s")
-       (lambda ()
-         "Save current buffer and update all agenda views."
-         (interactive)
-         (save-excursion
-           (call-interactively 'save-buffer)
-           (vderyagin/org-update-agenda-views)))))))
+     )))
 
 
 (defun vderyagin/org-agenda-activate-appt ()
