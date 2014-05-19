@@ -88,7 +88,7 @@
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
- '("shell" (or
+ '("repl" (or
             (name . "^\\*Python\\*$")
             (name . "^\\*interpretation\\*$")
             (mode . inferior-ruby-mode)
@@ -102,6 +102,7 @@
             (mode . eshell-mode)
             (mode . slime-repl-mode)
             (mode . sldb-mode)
+            (mode . haskell-interactive-mode)
             (name . "^\\*slime")
             (name . "^\\*inferior-lisp\\*$")
             (mode . nrepl-mode))))
@@ -213,6 +214,7 @@
             (mode . gnus-custom-mode)
             (mode . grep-mode)
             (mode . gud-mode)
+            (mode . haskell-error-mode)
             (mode . locate-mode)
             (mode . magit-branch-manager-mode)
             (mode . magit-commit-mode)
@@ -283,6 +285,7 @@
             (name . "^\\*nnimap ")
             (name . "^\\*nrepl-connection\\*$")
             (name . "^\\*swank\\*$")
+            (name . "^\\*haskell-process-log\\*$")
             (name . "^\\*tramp/")
             (name . "^\\*twmode")
             (name . "^ido-history$")
