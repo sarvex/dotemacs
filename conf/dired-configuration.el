@@ -1,5 +1,23 @@
 ;;; -*- lexical-binding: t -*-
 
+(custom-set-variables
+ '(directory-free-space-args "-Pkh")
+ '(dired-auto-revert-buffer t)
+ '(dired-dwim-target nil)
+ '(dired-isearch-filenames nil)
+ '(dired-keep-marker-copy nil)
+ '(dired-keep-marker-hardlink nil)
+ '(dired-keep-marker-rename nil)
+ '(dired-keep-marker-symlink nil)
+ '(dired-listing-switches "-lhAF --group-directories-first")
+ '(dired-ls-F-marks-symlinks t)
+ '(dired-omit-files (rx line-start (or "." "#")))
+ '(dired-omit-extensions nil)
+ '(wdired-allow-to-change-permissions 'advanced)
+ '(wdired-allow-to-redirect-links t)
+ )
+
+
 (require 'dired)
 (require 'dired-x)
 (require 'dired+)
@@ -31,7 +49,6 @@
 (define-key dired-mode-map (kbd "M-=") nil)
 (define-key dired-mode-map (kbd "M-b") 'backward-word)
 (define-key dired-mode-map (kbd "<tab>") 'dired-hide-subdir)
-(define-key dired-mode-map (kbd "q") (lambda () (interactive) (kill-buffer-ask (current-buffer))))
 
 (add-hook 'dired-mode-hook (lambda () (setq truncate-lines t)))
 
@@ -88,18 +105,3 @@
                             collect (cons dir buffer))))
              (cdr (assoc (ido-completing-read "Dired buffer: " (mapcar 'car map)) map)))))
       (dired (expand-file-name "~")))))
-
-
-(custom-set-variables
- '(dired-omit-files (rx line-start (or "." "#")))
- '(directory-free-space-args "-Pkh")
- '(dired-dwim-target nil)
- '(dired-isearch-filenames nil)
- '(dired-keep-marker-copy nil)
- '(dired-keep-marker-hardlink nil)
- '(dired-keep-marker-rename nil)
- '(dired-keep-marker-symlink nil)
- '(dired-listing-switches "-lhAF --group-directories-first")
- '(dired-ls-F-marks-symlinks t)
- '(wdired-allow-to-change-permissions 'advanced)
- '(wdired-allow-to-redirect-links t))
