@@ -33,6 +33,9 @@
 
      (define-key haskell-mode-map (kbd "<f8>") 'haskell-navigate-imports)
 
+     (define-key haskell-mode-map (kbd "C-,") 'haskell-move-nested-left)
+     (define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)
+
      )))
 
 
