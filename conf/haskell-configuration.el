@@ -2,6 +2,7 @@
 
 (custom-set-variables
  '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-suggest-hoogle-imports t)
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-type 'cabal-repl)
