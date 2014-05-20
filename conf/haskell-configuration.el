@@ -5,6 +5,7 @@
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-type cabal-repl)
+ '(haskell-tags-on-save t)
  )
 
 (eval-after-load 'haskell-mode
@@ -27,6 +28,8 @@
      (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
      (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
      (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
+
+     (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
 
      (define-key haskell-mode-map (kbd "<f8>") 'haskell-navigate-imports)
 
