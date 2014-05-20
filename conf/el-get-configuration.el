@@ -210,7 +210,7 @@
             :post-init nil)
 
      (:name structured-haskell-mode
-             :build (("make" "--directory=elisp")))
+            :build (("make" "--directory=elisp")))
 
      (:name projectur
             :type github
