@@ -27,6 +27,7 @@
      paredit
      php-mode
      po-mode
+     popup
      rcodetools
      rdebug
      redshank
