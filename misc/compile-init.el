@@ -44,6 +44,7 @@
 (require 'org-capture)
 (require 'org-crypt)
 (require 'paredit)
+(require 'popup)
 (require 'ruby-mode)
 (require 'rust-mode)
 (require 'savehist)
