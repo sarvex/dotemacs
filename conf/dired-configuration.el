@@ -50,6 +50,9 @@
 (define-key dired-mode-map (kbd "M-b") 'backward-word)
 (define-key dired-mode-map (kbd "<tab>") 'dired-hide-subdir)
 
+(define-key dired-mode-map "q"
+  (lambda (&optional dont-kill) (interactive "P") (quit-window (not dont-kill))))
+
 (add-hook 'dired-mode-hook (lambda () (setq truncate-lines t)))
 
 
