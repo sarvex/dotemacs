@@ -34,6 +34,7 @@
 (require 'gnus-topic)
 (require 'go-mode)
 (require 'go-oracle "oracle")
+(require 'haskell-cabal)
 (require 'ibuf-ext)
 (require 'ielm)
 (require 'image-mode)
