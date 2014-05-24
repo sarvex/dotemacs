@@ -45,7 +45,7 @@
   (custom-set-variables
    `(openwith-associations
      (list
-      (list (rx ".pdf" string-end) "mupdf -r 96" '(file))
+      (list (rx ".pdf" string-end) "mupdf" '(file))
       (list (rx ".chm" string-end) "kchmviewer" '(file))
       (list (rx ".dvd.iso" string-end) "vlc" '(file))
       (list (rx ".gif" string-end) "animate" '(file))
@@ -53,7 +53,6 @@
       (list ,audio-files "vlc" '(file))
       (list ,comic-book-files "qcomicbook" '(file))
       (list ,document-files "qpdfview --unique" '(file))
-      (list ,ebook-files "fbreader" '(file))
       (list ,image-files "feh" '(file))
       (list ,office-files "libreoffice" '(file))
       (list ,video-files "mpv" '(file))))
@@ -63,10 +62,9 @@
       (list (rx ".htm" (optional "l") string-end) "firefox")
       (list (rx ".gif" string-end) '(list "animate" "feh" "firefox"))
       (list (rx ".torrent" string-end) '(list "torrentinfo" "gtorrentviewer"))
-      (list ,document-files '(list "mupdf -r 96" "qpdfview --unique"))
+      (list ,document-files '(list "mupdf" "qpdfview --unique"))
       (list ,archive-files '(list "aunpack" "aunpack -e *" "mcomix" "qcomicbook"))
       (list ,audio-files "vlc")
       (list ,comic-book-files '(list "mcomix" "qcomicbook" "aunpack"))
-      (list ,document-files "evince")
       (list ,image-files "feh *")
-      (list ,video-files "mpv -vf sub=100")))))
+      (list ,video-files '(list "mpv *" "mpv -vf sub=100"))))))
