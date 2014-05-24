@@ -2,7 +2,6 @@
 
 (let ((document-files (rx not-newline "." (or "djvu" "pdf" "ps") string-end))
       (comic-book-files (rx ".cb" (char "abgrz") string-end))
-      (ebook-files (rx not-newline "." (or (and "fb2" (optional ".zip")) "epub" "mobi") string-end))
       (image-files (rx not-newline "." (or (and "jp" (optional "e") "g") (and "tif" (optional "f")) "bmp" "ico" "png") string-end))
       (audio-files (rx not-newline "." (or (and "m" (char "k4") "a") "mp3" "ogg" "flac" "wma" "ac3" "aac" "ape") string-end))
       (office-files (rx not-newline "." (or (and (or "doc" "xls" "vsd" "pps") (optional "x")) (and "od" (char "ts")) "rtf") string-end))
