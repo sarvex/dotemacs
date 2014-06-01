@@ -9,14 +9,17 @@
 (sp-with-modes '(magit-log-edit-mode)
   (sp-local-pair "`" "'"))
 
-(sp-with-modes '(clojure-mode
+(sp-with-modes '(
+                 cider-repl-mode
+                 clojure-mode
                  common-lisp-mode
                  emacs-lisp-mode
                  inferior-emacs-lisp-mode
                  lisp-interaction-mode
                  lisp-mode
                  scheme-mode
-                 slime-repl-mode)
+                 slime-repl-mode
+                 )
   ;; paredit handles those
   (sp-local-pair "(" nil :actions nil)
   (sp-local-pair "[" nil :actions nil)
@@ -40,14 +43,17 @@
 (mapc
  (lambda (hooks)
    (add-hook hooks 'enable-paredit-mode))
- '(emacs-lisp-mode-hook
+ '(
+   cider-repl-mode-hook
    clojure-mode-hook
-   scheme-mode-hook
+   emacs-lisp-mode-hook
+   ielm-mode-hook
    inferior-scheme-mode-hook
-   lisp-mode-hook
    lisp-interaction-mode-hook
+   lisp-mode-hook
+   scheme-mode-hook
    slime-repl-mode-hook
-   ielm-mode-hook))
+   ))
 
 (defun goto-match-paren ()
   "Go to the matching paren if on a paren."
