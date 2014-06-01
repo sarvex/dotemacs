@@ -21,6 +21,7 @@
 (load "conf/bookmark-configuration")
 (load "conf/cc-mode-configuration")
 (load "conf/cedet-configuration")
+(load "conf/clojure-configuration")
 (load "conf/compilation-configuration")
 (load "conf/cursor-configuration")
 (load "conf/diminish-configuration")
