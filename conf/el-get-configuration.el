@@ -213,6 +213,9 @@
      (:name structured-haskell-mode
             :build (("make" "--directory=elisp")))
 
+     (:name ac-nrepl
+            :features nil)
+
      (:name projectur
             :type github
             :pkgname "vderyagin/projectur"))))
