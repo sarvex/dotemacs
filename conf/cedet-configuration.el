@@ -26,7 +26,7 @@
     (mapc
      (lambda (ext)
        (speedbar-add-supported-extension ext))
-     '(".rb" ".z?sh" ".go" ".hs"))
+     '(".rb" ".z?sh" ".go" ".hs" ".clj"))
 
     (define-key speedbar-mode-map (kbd ";") 'speedbar-up-directory)
     (define-key speedbar-mode-map (kbd "f") 'speedbar-edit-line)))
