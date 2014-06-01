@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (eval-after-load 'align
   (quote
    (progn

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (define-key global-map (kbd "M-:") 'eval-expr)
 
 (eval-after-load 'eval-expr
