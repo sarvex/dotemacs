@@ -2,7 +2,6 @@
 
 (custom-set-variables
  '(which-func-modes t)
- '(speedbar-directory-unshown-regexp (rx (or (or "CVS" "RCS" "SCSS" "_darcs") (and "." (or "git" "hg" "svn" "bzr"))) string-end))
  '(speedbar-hide-button-brackets-flag nil)
  '(speedbar-indentation-width 2)
  '(speedbar-show-unknown-files t)
@@ -19,7 +18,13 @@
                                (tool-bar-lines . 0)
                                (unsplittable . t)
                                (left-fringe . 0)
-                               (right-fringe . 0))))
+                               (right-fringe . 0)))
+ '(speedbar-directory-unshown-regexp
+   (rx (or (or "CVS" "RCS" "SCSS" "_darcs")
+           (and "." (or "git" "hg" "svn" "bzr"
+                        "nrepl-port" "lein-failures")))
+       string-end))
+ )
 
 (eval-after-load 'speedbar
   '(progn
