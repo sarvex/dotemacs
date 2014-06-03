@@ -2,7 +2,6 @@
 
 (custom-set-variables
  '(cider-auto-select-error-buffer t)
- '(cider-repl-pop-to-buffer-on-connect nil)
  '(cider-repl-tab-command 'indent-for-tab-command)
  '(cider-repl-use-clojure-font-lock t)
  )
