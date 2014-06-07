@@ -26,7 +26,7 @@
 
   (if (eq new-input-method 'default-method)
       (deactivate-input-method)
-      (set-input-method new-input-method))
+    (set-input-method new-input-method))
 
   (setq isearch-input-method-function input-method-function
         isearch-input-method-local-p t

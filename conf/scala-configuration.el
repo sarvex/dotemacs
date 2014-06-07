@@ -5,7 +5,7 @@
 
 (eval-after-load 'scala-mode2
   '(progn
-    (require 'ensime)
-    (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+     (require 'ensime)
+     (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-    (define-key scala-mode-map (kbd "C-<tab>") nil)))
+     (define-key scala-mode-map (kbd "C-<tab>") nil)))

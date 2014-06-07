@@ -7,9 +7,9 @@
 
  '(gnus-secondary-select-methods
    '((nnimap "gmail"
-      (nnimap-address "imap.gmail.com")
-      (nnimap-server-port 993)
-      (nnimap-stream ssl))))
+             (nnimap-address "imap.gmail.com")
+             (nnimap-server-port 993)
+             (nnimap-stream ssl))))
 
  '(mail-sources
    `((pop
@@ -110,10 +110,10 @@
                                (message-narrow-to-headers)
                                (message-fetch-field "from")))
                        (account (cond
-                                  ((string-match "gmail.com" from)
-                                   "gmail")
-                                  ((string-match "poshta.te.ua" from)
-                                   "poshta.te.ua"))))
+                                 ((string-match "gmail.com" from)
+                                  "gmail")
+                                 ((string-match "poshta.te.ua" from)
+                                  "poshta.te.ua"))))
                   (setq message-sendmail-extra-arguments
                         (list "-a" account)))))))
 
@@ -136,7 +136,7 @@
   (let ((time (gnus-group-timestamp gnus-tmp-group)))
     (if time
         (format-time-string "%b %d %Y, %H:%M" time)
-        "")))
+      "")))
 
 (defadvice save-some-buffers (before save-gnus-newsrc-file activate)
   "Unconditionally save gnus newsrc file."

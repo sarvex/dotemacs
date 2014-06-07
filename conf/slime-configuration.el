@@ -7,13 +7,13 @@
 
 (eval-after-load 'slime
   '(progn
-    (require 'paredit)
-    (slime-setup '(slime-fancy))
+     (require 'paredit)
+     (slime-setup '(slime-fancy))
 
-    (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+     (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 
-    ;; Stop SLIME's REPL from grabbing DEL, which is annoying when backspacing over a '('
-    (define-key slime-repl-mode-map (read-kbd-macro paredit-backward-delete-key) nil)))
+     ;; Stop SLIME's REPL from grabbing DEL, which is annoying when backspacing over a '('
+     (define-key slime-repl-mode-map (read-kbd-macro paredit-backward-delete-key) nil)))
 
 (custom-set-variables
  '(slime-autodoc-use-multiline-p t)
