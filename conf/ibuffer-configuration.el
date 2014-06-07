@@ -2,16 +2,16 @@
 
 (custom-set-variables
  '(ibuffer-deletion-face 'diredp-deletion-file-name)
-  '(ibuffer-marked-face 'diredp-flag-mark)
-  '(ibuffer-show-empty-filter-groups nil)
+ '(ibuffer-marked-face 'diredp-flag-mark)
+ '(ibuffer-show-empty-filter-groups nil)
 
-  '(ibuffer-formats
-    '((mark modified read-only
-       " " (name 40 40 :left :elide)
-       " " (size-h 9 -1 :right)
-       " " (mode 14 14 :left :elide)
-       " " filename-and-process)
-      (mark " " (name 23 -1) " " filename))))
+ '(ibuffer-formats
+   '((mark modified read-only
+           " " (name 40 40 :left :elide)
+           " " (size-h 9 -1 :right)
+           " " (mode 14 14 :left :elide)
+           " " filename-and-process)
+     (mark " " (name 23 -1) " " filename))))
 
 (eval-after-load 'ibuffer
   (quote
@@ -19,11 +19,11 @@
 
      ;; Use human readable Size column instead of original one
      (define-ibuffer-column size-h
-         (:name "Size" :inline t)
+       (:name "Size" :inline t)
        (cond
-         ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
-         ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
-         (t (format "%8d" (buffer-size)))))
+        ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
+        ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
+        (t (format "%8d" (buffer-size)))))
 
      (add-hook 'ibuffer-mode-hook
                (lambda ()
@@ -50,37 +50,29 @@
 (add-to-list
  'vderyagin/ibuffer-filter-groups
  '("dired" (or
+            (mode . dired-mode)
             (mode . tree-mode)
             (mode . wdired-mode)
-            (mode . dired-mode))))
+            )))
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
  '("docs" (or
-           (mode . help-mode)
            (mode . Info-mode)
-           (mode . irfc-mode)
-           (mode . yari-mode)
            (mode . Man-mode)
+           (mode . help-mode)
+           (mode . irfc-mode)
            (mode . woman-mode)
-           (name . "^\\*godoc "))))
+           (mode . yari-mode)
+           (name . "^\\*godoc ")
+           )))
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
  `("org" (or
+          (filename . ,(expand-file-name "~/org/"))
           (mode . org-agenda-mode)
-          (filename . ,(expand-file-name "~/org/")))))
-
-(add-to-list
- 'vderyagin/ibuffer-filter-groups
- '("w3m" (mode . w3m-mode)))
-
-(add-to-list
- 'vderyagin/ibuffer-filter-groups
- '("jabber" (or
-             (name . "^\\*fsm-debug\\*$")
-             (mode . jabber-chat-mode)
-             (mode . jabber-roster-mode))))
+          )))
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
@@ -107,9 +99,9 @@
 (let ((code-dir "~/code"))
   (cl-flet ((dirs-in (dir)
                      (when (file-directory-p dir)
-                           (directory-files (expand-file-name dir)
-                                            'full-paths
-                                            (rx string-start (not (any ".")))))))
+                       (directory-files (expand-file-name dir)
+                                        'full-paths
+                                        (rx string-start (not (any ".")))))))
     (mapc
      (lambda (dir)
        (mapc
@@ -135,14 +127,15 @@
             (mode . snake-mode)
             (mode . solitaire-mode)
             (mode . tetris-mode)
-            (name . "^\\*butterfly\\*$")
             (name . "^\\*Hanoi\\*$")
             (name . "^\\*Pong\\*$")
-            (name . "^\\*fortune\\*$")
             (name . "^\\*The Typing Of Emacs\\*$")
+            (name . "^\\*butterfly\\*$")
+            (name . "^\\*fortune\\*$")
             (name . "^bubbles-default-2-10-10-scores$")
             (name . "^snake-scores$")
-            (name . "^tetris-scores$"))))
+            (name . "^tetris-scores$")
+            )))
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
@@ -156,20 +149,22 @@
            (mode . gnus-sticky-article-mode)
            (mode . gnus-summary-mode)
            (mode . gnus-tree-mode)
+           (mode . mail-mode)
            (mode . message-mode)
            (mode . rmail-mode)
-           (mode . mail-mode))))
+           )))
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
  '("misc" (or
-           (mode . twittering-mode)
-           (mode . twittering-edit-mode)
-           (mode . thumbs-mode)
-           (mode . thumbs-view-image-mode)
            (mode . image-dired-display-image-mode)
            (mode . image-dired-thumbnail-mode)
-           (mode . image-mode))))
+           (mode . image-mode)
+           (mode . thumbs-mode)
+           (mode . thumbs-view-image-mode)
+           (mode . twittering-edit-mode)
+           (mode . twittering-mode)
+           )))
 
 (add-to-list
  'vderyagin/ibuffer-filter-groups
