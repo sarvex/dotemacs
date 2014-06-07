@@ -19,7 +19,6 @@
 (load "conf/align-configuration")
 (load "conf/auto-complete-configuration")
 (load "conf/bookmark-configuration")
-(load "conf/cc-mode-configuration")
 (load "conf/cedet-configuration")
 (load "conf/clojure-configuration")
 (load "conf/compilation-configuration")

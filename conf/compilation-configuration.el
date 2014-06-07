@@ -1,8 +1,25 @@
 ;;; -*- lexical-binding: t -*-
 
+(custom-set-variables
+ '(compilation-ask-about-save nil)
+ '(compilation-auto-jump-to-first-error nil)
+ '(compilation-disable-input t)
+ '(compilation-read-command nil)
+ '(compilation-window-height 20)
+ '(compilation-scroll-output 'first-error)
+ )
+
+(add-hook 'compilation-mode-hook (lambda () (setq truncate-lines t)))
+(add-hook 'compilation-filter-hook
+          (defun colorize-compilation-buffer ()
+            (let ((inhibit-read-only t))
+              (ansi-color-apply-on-region (point-min) (point-max)))))
+
 (eval-after-load 'compile
   (quote
    (progn
+
+     (define-key compilation-mode-map (kbd "f") 'ffap)
 
      (add-to-list 'compilation-error-regexp-alist 'haskell-doctest)
      (add-to-list 'compilation-error-regexp-alist-alist

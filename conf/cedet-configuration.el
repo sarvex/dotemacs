@@ -28,13 +28,13 @@
 
 (eval-after-load 'speedbar
   '(progn
-    (mapc
-     (lambda (ext)
-       (speedbar-add-supported-extension ext))
-     '(".rb" ".z?sh" ".go" ".hs" ".clj"))
+     (mapc
+      (lambda (ext)
+        (speedbar-add-supported-extension ext))
+      '(".rb" ".z?sh" ".go" ".hs" ".clj"))
 
-    (define-key speedbar-mode-map (kbd ";") 'speedbar-up-directory)
-    (define-key speedbar-mode-map (kbd "f") 'speedbar-edit-line)))
+     (define-key speedbar-mode-map (kbd ";") 'speedbar-up-directory)
+     (define-key speedbar-mode-map (kbd "f") 'speedbar-edit-line)))
 
 (semantic-mode)
 (which-function-mode)

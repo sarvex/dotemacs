@@ -62,15 +62,6 @@
          (interactive)
          (kill-buffer-ask (current-buffer))))))
 
-(add-hook 'compilation-mode-hook (lambda () (setq truncate-lines t)))
-(add-hook 'compilation-filter-hook
-          (defun colorize-compilation-buffer ()
-            (let ((inhibit-read-only t))
-              (ansi-color-apply-on-region (point-min) (point-max)))))
-
-(eval-after-load 'compile
-  '(define-key compilation-mode-map (kbd "f") 'ffap))
-
 (eval-after-load 'help-mode
   '(progn
      (define-key help-mode-map (kbd "M-p") 'help-go-back)
@@ -164,13 +155,6 @@
      ("Europe/Moscow" "Moscow")
      ("Asia/Shanghai" "Shanghai")
      ("Asia/Tokyo" "Tokyo")))
-
- '(compilation-ask-about-save nil)
- '(compilation-auto-jump-to-first-error nil)
- '(compilation-disable-input t)
- '(compilation-read-command nil)
- '(compilation-window-height 20)
- '(compilation-scroll-output 'first-error)
 
  '(async-shell-command-buffer 'new-buffer)
  '(auto-mode-case-fold t)
