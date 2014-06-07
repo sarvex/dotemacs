@@ -29,7 +29,6 @@
      po-mode
      popup
      rcodetools
-     rdebug
      redshank
      rhtml-mode
      s
