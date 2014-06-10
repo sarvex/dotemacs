@@ -62,7 +62,7 @@
       (list (rx ".gif" string-end) '(list "animate" "feh" "firefox"))
       (list (rx ".torrent" string-end) '(list "torrentinfo" "gtorrentviewer"))
       (list ,document-files '(list "mupdf" "qpdfview --unique"))
-      (list ,archive-files '(list "aunpack" "aunpack -e *" "mcomix" "qcomicbook"))
+      (list ,archive-files '(list "aunpack -e *" "mcomix" "qcomicbook"))
       (list ,audio-files "vlc")
       (list ,comic-book-files '(list "mcomix" "qcomicbook" "aunpack"))
       (list ,image-files "feh *")
