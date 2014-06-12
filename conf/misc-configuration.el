@@ -207,7 +207,7 @@
  '(display-buffer-alist
    (list
     (cons
-     (rx string-start "*Async Shell Command*" string-end)
+     (rx string-start "*Async Shell Command")
      '(display-buffer-no-window))))
 
  '(gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration")
