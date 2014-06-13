@@ -66,4 +66,6 @@
       (list ,audio-files "vlc")
       (list ,comic-book-files '(list "mcomix" "qcomicbook" "aunpack"))
       (list ,image-files "feh *")
-      (list ,video-files '(list "mpv *" "mpv -vf sub=100"))))))
+      (list ,video-files '(list "mpv *" "mpv -vf sub=100"))
+      (list "" '(list "feh"))
+      ))))
