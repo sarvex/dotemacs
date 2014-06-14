@@ -44,13 +44,17 @@
      yaml-mode
 
      (:name erc-highlight-nicknames :lazy t)
-     (:name iedit :lazy t)
      (:name io-mode :lazy t)
      (:name quack :lazy t)
      (:name rust-mode :lazy t)
      (:name scss-mode :lazy t)
      (:name twittering-mode :lazy t)
      (:name yari :lazy t)
+
+     (:name iedit
+            :type github
+            :pkgname "victorhge/iedit"
+            :lazy t)
 
      (:name coffee-mode
             :lazy t
