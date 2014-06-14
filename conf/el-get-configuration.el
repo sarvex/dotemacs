@@ -232,8 +232,8 @@
 
 (el-get 'sync
         (cl-remove-if
-         (lambda (source) (member (el-get-source-name source) '("el-get" "es-windows")))
-         el-get-sources))
+         (lambda (name) (member name '("el-get" "es-windows")))
+         (mapcar 'el-get-source-name el-get-sources)))
 
 (load (file-name-sans-extension el-get-autoload-file) 'noerror)
 
