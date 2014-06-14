@@ -54,6 +54,7 @@
      (:name iedit
             :type github
             :pkgname "victorhge/iedit"
+            :features (iedit iedit-rect)
             :lazy t)
 
      (:name coffee-mode
