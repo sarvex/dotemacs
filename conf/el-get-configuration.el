@@ -246,3 +246,13 @@
     (delete-file f)
     (el-get)
     (byte-compile-file f)))
+
+(defun el-get-update-most ()
+  "Update most el-get-packages (except those not in need of update)"
+  (interactive)
+  (let ((el-get-default-process-sync t)
+        (el-get-elpa-do-refresh 'once)
+        (packages (cl-remove-if
+                   (lambda (pkg) (member pkg '("ensime" "erc-highlight-nicknames")))
+                   (el-get-list-package-names-with-status "installed"))))
+    (mapc 'el-get-update packages)))
