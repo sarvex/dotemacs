@@ -231,12 +231,9 @@
     (eval-print-last-sexp)))
 
 (el-get 'sync
-        (delq nil
-              (mapcar (lambda (source)
-                        (let ((name (el-get-source-name source)))
-                          (unless (member name '("el-get" "es-windows"))
-                            name)))
-                      el-get-sources)))
+        (cl-remove-if
+         (lambda (source) (member (el-get-source-name source) '("el-get" "es-windows")))
+         el-get-sources))
 
 (load (file-name-sans-extension el-get-autoload-file) 'noerror)
 
