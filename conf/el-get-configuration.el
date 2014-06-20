@@ -220,6 +220,11 @@
      (:name ac-nrepl
             :features nil)
 
+     (:name rspec-simple
+            :type github
+            :pkgname "code-mancers/rspec-simple"
+            :features nil)
+
      (:name projectur
             :type github
             :pkgname "vderyagin/projectur"))))

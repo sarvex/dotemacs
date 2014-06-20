@@ -29,6 +29,7 @@
    magit-log-mode-hook
    magit-status-mode-hook
    org-agenda-mode-hook
+   rspec-outline-mode-hook
    ruby-mode-hook
    rust-mode-hook
    scheme-mode-hook
