@@ -15,11 +15,11 @@
 
      (define-key ruby-mode-map (kbd "C-c C-c") 'xmp)
 
-     (define-key rspec-outline-mode-map (kbd "p") 'previous-line)
-     (define-key rspec-outline-mode-map (kbd "n") 'next-line)
-     (define-key rspec-outline-mode-map (kbd "<space>") 'next-line)
-     (define-key rspec-outline-mode-map (kbd "r") 'isearch-backward)
-     (define-key rspec-outline-mode-map (kbd "s") 'isearch-forward)
+     (define-key *rspec-outline-mode-map* (kbd "p") 'previous-line)
+     (define-key *rspec-outline-mode-map* (kbd "n") 'next-line)
+     (define-key *rspec-outline-mode-map* (kbd "<space>") 'next-line)
+     (define-key *rspec-outline-mode-map* (kbd "r") 'isearch-backward)
+     (define-key *rspec-outline-mode-map* (kbd "s") 'isearch-forward)
 
      (add-hook 'ruby-mode-hook 'yas-minor-mode-on)
      (add-hook 'ruby-mode-hook (lambda () (setq comment-column 42)))
