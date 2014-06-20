@@ -99,16 +99,20 @@
 (let ((code-dir "~/code"))
   (cl-flet ((dirs-in (dir)
                      (when (file-directory-p dir)
-                       (directory-files (expand-file-name dir)
-                                        'full-paths
-                                        (rx string-start (not (any ".")))))))
+                       (cl-remove-if-not
+                        #'file-directory-p
+                        (directory-files (expand-file-name dir)
+                                         'full-paths
+                                         (rx string-start (not (any "."))))))))
     (mapc
      (lambda (dir)
        (mapc
         (lambda (project)
           (add-to-list 'vderyagin/ibuffer-filter-groups
-                       (list (abbreviate-file-name project)
-                             (cons 'filename project))))
+                       `(,(abbreviate-file-name project)
+                          (or
+                           (predicate . (string-prefix-p ,(expand-file-name project) (expand-file-name default-directory)))
+                           (filename . ,project)))))
         (dirs-in dir)))
      (dirs-in code-dir))))
 

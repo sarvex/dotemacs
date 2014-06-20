@@ -28,8 +28,10 @@
 (mapc
  (lambda (mode)
    (add-to-list 'sp-ignore-modes-list mode))
- '(twittering-mode
-   term-mode))
+ '(
+   twittering-mode
+   term-mode
+   ))
 
 (defadvice wdired-finish-edit (before dired-turn-smartparens-mode-off activate)
   "Turn off `smartparens-mode' when switching from `wdired-mode' to `dired-mode'."
