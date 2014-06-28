@@ -70,7 +70,7 @@
 
      (:name inf-ruby
             :type http
-            :url "https://raw.github.com/ruby/ruby/trunk/misc/inf-ruby.el"
+            :url "https://raw.githubusercontent.com/ruby/ruby/trunk/misc/inf-ruby.el"
             :features nil)
 
      (:name handlebars-mode
@@ -123,7 +123,7 @@
 
      (:name go-autocomplete
             :type http
-            :url "https://raw.github.com/nsf/gocode/master/emacs/go-autocomplete.el")
+            :url "https://raw.githubusercontent.com/nsf/gocode/master/emacs/go-autocomplete.el")
 
      (:name go-eldoc
             :type github
@@ -232,7 +232,7 @@
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
