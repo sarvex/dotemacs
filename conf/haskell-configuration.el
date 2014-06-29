@@ -9,6 +9,12 @@
  '(haskell-tags-on-save t)
  )
 
+(eval-after-load 'flycheck
+  (quote
+   (progn
+     (require 'flycheck-hdevtools)
+     (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))))
+
 (eval-after-load 'haskell-mode
   (quote
    (progn

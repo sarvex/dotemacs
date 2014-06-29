@@ -225,6 +225,14 @@
             :pkgname "code-mancers/rspec-simple"
             :features nil)
 
+     (:name flycheck-hdevtools
+            :features nil)
+
+     (:name flycheck-haskell
+            :type github
+            :pkgname "flycheck/flycheck-haskell"
+            :features nil)
+
      (:name projectur
             :type github
             :pkgname "vderyagin/projectur"))))
