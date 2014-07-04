@@ -32,7 +32,6 @@
      redshank
      rhtml-mode
      s
-     sass-mode
      scala-mode2
      scratch
      slim-mode
@@ -232,6 +231,8 @@
             :type github
             :pkgname "flycheck/flycheck-haskell"
             :features nil)
+     (:name sass-mode
+            :post-init nil)
 
      (:name projectur
             :type github

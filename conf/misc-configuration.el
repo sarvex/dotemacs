@@ -15,6 +15,7 @@
 (global-subword-mode)
 (icomplete-mode)
 (minibuffer-electric-default-mode)
+(electric-indent-mode)
 (winner-mode)
 
 ;; off
