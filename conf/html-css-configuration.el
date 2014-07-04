@@ -13,11 +13,6 @@
 
 (add-hook 'css-mode-hook 'emmet-mode)
 
-
-(add-hook 'scss-mode-hook
-          (lambda ()
-            (electric-indent-local-mode -1)))
-
 (mapc
  (lambda (hooks)
    (add-hook hooks 'rainbow-mode))
