@@ -8,9 +8,9 @@
       twittering-timer-interval 150
       twittering-use-master-password t
       twittering-status-format (concat
-                                "%i %FACE[vderyagin-twittering-username-face]{%s} (%S), %@:\n"
-                                "%FILL[ ]{%T}\n"
-                                "%FILL[  ]{%FACE[vderyagin-twittering-metainfo-face]{from %f%L%r%R}}"))
+                                "%i%RT{%i} %FACE[vderyagin-twittering-username-face]{%s} (%S), %@\n"
+                                "%T\n"
+                                "%FACE[vderyagin-twittering-metainfo-face]{from %f%L%r%R}"))
 
 (eval-after-load 'twittering-mode
   '(progn
