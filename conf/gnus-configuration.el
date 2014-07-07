@@ -11,12 +11,6 @@
              (nnimap-server-port 993)
              (nnimap-stream ssl))))
 
- '(mail-sources
-   `((pop
-      :server "mail.poshta.te.ua"
-      :user ,vderyagin/poshta.te.ua-username
-      :password ,vderyagin/poshta.te.ua-password)))
-
  '(gnus-always-read-dribble-file t)
  '(gnus-extract-address-components 'mail-extract-address-components)
  '(gnus-buttonized-mime-types '("multipart/alternative"
