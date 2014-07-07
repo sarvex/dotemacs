@@ -25,11 +25,8 @@
      (add-hook 'twittering-mode-hook 'turn-on-visual-line-mode)
      (add-hook 'twittering-edit-mode-hook 'turn-on-visual-line-mode)
 
-     (define-key twittering-mode-map (kbd "<tab>")
-       (lambda (&optional arg)
-         (interactive "P")
-         (twittering-goto-next-thing (not arg))))
-
+     (define-key twittering-mode-map (kbd "<backtab>") 'twittering-goto-previous-uri)
+     (define-key twittering-mode-map (kbd "<tab>") 'twittering-goto-next-uri)
      (define-key twittering-mode-map (kbd "RET") 'twittering-click)))
 
 
