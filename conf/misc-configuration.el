@@ -182,6 +182,7 @@
  '(mouse-highlight nil)
  '(next-line-add-newlines nil)
  '(nobreak-char-display nil)
+ '(out-of-memory-warning-percentage nil)
  '(query-replace-highlight t)
  '(reb-re-syntax 'rx)
  '(require-final-newline t)
