@@ -41,25 +41,32 @@
  (lambda (sym)
    (add-to-list 'desktop-globals-to-save sym))
  '(
+   dired-shell-command-history
    extended-command-history
    kmacro-ring
    projectur-history
    read-expression-history
+   shell-command-history
    ))
 
 (mapc
  (lambda (sym)
    (setq desktop-globals-to-save (delq sym desktop-globals-to-save)))
  '(
-   search-ring
+   file-name-history
    regexp-search-ring
+   search-ring
    ))
 
 (add-hook 'desktop-save-hook
           (lambda ()
-            "Remove duplicates in saved variables."
+            "Remove duplicates and item starting with space in saved variables."
             (mapc
              (lambda (var)
-               (when (boundp var)
-                 (setq var (delete-dups (symbol-value var)))))
+               (when (and (boundp var) (listp (symbol-value var)))
+                 (set var (delete-dups
+                           (cl-remove-if
+                            (lambda (elem)
+                              (and (stringp elem) (string-prefix-p " " elem)))
+                            (symbol-value var))))))
              desktop-globals-to-save)))
