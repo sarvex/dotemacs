@@ -206,12 +206,6 @@
                       (buffer-name))))
                 (window-list) " | "))))
 
- '(display-buffer-alist
-   (list
-    (cons
-     (rx string-start "*Async Shell Command")
-     '(display-buffer-no-window))))
-
  '(gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration")
  '(custom-file "~/.emacs.d/custom.el")
  '(snake-score-file "~/.emacs.d/games/snake-scores")
