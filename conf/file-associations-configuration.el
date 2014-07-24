@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (let ((document-files (rx not-newline "." (or "djvu" "pdf" "ps") string-end))
-      (comic-book-files (rx ".cb" (char "abgrz") string-end))
+      (comic-book-files (rx not-newline ".cb" (char "abgrz") string-end))
       (image-files (rx not-newline "." (or (and "jp" (optional "e") "g") (and "tif" (optional "f")) "bmp" "ico" "png") string-end))
       (audio-files (rx not-newline "." (or (and "m" (char "k4") "a") "mp3" "ogg" "flac" "wma" "ac3" "aac" "ape") string-end))
       (office-files (rx not-newline "." (or (and (or "doc" "xls" "vsd" "pps") (optional "x")) (and "od" (char "ts")) "rtf") string-end))
@@ -44,11 +44,11 @@
   (custom-set-variables
    `(openwith-associations
      (list
-      (list (rx ".pdf" string-end) "mupdf" '(file))
-      (list (rx ".chm" string-end) "kchmviewer" '(file))
-      (list (rx ".dvd.iso" string-end) "vlc" '(file))
-      (list (rx ".gif" string-end) "animate" '(file))
-      (list (rx ".torrent" string-end) "gtorrentviewer" '(file))
+      (list (rx not-newline ".pdf" string-end) "mupdf" '(file))
+      (list (rx not-newline ".chm" string-end) "kchmviewer" '(file))
+      (list (rx not-newline ".dvd.iso" string-end) "vlc" '(file))
+      (list (rx not-newline ".gif" string-end) "animate" '(file))
+      (list (rx not-newline ".torrent" string-end) "gtorrentviewer" '(file))
       (list ,audio-files "vlc" '(file))
       (list ,comic-book-files "qcomicbook" '(file))
       (list ,document-files "qpdfview --unique" '(file))
@@ -58,10 +58,11 @@
 
    `(dired-guess-shell-alist-user
      (list
-      (list (rx ".pdf" string-end) '(list "chromium-browser" "mupdf"))
-      (list (rx ".htm" (optional "l") string-end) "firefox")
-      (list (rx ".gif" string-end) '(list "animate" "feh" "firefox"))
-      (list (rx ".torrent" string-end) '(list "torrentinfo" "gtorrentviewer"))
+      (list (rx not-newline ".pdf" string-end) '(list "chromium-browser" "mupdf"))
+      (list (rx not-newline ".htm" (optional "l") string-end) "firefox")
+      (list (rx not-newline ".gif" string-end) '(list "animate" "feh" "firefox"))
+      (list (rx not-newline ".torrent" string-end) '(list "torrentinfo" "gtorrentviewer"))
+      (list (rx not-newline "." (or "mobi" "epub" "fb2" "lit" "chm") string-end) "fbreader")
       (list ,document-files '(list "mupdf" "qpdfview --unique"))
       (list ,archive-files '(list "aunpack -e *" "mcomix" "qcomicbook"))
       (list ,audio-files "vlc")
