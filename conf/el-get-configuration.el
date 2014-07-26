@@ -269,6 +269,6 @@
   (let ((el-get-default-process-sync t)
         (el-get-elpa-do-refresh 'once)
         (packages (cl-remove-if
-                   (lambda (pkg) (member pkg '("ensime" "erc-highlight-nicknames")))
+                   (lambda (pkg) (member pkg '("ensime" "erc-highlight-nicknames" "erc")))
                    (el-get-list-package-names-with-status "installed"))))
     (mapc 'el-get-update packages)))
