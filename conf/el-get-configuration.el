@@ -49,6 +49,7 @@
      (:name scss-mode :lazy t)
      (:name twittering-mode :lazy t)
      (:name yari :lazy t)
+     (:name idris-mode :lazy t)
 
      (:name iedit
             :type github
