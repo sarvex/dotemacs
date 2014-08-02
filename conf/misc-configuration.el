@@ -22,6 +22,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (mouse-wheel-mode -1)
+(scroll-bar-mode -1)
+(horizontal-scroll-bar-mode -1)
 
 
 (eval-after-load 'cua-base
