@@ -23,7 +23,6 @@
      helm-descbinds
      lua-mode
      magit
-     markdown-mode
      paredit
      php-mode
      po-mode
@@ -234,6 +233,10 @@
             :features nil)
      (:name sass-mode
             :post-init nil)
+
+     (:name markdown-mode
+            :type github
+            :pkgname "defunkt/markdown-mode")
 
      (:name projectur
             :type github

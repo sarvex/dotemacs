@@ -66,7 +66,7 @@
       (list ,document-files '(list "mupdf" "qpdfview --unique"))
       (list ,archive-files '(list "aunpack -e *" "mcomix" "qcomicbook"))
       (list ,audio-files "vlc")
-      (list ,comic-book-files '(list "mcomix" "qcomicbook" "aunpack"))
+      (list ,comic-book-files '(list "mcomix" "qcomicbook" "aunpack -e *"))
       (list ,image-files "feh *")
       (list ,video-files '(list "mpv *" "mpv -vf sub=100"))
       (list "" '(list "feh"))
