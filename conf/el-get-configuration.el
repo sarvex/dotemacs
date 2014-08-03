@@ -179,13 +179,7 @@
             :pkgname "sabof/es-windows")
 
      (:name project-explorer
-            :lazy t
-            :depends (es-lib helm es-windows)
-            :after (setq pe/omit-regex
-                         (rx (or (and string-start "#")
-                                 (and "~" string-end)
-                                 (and ".elc" string-end)
-                                 (and string-start ".git" (optional "keep") string-end)))))
+            :lazy t)
 
      (:name fancy-narrow
             :type github
