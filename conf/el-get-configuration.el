@@ -29,7 +29,6 @@
      popup
      rcodetools
      redshank
-     rhtml-mode
      s
      scala-mode2
      scratch
@@ -38,6 +37,7 @@
      smex
      textile-mode
      tuareg-mode
+     web-mode
      wtf
      yaml-mode
 
@@ -71,10 +71,6 @@
             :type http
             :url "https://raw.githubusercontent.com/ruby/ruby/trunk/misc/inf-ruby.el"
             :features nil)
-
-     (:name handlebars-mode
-            :type github
-            :pkgname "danielevans/handlebars-mode")
 
      (:name yasnippet
             :features yasnippet
