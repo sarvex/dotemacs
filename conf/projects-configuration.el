@@ -14,3 +14,13 @@
                                   "vendor"
                                   )
                               string-end)))))
+
+(eval-after-load 'project-explorer
+  (quote
+   (progn
+     (define-key project-explorer-mode-map (kbd "o")
+       (lambda ()
+         (interactive)
+         (let ((win (selected-window)))
+           (call-interactively 'pe/find-file)
+           (select-window win)))))))
