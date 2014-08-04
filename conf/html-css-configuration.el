@@ -11,6 +11,9 @@
      (add-hook 'html-mode-hook 'emmet-mode)
      (define-key html-mode-map (kbd "M-<tab>") 'emmet-expand-yas))))
 
+(eval-after-load 'handlebars-mode
+  '(add-hook 'handlebars-mode-hook 'yas-minor-mode-on))
+
 (add-hook 'css-mode-hook 'emmet-mode)
 
 (mapc
