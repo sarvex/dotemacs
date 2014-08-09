@@ -46,6 +46,7 @@
 (require 'org-crypt)
 (require 'paredit)
 (require 'popup)
+(require 'project-explorer)
 (require 'rspec-simple)
 (require 'ruby-mode)
 (require 'rust-mode)
