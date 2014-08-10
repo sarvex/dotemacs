@@ -1,15 +1,17 @@
 ;;; -*- lexical-binding: t -*-
 
+(require 'cl-lib)
+
 (defun duplicate-line (&optional times)
   "Copy line at point TIMES times."
   (interactive "p")
   (let* ((beg (save-excursion (beginning-of-line) (point)))
          (end (save-excursion (end-of-line) (point)))
          (str (buffer-substring beg end)))
-    (loop repeat times
-          do (save-excursion
-               (end-of-line)
-               (insert "\n" str)))
+    (cl-loop repeat times
+             do (save-excursion
+                  (end-of-line)
+                  (insert "\n" str)))
     (call-interactively 'next-line)))
 
 
@@ -21,10 +23,10 @@
     (if (not (and filename (file-exists-p filename)))
         (message "Buffer '%s' is not visiting a file!" name)
       (let ((new-name (read-file-name "New name: " filename)))
-        (cond ((get-buffer new-name)
-               (message "A buffer named '%s' already exists!" new-name))
+        (cond ((file-exists-p new-name)
+               (message "A file '%s' already exists!" new-name))
               (t
-               (rename-file name new-name 1)
+               (rename-file filename new-name)
                (rename-buffer new-name)
                (set-visited-file-name new-name)
                (set-buffer-modified-p nil)))))))
@@ -83,7 +85,7 @@
 
 (defun get-buffers-with-major-mode (mode)
   "Returns list of buffers with major-mode MODE or derived from MODE."
-  (loop
+  (cl-loop
    for buf in (buffer-list)
    if (and (buffer-live-p buf)
            (with-current-buffer buf
@@ -179,32 +181,6 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
                    (lambda (&rest _) (eq (random 2) 0)))))))
 
 
-(defun gist (private)
-  "gist current file, clone repository and show it in dired"
-  (interactive "P")
-
-  (let (beg end)
-    (if (region-active-p)
-        (setq beg (region-beginning)
-              end (region-end))
-      (setq beg (point-min)
-            end (point-max)))
-    (gist-region beg end private))
-
-  (lexical-let* ((gists-dir (expand-file-name "~/repos/gists"))
-                 (gist-url-regexp (rx string-start "https://gist.github.com/" (group (+ (char hex-digit))) string-end))
-                 (url (car kill-ring))
-                 (gist-id (progn
-                            (string-match gist-url-regexp url)
-                            (match-string 1 url)))
-                 (gist-dir (expand-file-name gist-id gists-dir)))
-    (set-process-sentinel
-     (start-process "gist-clone" nil "gist-clone" gist-id)
-     (lambda (_ event)
-       (when (string= event "finished\n")
-         (dired gist-dir))))))
-
-
 (defun unfill-paragraph-or-region ()
   "Make a paragraph (or region) into a single line of text."
   (interactive)
@@ -227,31 +203,3 @@ If ARG is non-nil also inserts result at point. Requires pwgen(1)"
        'find-variable-at-point)
       (t
        (error "Symbol `%s' not found" (symbol-name sym)))))))
-
-
-(defun make-elisp-library ()
-  "Create new elisp library."
-  (interactive)
-  (let* ((name (read-from-minibuffer "Library name: "))
-         (location (expand-file-name name "~/repos/dev/"))
-         (lib (expand-file-name (if (string-match-p (rx ".el" string-end) name)
-                                    name
-                                  (format "%s.el" name))
-                                location))
-         (readme (expand-file-name "Readme.md" location)))
-
-    (when (string-match-p (rx (not (any alphanumeric "-+."))) name)
-      (error "Name '%s' is not suitable for elisp library" name))
-
-    (when (file-exists-p location)
-      (error "Path '%s' is already taken" (abbreviate-file-name location)))
-
-    (make-directory location)
-    (call-process "touch" nil 0 nil lib readme)
-
-    (let ((default-directory (file-name-as-directory location)))
-      (call-process "git" nil 0 nil "init"))
-
-    (find-file lib)
-    (insert "header")
-    (yas-expand)))
