@@ -8,6 +8,7 @@
                          (and ".elc" string-end)
                          (and string-start
                               (or (and ".git" (optional "keep"))
+                                  "bower_components"
                                   "dist"
                                   "node_modules"
                                   "tmp"
