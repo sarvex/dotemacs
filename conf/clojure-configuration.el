@@ -9,10 +9,11 @@
 (eval-after-load 'cider
   (quote
    (progn
-     (require 'ac-nrepl)
+     (require 'ac-cider)
 
-     (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-     (add-hook 'cider-mode-hook 'ac-nrepl-setup)
+     (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+     (add-hook 'cider-mode-hook 'ac-cider-setup)
+     (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
 
      (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 

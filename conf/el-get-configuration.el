@@ -206,7 +206,7 @@
      (:name structured-haskell-mode
             :build (("make" "--directory=elisp")))
 
-     (:name ac-nrepl
+     (:name ac-cider-compliment
             :features nil)
 
      (:name rspec-simple
