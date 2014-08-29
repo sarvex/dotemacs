@@ -53,26 +53,6 @@
                  'common-lisp-indent-function)
             (add-hook 'after-save-hook 'check-parens nil 'make-it-local)))
 
-(mapc
- (lambda (hooks)
-   (add-hook hooks
-             (lambda ()
-               "Display pretty lambdas in lisp modes"
-               (font-lock-add-keywords
-                nil
-                `(("(?\\(lambda\\>\\)"
-                   (0 (progn
-                        (compose-region
-                         (match-beginning 1)
-                         (match-end 1)
-                         ,(make-char 'greek-iso8859-7 107))
-                        nil))))))))
- '(emacs-lisp-mode-hook
-   lisp-mode-hook
-   inferior-scheme-mode-hook
-   lisp-interaction-mode-hook
-   ielm-mode-hook))
-
 
 (custom-set-variables
  '(scheme-program-name "mzscheme")

@@ -10,12 +10,13 @@
 ;; on
 (auto-image-file-mode)
 (column-number-mode)
+(electric-indent-mode)
 (epa-file-enable)
 (global-auto-revert-mode)
+(global-prettify-symbols-mode)
 (global-subword-mode)
 (icomplete-mode)
 (minibuffer-electric-default-mode)
-(electric-indent-mode)
 (winner-mode)
 
 ;; off
