@@ -11,6 +11,7 @@
      clojure-mode
      diminish
      dired+
+     dockerfile-mode
      drag-stuff
      expand-region
      ghc-mod
