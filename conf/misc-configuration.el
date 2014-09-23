@@ -160,7 +160,7 @@
 
  '(async-shell-command-buffer 'new-buffer)
  '(auto-mode-case-fold t)
- '(browse-url-browser-function 'browse-url-firefox)
+ '(browse-url-browser-function 'browse-url-chromium)
  '(comment-column 42)
  '(custom-unlispify-remove-prefixes t)
  '(delete-active-region t)
