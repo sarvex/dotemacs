@@ -25,15 +25,7 @@
  '(desktop-load-locked-desktop t)
  '(desktop-save t)
  '(desktop-restore-frames nil)
- '(desktop-files-not-to-save
-   (rx (or
-        (and line-start "/" (* (not (any "/:"))) ":")
-        (and "(ftp)" line-end)
-        (and ".gpg" string-end)
-        "/.emacs.d/recentf"
-        (and "loaddefs.el" string-end)
-        (and "/" (or "org-clock-save.el" "bmk-bmenu-state.el" "ido-history" "newsrc-dribble") string-end)
-        (eval (expand-file-name "~/org/"))))))
+ '(desktop-files-not-to-save ""))
 
 (desktop-save-mode t)
 
