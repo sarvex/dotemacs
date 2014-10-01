@@ -52,7 +52,7 @@
 
 (add-hook 'desktop-save-hook
           (lambda ()
-            "Remove duplicates and item starting with space in saved variables."
+            "Remove duplicates and items starting with space in saved variables."
             (mapc
              (lambda (var)
                (when (and (boundp var) (listp (symbol-value var)))
