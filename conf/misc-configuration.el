@@ -177,6 +177,7 @@
  '(indicate-buffer-boundaries 'left)
  '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
+ '(initial-buffer-choice (lambda (list-bookmarks) (get-buffer "*Bookmark List*")))
  '(initial-scratch-message "")
  '(large-file-warning-threshold nil)
  '(mouse-drag-copy-region nil)
