@@ -197,8 +197,6 @@
  '(x-select-enable-clipboard t)
  '(x-select-enable-primary t)
 
- '(enable-local-variables :all)
-
  '(frame-title-format
    '("" (:eval (mapconcat
                 (lambda (w)
@@ -209,7 +207,6 @@
                 (window-list) " | "))))
 
  '(gnus-init-file "~/.emacs.d/dotemacs/conf/gnus-configuration")
- '(custom-file "~/.emacs.d/custom.el")
  '(snake-score-file "~/.emacs.d/games/snake-scores")
  '(tetris-score-file "~/.emacs.d/games/tetris-scores")
  '(type-break-file-name "~/.emacs.d/type-break")
