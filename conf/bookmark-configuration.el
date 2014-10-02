@@ -10,3 +10,6 @@
  '(bmkp-bmenu-commands-file "~/.emacs.d/bmk-bmenu-commands.el")
  '(bmkp-bmenu-state-file "~/.emacs.d/bmk-bmenu-state.el")
  '(bmkp-bookmark-name-length-max 50))
+
+(eval-after-load 'bookmark+
+  '(require 'ffap))
