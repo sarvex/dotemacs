@@ -23,6 +23,7 @@
      haml-mode
      helm
      helm-descbinds
+     highlight
      lua-mode
      magit
      paredit
