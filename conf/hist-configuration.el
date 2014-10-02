@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'desktop)
-
 (custom-set-variables
  '(recentf-save-file "~/.emacs.d/recentf")
  '(recentf-max-saved-items 3000)
@@ -16,41 +14,26 @@
     (rx (eval (expand-file-name "~/code/")))
     (rx (or "Thumbs.db" "~") string-end))))
 
-(recentf-mode t)
+(recentf-mode)
 (add-hook 'kill-emacs-hook 'recentf-cleanup)
 
 
+(savehist-mode)
+
 (custom-set-variables
- '(desktop-path '("~/.emacs.d/"))
- '(desktop-load-locked-desktop t)
- '(desktop-save t)
- '(desktop-restore-frames nil)
- '(desktop-files-not-to-save ""))
+ '(savehist-additional-variables '(
+                                   dired-shell-command-history
+                                   extended-command-history
+                                   kmacro-ring
+                                   projectur-history
+                                   read-expression-history
+                                   register-alist
+                                   shell-command-history
+                                   ))
+ '(savehist-autosave-interval 300)
+ '(savehist-save-minibuffer-history nil))
 
-(desktop-save-mode t)
-
-(mapc
- (lambda (sym)
-   (add-to-list 'desktop-globals-to-save sym))
- '(
-   dired-shell-command-history
-   extended-command-history
-   kmacro-ring
-   projectur-history
-   read-expression-history
-   shell-command-history
-   ))
-
-(mapc
- (lambda (sym)
-   (setq desktop-globals-to-save (delq sym desktop-globals-to-save)))
- '(
-   file-name-history
-   regexp-search-ring
-   search-ring
-   ))
-
-(add-hook 'desktop-save-hook
+(add-hook 'savehist-save-hook
           (lambda ()
             "Remove duplicates and items starting with space in saved variables."
             (mapc
@@ -61,4 +44,4 @@
                             (lambda (elem)
                               (and (stringp elem) (string-prefix-p " " elem)))
                             (symbol-value var))))))
-             desktop-globals-to-save)))
+             savehist-additional-variables)))
