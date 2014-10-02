@@ -177,7 +177,6 @@
             (mode . Custom-mode)
             (mode . ack-mode)
             (mode . apropos-mode)
-            (mode . bookmark-bmenu-mode)
             (mode . calc-mode)
             (mode . calc-trail-mode)
             (mode . calculator-mode)
