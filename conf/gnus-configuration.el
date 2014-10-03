@@ -88,6 +88,9 @@
 (eval-after-load 'mm-decode
   '(add-to-list 'mm-inline-media-tests '("application/pgp$" mm-inline-text identity)))
 
+(eval-after-load 'mm-util
+  '(add-to-list 'mm-inhibit-file-name-handlers 'openwith-file-handler))
+
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'gnus-select-group-hook 'gnus-group-set-timestamp)
 
