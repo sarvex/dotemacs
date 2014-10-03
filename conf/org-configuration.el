@@ -30,7 +30,7 @@
  '(org-src-fontify-natively t)
  '(org-startup-indented t)
  '(org-startup-truncated nil)
- '(org-tags-column -87)
+ '(org-tags-column -84)
  '(org-tags-exclude-from-inheritance '("crypt"))
  '(org-treat-S-cursor-todo-selection-as-state-change nil)
  '(org-use-fast-todo-selection t)
