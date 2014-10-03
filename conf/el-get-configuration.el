@@ -21,7 +21,6 @@
      gnus
      graphviz-dot-mode
      haml-mode
-     helm
      helm-descbinds
      highlight
      lua-mode
@@ -228,6 +227,9 @@
      (:name markdown-mode
             :type github
             :pkgname "defunkt/markdown-mode")
+
+     (:name helm
+            :build (("make")))
 
      (:name projectur
             :type github
