@@ -25,22 +25,6 @@
                        (optional "." (or "part" "crdownload"))
                        string-end)))
 
-  (ert-deftest test-archive-files-regexp ()
-    (mapc
-     (lambda (file-name)
-       (should (string-match-p archive-files file-name)))
-     '("foo.7z" "foo.Z" "foo.a" "foo.ace" "foo.alz" "foo.arc" "foo.arj" "foo.bz" "foo.bz2" "foo.cab" "foo.cpio" "foo.deb" "foo.gz"
-       "foo.jar" "foo.lha" "foo.lrz" "foo.lz" "foo.lzh" "foo.lzma" "foo.lzo" "foo.rar" "foo.rpm" "foo.rz" "foo.t7z" "foo.tZ" "foo.tar"
-       "foo.tar.7z" "foo.tar.Z" "foo.tar.bz" "foo.tar.bz2" "foo.tar.gz" "foo.tar.lz" "foo.tar.lzo" "foo.tar.xz" "foo.tbz" "foo.tbz2"
-       "foo.tgz" "foo.tlz" "foo.txz" "foo.tzo" "foo.war" "foo.xz" "foo.zip")))
-
-  (ert-deftest test-video-files-regexp ()
-    (mapc
-     (lambda (file-name)
-       (should (string-match-p video-files file-name)))
-     '("foo.asf" "foo.avi" "foo.divx" "foo.flv" "foo.m2v" "foo.m4v" "foo.mkv" "foo.mov" "foo.mp2" "foo.mp4" "foo.mpeg" "foo.mpg"
-       "foo.ogv" "foo.rm" "foo.ts" "foo.vob" "foo.webm" "foo.wmv" "foo.3gp")))
-
   (custom-set-variables
    `(openwith-associations
      (list

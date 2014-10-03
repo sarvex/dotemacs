@@ -4,7 +4,6 @@
  '(user-full-name "Victor Deryagin")
  '(user-mail-address "vderyagin@gmail.com"))
 
-(require 'ert)
 (require 'cl-lib)
 
 (add-to-list 'load-path "~/.emacs.d/dotemacs")
