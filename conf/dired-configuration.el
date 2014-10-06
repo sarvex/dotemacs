@@ -21,6 +21,8 @@
 (require 'dired)
 (require 'dired-x)
 (require 'dired+)
+(require 'dired-aux)
+(require 'dired-async)
 
 (diredp-toggle-find-file-reuse-dir 1)
 
