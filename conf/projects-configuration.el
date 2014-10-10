@@ -4,8 +4,11 @@
 
 (custom-set-variables
  '(pe/omit-regex (rx (or (and string-start "#")
-                         (and "~" string-end)
-                         (and ".elc" string-end)
+                         (and (or "!"
+                                  ".elc"
+                                  ".test"
+                                  )
+                              string-end)
                          (and string-start
                               (or (and ".git" (optional "keep"))
                                   ".module-cache"
