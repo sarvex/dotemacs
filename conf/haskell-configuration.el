@@ -7,7 +7,6 @@
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type 'cabal-repl)
  '(haskell-tags-on-save t)
- '(shm-program-name "structured-haskell-mode")
  )
 
 (eval-after-load 'flycheck

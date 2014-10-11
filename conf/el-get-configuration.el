@@ -36,6 +36,7 @@
      slim-mode
      slime
      smex
+     structured-haskell-mode
      textile-mode
      tuareg-mode
      web-mode
@@ -202,9 +203,6 @@
                                     "--eval" "(defun batch-force-byte-recompile-directory () (batch-byte-recompile-directory 0))"
                                     "--funcall" "batch-force-byte-recompile-directory" "elisp"))
             :post-init nil)
-
-     (:name structured-haskell-mode
-            :build (("make" "--directory=elisp")))
 
      (:name ac-cider-compliment
             :features nil)
