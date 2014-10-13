@@ -9,7 +9,6 @@
 (custom-set-variables
  '(sh-basic-offset 2))
 
-(eval-after-load 'sh-script
-  '(progn
-     (define-key sh-mode-map (kbd "M-l") nil)
-     (define-key sh-mode-map (kbd "<f9>") 'executable-interpret)))
+(with-eval-after-load 'sh-script
+  (define-key sh-mode-map (kbd "M-l") nil)
+  (define-key sh-mode-map (kbd "<f9>") 'executable-interpret))

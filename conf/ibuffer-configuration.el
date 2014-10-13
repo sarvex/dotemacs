@@ -13,32 +13,29 @@
            " " filename-and-process)
      (mark " " (name 23 -1) " " filename))))
 
-(eval-after-load 'ibuffer
-  (quote
-   (progn
+(with-eval-after-load 'ibuffer
+  ;; Use human readable Size column instead of original one
+  (define-ibuffer-column size-h
+    (:name "Size" :inline t)
+    (cond
+     ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
+     ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
+     (t (format "%8d" (buffer-size)))))
 
-     ;; Use human readable Size column instead of original one
-     (define-ibuffer-column size-h
-       (:name "Size" :inline t)
-       (cond
-        ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
-        ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
-        (t (format "%8d" (buffer-size)))))
+  (add-hook 'ibuffer-mode-hook
+            (lambda ()
+              (ibuffer-switch-to-saved-filter-groups "default")))
 
-     (add-hook 'ibuffer-mode-hook
-               (lambda ()
-                 (ibuffer-switch-to-saved-filter-groups "default")))
+  (define-key ibuffer-mode-map (kbd "C-w") 'ibuffer-unmark-backward)
+  (define-key ibuffer-mode-map (kbd "[") 'ibuffer-toggle-filter-group)
 
-     (define-key ibuffer-mode-map (kbd "C-w") 'ibuffer-unmark-backward)
-     (define-key ibuffer-mode-map (kbd "[") 'ibuffer-toggle-filter-group)
+  ;; Do not shadow global binding:
+  (define-key ibuffer-mode-map (kbd "C-x C-f") nil)
 
-     ;; Do not shadow global binding:
-     (define-key ibuffer-mode-map (kbd "C-x C-f") nil)
-
-     (mapc
-      (lambda (key)
-        (define-key ibuffer-mode-map key nil))
-      '([right] [left] [up] [down])))))
+  (mapc
+   (lambda (key)
+     (define-key ibuffer-mode-map key nil))
+   '([right] [left] [up] [down])))
 
 
 (defadvice ibuffer-generate-filter-groups (after reverse-ibuffer-groups () activate)

@@ -3,15 +3,13 @@
 (custom-set-variables
  '(rust-indent-offset 2))
 
-(eval-after-load 'rust-mode
-  (quote
-   (progn
-     (add-hook 'rust-mode-hook 'yas-minor-mode-on)
-     (add-hook 'rust-mode-hook
-               (lambda ()
-                 (setq compile-command
-                       (rust-compile-command (rust-test-file-p buffer-file-name)))))
-     (define-key rust-mode-map (kbd "C-c C-c") 'rust-compile-and-maybe-run))))
+(with-eval-after-load 'rust-mode
+  (add-hook 'rust-mode-hook 'yas-minor-mode-on)
+  (add-hook 'rust-mode-hook
+            (lambda ()
+              (setq compile-command
+                    (rust-compile-command (rust-test-file-p buffer-file-name)))))
+  (define-key rust-mode-map (kbd "C-c C-c") 'rust-compile-and-maybe-run))
 
 (defun rust-test-file-p (filename)
   (string-match-p

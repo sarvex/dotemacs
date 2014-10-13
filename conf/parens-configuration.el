@@ -39,8 +39,8 @@
 
 (smartparens-global-mode)
 
-(eval-after-load 'paredit
-  '(define-key paredit-mode-map (kbd "C-w") 'paredit-backward-kill-word))
+(with-eval-after-load 'paredit
+  (define-key paredit-mode-map (kbd "C-w") 'paredit-backward-kill-word))
 
 (mapc
  (lambda (hooks)

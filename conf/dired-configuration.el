@@ -58,12 +58,11 @@
 (add-hook 'dired-mode-hook (lambda () (setq truncate-lines t)))
 
 
-(eval-after-load 'wdired
-  '(progn
-     (add-hook 'wdired-mode-hook (lambda () (smartparens-mode t)))
+(with-eval-after-load 'wdired
+  (add-hook 'wdired-mode-hook (lambda () (smartparens-mode t)))
 
-     (define-key wdired-mode-map (kbd "<down>") nil)
-     (define-key wdired-mode-map (kbd "<up>") nil)))
+  (define-key wdired-mode-map (kbd "<down>") nil)
+  (define-key wdired-mode-map (kbd "<up>") nil))
 
 (defun dired-next-subdir-of-current-dir-parent (jump)
   "Moves to the n-th next directory of the same level"

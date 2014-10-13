@@ -33,29 +33,27 @@
 (mouse-wheel-mode -1)
 
 
-(eval-after-load 'cua-base
-  '(mapc
-    (lambda (key)
-      (define-key cua--rectangle-keymap key 'cua-rotate-rectangle))
-    '([right] [left] [up] [down])))
+(with-eval-after-load 'cua-base
+  (mapc
+   (lambda (key)
+     (define-key cua--rectangle-keymap key 'cua-rotate-rectangle))
+   '([right] [left] [up] [down])))
 
 ;; app-arch/unrar-gpl in needed for rar support, executable must be named
 ;; "unrar-free" (hardcoded in archive-mode)
 (add-to-list 'auto-mode-alist (cons (rx not-newline "." (or "xpi" "crx" "oex" "rar") string-end) 'archive-mode))
 (add-to-list 'auto-mode-alist '("\\.gem\\'" . tar-mode))
-(eval-after-load 'arc-mode
-  '(progn
-     (define-key archive-mode-map (kbd "q")
-       (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-     (add-hook 'archive-mode-hook (lambda () (setq truncate-lines t)))))
-(eval-after-load 'tar-mode
-  '(progn
-     (define-key tar-mode-map (kbd "q")
-       (lambda () (interactive) (kill-buffer-ask (current-buffer))))
-     (add-hook 'tar-mode-hook (lambda () (setq truncate-lines t)))))
+(with-eval-after-load 'arc-mode
+  (define-key archive-mode-map (kbd "q")
+    (lambda () (interactive) (kill-buffer-ask (current-buffer))))
+  (add-hook 'archive-mode-hook (lambda () (setq truncate-lines t))))
+(with-eval-after-load 'tar-mode
+  (define-key tar-mode-map (kbd "q")
+    (lambda () (interactive) (kill-buffer-ask (current-buffer))))
+  (add-hook 'tar-mode-hook (lambda () (setq truncate-lines t))))
 
-(eval-after-load 'sql
-  '(add-hook 'sql-interactive-mode-hook (lambda () (setq truncate-lines t))))
+(with-eval-after-load 'sql
+  (add-hook 'sql-interactive-mode-hook (lambda () (setq truncate-lines t))))
 
 (mapc
  (lambda (interpreter)
@@ -64,24 +62,22 @@
 
 (add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-mode))
 
-(eval-after-load 'image-mode
-  '(progn
-     (define-key image-mode-map (kbd "a") 'image-toggle-animation)
-     (define-key image-mode-map (kbd "q")
-       (lambda ()
-         (interactive)
-         (kill-buffer-ask (current-buffer))))))
+(with-eval-after-load 'image-mode
+  (define-key image-mode-map (kbd "a") 'image-toggle-animation)
+  (define-key image-mode-map (kbd "q")
+    (lambda ()
+      (interactive)
+      (kill-buffer-ask (current-buffer)))))
 
-(eval-after-load 'help-mode
-  '(progn
-     (define-key help-mode-map (kbd "M-p") 'help-go-back)
-     (define-key help-mode-map (kbd "M-n") 'help-go-forward)))
+(with-eval-after-load 'help-mode
+  (define-key help-mode-map (kbd "M-p") 'help-go-back)
+  (define-key help-mode-map (kbd "M-n") 'help-go-forward))
 
-(eval-after-load 'cus-edit
-  '(define-key custom-mode-map (kbd ";") 'Custom-goto-parent))
+(with-eval-after-load 'cus-edit
+  (define-key custom-mode-map (kbd ";") 'Custom-goto-parent))
 
-(eval-after-load 'info
-  '(define-key Info-mode-map (kbd ";") 'Info-up))
+(with-eval-after-load 'info
+  (define-key Info-mode-map (kbd ";") 'Info-up))
 (mapc
  (lambda (extension)
    (add-to-list 'auto-mode-alist (cons extension 'conf-mode)))

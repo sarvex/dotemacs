@@ -85,11 +85,11 @@
  '(gnus-gravatar-size 64))
 
 
-(eval-after-load 'mm-decode
-  '(add-to-list 'mm-inline-media-tests '("application/pgp$" mm-inline-text identity)))
+(with-eval-after-load 'mm-decode
+  (add-to-list 'mm-inline-media-tests '("application/pgp$" mm-inline-text identity)))
 
-(eval-after-load 'mm-util
-  '(add-to-list 'mm-inhibit-file-name-handlers 'openwith-file-handler))
+(with-eval-after-load 'mm-util
+  (add-to-list 'mm-inhibit-file-name-handlers 'openwith-file-handler))
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'gnus-select-group-hook 'gnus-group-set-timestamp)
@@ -117,10 +117,9 @@
 (define-key gnus-summary-mode-map (kbd "[") 'gnus-summary-refer-thread)
 (define-key gnus-summary-mode-map (kbd "w") 'gnus-summary-wide-reply)
 
-(eval-after-load 'gnus-topic
-  '(progn
-     (define-key gnus-topic-mode-map (kbd "<tab>") nil)
-     (define-key gnus-topic-mode-map (kbd "C-i") nil)))
+(with-eval-after-load 'gnus-topic
+  (define-key gnus-topic-mode-map (kbd "<tab>") nil)
+  (define-key gnus-topic-mode-map (kbd "C-i") nil))
 
 (dolist (key (mapcar 'number-to-string (number-sequence 1 5)))
   (define-key gnus-group-mode-map key

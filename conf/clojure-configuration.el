@@ -6,15 +6,12 @@
  '(cider-repl-use-clojure-font-lock t)
  )
 
-(eval-after-load 'cider
-  (quote
-   (progn
-     (require 'ac-cider)
+(with-eval-after-load 'cider
+  (require 'ac-cider)
 
-     (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-     (add-hook 'cider-mode-hook 'ac-cider-setup)
-     (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+  (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+  (add-hook 'cider-mode-hook 'ac-cider-setup)
+  (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
 
-     (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-
-     )))
+  (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+  )

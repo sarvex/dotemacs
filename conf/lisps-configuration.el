@@ -12,22 +12,21 @@
 (define-key lisp-interaction-mode-map (kbd "C-c C-c") 'eval-defun)
 (define-key lisp-interaction-mode-map (kbd "M-.") 'find-symbol-at-point)
 
-(eval-after-load 'ielm
-  '(progn
-     (setq ielm-header "")
+(with-eval-after-load 'ielm
+  (setq ielm-header "")
 
-     (add-hook 'inferior-emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-     (add-hook 'inferior-emacs-lisp-mode-hook (lambda () (auto-complete-mode 1)))
-     (add-hook 'inferior-emacs-lisp-mode-hook
-               (lambda ()
-                 (mapc
-                  (lambda (src) (add-to-list 'ac-sources src))
-                  '(ac-source-functions
-                    ac-source-variables
-                    ac-source-features
-                    ac-source-symbols))))
+  (add-hook 'inferior-emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+  (add-hook 'inferior-emacs-lisp-mode-hook (lambda () (auto-complete-mode 1)))
+  (add-hook 'inferior-emacs-lisp-mode-hook
+            (lambda ()
+              (mapc
+               (lambda (src) (add-to-list 'ac-sources src))
+               '(ac-source-functions
+                 ac-source-variables
+                 ac-source-features
+                 ac-source-symbols))))
 
-     (define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-symbol-at-point)))
+  (define-key inferior-emacs-lisp-mode-map (kbd "M-.") 'find-symbol-at-point))
 
 
 (add-hook 'lisp-interaction-mode-hook (lambda () (setq mode-name "ξlisp-int")))
@@ -59,5 +58,5 @@
  '(quack-remap-find-file-bindings-p nil)
  '(quack-fontify-style 'emacs))
 
-(eval-after-load 'scheme
-  '(require 'quack))
+(with-eval-after-load 'scheme
+  (require 'quack))

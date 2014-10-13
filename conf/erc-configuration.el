@@ -13,10 +13,9 @@
                            'require-match))
       (when (y-or-n-p "Connect to IRC? ") (erc)))))
 
-(eval-after-load 'erc
-  '(progn
-     (define-key erc-mode-map (kbd "<return>") 'browse-url-at-point)
-     (define-key erc-mode-map (kbd "C-c C-<return>") 'erc-send-current-line)))
+(with-eval-after-load 'erc
+  (define-key erc-mode-map (kbd "<return>") 'browse-url-at-point)
+  (define-key erc-mode-map (kbd "C-c C-<return>") 'erc-send-current-line))
 
 (custom-set-variables
  '(erc-fill-column 67)

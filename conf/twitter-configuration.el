@@ -12,22 +12,21 @@
                                 "%T\n"
                                 "%FACE[vderyagin-twittering-metainfo-face]{from %f%L%r%R}"))
 
-(eval-after-load 'twittering-mode
-  '(progn
-     (when (boundp 'vderyagin/twittering-additional-timelines)
-       (mapc
-        (lambda (item)
-          (twittering-add-timeline-history item))
-        vderyagin/twittering-additional-timelines))
+(with-eval-after-load 'twittering-mode
+  (when (boundp 'vderyagin/twittering-additional-timelines)
+    (mapc
+     (lambda (item)
+       (twittering-add-timeline-history item))
+     vderyagin/twittering-additional-timelines))
 
-     (add-hook 'twittering-mode-hook (lambda () (twittering-icon-mode 1)))
-     (add-hook 'twittering-mode-hook (lambda () (variable-pitch-mode 1)))
-     (add-hook 'twittering-mode-hook 'turn-on-visual-line-mode)
-     (add-hook 'twittering-edit-mode-hook 'turn-on-visual-line-mode)
+  (add-hook 'twittering-mode-hook (lambda () (twittering-icon-mode 1)))
+  (add-hook 'twittering-mode-hook (lambda () (variable-pitch-mode 1)))
+  (add-hook 'twittering-mode-hook 'turn-on-visual-line-mode)
+  (add-hook 'twittering-edit-mode-hook 'turn-on-visual-line-mode)
 
-     (define-key twittering-mode-map (kbd "<backtab>") 'twittering-goto-previous-uri)
-     (define-key twittering-mode-map (kbd "<tab>") 'twittering-goto-next-uri)
-     (define-key twittering-mode-map (kbd "RET") 'twittering-click)))
+  (define-key twittering-mode-map (kbd "<backtab>") 'twittering-goto-previous-uri)
+  (define-key twittering-mode-map (kbd "<tab>") 'twittering-goto-next-uri)
+  (define-key twittering-mode-map (kbd "RET") 'twittering-click))
 
 
 (defun switch-to-twitter-buffer()

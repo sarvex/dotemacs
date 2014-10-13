@@ -13,27 +13,24 @@
                               "/"
                               string-end)))
 
-(eval-after-load 'esh-mode
-  (quote
-   (progn
-     (require 'em-dirs)
+(with-eval-after-load 'esh-mode
+  (require 'em-dirs)
 
-     (defun eshell/cds ()
-       "Change directory to the project's root."
-       (eshell/cd (locate-dominating-file default-directory ".git")))
+  (defun eshell/cds ()
+    "Change directory to the project's root."
+    (eshell/cd (locate-dominating-file default-directory ".git")))
 
-     (defun eshell/find (dir &rest opts)
-       (find-dired dir (mapconcat 'shell-quote-argument opts " ")))
+  (defun eshell/find (dir &rest opts)
+    (find-dired dir (mapconcat 'shell-quote-argument opts " ")))
 
-     (mapc
-      (lambda (c) (add-to-list 'eshell-visual-commands c))
-      '("mutt" "vim" "screen" "tmux" "lftp" "mc" "ipython" "bpython"
-        "telnet" "ssh" "tail" "most" "top" "htop" "iotop" "ncmpcpp"
-        "newsbeuter" "alsamixer" "atop")))))
+  (mapc
+   (lambda (c) (add-to-list 'eshell-visual-commands c))
+   '("mutt" "vim" "screen" "tmux" "lftp" "mc" "ipython" "bpython"
+     "telnet" "ssh" "tail" "most" "top" "htop" "iotop" "ncmpcpp"
+     "newsbeuter" "alsamixer" "atop")))
 
-(eval-after-load 'esh-opt
-  '(progn
-     (require 'em-prompt)
-     (require 'em-term)
-     (require 'em-cmpl)
-     (setenv "PAGER" "cat")))
+(with-eval-after-load 'esh-opt
+  (require 'em-prompt)
+  (require 'em-term)
+  (require 'em-cmpl)
+  (setenv "PAGER" "cat"))

@@ -146,79 +146,74 @@
      ("n" "Notes" tags "NOTE"
       ((org-agenda-overriding-header "List of notes:"))))))
 
-(eval-after-load 'org-clock
-  '(add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
+(with-eval-after-load 'org-clock
+  (add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
 
-(eval-after-load 'ob
-  '(mapc
+(with-eval-after-load 'ob
+  (mapc
     (lambda (language) (add-to-list 'org-babel-load-languages (cons language t)))
     '(awk dot haskell js lisp perl python ruby scheme sh)))
 
-(eval-after-load 'org-capture
-  '(progn
-     (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
-     (add-hook 'org-capture-after-finalize-hook 'vderyagin/org-update-agenda-views)
-     (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags)))
+(with-eval-after-load 'org-capture
+  (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
+  (add-hook 'org-capture-after-finalize-hook 'vderyagin/org-update-agenda-views)
+  (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags))
 
-(eval-after-load 'org-agenda
-  (quote
-   (progn
-     (add-hook 'org-agenda-mode-hook 'vderyagin/org-agenda-activate-appt)
-     (add-hook 'org-agenda-mode-hook (lambda () (setq truncate-lines t)))
-     (add-hook 'org-agenda-mode-hook (lambda () (load-file "~/.emacs.d/color-theme-quiet-light/quiet-light-theme.el")))
+(with-eval-after-load 'org-agenda
+  (add-hook 'org-agenda-mode-hook 'vderyagin/org-agenda-activate-appt)
+  (add-hook 'org-agenda-mode-hook (lambda () (setq truncate-lines t)))
+  (add-hook 'org-agenda-mode-hook (lambda () (load-file "~/.emacs.d/color-theme-quiet-light/quiet-light-theme.el")))
 
-     (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
-     (define-key org-agenda-mode-map (kbd "C-S-<right>") nil)
+  (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
+  (define-key org-agenda-mode-map (kbd "C-S-<right>") nil)
 
-     (define-key org-agenda-mode-map (kbd "M-p") 'org-previous-link)
-     (define-key org-agenda-mode-map (kbd "M-n") 'org-next-link))))
+  (define-key org-agenda-mode-map (kbd "M-p") 'org-previous-link)
+  (define-key org-agenda-mode-map (kbd "M-n") 'org-next-link))
 
-(eval-after-load 'org
-  (quote
-   (progn
-     (load (expand-file-name "org-mode/lisp/org-loaddefs" el-get-dir))
+(with-eval-after-load 'org
+  (load (expand-file-name "org-mode/lisp/org-loaddefs" el-get-dir))
 
-     (require 'notifications)
+  (require 'notifications)
 
-     (require 'org-checklist)
-     (require 'org-crypt)
-     (require 'org-contacts)
-     (require 'org-habit)
+  (require 'org-checklist)
+  (require 'org-crypt)
+  (require 'org-contacts)
+  (require 'org-habit)
 
-     (org-clock-persistence-insinuate)
-     (org-crypt-use-before-save-magic)
+  (org-clock-persistence-insinuate)
+  (org-crypt-use-before-save-magic)
 
-     ;; Get rid of strike-through emphasis:
-     (setq org-emphasis-alist
-           (delq nil
-                 (mapcar (lambda (item) (if (string= "+" (car item)) nil item))
-                         org-emphasis-alist)))
+  ;; Get rid of strike-through emphasis:
+  (setq org-emphasis-alist
+        (delq nil
+              (mapcar (lambda (item) (if (string= "+" (car item)) nil item))
+                      org-emphasis-alist)))
 
-     (add-hook 'org-mode-hook
-               (defun vderyagin/org-mode-hook ()
-                 (turn-on-auto-fill)
-                 (turn-on-visual-line-mode)
-                 (setq fill-column 62)
-                 (set (make-local-variable 'backup-inhibited) t)
-                 (add-hook 'before-save-hook 'org-align-all-tags nil 'make-it-local)))
+  (add-hook 'org-mode-hook
+            (defun vderyagin/org-mode-hook ()
+              (turn-on-auto-fill)
+              (turn-on-visual-line-mode)
+              (setq fill-column 62)
+              (set (make-local-variable 'backup-inhibited) t)
+              (add-hook 'before-save-hook 'org-align-all-tags nil 'make-it-local)))
 
-     (define-key org-mode-map (kbd "M-n") 'org-next-link)
-     (define-key org-mode-map (kbd "M-p") 'org-previous-link)
+  (define-key org-mode-map (kbd "M-n") 'org-next-link)
+  (define-key org-mode-map (kbd "M-p") 'org-previous-link)
 
-     ;; Disable keys for adding/removing files from agenda:
-     (define-key org-mode-map (kbd "C-c [") nil)
-     (define-key org-mode-map (kbd "C-c ]") nil)
+  ;; Disable keys for adding/removing files from agenda:
+  (define-key org-mode-map (kbd "C-c [") nil)
+  (define-key org-mode-map (kbd "C-c ]") nil)
 
-     ;; Resolve conflicts with global bindings:
-     (define-key org-mode-map (kbd "S-C-<up>") nil)
-     (define-key org-mode-map (kbd "S-C-<down>") nil)
-     (define-key org-mode-map (kbd "S-C-<left>") nil)
-     (define-key org-mode-map (kbd "S-C-<right>") nil)
-     (define-key org-mode-map (kbd "C-<tab>") nil)
+  ;; Resolve conflicts with global bindings:
+  (define-key org-mode-map (kbd "S-C-<up>") nil)
+  (define-key org-mode-map (kbd "S-C-<down>") nil)
+  (define-key org-mode-map (kbd "S-C-<left>") nil)
+  (define-key org-mode-map (kbd "S-C-<right>") nil)
+  (define-key org-mode-map (kbd "C-<tab>") nil)
 
-     (define-key org-mode-map (kbd "C-c C-x C-s") nil)
+  (define-key org-mode-map (kbd "C-c C-x C-s") nil)
 
-     )))
+  )
 
 
 (defun vderyagin/org-agenda-activate-appt ()
