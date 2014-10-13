@@ -27,16 +27,9 @@
 (mapc #'require
       '(
         align
-        arc-mode
-        cc-mode
-        coffee-mode
-        compile
-        cua-base
-        cus-edit
         em-dirs
         em-term
         erc
-        ffap
         gnus-topic
         go-mode
         haskell-cabal
@@ -50,7 +43,6 @@
         org-capture
         org-crypt
         paredit
-        popup
         project-explorer
         rspec-simple
         ruby-mode
@@ -58,8 +50,6 @@
         savehist
         scala-mode2
         sgml-mode
-        sh-script
-        slime-autoloads
         slime-repl
         speedbar
         tar-mode
