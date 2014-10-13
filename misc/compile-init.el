@@ -50,6 +50,7 @@
         savehist
         scala-mode2
         sgml-mode
+        sh-script
         slime-repl
         speedbar
         tar-mode
