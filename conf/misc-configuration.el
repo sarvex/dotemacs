@@ -32,13 +32,6 @@
 (tool-bar-mode -1)
 (mouse-wheel-mode -1)
 
-
-(with-eval-after-load 'cua-base
-  (mapc
-   (lambda (key)
-     (define-key cua--rectangle-keymap key 'cua-rotate-rectangle))
-   '([right] [left] [up] [down])))
-
 ;; app-arch/unrar-gpl in needed for rar support, executable must be named
 ;; "unrar-free" (hardcoded in archive-mode)
 (add-to-list 'auto-mode-alist (cons (rx not-newline "." (or "xpi" "crx" "oex" "rar") string-end) 'archive-mode))
