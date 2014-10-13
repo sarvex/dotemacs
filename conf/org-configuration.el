@@ -118,16 +118,18 @@
       :app-icon (expand-file-name "~/.icons/org-mode.png"))))
 
  '(org-agenda-compact-blocks nil)
+ '(org-agenda-repeating-timestamp-show-all nil)
  '(org-agenda-restore-windows-after-quit t)
  '(org-agenda-show-inherited-tags nil)
  '(org-agenda-span 'week)
- '(org-agenda-tags-column -87)
- '(org-agenda-todo-list-sublevels nil)
- '(org-agenda-window-setup 'current-window)
  '(org-agenda-start-with-clockreport-mode nil)
  '(org-agenda-start-with-entry-text-mode nil)
  '(org-agenda-start-with-follow-mode nil)
  '(org-agenda-start-with-log-mode nil)
+ '(org-agenda-tags-column -87)
+ '(org-agenda-todo-list-sublevels nil)
+ '(org-agenda-window-setup 'current-window)
+
  '(org-agenda-custom-commands
    '((" " "Block agenda"
       ((agenda)
