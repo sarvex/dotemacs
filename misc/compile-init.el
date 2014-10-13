@@ -13,6 +13,8 @@
 (defvar gnus-tmp-group nil)
 (defvar local-file nil)
 
+(set-face-attribute 'default nil :height 100)
+
 (add-to-list 'load-path "~/.emacs.d/dotemacs")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -46,6 +48,7 @@
 (require 'org-crypt)
 (require 'paredit)
 (require 'popup)
+(require 'project-explorer)
 (require 'rspec-simple)
 (require 'ruby-mode)
 (require 'rust-mode)
