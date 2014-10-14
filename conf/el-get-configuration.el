@@ -9,7 +9,6 @@
      bookmark+
      cider
      clojure-mode
-     diminish
      dired+
      dockerfile-mode
      drag-stuff

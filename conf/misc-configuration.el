@@ -1,6 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'uniquify)
 (require 'ansi-color)
 
 (defadvice display-message-or-buffer (before ansi-color activate)
@@ -113,7 +112,6 @@
  '(apropos-documentation-sort-by-scores t)
 
  '(sentence-end-double-space nil)
- '(uniquify-buffer-name-style 'forward)
 
  '(calendar-date-style 'european)
  '(calendar-week-start-day 1)
