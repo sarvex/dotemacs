@@ -22,7 +22,6 @@
 (load "conf/clojure-configuration")
 (load "conf/compilation-configuration")
 (load "conf/cursor-configuration")
-(load "conf/diminish-configuration")
 (load "conf/dired-configuration")
 (load "conf/erc-configuration")
 (load "conf/eshell-configuration")

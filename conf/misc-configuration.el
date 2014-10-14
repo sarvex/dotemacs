@@ -1,5 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/color-theme-quiet-light")
+(load-theme 'quiet-light)
+
 (require 'ansi-color)
 
 (defadvice display-message-or-buffer (before ansi-color activate)

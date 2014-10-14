@@ -172,10 +172,6 @@
                          (y-or-n-p (format "Directory %s does not exist. Create it?" (abbreviate-file-name dir))))
                 (make-directory dir t)))))
 
-(when (fboundp 'customize-themes)
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/color-theme-quiet-light")
-  (setq custom-safe-themes t)
-  (load-theme 'quiet-light)
-  (add-hook 'after-make-frame-functions
+(add-hook 'after-make-frame-functions
             (lambda (_)
-              (load-file "~/.emacs.d/color-theme-quiet-light/quiet-light-theme.el"))))
+              (load-file "~/.emacs.d/color-theme-quiet-light/quiet-light-theme.el")))
