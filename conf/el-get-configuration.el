@@ -228,6 +228,10 @@
      (:name helm
             :build (("make")))
 
+     (:name smart-mode-line
+            :after (progn (sml/setup)
+                          (sml/apply-theme 'respectful)))
+
      (:name projectur
             :type github
             :pkgname "vderyagin/projectur"))))
