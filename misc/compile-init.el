@@ -27,6 +27,8 @@
 (mapc #'require
       '(
         align
+        bookmark+
+        cus-edit
         em-dirs
         em-term
         erc
