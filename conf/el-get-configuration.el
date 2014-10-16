@@ -6,7 +6,6 @@
    '(el-get
 
      auto-complete
-     bookmark+
      cider
      clojure-mode
      dired+
@@ -231,6 +230,9 @@
      (:name smart-mode-line
             :after (progn (sml/setup)
                           (sml/apply-theme 'respectful)))
+
+     (:name bookmark+
+            :before (setq bookmark-default-file "~/.emacs.d/bookmarks/default"))
 
      (:name projectur
             :type github
