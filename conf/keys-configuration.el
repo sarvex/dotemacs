@@ -160,6 +160,7 @@
     (define-key map "i" 'switch-to-irc-buffer)
     (define-key map "t" 'switch-to-twitter-buffer)
     (define-key map "g" 'switch-to-magit-buffer)
+    (define-key map "b" 'switch-to-bookmark-file)
     map))
 
 (define-key global-map (kbd "C-x g")
