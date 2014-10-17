@@ -4,8 +4,8 @@
 
 (global-magit-wip-save-mode)
 
-(add-hook 'magit-log-edit-mode-hook 'turn-on-auto-fill)
-(add-hook 'magit-log-edit-mode-hook 'flyspell-mode)
+(add-hook 'git-commit-mode-hook 'turn-on-auto-fill)
+(add-hook 'git-commit-mode-hook 'flyspell-mode)
 
 ;; solving conflicts with my windows-operating keys
 (define-key magit-mode-map (kbd "M-1") nil)
