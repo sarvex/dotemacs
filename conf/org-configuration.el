@@ -57,6 +57,7 @@
      ("CANCELLED" . (:foreground "#e00051" :weight bold))
      ("DONE" .      (:foreground "#448c27" :weight bold))))
 
+ '(org-capture-bookmark nil)
  '(org-capture-templates
    `(("n" "note" entry
       (file ,(expand-file-name "notes.org" vderyagin/org-agenda-directory))
