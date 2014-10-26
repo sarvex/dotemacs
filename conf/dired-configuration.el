@@ -11,7 +11,7 @@
  '(dired-keep-marker-symlink nil)
  '(dired-listing-switches "-lhAF --group-directories-first")
  '(dired-ls-F-marks-symlinks t)
- '(dired-omit-files (rx line-start (or "." "#")))
+ '(dired-omit-files (rx line-start "."))
  '(dired-omit-extensions nil)
  '(wdired-allow-to-change-permissions 'advanced)
  '(wdired-allow-to-redirect-links t)
