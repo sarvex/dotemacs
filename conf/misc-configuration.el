@@ -29,6 +29,8 @@
 (minibuffer-electric-default-mode)
 (winner-mode)
 
+(global-aggressive-indent-mode)
+
 ;; off
 (menu-bar-mode -1)
 (tool-bar-mode -1)

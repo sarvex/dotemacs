@@ -24,4 +24,5 @@
  '(
    rainbow-mode
    lexbind-mode
+   aggressive-indent
    ))
