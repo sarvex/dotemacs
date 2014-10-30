@@ -25,7 +25,6 @@
      popup
      rcodetools
      s
-     scala-mode2
      scratch
      slim-mode
      slime
@@ -161,18 +160,6 @@
 
      (:name org-mode
             :url "http://orgmode.org/org-mode.git")
-
-     (:name ensime
-            :type http-tar
-            :options ("xzf")
-            :url "https://github.com/downloads/ensime/ensime-src/ensime_2.10.0-RC3-0.9.8.2.tar.gz"
-            :load-path "elisp"
-            :build `((,el-get-emacs "--quick" "--batch"
-                                    "--directory" "elisp"
-                                    "--load" "elisp/ensime.el"
-                                    "--eval" "(defun batch-force-byte-recompile-directory () (batch-byte-recompile-directory 0))"
-                                    "--funcall" "batch-force-byte-recompile-directory" "elisp"))
-            :post-init nil)
 
      (:name ac-cider-compliment
             :features nil)

@@ -22,7 +22,9 @@
    (unless (package-installed-p package)
      (package-install package)))
  '(
-   rainbow-mode
-   lexbind-mode
    aggressive-indent
+   ensime
+   scala-mode2
+   lexbind-mode
+   rainbow-mode
    ))
