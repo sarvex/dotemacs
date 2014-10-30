@@ -54,9 +54,4 @@
 
 
 (custom-set-variables
- '(scheme-program-name "mzscheme")
- '(quack-remap-find-file-bindings-p nil)
- '(quack-fontify-style 'emacs))
-
-(with-eval-after-load 'scheme
-  (require 'quack))
+ '(scheme-program-name "mzscheme"))

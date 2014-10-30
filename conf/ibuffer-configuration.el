@@ -244,7 +244,6 @@
             (name . "^\\*WoMan-Log\\*$")
             (name . "^\\*emacs\\*$")
             (name . "^\\*ensime-events\\*$")
-            (name . "^\\*gists\\*$")
             (name . "^\\*gnus trace\\*$")
             (name . "^\\*haskell-process-log\\*$")
             (name . "^\\*imap log\\*$")

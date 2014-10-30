@@ -29,9 +29,6 @@
 
 (define-key global-map (kbd "C-%") 'goto-match-paren)
 
-(define-key global-map (kbd "C-@") 'er/expand-region)
-(define-key global-map (kbd "C-M-@") 'er/contract-region)
-
 (define-key global-map (kbd "C-x C-b") 'ibuffer)
 
 (define-key global-map (kbd "C-x C-d") 'ido-dired)
@@ -96,14 +93,6 @@
       (kill-buffer (current-buffer)))))
 
 (define-key global-map (kbd "C-x c") 'save-buffers-kill-emacs)
-
-(define-key global-map (kbd "<f8>")
-  (lambda (&optional open-new)
-    (interactive "P")
-    (call-interactively
-     (if open-new
-         'multi-term
-       'multi-term-next))))
 
 (define-key help-map "a"
   (let ((map (make-sparse-keymap)))

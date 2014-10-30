@@ -12,22 +12,18 @@
      dockerfile-mode
      drag-stuff
      emacs-async
-     expand-region
      ghc-mod
-     gist
      git-commit-mode
      gnus
      graphviz-dot-mode
      haml-mode
      helm-descbinds
-     highlight
      lua-mode
      magit
      paredit
      php-mode
      popup
      rcodetools
-     redshank
      s
      scala-mode2
      scratch
@@ -38,22 +34,17 @@
      textile-mode
      tuareg-mode
      web-mode
-     wtf
      yaml-mode
 
      (:name erc-highlight-nicknames :lazy t)
-     (:name io-mode :lazy t)
-     (:name quack :lazy t)
      (:name rust-mode :lazy t)
-     (:name scss-mode :lazy t)
      (:name twittering-mode :lazy t)
      (:name yari :lazy t)
 
      (:name iedit
             :type github
             :pkgname "victorhge/iedit"
-            :features (iedit iedit-rect)
-            :lazy t)
+            :features (iedit iedit-rect))
 
      (:name coffee-mode
             :lazy t
@@ -75,9 +66,6 @@
             :features yasnippet
             :compile ("dropdown-list.el" "yasnippet.el")
             :post-init nil)
-
-     (:name multi-term
-            :type emacsmirror)
 
      (:name eval-expr
             :type emacsmirror)
@@ -145,18 +133,6 @@
             :type github
             :pkgname "joddie/macrostep")
 
-     (:name multiple-cursors
-            :features nil
-            :before (setq mc/list-file "~/.emacs.d/multiple-cursors-lists"))
-
-     (:name scriptify
-            :type github
-            :pkgname "vderyagin/scriptify"
-            :after (setq scriptify-scripts-directory (expand-file-name "~/bin/")))
-
-     (:name palimpsest-mode
-            :post-init nil)
-
      (:name emmet-mode
             :type github
             :pkgname "smihica/emmet")
@@ -168,10 +144,6 @@
      (:name haskell-mode
             :load "haskell-mode-autoloads.el"
             :post-init nil)
-
-     (:name es-windows
-            :type github
-            :pkgname "sabof/es-windows")
 
      (:name project-explorer
             :lazy t)
@@ -217,6 +189,7 @@
             :type github
             :pkgname "flycheck/flycheck-haskell"
             :features nil)
+
      (:name sass-mode
             :post-init nil)
 

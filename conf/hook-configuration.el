@@ -17,7 +17,6 @@
    dired-mode-hook
    emacs-lisp-mode-hook
    finder-mode-hook
-   gist-list-mode-hook
    gnus-article-mode-hook
    gnus-browse-mode-hook
    gnus-group-mode-hook
