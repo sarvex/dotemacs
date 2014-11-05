@@ -182,7 +182,8 @@
   (require 'org-checklist)
   (require 'org-crypt)
   (require 'org-contacts)
-  (require 'org-habit)
+
+  (add-to-list 'org-modules 'org-habit)
 
   (org-clock-persistence-insinuate)
   (org-crypt-use-before-save-magic)
