@@ -59,21 +59,13 @@
 
  '(org-capture-bookmark nil)
  '(org-capture-templates
-   `(("n" "note" entry
-      (file ,(expand-file-name "notes.org" vderyagin/org-agenda-directory))
-      "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
-      :clock-resume t)
-     ("t" "todo" entry
+   `(("t" "todo" entry
       (file ,(expand-file-name "todo.org" vderyagin/org-agenda-directory))
       "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
       :clock-resume t)
      ("T" "todo with timestamp" entry
       (file ,(expand-file-name "todo.org" vderyagin/org-agenda-directory))
       "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
-      :clock-resume t)
-     ("r" "read" entry
-      (file ,(expand-file-name "reading.org" vderyagin/org-agenda-directory))
-      "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
       :clock-resume t)
      ("c" "contact" entry
       (file ,vderyagin/org-contacts-file)
@@ -146,9 +138,7 @@
               (org-tags-match-list-sublevels nil)))))
      ("A" "List of tasks to archive" todo "DONE|CANCELLED"
       ((org-agenda-overriding-header "List of tasks to archive:")
-       (org-tags-match-list-sublevels nil)))
-     ("n" "Notes" tags "NOTE"
-      ((org-agenda-overriding-header "List of notes:"))))))
+       (org-tags-match-list-sublevels nil))))))
 
 (with-eval-after-load 'org-clock
   (add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
