@@ -120,7 +120,7 @@
  '(org-agenda-start-with-entry-text-mode nil)
  '(org-agenda-start-with-follow-mode nil)
  '(org-agenda-start-with-log-mode nil)
- '(org-agenda-tags-column -87)
+ '(org-agenda-tags-column -86)
  '(org-agenda-todo-list-sublevels nil)
  '(org-agenda-window-setup 'current-window)
 
