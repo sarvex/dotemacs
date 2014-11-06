@@ -29,5 +29,5 @@
                                        "mustache"
                                        "handlebars"
                                        "hbs"
-                                       string-end))
+                                       ) string-end)
                                'web-mode))
