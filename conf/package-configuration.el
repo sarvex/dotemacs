@@ -1,16 +1,13 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'package)
-
-(setq package-enable-at-startup nil)
-
-(mapc
- (lambda (archive)
-   (add-to-list 'package-archives archive 'append))
- '(
-   ("marmalade" . "http://marmalade-repo.org/packages/")
-   ("melpa" . "http://melpa.org/packages/")
-   ))
+(custom-set-variables
+ '(package-enable-at-startup nil)
+ '(package-archives '(
+                      ("gnu" . "http://elpa.gnu.org/packages/")
+                      ("marmalade" . "http://marmalade-repo.org/packages/")
+                      ("melpa" . "http://melpa.org/packages/")
+                      ))
+ )
 
 (package-initialize)
 
