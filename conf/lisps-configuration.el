@@ -15,7 +15,6 @@
 (with-eval-after-load 'ielm
   (setq ielm-header "")
 
-  (add-hook 'inferior-emacs-lisp-mode-hook #'aggressive-indent-mode)
   (add-hook 'inferior-emacs-lisp-mode-hook 'turn-on-eldoc-mode)
   (add-hook 'inferior-emacs-lisp-mode-hook (lambda () (auto-complete-mode 1)))
   (add-hook 'inferior-emacs-lisp-mode-hook
@@ -32,7 +31,6 @@
 
 (add-hook 'lisp-interaction-mode-hook (lambda () (setq mode-name "ξlisp-int")))
 
-(add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
 (add-hook 'emacs-lisp-mode-hook 'lexbind-mode)
 (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "ξlisp")))
 (add-hook 'emacs-lisp-mode-hook
