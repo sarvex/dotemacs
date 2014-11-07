@@ -22,7 +22,6 @@
    (unless (package-installed-p package)
      (package-install package)))
  '(
-   aggressive-indent
    ensime
    scala-mode2
    lexbind-mode
