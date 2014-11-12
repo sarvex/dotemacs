@@ -28,10 +28,11 @@
  '(org-catch-invisible-edits 'error)
  '(org-completion-use-ido t)
  '(org-cycle-level-faces nil)
- '(org-cycle-separator-lines -2)
+ '(org-cycle-separator-lines -1)
  '(org-drawers '("PROPERTIES" "CLOCK" "LOGBOOK" "HIDDEN"))
  '(org-enforce-todo-dependencies t)
  '(org-habit-graph-column 57)
+ '(org-indirect-buffer-display 'current-window)
  '(org-log-done 'time)
  '(org-log-into-drawer t)
  '(org-outline-path-complete-in-steps nil)
@@ -121,7 +122,7 @@
       :body message
       :app-icon (expand-file-name "~/.icons/org-mode.png"))))
 
- '(org-agenda-compact-blocks nil)
+ '(org-agenda-compact-blocks t)
  '(org-agenda-repeating-timestamp-show-all nil)
  '(org-agenda-restore-windows-after-quit t)
  '(org-agenda-show-inherited-tags nil)
@@ -129,6 +130,7 @@
  '(org-agenda-start-with-clockreport-mode nil)
  '(org-agenda-start-with-entry-text-mode nil)
  '(org-agenda-start-with-follow-mode nil)
+ '(org-agenda-sticky t)
  '(org-agenda-start-with-log-mode nil)
  '(org-agenda-tags-column -86)
  '(org-agenda-todo-list-sublevels nil)
@@ -141,7 +143,9 @@
              ((org-agenda-overriding-header "NEXT tasks:")))
        (todo "TODO"
              ((org-agenda-overriding-header "TODO tasks:")
-              (org-agenda-files (list (expand-file-name "todo.org" vderyagin/org-agenda-directory)))
+              (org-agenda-files (mapcar
+                                 (lambda (file) (expand-file-name (format "%s.org" file) vderyagin/org-agenda-directory))
+                                 '("todo" "projects")))
               (org-tags-match-list-sublevels nil)))
        (tags "REFILE"
              ((org-agenda-overriding-header "List of tasks to refile:")
