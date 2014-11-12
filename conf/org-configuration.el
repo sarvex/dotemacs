@@ -11,6 +11,16 @@
       :body notification
       :app-icon (expand-file-name "~/.icons/org-mode.png"))))
 
+ '(org-modules '(
+                 org-checklist
+                 org-contacts
+                 org-crypt
+                 org-gnus
+                 org-habit
+                 org-info
+                 org-irc
+                 ))
+
  '(org-crypt-key "279C2900")
  '(org-crypt-disable-auto-save t)
 
@@ -168,12 +178,6 @@
   (load (expand-file-name "org-mode/lisp/org-loaddefs" el-get-dir))
 
   (require 'notifications)
-
-  (require 'org-checklist)
-  (require 'org-crypt)
-  (require 'org-contacts)
-
-  (add-to-list 'org-modules 'org-habit)
 
   (org-clock-persistence-insinuate)
   (org-crypt-use-before-save-magic)
