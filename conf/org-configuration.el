@@ -58,7 +58,7 @@
                           (expand-file-name "projects" vderyagin/org-agenda-directory)))
 
  '(org-todo-keywords
-   '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
+   '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "WAITING(w@)" "|" "DONE(d)" "CANCELLED(c@)")))
  '(org-todo-keyword-faces
    '(("TODO" .      (:foreground "#df3800" :weight bold))
      ("NEXT" .      (:foreground "#566ea2" :weight bold))
