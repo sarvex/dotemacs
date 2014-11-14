@@ -40,6 +40,7 @@
  '(org-special-ctrl-a/e 'reversed)
  '(org-special-ctrl-k t)
  '(org-src-fontify-natively t)
+ '(org-startup-align-all-tables t)
  '(org-startup-indented t)
  '(org-startup-truncated nil)
  '(org-tags-column -83)
