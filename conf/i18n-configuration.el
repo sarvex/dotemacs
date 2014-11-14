@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(set-charset-priority 'unicode)
 (set-clipboard-coding-system 'utf-8)
-
 (set-default-coding-systems 'utf-8)
 (set-file-name-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
