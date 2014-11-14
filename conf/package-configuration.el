@@ -20,7 +20,8 @@
      (package-install package)))
  '(
    ensime
-   scala-mode2
+   ledger-mode
    lexbind-mode
    rainbow-mode
+   scala-mode2
    ))
