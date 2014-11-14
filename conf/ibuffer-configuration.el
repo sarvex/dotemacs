@@ -235,6 +235,7 @@
             (name . "^\\*Image-Dired Edit Meta Data\\*$")
             (name . "^\\*Messages\\*$")
             (name . "^\\*Minibuf")
+            (name . "^\\*Org Shell Output\\*")
             (name . "^\\*Phases of Moon\\*$")
             (name . "^\\*Python\\*$")
             (name . "^\\*Quail Completions\\*$")
