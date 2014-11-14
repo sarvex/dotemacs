@@ -24,6 +24,9 @@
  '(org-crypt-key "279C2900")
  '(org-crypt-disable-auto-save t)
 
+ '(org-default-priority ?E)
+ '(org-lowest-priority ?E)
+
  '(org-bookmark-names-plist nil)
  '(org-catch-invisible-edits 'error)
  '(org-completion-use-ido t)
@@ -179,13 +182,15 @@
   (define-key org-agenda-mode-map (kbd "M-p") 'org-previous-link)
   (define-key org-agenda-mode-map (kbd "M-n") 'org-next-link))
 
+(with-eval-after-load 'org-crypt
+  (org-crypt-use-before-save-magic))
+
 (with-eval-after-load 'org
   (load (expand-file-name "org-mode/lisp/org-loaddefs" el-get-dir))
 
   (require 'notifications)
 
   (org-clock-persistence-insinuate)
-  (org-crypt-use-before-save-magic)
 
   ;; Get rid of strike-through emphasis:
   (setq org-emphasis-alist
