@@ -5,7 +5,6 @@
  '(el-get-sources
    '(el-get
 
-     cider
      clojure-mode
      drag-stuff
      emacs-async
@@ -15,7 +14,6 @@
      haml-mode
      magit
      php-mode
-     popup
      rcodetools
      s
      scratch
@@ -143,9 +141,6 @@
 
      (:name org-mode
             :url "http://orgmode.org/org-mode.git")
-
-     (:name ac-cider-compliment
-            :features nil)
 
      (:name rspec-simple
             :type github

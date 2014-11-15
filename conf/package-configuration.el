@@ -19,8 +19,10 @@
    (unless (package-installed-p package)
      (package-install package)))
  '(
+   ac-cider-compliment
    adoc-mode
    auto-complete
+   cider
    dired+
    dockerfile-mode
    ensime
@@ -32,6 +34,7 @@
    lexbind-mode
    lua-mode
    paredit
+   popup
    rainbow-mode
    rust-mode
    scala-mode2
