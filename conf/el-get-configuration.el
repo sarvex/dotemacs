@@ -30,10 +30,6 @@
             :pkgname "victorhge/iedit"
             :features (iedit iedit-rect))
 
-     (:name coffee-mode
-            :lazy t
-            :post-init nil)
-
      (:name openwith
             :description "Open files with external programs"
             :type hg
@@ -87,20 +83,8 @@
             :features nil
             :after (setq ack-command "ag --smart-case "))
 
-     (:name go-eldoc
-            :type github
-            :pkgname "syohex/emacs-go-eldoc")
-
      (:name smartparens
             :features smartparens-config)
-
-     (:name go-mode
-            :type github
-            :pkgname "dominikh/go-mode.el")
-
-     (:name dart-mode
-            :type github
-            :pkgname "nex3/dart-mode")
 
      (:name miniedit
             :type emacsmirror
@@ -116,10 +100,6 @@
      (:name emmet-mode
             :type github
             :pkgname "smihica/emmet")
-
-     (:name elixir-mode
-            :type github
-            :pkgname "elixir-lang/emacs-elixir")
 
      (:name haskell-mode
             :load "haskell-mode-autoloads.el"
@@ -154,13 +134,6 @@
             :type github
             :pkgname "flycheck/flycheck-haskell"
             :features nil)
-
-     (:name sass-mode
-            :post-init nil)
-
-     (:name markdown-mode
-            :type github
-            :pkgname "defunkt/markdown-mode")
 
      (:name smart-mode-line
             :after (progn (sml/setup)
