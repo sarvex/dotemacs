@@ -19,9 +19,25 @@
    (unless (package-installed-p package)
      (package-install package)))
  '(
+   adoc-mode
+   auto-complete
+   dired+
+   dockerfile-mode
    ensime
+   go-autocomplete
+   graphviz-dot-mode
+   helm
+   helm-descbinds
    ledger-mode
    lexbind-mode
+   lua-mode
+   paredit
    rainbow-mode
+   rust-mode
    scala-mode2
+   slim-mode
+   smex
+   tuareg
+   yaml-mode
+   yari
    ))

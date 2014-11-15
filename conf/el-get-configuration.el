@@ -5,40 +5,27 @@
  '(el-get-sources
    '(el-get
 
-     auto-complete
      cider
      clojure-mode
-     dired+
-     dockerfile-mode
      drag-stuff
      emacs-async
      ghc-mod
      git-commit-mode
      gnus
-     graphviz-dot-mode
      haml-mode
-     helm-descbinds
-     lua-mode
      magit
-     paredit
      php-mode
      popup
      rcodetools
      s
      scratch
-     slim-mode
      slime
-     smex
      structured-haskell-mode
      textile-mode
-     tuareg-mode
      web-mode
-     yaml-mode
 
      (:name erc-highlight-nicknames :lazy t)
-     (:name rust-mode :lazy t)
      (:name twittering-mode :lazy t)
-     (:name yari :lazy t)
 
      (:name iedit
             :type github
@@ -101,10 +88,6 @@
             :pkgname "leoliu/ack-el"
             :features nil
             :after (setq ack-command "ag --smart-case "))
-
-     (:name go-autocomplete
-            :type http
-            :url "https://raw.githubusercontent.com/nsf/gocode/master/emacs/go-autocomplete.el")
 
      (:name go-eldoc
             :type github
@@ -183,9 +166,6 @@
      (:name markdown-mode
             :type github
             :pkgname "defunkt/markdown-mode")
-
-     (:name helm
-            :build (("make")))
 
      (:name smart-mode-line
             :after (progn (sml/setup)
