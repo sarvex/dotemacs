@@ -39,6 +39,7 @@
 (load "conf/ido-configuration")
 (load "conf/javascript-configuration")
 (load "conf/keys-configuration")
+(load "conf/ledger-configuration")
 (load "conf/lisps-configuration")
 (load "conf/markdown-configuration")
 (load "conf/misc-configuration")

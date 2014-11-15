@@ -25,6 +25,8 @@
    go-mode-hook
    ibuffer-mode-hook
    irfc-mode-hook
+   ledger-reconcile-mode-hook
+   ledger-report-mode-hook
    magit-log-mode-hook
    magit-status-mode-hook
    org-agenda-mode-hook
