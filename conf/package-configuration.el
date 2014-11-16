@@ -44,6 +44,7 @@
    markdown-mode
    paredit
    popup
+   project-explorer
    rainbow-mode
    rust-mode
    s

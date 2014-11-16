@@ -83,9 +83,6 @@
             :load "haskell-mode-autoloads.el"
             :post-init nil)
 
-     (:name project-explorer
-            :lazy t)
-
      (:name fancy-narrow
             :type github
             :pkgname "bruce-connor/fancy-narrow"
