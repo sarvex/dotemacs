@@ -28,6 +28,7 @@
    dired+
    dockerfile-mode
    elixir-mode
+   emmet-mode
    ensime
    go-autocomplete
    go-eldoc
@@ -35,19 +36,26 @@
    graphviz-dot-mode
    helm
    helm-descbinds
+   iedit
    ledger-mode
    lexbind-mode
    lua-mode
+   macrostep
    markdown-mode
    paredit
    popup
    rainbow-mode
    rust-mode
+   s
    sass-mode
    scala-mode2
    slim-mode
    smex
+   textile-mode
    tuareg
+   twittering-mode
+   web-mode
    yaml-mode
    yari
+   yasnippet
    ))

@@ -15,20 +15,11 @@
      magit
      php-mode
      rcodetools
-     s
      scratch
      slime
      structured-haskell-mode
-     textile-mode
-     web-mode
 
      (:name erc-highlight-nicknames :lazy t)
-     (:name twittering-mode :lazy t)
-
-     (:name iedit
-            :type github
-            :pkgname "victorhge/iedit"
-            :features (iedit iedit-rect))
 
      (:name openwith
             :description "Open files with external programs"
@@ -41,11 +32,6 @@
             :type http
             :url "https://raw.githubusercontent.com/ruby/ruby/trunk/misc/inf-ruby.el"
             :features nil)
-
-     (:name yasnippet
-            :features yasnippet
-            :compile ("dropdown-list.el" "yasnippet.el")
-            :post-init nil)
 
      (:name eval-expr
             :type emacsmirror)
@@ -92,14 +78,6 @@
 
      (:name flycheck
             :after (add-hook 'after-init-hook #'global-flycheck-mode))
-
-     (:name macrostep
-            :type github
-            :pkgname "joddie/macrostep")
-
-     (:name emmet-mode
-            :type github
-            :pkgname "smihica/emmet")
 
      (:name haskell-mode
             :load "haskell-mode-autoloads.el"

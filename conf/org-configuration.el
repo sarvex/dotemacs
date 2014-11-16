@@ -167,7 +167,6 @@
     '(awk dot haskell js lisp perl python ruby scheme sh)))
 
 (with-eval-after-load 'org-capture
-  (define-key org-capture-mode-map (kbd "C-c t") 'org-set-tags)
   (add-hook 'org-capture-after-finalize-hook 'vderyagin/org-update-agenda-views)
   (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags))
 
@@ -178,6 +177,7 @@
 
   (define-key org-agenda-mode-map (kbd "C-S-<left>") nil)
   (define-key org-agenda-mode-map (kbd "C-S-<right>") nil)
+  (define-key org-agenda-mode-map (kbd "C-c C-x C-s") nil)
 
   (define-key org-agenda-mode-map (kbd "M-p") 'org-previous-link)
   (define-key org-agenda-mode-map (kbd "M-n") 'org-next-link))
