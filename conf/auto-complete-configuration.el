@@ -7,25 +7,26 @@
  '(ac-menu-height 25)
  '(ac-quick-help-delay 0.8))
 
-(with-eval-after-load 'auto-complete-config
-  (ac-config-default)
+(require 'auto-complete-config)
 
-  (add-to-list 'ac-modes 'inferior-emacs-lisp-mode)
-  (add-to-list 'ac-modes 'cider-mode)
+(ac-config-default)
 
-  (add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete/dict" el-get-dir))
+(add-to-list 'ac-modes 'inferior-emacs-lisp-mode)
+(add-to-list 'ac-modes 'cider-mode)
 
-  (setq-default ac-sources
-                '(ac-source-abbrev
-                  ac-source-dictionary
-                  ac-source-words-in-same-mode-buffers
-                  ac-source-yasnippet
-                  ac-source-filename))
+(add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete/dict" el-get-dir))
 
-  (define-key ac-mode-map (kbd "M-<tab>") 'auto-complete)
-  (define-key ac-complete-mode-map (kbd "M-?") 'ac-quick-help)
-  (define-key ac-complete-mode-map (kbd "C-s") 'ac-isearch)
-  (define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
-  (define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
-  (define-key ac-complete-mode-map (kbd "C-g") 'ac-stop)
-  (define-key ac-complete-mode-map (kbd "<return>") 'ac-expand))
+(setq-default ac-sources
+              '(ac-source-abbrev
+                ac-source-dictionary
+                ac-source-words-in-same-mode-buffers
+                ac-source-yasnippet
+                ac-source-filename))
+
+(define-key ac-mode-map (kbd "M-<tab>") 'auto-complete)
+(define-key ac-complete-mode-map (kbd "M-?") 'ac-quick-help)
+(define-key ac-complete-mode-map (kbd "C-s") 'ac-isearch)
+(define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
+(define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
+(define-key ac-complete-mode-map (kbd "C-g") 'ac-stop)
+(define-key ac-complete-mode-map (kbd "<return>") 'ac-expand)
