@@ -63,14 +63,14 @@
                           (expand-file-name "projects" vderyagin/org-agenda-directory)))
 
  '(org-todo-keywords
-   '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "WAITING(w@)" "|" "DONE(d)" "CANCELLED(c@)")))
+   '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "WAITING(w@)" "|" "DONE(d)" "CANCELED(c@)")))
  '(org-todo-keyword-faces
-   '(("TODO" .      (:foreground "#df3800" :weight bold))
-     ("NEXT" .      (:foreground "#566ea2" :weight bold))
-     ("HOLD" .      (:foreground "#b68800" :weight bold))
-     ("WAITING" .   (:foreground "#4d9694" :weight bold))
-     ("CANCELLED" . (:foreground "#e00051" :weight bold))
-     ("DONE" .      (:foreground "#448c27" :weight bold))))
+   '(("TODO" .     (:foreground "#df3800" :weight bold))
+     ("NEXT" .     (:foreground "#566ea2" :weight bold))
+     ("HOLD" .     (:foreground "#b68800" :weight bold))
+     ("WAITING" .  (:foreground "#4d9694" :weight bold))
+     ("CANCELED" . (:foreground "#e00051" :weight bold))
+     ("DONE" .     (:foreground "#448c27" :weight bold))))
 
  '(org-capture-bookmark nil)
  '(org-capture-templates
