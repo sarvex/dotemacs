@@ -27,6 +27,7 @@
 (mapc #'require
       '(
         align
+        auto-complete-config
         bookmark+
         cus-edit
         em-dirs
@@ -40,6 +41,7 @@
         image-mode
         inferior-slime
         info
+        ledger-mode
         markdown-mode
         org-agenda
         org-capture
@@ -58,4 +60,5 @@
         tar-mode
         twittering-mode
         wdired
+        yasnippet
         ))
