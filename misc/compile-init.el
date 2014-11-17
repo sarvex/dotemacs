@@ -22,11 +22,10 @@
 (load "conf/el-get-configuration")
 (load "conf/package-configuration")
 
-(require 'go-oracle "oracle")
-
 (mapc #'require
       '(
         align
+        arc-mode
         auto-complete-config
         bookmark+
         cus-edit
@@ -39,10 +38,10 @@
         ibuf-ext
         ielm
         image-mode
-        inferior-slime
         info
         ledger-mode
         markdown-mode
+        org
         org-agenda
         org-capture
         org-crypt
@@ -55,10 +54,17 @@
         scala-mode2
         sgml-mode
         sh-script
-        slime-repl
+        smartparens-config
         speedbar
         tar-mode
         twittering-mode
         wdired
         yasnippet
         ))
+
+(require 'go-oracle "oracle")
+
+(slime-setup '(
+               slime-fancy
+               inferior-slime
+               ))
