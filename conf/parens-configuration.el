@@ -2,6 +2,8 @@
 
 (show-paren-mode)
 
+(require 'smartparens-config)
+
 (custom-set-variables
  '(sp-highlight-pair-overlay nil))
 

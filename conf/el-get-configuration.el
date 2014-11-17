@@ -94,7 +94,7 @@
             :type github
             :pkgname "vderyagin/projectur"))))
 
-(unless (require 'el-get nil 'noerror)
+(unless (require 'el-get "~/.emacs.d/el-get/el-get/el-get" 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
        "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
