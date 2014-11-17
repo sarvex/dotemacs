@@ -5,21 +5,12 @@
  '(el-get-sources
    '(el-get
 
-     clojure-mode
-     drag-stuff
      emacs-async
      ghc-mod
-     git-commit-mode
      gnus
-     haml-mode
      magit
-     php-mode
      rcodetools
-     scratch
-     slime
      structured-haskell-mode
-
-     (:name erc-highlight-nicknames :lazy t)
 
      (:name openwith
             :description "Open files with external programs"
@@ -69,9 +60,6 @@
             :features nil
             :after (setq ack-command "ag --smart-case "))
 
-     (:name smartparens
-            :features smartparens-config)
-
      (:name miniedit
             :type emacsmirror
             :after (miniedit-install))
@@ -83,19 +71,11 @@
             :load "haskell-mode-autoloads.el"
             :post-init nil)
 
-     (:name fancy-narrow
-            :type github
-            :pkgname "bruce-connor/fancy-narrow"
-            :after (fancy-narrow-mode))
-
      (:name go-oracle
             :type http
             :url "http://tools.go.googlecode.com/hg/cmd/oracle/oracle.el"
             :load-path "."
             :post-init nil)
-
-     (:name org-mode
-            :url "http://orgmode.org/org-mode.git")
 
      (:name rspec-simple
             :type github
@@ -109,13 +89,6 @@
             :type github
             :pkgname "flycheck/flycheck-haskell"
             :features nil)
-
-     (:name smart-mode-line
-            :after (progn (sml/setup)
-                          (sml/apply-theme 'respectful)))
-
-     (:name bookmark+
-            :before (setq bookmark-default-file "~/.emacs.d/bookmarks/default"))
 
      (:name projectur
             :type github
