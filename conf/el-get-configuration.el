@@ -5,12 +5,8 @@
  '(el-get-sources
    '(el-get
 
-     emacs-async
-     ghc-mod
      gnus
-     magit
      rcodetools
-     structured-haskell-mode
 
      (:name openwith
             :description "Open files with external programs"
@@ -27,28 +23,10 @@
      (:name eval-expr
             :type emacsmirror)
 
-     (:name irfc
-            :type emacswiki
-            :before (progn
-                      (setq irfc-directory "~/doc/RFC"
-                            irfc-assoc-mode t)
-                      (add-to-list 'auto-mode-alist '("/rfc[0-9]+\\.txt\\'" . irfc-mode))))
-
-     (:name feature-mode
-            :type github
-            :pkgname "michaelklishin/cucumber.el"
-            :after (setq
-                    feature-default-language "en"
-                    feature-default-i18n-file (expand-file-name "feature-mode/i18n.yml" el-get-dir)))
-
      (:name pomodoro
             :type github
             :pkgname "vderyagin/pomodoro.el"
             :after (setq pomodoro-icon (expand-file-name "pomodoro/pomodoro_technique.png" el-get-dir)))
-
-     (:name ido-ubiquitous
-            :type github
-            :pkgname "DarwinAwardWinner/ido-ubiquitous")
 
      (:name rake.el
             :type github
@@ -64,13 +42,6 @@
             :type emacsmirror
             :after (miniedit-install))
 
-     (:name flycheck
-            :after (add-hook 'after-init-hook #'global-flycheck-mode))
-
-     (:name haskell-mode
-            :load "haskell-mode-autoloads.el"
-            :post-init nil)
-
      (:name go-oracle
             :type http
             :url "http://tools.go.googlecode.com/hg/cmd/oracle/oracle.el"
@@ -80,14 +51,6 @@
      (:name rspec-simple
             :type github
             :pkgname "code-mancers/rspec-simple"
-            :features nil)
-
-     (:name flycheck-hdevtools
-            :features nil)
-
-     (:name flycheck-haskell
-            :type github
-            :pkgname "flycheck/flycheck-haskell"
             :features nil)
 
      (:name projectur

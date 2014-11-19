@@ -22,6 +22,7 @@
  '(
    ac-cider-compliment
    adoc-mode
+   async
    auto-complete
    bookmark+
    cider
@@ -36,20 +37,26 @@
    ensime
    erc-hl-nicks
    fancy-narrow
+   feature-mode
+   flycheck
+   ghc
    git-commit-mode
    go-autocomplete
    go-eldoc
    go-mode
    graphviz-dot-mode
    haml-mode
+   haskell-mode
    helm
    helm-descbinds
    highlight
+   ido-ubiquitous
    iedit
    ledger-mode
    lexbind-mode
    lua-mode
    macrostep
+   magit
    markdown-mode
    org-plus-contrib
    paredit
@@ -62,6 +69,7 @@
    sass-mode
    scala-mode2
    scratch
+   shm
    slim-mode
    slime
    smart-mode-line
@@ -85,3 +93,9 @@
 (require 'bookmark+)
 
 (require 'iedit)
+
+(fancy-narrow-mode)
+
+(custom-set-variables
+ '(irfc-directory "~/doc/RFC")
+ '(irfc-assoc-mode t))
