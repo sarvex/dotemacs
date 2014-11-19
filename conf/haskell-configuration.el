@@ -9,10 +9,6 @@
  '(haskell-tags-on-save t)
  )
 
-(with-eval-after-load 'flycheck
-  (require 'flycheck-hdevtools)
-  (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
-
 (with-eval-after-load 'haskell-mode
   (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
   ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
