@@ -186,8 +186,6 @@
   (org-crypt-use-before-save-magic))
 
 (with-eval-after-load 'org
-  (load (expand-file-name "org-mode/lisp/org-loaddefs" el-get-dir))
-
   (require 'notifications)
 
   (org-clock-persistence-insinuate)
