@@ -91,9 +91,6 @@
 (sml/setup)
 (sml/apply-theme 'respectful)
 
-(setq bookmark-default-file "~/.emacs.d/bookmarks/default")
-(require 'bookmark+)
-
 (require 'iedit)
 
 (fancy-narrow-mode)

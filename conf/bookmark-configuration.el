@@ -9,6 +9,8 @@
  '(bmkp-bmenu-state-file "~/.emacs.d/bmk-bmenu-state.el")
  '(bmkp-bookmark-name-length-max 50))
 
+(require 'bookmark+)
+
 (defun bookmarks--choose-bookmark-file ()
   (let* ((bookmarks-dir (expand-file-name "~/.emacs.d/bookmarks"))
          (bookmark-files (cl-remove-if-not #'file-regular-p

@@ -5,11 +5,8 @@
 
 (with-eval-after-load 'ruby-mode
   (require 'ffap)
-  (require 'inf-ruby)
   (require 'rcodetools)
   (require 'rspec-simple)
-
-  (inf-ruby-keys)
 
   (define-key ruby-mode-map (kbd "C-c C-c") 'xmp)
 
