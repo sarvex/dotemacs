@@ -1,8 +1,9 @@
 ;;; -*- lexical-binding: t; no-byte-compile: t -*-
 
 (setq
- debug-on-error t
+ bookmark-default-file "~/.emacs.d/bookmarks/default"
  byte-compile-error-on-warn t
+ debug-on-error t
  smex-save-file "~/.emacs.d/smex-items"
  )
 
