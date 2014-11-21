@@ -4,21 +4,7 @@
  '(el-get-notify-type 'message)
  '(el-get-sources
    '(el-get
-
-     gnus
      rcodetools
-
-     (:name openwith
-            :description "Open files with external programs"
-            :type hg
-            :url "https://bitbucket.org/jpkotta/openwith"
-            :features openwith
-            :after (openwith-mode 1))
-
-     (:name inf-ruby
-            :type http
-            :url "https://raw.githubusercontent.com/ruby/ruby/trunk/misc/inf-ruby.el"
-            :features nil)
 
      (:name eval-expr
             :type emacsmirror)
@@ -31,16 +17,6 @@
      (:name rake.el
             :type github
             :pkgname "vderyagin/rake.el")
-
-     (:name ack
-            :type github
-            :pkgname "leoliu/ack-el"
-            :features nil
-            :after (setq ack-command "ag --smart-case "))
-
-     (:name miniedit
-            :type emacsmirror
-            :after (miniedit-install))
 
      (:name go-oracle
             :type http
@@ -66,7 +42,7 @@
 
 (el-get 'sync
         (cl-remove-if
-         (lambda (name) (member name '("el-get" "es-windows")))
+         (lambda (name) (string= name "el-get"))
          (mapcar 'el-get-source-name el-get-sources)))
 
 (load (file-name-sans-extension el-get-autoload-file) 'noerror)
@@ -86,7 +62,5 @@
   (interactive)
   (let ((el-get-default-process-sync t)
         (el-get-elpa-do-refresh 'once)
-        (packages (cl-remove-if
-                   (lambda (pkg) (member pkg '("ensime" "erc-highlight-nicknames" "erc")))
-                   (el-get-list-package-names-with-status "installed"))))
+        (packages (el-get-list-package-names-with-status "installed")))
     (mapc 'el-get-update packages)))

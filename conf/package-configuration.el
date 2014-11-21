@@ -21,6 +21,7 @@
      (package-install package)))
  '(
    ac-cider-compliment
+   ack
    adoc-mode
    async
    auto-complete
@@ -52,12 +53,15 @@
    highlight
    ido-ubiquitous
    iedit
+   inf-ruby
    ledger-mode
    lexbind-mode
    lua-mode
    macrostep
    magit
    markdown-mode
+   miniedit
+   openwith
    org-plus-contrib
    paredit
    php-mode
@@ -84,8 +88,6 @@
    yasnippet
    ))
 
-(require 'smart-mode-line)
-
 (sml/setup)
 (sml/apply-theme 'respectful)
 
@@ -99,3 +101,9 @@
 (custom-set-variables
  '(irfc-directory "~/doc/RFC")
  '(irfc-assoc-mode t))
+
+(miniedit-install)
+
+(openwith-mode 1)
+
+(setq ack-command "ag --smart-case -- ")
