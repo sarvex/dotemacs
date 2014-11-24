@@ -8,6 +8,7 @@
 
 (with-eval-after-load 'ledger-mode
   (define-key ledger-mode-map (kbd "C-<tab>") nil)
+  (define-key ledger-mode-map (kbd "C-c <tab>") nil)
   (define-key ledger-mode-map (kbd "C-c +")
     (lambda (template)
       (interactive "MTransaction template: ")
