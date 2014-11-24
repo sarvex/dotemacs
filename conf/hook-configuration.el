@@ -175,4 +175,6 @@
 
 (add-hook 'after-make-frame-functions
             (lambda (_)
-              (load-file "~/.emacs.d/color-theme-quiet-light/quiet-light-theme.el")))
+              (load-file "~/.emacs.d/color-theme-quiet-light/quiet-light-theme.el")
+              (set-fontset-font t '(?₴ . ?₴)  "DejaVu Sans Mono-10")
+              ))
