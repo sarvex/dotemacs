@@ -105,3 +105,5 @@
 (openwith-mode 1)
 
 (setq ack-command "ag --smart-case -- ")
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
