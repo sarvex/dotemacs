@@ -100,8 +100,6 @@
    (add-to-list 'completion-ignored-extensions extension))
  '(".rbc" ".sassc" ".scssc" ".sqlite3" ".hi"))
 
-(set-fontset-font t 'unicode-bmp  "DejaVu Sans Mono-10")
-
 (custom-set-variables
  '(shell-file-name "/bin/zsh")
  '(explicit-shell-file-name "/bin/zsh")
