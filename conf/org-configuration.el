@@ -137,7 +137,8 @@
  '(org-agenda-sticky t)
  '(org-agenda-start-with-log-mode nil)
  '(org-agenda-tags-column -86)
- '(org-agenda-todo-list-sublevels nil)
+ '(org-agenda-todo-list-sublevels t)
+ '(org-agenda-use-time-grid nil)
  '(org-agenda-window-setup 'current-window)
 
  '(org-agenda-custom-commands
