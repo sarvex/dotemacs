@@ -40,6 +40,7 @@
    fancy-narrow
    feature-mode
    flycheck
+   flycheck-ledger
    ghc
    git-commit-mode
    go-autocomplete

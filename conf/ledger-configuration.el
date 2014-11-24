@@ -26,3 +26,7 @@
 (with-eval-after-load 'ledger-report
   (define-key ledger-report-mode-map (kbd "p") 'previous-line)
   (define-key ledger-report-mode-map (kbd "n") 'next-line))
+
+
+(with-eval-after-load 'flycheck
+  (require 'flycheck-ledger))
