@@ -130,7 +130,7 @@
  '(org-agenda-repeating-timestamp-show-all nil)
  '(org-agenda-restore-windows-after-quit t)
  '(org-agenda-show-inherited-tags nil)
- '(org-agenda-span 'day)
+ '(org-agenda-span 2)
  '(org-agenda-start-with-clockreport-mode nil)
  '(org-agenda-start-with-entry-text-mode nil)
  '(org-agenda-start-with-follow-mode nil)
