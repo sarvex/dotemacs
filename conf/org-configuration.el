@@ -20,6 +20,7 @@
                  org-info
                  org-irc
                  ))
+ '(org-global-properties '(("Effort_ALL" . "0:05 0:15 0:30 0:45 1:00 2:00 3:00 4:00 5:00 8:00")))
 
  '(org-crypt-key "279C2900")
  '(org-crypt-disable-auto-save t)
