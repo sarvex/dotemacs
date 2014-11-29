@@ -170,13 +170,9 @@
               (org-agenda-files (mapcar
                                  (lambda (file) (expand-file-name (format "%s.org" file) vderyagin/org-agenda-directory))
                                  '("todo" "projects")))
-              (org-tags-match-list-sublevels nil)))
-       (tags "REFILE"
-             ((org-agenda-overriding-header "List of tasks to refile:")
               (org-tags-match-list-sublevels nil)))))
-     ("A" "List of tasks to archive" todo "DONE|CANCELLED"
-      ((org-agenda-overriding-header "List of tasks to archive:")
-       (org-tags-match-list-sublevels nil))))))
+     ("A" "List of tasks to archive" tags "TODO=\"DONE\"&LEVEL=1|TODO=\"CANCELED\"&LEVEL=1"
+      ((org-agenda-overriding-header "List of tasks to archive:"))))))
 
 (with-eval-after-load 'org-clock
   (add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
