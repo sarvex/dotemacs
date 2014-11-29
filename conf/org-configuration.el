@@ -22,6 +22,24 @@
                  ))
  '(org-global-properties '(("Effort_ALL" . "0:05 0:15 0:30 0:45 1:00 2:00 3:00 4:00 5:00 8:00")))
 
+ '(org-babel-load-languages '(
+                              (awk . t)
+                              (clojure . t)
+                              (dot . t)
+                              (emacs-lisp . t)
+                              (haskell . t)
+                              (js . t)
+                              (lisp . t)
+                              (ocaml . t)
+                              (perl . t)
+                              (python . t)
+                              (ruby . t)
+                              (scala . t)
+                              (scheme . t)
+                              (sh . t)
+                              (sql . t)
+                              ))
+
  '(org-crypt-key "279C2900")
  '(org-crypt-disable-auto-save t)
 
@@ -162,11 +180,6 @@
 
 (with-eval-after-load 'org-clock
   (add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
-
-(with-eval-after-load 'ob
-  (mapc
-    (lambda (language) (add-to-list 'org-babel-load-languages (cons language t)))
-    '(awk dot haskell js lisp perl python ruby scheme sh)))
 
 (with-eval-after-load 'org-capture
   (add-hook 'org-capture-after-finalize-hook 'vderyagin/org-update-agenda-views)
