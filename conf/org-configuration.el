@@ -156,6 +156,9 @@
       ((agenda)
        (todo "NEXT"
              ((org-agenda-overriding-header "NEXT tasks:")))
+       (todo ""
+             ((org-agenda-overriding-header "Things to organize:")
+              (org-agenda-files (list org-default-notes-file))))
        (todo "TODO"
              ((org-agenda-overriding-header "TODO tasks:")
               (org-agenda-files (mapcar
