@@ -209,9 +209,7 @@
 
   (add-hook 'org-mode-hook
             (defun vderyagin/org-mode-hook ()
-              (turn-on-auto-fill)
               (turn-on-visual-line-mode)
-              (setq fill-column 62)
               (set (make-local-variable 'backup-inhibited) t)
               (add-hook 'before-save-hook 'org-align-all-tags nil 'make-it-local)))
 
