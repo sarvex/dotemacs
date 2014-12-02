@@ -31,11 +31,9 @@
       (list (rx not-newline ".pdf" string-end) "mupdf" '(file))
       (list (rx not-newline ".chm" string-end) "kchmviewer" '(file))
       (list (rx not-newline ".dvd.iso" string-end) "vlc" '(file))
-      (list (rx not-newline ".gif" string-end) "animate" '(file))
       (list ,audio-files "vlc" '(file))
       (list ,comic-book-files "qcomicbook" '(file))
       (list ,document-files "qpdfview --unique" '(file))
-      (list ,image-files "feh" '(file))
       (list ,office-files "libreoffice" '(file))
       (list ,video-files "mpv" '(file))))
 
