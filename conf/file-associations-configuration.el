@@ -42,8 +42,8 @@
    `(dired-guess-shell-alist-user
      (list
       (list (rx not-newline ".pdf" string-end) '(list "chromium-browser" "mupdf"))
-      (list (rx not-newline ".htm" (optional "l") string-end) "firefox")
-      (list (rx not-newline ".gif" string-end) '(list "animate" "feh" "firefox"))
+      (list (rx not-newline ".htm" (optional "l") string-end) "chromium")
+      (list (rx not-newline ".gif" string-end) '(list "animate" "feh" "chromium" "firefox"))
       (list (rx not-newline ".torrent" string-end) '(list "torrentinfo" "gtorrentviewer"))
       (list (rx not-newline "." (or "mobi" "epub" "fb2" "lit" "chm") string-end) "fbreader")
       (list ,document-files '(list "mupdf" "qpdfview --unique"))
