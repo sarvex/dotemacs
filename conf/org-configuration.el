@@ -78,8 +78,7 @@
  '(org-default-notes-file (expand-file-name "incoming.org" vderyagin/org-agenda-directory))
  '(org-archive-location (expand-file-name  "archive/archive_%s::" org-directory))
  '(org-contacts-files (list vderyagin/org-contacts-file))
- '(org-agenda-files (list vderyagin/org-agenda-directory
-                          (expand-file-name "projects" vderyagin/org-agenda-directory)))
+ '(org-agenda-files (list vderyagin/org-agenda-directory))
 
  '(org-todo-keywords
    '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "WAITING(w@)" "|" "DONE(d)" "CANCELED(c@)")))
