@@ -93,12 +93,8 @@
  '(org-capture-bookmark nil)
  '(org-capture-templates
    `(("t" "todo" entry
-      (file ,(expand-file-name "todo.org" vderyagin/org-agenda-directory))
+      (file org-default-notes-file)
       "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
-      :clock-resume t)
-     ("T" "todo with timestamp" entry
-      (file ,(expand-file-name "todo.org" vderyagin/org-agenda-directory))
-      "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:Captured_at: %U\n:END:"
       :clock-resume t)
      ("c" "contact" entry
       (file ,vderyagin/org-contacts-file)
@@ -107,10 +103,6 @@
      ("h" "habit" entry
       (file ,(expand-file-name "habits.org" vderyagin/org-agenda-directory))
       "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:STYLE: habit\n:Captured_at: %U\n:END:"
-      :clock-resume t)
-     ("p" "project" entry
-      (file ,(expand-file-name "projects.org" vderyagin/org-agenda-directory))
-      "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
       :clock-resume t)))
 
  '(org-refile-use-outline-path 'file)
