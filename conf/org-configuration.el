@@ -75,7 +75,7 @@
  '(org-directory (expand-file-name "~/org") 'now)
  '(vderyagin/org-agenda-directory (expand-file-name "agenda" org-directory) 'now)
  '(vderyagin/org-contacts-file (expand-file-name "contacts.org" vderyagin/org-agenda-directory) 'now)
- '(org-default-notes-file (expand-file-name "refile.org" vderyagin/org-agenda-directory))
+ '(org-default-notes-file (expand-file-name "incoming.org" vderyagin/org-agenda-directory))
  '(org-archive-location (expand-file-name  "archive/archive_%s::" org-directory))
  '(org-contacts-files (list vderyagin/org-contacts-file))
  '(org-agenda-files (list vderyagin/org-agenda-directory
