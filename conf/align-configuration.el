@@ -32,4 +32,14 @@
                  (regexp . ".:\\(\\s-+\\).")
                  (modes . '(ruby-mode))))
 
+  (add-to-list 'align-rules-list
+               '(rust-pattern-matching
+                 (regexp . "\\(\\s-+\\)=>\\s-+")
+                 (modes . '(rust-mode))))
+
+  (add-to-list 'align-rules-list
+               '(rust-struct-declaration-andinstantiation
+                 (regexp . ".:\\(\\s-+\\).")
+                 (modes . '(rust-mode))))
+
   )
