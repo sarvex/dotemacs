@@ -159,14 +159,15 @@
        (tags "LEVEL=1"
              ((org-agenda-overriding-header "Things to organize:")
               (org-agenda-files (list org-default-notes-file))))
-       (todo "TODO"
-             ((org-agenda-overriding-header "TODO tasks:")
-              (org-agenda-files (mapcar
-                                 (lambda (file) (expand-file-name (format "%s.org" file) vderyagin/org-agenda-directory))
-                                 '("todo" "projects")))
-              (org-tags-match-list-sublevels nil)))))
-     ("A" "List of tasks to archive" tags "TODO=\"DONE\"&LEVEL=1|TODO=\"CANCELED\"&LEVEL=1"
-      ((org-agenda-overriding-header "List of tasks to archive:"))))))
+       (tags-todo "CATEGORY=\"todo\"|CATEGORY=\"projects\""
+                  ((org-agenda-overriding-header "TODO tasks:")
+                   (org-agenda-skip-function
+                    '(org-agenda-skip-entry-if 'nottodo '("TODO")))
+                   (org-tags-match-list-sublevels nil)))))
+     ("A" "List of tasks to archive" tags "LEVEL=2"
+      ((org-agenda-overriding-header "List of tasks to archive:")
+       (org-agenda-skip-function
+        '(org-agenda-skip-entry-if 'nottodo 'done)))))))
 
 (with-eval-after-load 'org-clock
   (add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
