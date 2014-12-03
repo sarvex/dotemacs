@@ -109,6 +109,7 @@
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+(shackle-mode)
 (custom-set-variables
  '(shackle-rules
    '(("*Async Shell Command*"
