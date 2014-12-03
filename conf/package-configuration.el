@@ -74,6 +74,7 @@
    sass-mode
    scala-mode2
    scratch
+   shackle
    shm
    slim-mode
    slime
@@ -107,3 +108,16 @@
 (setq ack-command "ag --smart-case -- ")
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(custom-set-variables
+ '(shackle-rules
+   '(("*Async Shell Command*"
+      :align right
+      :ratio 0.3)
+     ("*Shell Command Output*"
+      :align right
+      :ratio 0.3)
+     ("*Help*"
+      :select t
+      :reuse nil)
+     )))
