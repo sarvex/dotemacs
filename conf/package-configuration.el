@@ -118,8 +118,4 @@
       :ratio 0.3)
      ("*Shell Command Output*"
       :align right
-      :ratio 0.3)
-     ("*Help*"
-      :select t
-      :reuse nil)
-     )))
+      :ratio 0.3))))
