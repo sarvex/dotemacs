@@ -61,6 +61,7 @@
    haml-mode-hook
    haskell-mode-hook
    js-mode-hook
+   js2-mode-hook
    lisp-interaction-mode-hook
    lisp-mode-hook
    makefile-mode-hook
@@ -100,6 +101,7 @@
    haml-mode-hook
    haskell-mode-hook
    js-mode-hook
+   js2-mode-hook
    lisp-interaction-mode-hook
    lisp-mode-hook
    makefile-mode-hook
@@ -128,6 +130,7 @@
    haml-mode-hook
    haskell-mode-hook
    js-mode-hook
+   js2-mode-hook
    magit-log-edit-mode-hook
    makefile-mode-hook
    nxml-mode-hook

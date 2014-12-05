@@ -88,6 +88,7 @@
    yaml-mode
    yari
    yasnippet
+   js2-mode
    ))
 
 (sml/setup)
