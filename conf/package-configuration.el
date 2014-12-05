@@ -89,6 +89,7 @@
    yari
    yasnippet
    js2-mode
+   skewer-mode
    ))
 
 (sml/setup)
@@ -119,3 +120,8 @@
      ("*Shell Command Output*"
       :align right
       :ratio 0.3))))
+
+
+(add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'css-mode-hook 'skewer-css-mode)
+(add-hook 'html-mode-hook 'skewer-html-mode)
