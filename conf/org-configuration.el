@@ -20,6 +20,7 @@
                  org-info
                  org-irc
                  ))
+
  '(org-global-properties '(("Effort_ALL" . "0:05 0:15 0:30 0:45 1:00 2:00 3:00 4:00 5:00 8:00")))
 
  '(org-babel-load-languages '(
@@ -45,6 +46,8 @@
 
  '(org-default-priority ?E)
  '(org-lowest-priority ?E)
+
+ '(org-columns-ellipses "…")
 
  '(org-bookmark-names-plist nil)
  '(org-catch-invisible-edits 'error)
@@ -92,23 +95,29 @@
 
  '(org-capture-bookmark nil)
  '(org-capture-templates
-   `(("t" "todo" entry
+   `(("t" "item to deal with" entry
       (file org-default-notes-file)
-      "* TODO %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
+      "* %?\n:PROPERTIES:\n:Captured_at: %U\n:END:"
       :clock-resume t)
      ("c" "contact" entry
       (file vderyagin/org-contacts-file)
       "* %?%(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\n:END:"
       :clock-resume t)
+     ("e" "email" entry
+      (file org-default-notes-file)
+      "* %? :email:\n:PROPERTIES:\n:Captured_at: %U\n:END:\n%a"
+      :clock-resume t)
      ("h" "habit" entry
       (file+headline ,(expand-file-name "todo.org" vderyagin/org-agenda-directory) "habits")
       "* TODO %?\nSCHEDULED: %t\n:PROPERTIES:\n:STYLE: habit\n:Captured_at: %U\n:END:"
       :clock-resume t)))
+ '(org-capture-templates-contexts
+   '(("e" ((in-mode . "gnus-article-mode")
+           (in-mode . "gnus-summary-mode")))))
 
  '(org-refile-use-outline-path 'file)
  '(org-refile-allow-creating-parent-nodes 'confirm)
- '(org-refile-targets '((org-agenda-files :maxlevel . 1)
-                        (nil :maxlevel . 2)))
+ '(org-refile-targets '((org-agenda-files :maxlevel . 2)))
  '(org-refile-target-verify-function (lambda ()
                                        "Exclude todo keywords with a done state from refile targets."
                                        (not (member (nth 2 (org-heading-components)) org-done-keywords))))
@@ -156,14 +165,16 @@
       ((agenda)
        (todo "NEXT"
              ((org-agenda-overriding-header "NEXT tasks:")))
+       (tags "daily"
+             ((org-agenda-overriding-header "Daily tasks:")
+              (org-tags-match-list-sublevels nil)))
        (tags "LEVEL=1"
-             ((org-agenda-overriding-header "Things to organize:")
+             ((org-agenda-overriding-header "Incoming:")
               (org-agenda-files (list org-default-notes-file))))
-       (tags-todo "CATEGORY=\"todo\"|CATEGORY=\"projects\""
+       (todo "TODO"
                   ((org-agenda-overriding-header "TODO tasks:")
                    (org-agenda-skip-function
-                    '(org-agenda-skip-entry-if 'nottodo '("TODO")))
-                   (org-tags-match-list-sublevels nil)))))
+                    '(org-agenda-skip-entry-if 'scheduled))))))
      ("A" "List of tasks to archive" tags "LEVEL=2"
       ((org-agenda-overriding-header "List of tasks to archive:")
        (org-agenda-skip-function
@@ -173,8 +184,10 @@
   (add-hook 'org-clock-out-hook 'vderyagin/remove-empty-drawer-on-clock-out 'append))
 
 (with-eval-after-load 'org-capture
-  (add-hook 'org-capture-after-finalize-hook 'vderyagin/org-update-agenda-views)
-  (add-hook 'org-capture-before-finalize-hook 'org-align-all-tags))
+  (add-hook 'org-capture-mode-hook #'flyspell-mode)
+  (add-hook 'org-capture-before-finalize-hook #'org-align-all-tags)
+  (add-hook 'org-capture-after-finalize-hook #'vderyagin/org-update-agenda-views)
+  )
 
 (with-eval-after-load 'org-agenda
   (add-hook 'org-agenda-mode-hook 'vderyagin/org-agenda-activate-appt)
