@@ -64,7 +64,6 @@
    miniedit
    openwith
    org-plus-contrib
-   paredit
    php-mode
    popup
    project-explorer

@@ -46,7 +46,6 @@
         org-agenda
         org-capture
         org-crypt
-        paredit
         project-explorer
         rspec-simple
         ruby-mode

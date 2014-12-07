@@ -25,10 +25,6 @@
 
 (define-key global-map (kbd "M-?") 'hippie-expand)
 
-(define-key global-map (kbd "M-g") 'goto-line)
-
-(define-key global-map (kbd "C-%") 'goto-match-paren)
-
 (define-key global-map (kbd "C-x C-b") 'ibuffer)
 
 (define-key global-map (kbd "C-x C-d") 'ido-dired)
